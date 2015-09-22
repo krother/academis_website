@@ -1,0 +1,236 @@
+body
+{
+    font-family: Helvetica, sans-serif;
+    font-size: 1.2em;
+    margin:0px;
+    padding:0px;
+    text-indent: 0px;
+    border-left: none;
+    border-right: none;
+    background-color: #8f1117;
+}
+
+.wrapper
+{
+    width: 1150px;
+    margin: 0px auto;
+    background-color: #8f1117;
+}
+.section
+{
+    width: 100%;
+}
+
+.section.content
+{
+    background-color: #8f1117;
+    // overflow:visible;
+}
+
+#main
+{
+    //margin:auto; 
+    width:970px;
+    margin: 0px auto;
+    padding-top: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+#header, #footer
+{
+    background-image: url("../img/layout/header.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #80B947;
+    height: 150px;
+    width: 950px;
+    margin: 0px auto;
+}
+
+#header img.logo
+{
+    float:left;
+    margin-top:30px;
+    margin-left:40px;
+}
+#header a, #header img
+{
+    border:none;
+}
+#header .slogan
+{
+    float: right;
+    font-size:24px;
+    margin-top:54px;
+    margin-right:40px;
+}
+#footer
+{
+    text-align:center; 
+    //padding-top:55px; 
+    margin-top: 0px;
+    clear:both;
+}
+#footer p
+{
+    padding-top: 0px;
+}
+#footer a
+{
+    text-decoration: none;
+}
+#header .menu
+{
+    width:800px;
+    margin:auto;
+}
+#header .menu .item
+{
+    float: left;
+    font-weight: 400;
+    line-height: 1.5em; 
+    list-style: none outside none; 
+    margin: 0px; 
+    padding: 0px 20px; 
+    margin-right:10px;
+}
+
+/* Content part */
+
+.onecolumn
+{
+    width: 870px;
+    float:left;
+    display: inline-block; 
+    padding-left:50px;
+    padding-right:50px;
+    background-color: #8f1117;
+}
+.center
+{
+    background-color: #8f1117;
+    width:700px;
+    float:left;
+    display: inline-block; 
+}
+.center p, .onecolumn p
+{
+    //display:inline;
+    padding: 5px;
+}
+
+#acc_content p.training_title, .center h3, .centerblog h3
+{
+    letter-spacing: 0.05em;
+    word-spacing: 0.15em;
+}
+.pageInfo .info
+{
+    height:10px; 
+    font-size:8px;
+}
+h1 
+{ 
+    padding: .2em;
+    margin: 0;
+    color: #ffffff;
+}
+p, h2, h3, ul, li, form{ 
+    color: #ffffff; 
+    line-height:1.3em;
+}
+
+/* top navigation bar */
+
+.menu
+{
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
+.menu ul
+{
+    bottom: 0;
+    left: 50%;
+    margin: 0 auto 0 -300px;
+    position: absolute;
+}
+
+
+#dialog-form
+{
+    font-size:0.9em;
+}
+
+/* main content. */
+#content
+{
+    background-color: #8f1117;
+    margin-bottom:20px;
+    padding-top:15px;
+    font-size:1.0em;
+    line-height:1.8em;
+}
+.onecolumn ol, .onecolumn ul, .onecolumn nl
+{
+    margin-left: 1em;
+    padding-left: 1em;
+}
+
+#content h2,
+#acc_content .training_title
+{
+    font-size:18px;
+    display:inline;
+    color: #112233;
+    font-weight:bold;
+}
+
+#acc_content .training_short_desc
+{
+    margin: 10px 0px;
+    padding:5px 0px;
+}
+
+.content h2
+{
+    font-size: 1.7em;
+    margin-top:12px;
+    margin-bottom:12px;
+}
+.content h3
+{
+    font-size: 1.3em;
+    margin-top:13px;
+    margin-bottom:10px;
+}
+.content > h4 
+{
+    font-size: 1.4em;
+    color: #112233;
+    margin-bottom:5px;
+}
+.content > p 
+{
+    font-size: 0.9em;
+    color: #334455;
+    margin-bottom:13px;
+    margin-top:4px;
+}
+
+.content figure
+{
+   float: left;
+}
+.content img
+{
+    border: 5px solid #F2F3F4;
+    margin: 5px;
+    padding: 5px;
+}
+.content figcaption
+{
+    font-style: italic;
+}
+
+
