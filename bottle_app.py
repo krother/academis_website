@@ -15,5 +15,5 @@ def index():
 def send_static(filename):
     return static_file(filename, root=os.path.join(MOD_PATH, 'static'))
 
-app = default_app()
-run(app, host='localhost', port=8080, reloader=True)
+application = default_app()
+# run(app, host='localhost', port=8080, reloader=True)
