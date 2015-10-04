@@ -1,18 +1,14 @@
-% include('views/header.tpl', title="Academis Article")
+% include('header.tpl', title="Academis Article")
 
   <div class="container-narrow">
 
     <p></p>
 
 <div class="row-fluid marketing">
+  
 <div class="span12">
 
-    <h1>Academis Blog</h1>
-
-    % for title, link in articles:
-    <li><p><a href="/posts/{{link}}">{{title}}</a></p></li>
-    % end
-
+    {{!text}}
 
 <hr>
 
@@ -31,4 +27,4 @@
 
     </div> <!-- /container -->
 
-% include('views/footer.tpl')
+% include('footer.tpl')

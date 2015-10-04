@@ -9,16 +9,13 @@
 
 <h1>Academis Blog</h1>
 
-% include('blog_topics.tpl')
+<hr>
 
-<h3><a href="/blog_list">List of all blog posts</a></h3>
+% include('blog_icon_block.tpl')
 
-<h3>Tags:</h3>
-<ul>
-  % for tag in tags:
-  <li><a href="/blog/tags/{{tag}}">{{tag}}</a></li>
-  % end
-</ul>
+<hr>
+
+% include('blog_tags.tpl')
 
 &nbsp;
 &nbsp;

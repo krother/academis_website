@@ -4,7 +4,11 @@
 
     <p></p>
 
-<div><h1>Talks</h1>
+
+<div class="row-fluid marketing">
+<div class="span12">
+
+<h1>Talks</h1>
 
 I am prepared to talk on the following subjects off the cuff:
 
@@ -46,7 +50,7 @@ resulting in 20 publications, condensed
 into an one-hour seminar for doctoral
 students and fresh postdocs.</p>
 
-</div>
+</div></div>
 
 &nbsp;
 &nbsp;

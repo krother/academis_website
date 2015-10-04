@@ -12,8 +12,6 @@
 
 <hr>
 
-
-
     <h2>Courses</h2>
     <div class="row">
       <div class="col-md-6">

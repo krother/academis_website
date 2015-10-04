@@ -26,17 +26,19 @@ def article_by_name(name):
     return {'text': html}
 
 @route('/posts/<name>')
-@view('article')
+@view('blog_post')
 def article_by_name(name):
     article = open(ARTICLE_PATH + os.sep + name + '.md').read()
     html = markdown.markdown(article)
-    return {'text': html}
+    tags = get_all_tags(db)
+    return {'text': html, 'tags': tags}
 
 @route('/blog/tags/<tag>')
 @view('article_list')
 def articles_by_tag(tag):
     articles = get_posts_by_tag(db, tag)
-    return {'articles': articles}
+    tags = get_all_tags(db)
+    return {'articles': articles, 'tags': tags}
 
 @route('/blog')
 @view('blog')
@@ -49,7 +51,8 @@ def article_list():
 @view('article_list')
 def article_list():
     articles = get_all_posts(db)
-    return {'articles': articles}
+    tags = get_all_tags(db)
+    return {'articles': articles, 'tags': tags}
 
 @route('/talks')
 @view('talks')

@@ -4,7 +4,10 @@
 
     <p></p>
 
-<div><h1>Courses</h1>
+<div class="row-fluid marketing">
+<div class="span12">
+
+<h1>Courses</h1>
 
 I offer courses on the following topics:
 
@@ -37,7 +40,7 @@ I offer courses on the following topics:
 <li>Kaizen</li>
 </ul>
 
-</div>
+</div></div>
 
 &nbsp;
 &nbsp;

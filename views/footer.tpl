@@ -13,9 +13,9 @@
     </div>
 
     <div class="span3">
-    <b><a target="_blank" href="http://gitbook.com/@krother">ebooks</a></b><br>
+    <b><a target="_blank" href="http://www.gitbook.com/@krother">ebooks</a></b><br>
     <b><a target="_blank" href="http://github.com/krother">github</a></b><br>
-    <b><a target="_blank" href="/feed/">RSS Feed</a></b><br>
+    <b><a target="_blank" href="http://academis.sites.djangoeurope.com/feed/">RSS Feed</a></b><br>
     <b><a href="/impressum">imprint (Impressum)</a></b><br>
     </div>
 
