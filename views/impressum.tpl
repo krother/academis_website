@@ -1,4 +1,4 @@
-% include('views/header.tpl', title="Academis Article")
+% include('header.tpl', title="Academis Article")
 
   <div class="container-narrow">
 
@@ -46,4 +46,4 @@ Illstrasse 12<br>
 
     </div> <!-- /container -->
 
-% include('views/footer.tpl')
+% include('footer.tpl')
