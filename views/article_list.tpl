@@ -1,4 +1,4 @@
-% include('views/header.tpl', title="Academis Article")
+% include('header.tpl', title="Academis Article")
 
   <div class="container-narrow">
 
@@ -31,4 +31,4 @@
 
     </div> <!-- /container -->
 
-% include('views/footer.tpl')
+% include('footer.tpl')
