@@ -2,7 +2,10 @@
 
 import sqlite3
 
-DB_PATH = 'academis.db'
+import os
+
+MOD_PATH = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = MOD_PATH + os.sep + 'academis.db'
 
 DB_SETUP = '''
 
