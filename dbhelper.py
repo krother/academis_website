@@ -22,7 +22,7 @@ CREATE UNIQUE INDEX i1 ON posts(filename);
 
 def initialize_database(path):
     db = sqlite3.connect(path)
-    connection.executescript(DB_SETUP)
+    db.executescript(DB_SETUP)
     db.close()
 
 def get_post(connection, name):
