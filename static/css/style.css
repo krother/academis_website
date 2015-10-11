@@ -137,6 +137,12 @@ header .menu .item
 {
     color: #334455;
 }
+.container-narrow
+{
+    font-size:18px;
+    line-height: 1.7em; 
+}
+
 .container-narrow a
 {
     color: #52752b;
