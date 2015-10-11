@@ -1,4 +1,4 @@
-% include('header.tpl', title="Academis Article")
+% include('header.tpl', title=title)
 
   <div class="container-narrow">
 
@@ -7,10 +7,10 @@
 <div class="row-fluid marketing">
 <div class="span12">
 
-    <h1>Academis Blog</h1>
+    <h1>{{title}}</h1>
 
-    % for title, link in articles:
-    <li><p><a href="/posts/{{link}}">{{title}}</a></p></li>
+    % for title, slug in articles:
+    <li><p><a href="/posts/{{slug}}">{{title}}</a></p></li>
     % end
 
 

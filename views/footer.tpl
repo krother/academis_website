@@ -29,10 +29,10 @@
 </div>
 
     <!-- Javascript at the end so the pages load faster -->
+    <!-- NOT USED AT THE MOMENT
     <script type="text/javascript" language="javascript" src="academis_files/get_testimonial.js"></script>
     <script type="text/javascript" language="javascript">load_testimonial();</script>
-    <script src="academis_files/jquery_003.js"></script>
-    <script type="text/javascript" language="javascript" src="academis_files/bootstrap.js"></script>
+    <script type="text/javascript" language="javascript" src="academis_files/bootstrap.js"></script> !-->
 	
 </body></html>
 

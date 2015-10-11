@@ -4,7 +4,7 @@
 
 <h3>Tags:</h3>
 <ul>
-  % for tag in tags:
-  <li><p><a href="/blog/tags/{{tag}}">{{tag}}</a></p></li>
+  % for tag, slug in tags:
+  <li><p><a href="/blog/tags/{{slug}}">{{tag}}</a></p></li>
   % end
 </ul>

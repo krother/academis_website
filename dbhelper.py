@@ -1,54 +1,69 @@
 # coding: utf-8
 
 import sqlite3
-
 import os
-
-MOD_PATH = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = MOD_PATH + os.sep + 'academis.db'
+from settings import DB_PATH
 
 DB_SETUP = '''
 
 CREATE TABLE IF NOT EXISTS posts (
-    filename VARCHAR(32),
-    title VARCHAR(250)
+    slug VARCHAR(32),
+    title VARCHAR(250),
+    content TEXT
 ); 
 
 CREATE TABLE IF NOT EXISTS tags (
+    slug VARCHAR(32),
     tag VARCHAR(32),
-    filename VARCHAR(32)
+    post_slug VARCHAR(32)
 );
 
-CREATE UNIQUE INDEX i1 ON posts(filename);
+CREATE UNIQUE INDEX i1 ON posts(slug);
 
 '''
 
+def unslugify(slug):
+    slug = slug.replace('_', ' ')
+    slug = slug.replace('-', ' ')
+    slug = slug.title()
+    return slug
+
 def initialize_database(path):
+    print('creating SQL database from scratch')
     db = sqlite3.connect(path)
     db.executescript(DB_SETUP)
     db.close()
 
-def get_post(connection, name):
-    query = '''SELECT title FROM posts WHERE filename=%s''' % name
-    result = connection.execute(query)
+def get_post(connection, slug):
+    query = '''SELECT title, content FROM posts WHERE slug="%s"''' % slug
+    result = list(connection.execute(query))
     if result:
         return result[0]
+    else:
+        return 'Empty blog post', ''
 
 def get_all_posts(connection):
-    query = '''SELECT title, filename FROM posts'''
+    query = '''SELECT title, slug FROM posts'''
     result = connection.execute(query)
     return list(result)
 
 def get_all_tags(connection):
-    query = '''SELECT tag FROM tags GROUP BY tag ORDER BY tag'''
+    query = '''SELECT tag, slug FROM tags GROUP BY tag ORDER BY tag'''
     result = connection.execute(query)
-    return [r[0] for r in result]
+    return [(r[0], r[1]) for r in result]
 
-def get_posts_by_tag(connection, tag):
-    query = '''SELECT p.title, p.filename FROM tags t INNER JOIN posts p ON t.filename=p.filename WHERE t.tag="%s"''' % tag
+def get_posts_by_tag(connection, slug):
+    query = '''SELECT p.title, p.slug FROM tags t INNER JOIN posts p ON t.post_slug=p.slug WHERE t.slug="%s"''' % slug
     result = connection.execute(query)
     return list(result)
 
+def get_tagname(connection, slug):
+    query = '''SELECT tag FROM tags WHERE slug="%s"''' % slug
+    result = list(connection.execute(query))
+    if result:
+        return result[0][0].title()
+    else:
+        return unslugify(slug)
 
 
 if __name__ == '__main__':

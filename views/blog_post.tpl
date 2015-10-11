@@ -1,4 +1,4 @@
-% include('header.tpl', title="Academis Article")
+% include('header.tpl', title=title)
 
   <div class="container-narrow">
 

@@ -14,7 +14,6 @@
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"> 
-    <link rel="stylesheet" type="text/css" href="/static/js/jquery-ui-1.css">
     <link href="/static/css/bootstrap.css" rel="stylesheet" media="screen">
 
     <!-- Fav and touch icons -->
@@ -23,14 +22,6 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/static/ico/apple-touch-icon-57-precomposed.png">
-
-    <script type="text/javascript" language="javascript" src="/static/js/jquery-1.js"></script>
-    <script type="text/javascript" language="javascript" src="/static/js/jquery.js"></script>
-    <script type="text/javascript" language="javascript" src="/static/js/jquery-ui-1.js"></script>
-    <script type="text/javascript" language="javascript" src="/static/js/jquery_002.js"></script>
-    <script type="text/javascript" language="javascript" src="/static/js/jquery_prepare.js"></script>
-    <script type="text/javascript" language="javascript" src="/static/js/jquery_form.js"></script>
-    <script type="text/javascript" language="javascript" src="/static/js/jquery_add.js"></script>
 
 </head>
 

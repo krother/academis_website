@@ -17,9 +17,9 @@
 &nbsp;
 
 <div class="media">
-<img class="media-object pull-left" alt="project management" src="/static/images/project-management.png" width="90">
+<img class="media-object pull-left" alt="project management" src="/static/images/project_management.png" width="90">
 <div class="media-body">
-<h4><a href="/blog/tags/project-management">Project Management</a></h4>
+<h4><a href="/blog/tags/project_management">Project Management</a></h4>
 <p>Structure your project into achievable goals and reach them.</p>
 </div></div>
 
@@ -35,6 +35,15 @@
 &nbsp;
 
 <div class="media">
+<img class="media-object pull-left" alt="Time Management" src="/static/images/time_management.png" width="90">
+<div class="media-body">
+<h4><a href="/blog/tags/time_management">Time Management</a></h4>
+<p>Be in charge of your own time.</p>
+</div></div>
+
+&nbsp;
+
+<div class="media">
 <img class="media-object pull-left" alt="writing" src="/static/images/writing.png" width="90">
 <div class="media-body">
 <h4><a href="/blog/tags/writing">Writing</a></h4>
@@ -44,9 +53,9 @@
 &nbsp;
 
 <div class="media">
-<img class="media-object pull-left" alt="grant-writing" src="/static/images/grant-writing.png" width="90">
+<img class="media-object pull-left" alt="grant-writing" src="/static/images/grant_writing.png" width="90">
 <div class="media-body">
-<h4><a href="/blog/tags/grant-writing">Grant Writing<br></a></h4>
+<h4><a href="/blog/tags/grant_writing">Grant Writing<br></a></h4>
 <p>Apply for research funding as a graduate student or postdoc.</p>
 </div></div>
 
@@ -62,8 +71,17 @@
 &nbsp;
 
 <div class="media">
-<img class="media-object pull-left" alt="world" src="/static/images/other.png" width="90">
+<img class="media-object pull-left" alt="bio" src="/static/images/python.png" width="90">
 <div class="media-body">
-<h4><a href="/blog/tags/other">Other</a></h4>
-<p>Everything that didn't fit into any of the other categories.</p>
+<h4><a href="/blog/tags/python">Python</a></h4>
+<p>Developing big and small programs in the Python language.</p>
+</div></div>
+
+&nbsp;
+
+<div class="media">
+<img class="media-object pull-left" alt="world" src="/static/images/data_analysis.png" width="90">
+<div class="media-body">
+<h4><a href="/blog/tags/data_analysis">Data Analysis</a></h4>
+<p>Tools &amp; Techniques from Excel to Big Data.</p>
 </div></div>
