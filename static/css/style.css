@@ -142,6 +142,12 @@ header .menu .item
     font-size:18px;
     line-height: 1.7em; 
 }
+.container-narrow li, .container-narrow code
+{
+    font-size:18px;
+    line-height: 1.7em; 
+    color: #000000;
+}
 
 .container-narrow a
 {
