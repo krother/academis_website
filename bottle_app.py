@@ -38,7 +38,7 @@ def articles_by_tag(tag):
     articles = get_posts_by_tag(db, tag)
     tags = get_all_tags(db)
     title = get_tagname(db, tag)
-    return {'articles': articles, 'tags': tags, 'title': 'Blog posts on %s' % title}
+    return {'articles': articles, 'tags': tags, 'title': title}
 
 @route('/blog')
 @view('blog')

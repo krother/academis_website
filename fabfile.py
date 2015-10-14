@@ -9,24 +9,16 @@ import os
 
 env.hosts = ['ssh.pythonanywhere.com']
 
-def test_local():
-    with lcd("tests"):
-        local("python test_all.py")
-
-def test_remote():
-    with lcd("tests"):
-        local("python test_all.py remote")
-
-def prepare():
-    with lcd("academis"):
-        local("hg ci -u krother")
-        local("hg push")
-
-def backup():
-    run('mysqldump -u %s -p=%s %s > backup.sql' % (
-    	'krother', 'bDOtxgnI', 'krother_academis'))
-
 def deploy():
+    with cd('academis'):
+        run("git pull")
+    with cd('academis_bottle'):
+        run("python3 add_posts.py")
+
+def rebuild():
     with cd('academis_bottle'):
         run("git pull")
-    # run("init/academis restart")
+        run("rm academis.db")
+        run("python3 dbhelper.py")
+    deploy()
+    print("PLEASE RESTART WEB SERVICE MANUALLY!")
