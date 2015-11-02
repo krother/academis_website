@@ -16,15 +16,6 @@ db = sqlite3.connect(DB_PATH)
 def index():
     return {}
 
-'''
-@route('/pages/<slug>')
-@view('article')
-def page_by_name(slug):
-    title, content = get_post(name)
-    html = markdown.markdown(article)
-    return {'title': title, 'text': html}
-'''
-
 @route('/posts/<slug>')
 @view('blog_post')
 def article_by_name(slug):

@@ -179,3 +179,30 @@ header .menu .item
     font-style: italic;
 }
 
+ul.list-tags {
+text-align: left;
+padding: 0;
+margin: 0;
+list-style-type: none;
+}
+
+ul.list-tags li {
+margin: 0.2em;
+padding: 0.2em 0.5em;
+display: inline-block;
+background: rgb(240,240,240);
+-moz-border-radius: 0.3em;
+-webkit-border-radius: 0.3em;
+-khtml-border-radius: 0.3em;
+border-radius: 0.3em;
+}
+
+ul.list-tags li:hover {
+  background-color: #E9CDCB;
+  -o-transition:color .5s ease-out, background 1s ease-in;
+-ms-transition:color .5s ease-out, background 1s ease-in;
+-moz-transition:color .5s ease-out, background 1s ease-in;
+-webkit-transition:color .5s ease-out, background 1s ease-in;
+/* ...and now override with proper CSS property */
+transition:color .5s ease-out, background 1s ease-in;
+}
