@@ -14,7 +14,7 @@ db = sqlite3.connect(DB_PATH)
 @route('/')
 @view('academis')
 def index():
-    return {}
+    return {'tags': get_all_tags(db)}
 
 @route('/posts/<slug>')
 @view('blog_post')
@@ -32,43 +32,40 @@ def articles_by_tag(tag):
     return {'articles': articles, 'tags': tags, 'title': title}
 
 @route('/blog')
-@view('blog')
-def article_list():
-    articles = get_all_posts(db)
-    tags = get_all_tags(db)
-    return {'articles': articles, 'tags': tags}
-
-@route('/blog_list')
 @view('article_list')
-def article_list():
+def all_posts():
     articles = get_all_posts(db)
     tags = get_all_tags(db)
     return {'articles': articles, 'tags': tags, 'title': 'All Blog Posts'}
 
+@route('/blog_list')
+def article_list():
+    return all_posts()
+
 @route('/talks')
 @view('talks')
 def courses():
-    return {}
+    return {'tags': get_all_tags(db)}
 
 @route('/courses')
 @view('courses')
 def courses():
-    return {}
+    return {'tags': get_all_tags(db)}
 
 @route('/publications')
 @view('publications')
 def publications():
-    return {}
+    return {'tags': get_all_tags(db)}
 
 @route('/contact')
 @view('contact')
 def imprint():
-    return {}
+    return {'tags': get_all_tags(db)}
 
 @route('/impressum')
 @view('impressum')
 def imprint():
-    return {}
+    return {'tags': get_all_tags(db)}
 
 @route('/posts/images/<filename:path>')
 def static_image(filename):

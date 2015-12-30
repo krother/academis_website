@@ -1,12 +1,8 @@
-% include('header.tpl', title="Academis Courses")
+% include('header.tpl', title="Talks")
 
-  <div class="container-narrow">
-
-    <p></p>
-
-
-<div class="row-fluid marketing">
-<div class="span12">
+<!-- start: WRAPPER PRIMARY -->
+<div id="wrapper-primary">
+<section>
 
 <h1>Talks</h1>
 
@@ -50,14 +46,9 @@ resulting in 20 publications, condensed
 into an one-hour seminar for doctoral
 students and fresh postdocs.</p>
 
-</div></div>
-
-&nbsp;
-&nbsp;
-
-
-    <p></p>
-
-    </div> <!-- /container -->
+</section>
+</div>
+% include('std_sidebar.tpl')
 
 % include('footer.tpl')
+

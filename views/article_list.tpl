@@ -1,34 +1,18 @@
 % include('header.tpl', title=title)
 
-  <div class="container-narrow">
-
-    <p></p>
-
-<div class="row-fluid marketing">
-<div class="span12">
-
-    <h1>{{title}}</h1>
-
+<!-- start: WRAPPER PRIMARY -->
+<div id="wrapper-primary">
+<section>
+  <h1>{{title}}</h1>
+    <ul class="list-content">
     % for title, slug in articles:
-    <li><p><a href="/posts/{{slug}}">{{title}}</a></p></li>
+    <li><a href="/posts/{{slug}}">{{title}}</a></li>
     % end
+    </ul>
+</section> 
+</div> 
+<!-- endet: WRAPPER PRIMARY -->
 
-
-<hr>
-
-% include('blog_icon_block.tpl')
-
-<hr>
-
-% include('blog_tags.tpl')
-
-&nbsp;
-&nbsp;
-
-</div></div>
-
-    <p></p>
-
-    </div> <!-- /container -->
+% include('std_sidebar.tpl')
 
 % include('footer.tpl')

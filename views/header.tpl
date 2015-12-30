@@ -1,39 +1,56 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>{{title}}</title>
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+
     <meta name="Keywords" content="I want to support scientists manage projects, teach, prepare seminars and prepare lectures, and to do scientific writing efficiently. Academis provides training, workshops, and tutorials in these subjects. I'll be happy to help you create better science.">
     
     <meta name="Description" content="Communicate science better">
        
     <meta name="Distribution" content="Global">
     <meta name="Robots" content="index,follow">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Dr. Kristian Rother">
 
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css"> 
-    <link href="/static/css/bootstrap.css" rel="stylesheet" media="screen">
+    <!-- start: CSS Block -->
+      <!-- css@normalize -->
+      <link rel="stylesheet" href="/static/css/module_normalize.css">
+      <!-- css@master -->
+      <link rel="stylesheet" href="/static/css/integrated.css">
+      <!-- css@google fonts -->
+      <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+      <!-- css@fontawesome.io für icons -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- endet: CSS Block -->
 
-    <!-- Fav and touch icons -->
-    <link rel="shortcut icon" href="/static/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="/static/ico/apple-touch-icon-57-precomposed.png">
-
-</head>
-
+    <!-- start: Seitentitel -->
+    <title>Academis • {{title}}</title>
+    <!-- endet: Seitentitel -->
+  </head>
+  
 <body>
 
-  <header class="subhead" id="overview">	
-    <a href="/"><img class="logo" src="/static/images/academis_kr350.png" width="250"></a>
-    <div class="slogan" id="testimonials">
-<strong>"Thanks to Kristians tips for structuring difficult topics<br>I could overcome my writers' block. <br>The training session was a big help! Thanks!"<br>
-<em>(Sarah M, <a href="http://www.geschkult.fu-berlin.de/e/klassarch/index.html">Archaeology dept., FU Berlin</a>)</em></strong>
-
-
+<!-- start: Headerbereich -->
+<div id="row" class="top">
+    <div id="wrapper-master">
+        <header>
+            <img src="/static/images/academis_kr350.png" alt="Academis" class="media-logo" />
+        </header>
+    </div>
 </div>
+<!-- endet: Headerbereich -->
+<div id="wrapper-master" class="group">
 
-  </header>
+<!-- start:  Navigator -->
+<!--
+<nav id="navigator">
+  <ul class="list-navigator">
+    <li><strong>You are here:</strong></li>
+    <li><a href="template-index.html">Academis</a></li>
+    <li><a href="template-content.html">Leadership</a></li>
+  </ul>
+</nav>
+!-->
+<!-- endet:  Navigator -->
+

@@ -1,11 +1,8 @@
-% include('header.tpl', title="Academis Dr. Kristian Rother")
+% include('header.tpl', title="Publications")
 
-  <div class="container-narrow">
-
-    <p></p>
-
-<div class="row-fluid marketing">
-<div class="span12">
+<!-- start: WRAPPER PRIMARY -->
+<div id="wrapper-primary">
+<section>
 
 <h1>Publications</h1>
 
@@ -76,13 +73,9 @@
 <p>Rother K, Papaj G, Bujnicki JM. Databases of DNA Modifications. In „DNA and RNA Enzymes“ edited by Henri Grosjean. Landes Bioscience 2009. ISBN-13/EAN: 9781587063299.</p>
 <p>Rother K. Zwanzig Zeichen. In „Ein Entscheidender Teil fehlt“ edited by Käthe Wenzel, Lisa Glauer and Tatjana Fell . Mensch &amp; Buch Verlag Berlin, 208 pages. Knapp W, Wenzel K, Frömmel C, Schnalke T (Ed.): The Missing Link. Art meets Biomedicine. Public understanding of art and sciences. Berlin 2005. ISBN 3-89462-133.</p>
 
-</div></div>
-
-&nbsp;
-&nbsp;
-
-    <p></p>
-
-    </div> <!-- /container -->
+</section>
+</div>
+% include('std_sidebar.tpl')
 
 % include('footer.tpl')
+

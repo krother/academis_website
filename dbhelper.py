@@ -38,7 +38,8 @@ def get_post(connection, slug):
     query = '''SELECT title, content FROM posts WHERE slug="%s"''' % slug
     result = list(connection.execute(query))
     if result:
-        return result[0]
+        title, content = result[0]
+        return title, content
     else:
         return 'Empty blog post', ''
 

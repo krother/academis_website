@@ -1,10 +1,9 @@
-% include('header.tpl', title="Academis Courses")
+% include('header.tpl', title="Contact")
 
-  <div class="container-narrow">
-
-    <p></p>
-
-<div><h1>Contact</h1>
+<!-- start: WRAPPER PRIMARY -->
+<div id="wrapper-primary">
+<section>
+<h1>Contact</h1>
 
 <div class="media">
 <img class="pull-right" style="width: 350px;" src="/static/images/D0502-29.jpg">
@@ -32,14 +31,9 @@
   <li>Toastmasters Advanced Communicator Bronze (2013)</li>
 </ul>
 
+</section>
 </div>
-
-&nbsp;
-&nbsp;
-
-
-    <p></p>
-
-    </div> <!-- /container -->
+% include('std_sidebar.tpl')
 
 % include('footer.tpl')
+

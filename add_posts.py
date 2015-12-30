@@ -5,7 +5,7 @@ from dbhelper import DB_PATH
 from settings import CONTENT_PATH, POST_PATH, PAGE_PATH
 import markdown
 import os
-
+import re
 
 def slugify(s):
     s = s.strip().lower()
@@ -14,12 +14,20 @@ def slugify(s):
     s = s.replace(' ', '_')
     return s
 
+def wrap_images(content):
+    """Add extra div tag to content"""
+    content = re.sub(r'(\<img [^\>]+\>)', r'<div class="media">\1</div>', content)
+    content = re.sub(r'\<img ([^\>]+\>)', r'<img class="media-object" \1', content)
+    return content
+    
+
 def add_post(db, filename, title):
     fn = os.path.join(POST_PATH, filename)
     slug = slugify(filename)
     content = open(fn).read()
     if filename.endswith('.md'):
         content = markdown.markdown(content, extensions=['markdown.extensions.tables'])
+        content = wrap_images(content)
     if filename.endswith('.html'):
         mdfn = fn.replace('.html', '.md')
         if os.path.exists(mdfn):
@@ -37,30 +45,31 @@ def add_tag(db, tag, post):
     return 1
 
 
-db = sqlite3.connect(DB_PATH)
+if __name__ == '__main__':
+    db = sqlite3.connect(DB_PATH)
 
-with db:
-    db.executescript('DELETE FROM posts')
-    db.executescript('DELETE FROM tags')
+    with db:
+        db.executescript('DELETE FROM posts')
+        db.executescript('DELETE FROM tags')
 
-    n = 0
-    nposts = 0
-    ntags = 0
-    for line in open(CONTENT_PATH + 'titles.txt'):
-        n += 1
-        col = line.strip().split('\t')
-        if len(col) == 5:
-            filename, title, published, timestamp, tags = col
-            if published == 'Y':
-                nposts += add_post(db, filename, title)
-                post = slugify(filename)
-                for t in tags.split(','):
-                    ntags += add_tag(db, t.strip(), post)
+        n = 0
+        nposts = 0
+        ntags = 0
+        for line in open(CONTENT_PATH + 'titles.txt'):
+            n += 1
+            col = line.strip().split('\t')
+            if len(col) == 5:
+                filename, title, published, timestamp, tags = col
+                if published == 'Y':
+                    nposts += add_post(db, filename, title)
+                    post = slugify(filename)
+                    for t in tags.split(','):
+                        ntags += add_tag(db, t.strip(), post)
+                else:
+                    print('not published: ' + filename)
             else:
-                print('not published: ' + filename)
-        else:
-            print('invalid format', col)
+                print('invalid format', col)
 
-print('files processed: %i' % n)
-print('posts added: %i' % nposts)
-print('tag entries added: %i' % ntags)
+    print('files processed: %i' % n)
+    print('posts added: %i' % nposts)
+    print('tag entries added: %i' % ntags)

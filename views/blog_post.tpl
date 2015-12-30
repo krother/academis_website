@@ -1,30 +1,19 @@
 % include('header.tpl', title=title)
 
-  <div class="container-narrow">
-
-    <p></p>
-
-<div class="row-fluid marketing">
-  
-<div class="span12">
-
+<!-- start: WRAPPER PRIMARY -->
+<div id="wrapper-primary">
+<section>
     {{!text}}
+</section>>
+</div> 
+<!-- endet: WRAPPER PRIMARY -->
 
-<hr>
-
+<!-- start: WRAPPER SECONDARY -->
+<div id="wrapper-secondary">
 % include('blog_icon_block.tpl')
-
-<hr>
-
 % include('blog_tags.tpl')
-
-&nbsp;
-&nbsp;
-
-</div></div>
-
-    <p></p>
-
-    </div> <!-- /container -->
+% include('toc.tpl')
+</div>
+<!-- endet: WRAPPER SECONDARY -->
 
 % include('footer.tpl')
