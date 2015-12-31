@@ -2,19 +2,21 @@
 
 from bottle import default_app, static_file, route, view, run
 from dbhelper import get_all_posts, get_posts_by_tag, get_post, \
-                     get_all_tags, get_tagname
+                     get_all_tags, get_tagname 
+from testimonials import get_testimonials
 from settings import MOD_PATH, DB_PATH, POST_PATH
 import sqlite3
 import os
-
+import random
 MOD_PATH = os.path.dirname(os.path.abspath(__file__))
 
 db = sqlite3.connect(DB_PATH)
+testimonials = get_testimonials()
 
 @route('/')
 @view('academis')
 def index():
-    return {'tags': get_all_tags(db)}
+    return {'tags': get_all_tags(db), 'testimonial':random.choice(testimonials)}
 
 @route('/posts/<slug>')
 @view('blog_post')
