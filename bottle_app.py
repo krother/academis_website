@@ -13,32 +13,34 @@ MOD_PATH = os.path.dirname(os.path.abspath(__file__))
 db = sqlite3.connect(DB_PATH)
 testimonials = get_testimonials()
 
+TOC = ['Python', 'Data Analysis', 'Writing', 'Presenting', \
+       'Time Management', 'Leadership', 'Project Management', \
+       'Teaching']
+ALL_TAGS = get_all_tags(db, min_number=3, exclude=TOC)
+
 @route('/')
 @view('academis')
 def index():
-    return {'tags': get_all_tags(db), 'testimonial':random.choice(testimonials)}
+    return {'tags': ALL_TAGS, 'testimonial':random.choice(testimonials)}
 
 @route('/posts/<slug>')
 @view('blog_post')
 def article_by_name(slug):
     title, content = get_post(db, slug)
-    tags = get_all_tags(db)
-    return {'title': title, 'text': content, 'tags': tags}
+    return {'title': title, 'text': content, 'tags': ALL_TAGS}
 
 @route('/blog/tags/<tag>')
 @view('article_list')
 def articles_by_tag(tag):
     articles = get_posts_by_tag(db, tag)
-    tags = get_all_tags(db)
     title = get_tagname(db, tag)
-    return {'articles': articles, 'tags': tags, 'title': title}
+    return {'articles': articles, 'tags': ALL_TAGS, 'title': title}
 
 @route('/blog')
 @view('article_list')
 def all_posts():
     articles = get_all_posts(db)
-    tags = get_all_tags(db)
-    return {'articles': articles, 'tags': tags, 'title': 'All Blog Posts'}
+    return {'articles': articles, 'tags': ALL_TAGS, 'title': 'All Blog Posts'}
 
 @route('/blog_list')
 def article_list():
@@ -47,27 +49,27 @@ def article_list():
 @route('/talks')
 @view('talks')
 def courses():
-    return {'tags': get_all_tags(db)}
+    return {'tags': ALL_TAGS}
 
 @route('/courses')
 @view('courses')
 def courses():
-    return {'tags': get_all_tags(db)}
+    return {'tags': ALL_TAGS}
 
 @route('/publications')
 @view('publications')
 def publications():
-    return {'tags': get_all_tags(db)}
+    return {'tags': ALL_TAGS}
 
 @route('/contact')
 @view('contact')
 def imprint():
-    return {'tags': get_all_tags(db)}
+    return {'tags': ALL_TAGS}
 
 @route('/impressum')
 @view('impressum')
 def imprint():
-    return {'tags': get_all_tags(db)}
+    return {'tags': ALL_TAGS}
 
 @route('/posts/images/<filename:path>')
 def static_image(filename):

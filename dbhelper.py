@@ -48,9 +48,11 @@ def get_all_posts(connection):
     result = connection.execute(query)
     return list(result)
 
-def get_all_tags(connection):
-    query = '''SELECT tag, slug FROM tags GROUP BY tag ORDER BY tag'''
+def get_all_tags(connection, min_number, exclude):
+    query = '''SELECT tag, slug, count(tag) FROM tags GROUP BY tag ORDER BY tag'''
     result = connection.execute(query)
+    result = [r for r in result if r[2] >= min_number]
+    result = [r for r in result if r[0] not in exclude]
     return [(r[0], r[1]) for r in result]
 
 def get_posts_by_tag(connection, slug):

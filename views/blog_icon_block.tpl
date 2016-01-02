@@ -20,10 +20,10 @@
     <li class="writing">
       <h3><a href="/blog/tags/writing">Writing</a></h3>
     </li>
-    <li class="grant_writing">
+    <!-- <li class="grant_writing">
       <h3><a href="/blog/tags/grant_writing">Grant Writing</a></h3>
     </li>
-    <!-- <li class="biochemistry">
+    <li class="biochemistry">
       <h3><a href="/blog/tags/biochemistry">Biochemistry</a></h3>
     </li> !-->
     <li class="python">

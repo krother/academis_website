@@ -27,11 +27,11 @@
       <h3><a href="/blog/tags/writing">Writing</a></h3>
       <p>Structure your thesis and write your first research articles.</p>
     </li>
-    <li class="grant_writing">
+    <!--<li class="grant_writing">
       <h3><a href="/blog/tags/grant_writing">Grant Writing</a></h3>
       <p>Apply for research funding as a graduate student or postdoc.</p>
     </li>
-    <!-- <li class="biochemistry">
+    <li class="biochemistry">
       <h3><a href="/blog/tags/biochemistry">Biochemistry</a></h3>
       <p>Exercises in the basics of biology, biochemistry and chemistry.</p>
     </li> !-->
