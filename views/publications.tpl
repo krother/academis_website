@@ -15,6 +15,9 @@
 <p>Rother K. Academis Getting Grants. 2013. figshare. http://dx.doi.org/10.6084/m9.figshare.866829</p>
 <p>Rother K. Academis Powerful Presentations. 2013. figshare. http://dx.doi.org/10.6084/m9.figshare.866828</p>
 <h2 id="research-papers">Research Papers</h2>
+<h3 id="section">2015</h3>
+
+<p>Boniecki MJ, Lach G, Dawson WK, Tomala K, Lukasz P, Soltysinski T, Rother KM, Bujnicki JM. SimRNA: a coarse-grained method for RNA folding simulations and 3D structure prediction. Nucleic Acids Res. 2015 Dec 19. pii: gkv1479. </p>
 <h3 id="section">2014</h3>
 <p>Rother K, Rother M, Skiba P, Bujnicki JM. (2014) Automated modeling of RNA 3D structure, Methods Mol Biol, doi: 10.1007/978-1-62703-709-9_18.</p>
 <h3 id="section-1">2013</h3>
