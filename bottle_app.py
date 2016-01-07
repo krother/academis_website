@@ -21,26 +21,30 @@ ALL_TAGS = get_all_tags(db, min_number=3, exclude=TOC)
 @route('/')
 @view('academis')
 def index():
-    return {'tags': ALL_TAGS, 'testimonial':random.choice(testimonials)}
+    navi = [('/', 'Academis')]
+    return {'tags': ALL_TAGS, 'testimonial':random.choice(testimonials), 'navi': navi}
 
 @route('/posts/<slug>')
 @view('blog_post')
 def article_by_name(slug):
     title, content = get_post(db, slug)
-    return {'title': title, 'text': content, 'tags': ALL_TAGS}
+    navi = [('/', 'Academis'), ('/blog', 'Blog'), ('/posts/{}'.format(slug), title)]
+    return {'title': title, 'text': content, 'tags': ALL_TAGS, 'navi': navi}
 
 @route('/blog/tags/<tag>')
 @view('article_list')
 def articles_by_tag(tag):
     articles = get_posts_by_tag(db, tag)
     title = get_tagname(db, tag)
-    return {'articles': articles, 'tags': ALL_TAGS, 'title': title}
+    navi = [('/', 'Academis'), ('/blog', 'Blog'), ('/blog/tags/{}'.format(tag), title)]
+    return {'articles': articles, 'tags': ALL_TAGS, 'title': title, 'navi': navi}
 
 @route('/blog')
 @view('article_list')
 def all_posts():
     articles = get_all_posts(db)
-    return {'articles': articles, 'tags': ALL_TAGS, 'title': 'All Blog Posts'}
+    navi = [('/', 'Academis'), ('/blog', 'Blog')]
+    return {'articles': articles, 'tags': ALL_TAGS, 'title': 'All Blog Posts', 'navi': navi}
 
 @route('/blog_list')
 def article_list():
@@ -49,27 +53,32 @@ def article_list():
 @route('/talks')
 @view('talks')
 def courses():
-    return {'tags': ALL_TAGS}
+    navi = [('/', 'Academis'), ('/talks', 'Talks')]
+    return {'tags': ALL_TAGS, 'navi': navi}
 
 @route('/courses')
 @view('courses')
 def courses():
-    return {'tags': ALL_TAGS}
+    navi = [('/', 'Academis'), ('/courses', 'Courses')]
+    return {'tags': ALL_TAGS, 'navi': navi}
 
 @route('/publications')
 @view('publications')
 def publications():
-    return {'tags': ALL_TAGS}
+    navi = [('/', 'Academis'), ('/publications', 'Publications')]
+    return {'tags': ALL_TAGS, 'navi': navi}
 
 @route('/contact')
 @view('contact')
 def imprint():
-    return {'tags': ALL_TAGS}
+    navi = [('/', 'Academis'), ('/contact', 'Contact')]
+    return {'tags': ALL_TAGS, 'navi': navi}
 
 @route('/impressum')
 @view('impressum')
 def imprint():
-    return {'tags': ALL_TAGS}
+    navi = [('/', 'Academis'), ('/impressum', 'Imprint')]
+    return {'tags': ALL_TAGS, 'navi': navi}
 
 @route('/posts/images/<filename:path>')
 def static_image(filename):

@@ -4,7 +4,7 @@
 <div id="wrapper-primary">
 <section>
     {{!text}}
-</section>>
+</section>
 </div> 
 <!-- endet: WRAPPER PRIMARY -->
 

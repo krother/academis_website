@@ -43,14 +43,13 @@
 <div id="wrapper-master" class="group">
 
 <!-- start:  Navigator -->
-<!--
 <nav id="navigator">
   <ul class="list-navigator">
     <li><strong>You are here:</strong></li>
-    <li><a href="template-index.html">Academis</a></li>
-    <li><a href="template-content.html">Leadership</a></li>
+    % for href, name in navi:
+    <li><a href="{{ href }}">{{name}}</a></li>
+    % end
   </ul>
 </nav>
-!-->
 <!-- endet:  Navigator -->
 
