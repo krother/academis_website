@@ -14,5 +14,6 @@
     <li><a href="mailto:krother@academis.eu"><i class="fa fa-fw fa-envelope"></i>krother@academis.eu</a></li>
     <li><br><strong><i class="fa fa-copyright"></i>Dr. Kristian Rother 2015</strong></li>
 
+    <li><br><a href="http://www.denkstream.com"><strong><i class="fa fa-code"></i>Created by denkstream.com</strong></a></li>
   </ul>
 </section>
