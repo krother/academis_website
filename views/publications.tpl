@@ -8,7 +8,8 @@
 
 <h2 id="books">Books</h2>
 <p>Allegra Via, Kristian Rother, Anna Tramontano. Managing your Biological Data with Python. CRC Press 2014.</p>
-<p>Wes McKinney. Python for Data Analysis. Translated to German by Christian Tismer and Kristian Rother. O'Reilly 2015.</p>
+<p>Wes McKinney. Python for Data Analysis (Datenanalyse mit Python). <a href="http://dpunkt.de/buecher/5497/9783960090007-datenanalyse-mit-python-12361.html">Translated to German by Christian Tismer and Kristian Rother.</a> O'Reilly 2015.</p>
+<p>Joel Grus. Data Science from Scratch (Einführung in Data Science). <a href="https://www.dpunkt.de/buecher/5710/9783960090212-einf%C3%BChrung-in-data-science-12447.html">Translated to German by Kristian Rother.</a> O'Reilly 2015.</p> 
 <h2 id="published-course-material">Published Course Material</h2>
 <p>Rother K, Puton T. Academis Leadership for Scientists. 2014. figshare. http://dx.doi.org/10.6084/m9.figshare.1009160 2013</p>
 <p>Rother K. Academis Linux Tutorial. 2013. figshare. http://dx.doi.org/10.6084/m9.figshare.866827</p>
