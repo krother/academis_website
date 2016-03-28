@@ -9,7 +9,10 @@
     <li><a href="/posts/{{slug}}">{{title}}</a></li>
     % end
     </ul>
-</section> 
+</section>
+
+% include('blog_tags.tpl')
+
 </div> 
 <!-- endet: WRAPPER PRIMARY -->
 

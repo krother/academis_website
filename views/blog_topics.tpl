@@ -3,6 +3,10 @@
   <h2>This is my book of recipes</h2>
 
   <ul class="list-spectre">
+    <li class="python">
+      <h3><a href="/blog/tags/python">Python</a></h3>
+      <p>Developing big and small programs in the Python language.</p>
+    </li>
     <li class="teaching">
       <h3><a href="/blog/tags/teaching">Teaching</a></h3>
       <p>Spice up your lectures and prepare interactive workshops.</p>
@@ -27,6 +31,10 @@
       <h3><a href="/blog/tags/writing">Writing</a></h3>
       <p>Structure your thesis and write your first research articles.</p>
     </li>
+    <li class="data_analysis">
+      <h3><a href="/blog/tags/data_analysis">Data Analysis</a></h3>
+      <p>Tools &amp; Techniques from Excel to Big Data.</p>
+    </li>
     <!--<li class="grant_writing">
       <h3><a href="/blog/tags/grant_writing">Grant Writing</a></h3>
       <p>Apply for research funding as a graduate student or postdoc.</p>
@@ -35,13 +43,5 @@
       <h3><a href="/blog/tags/biochemistry">Biochemistry</a></h3>
       <p>Exercises in the basics of biology, biochemistry and chemistry.</p>
     </li> !-->
-    <li class="python">
-      <h3><a href="/blog/tags/python">Python</a></h3>
-      <p>Developing big and small programs in the Python language.</p>
-    </li>
-    <li class="data_analysis">
-      <h3><a href="/blog/tags/data_analysis">Data Analysis</a></h3>
-      <p>Tools &amp; Techniques from Excel to Big Data.</p>
-    </li>
   </ul>
 </section>
