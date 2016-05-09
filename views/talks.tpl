@@ -6,7 +6,21 @@
 
 <h1>Talks</h1>
 
-I am prepared to talk on the following subjects off the cuff:
+I am prepared to talk on the following subjects:
+
+<h2>Delta Debugging: Beyond pdb</h2>
+
+<p>The aim of this presentation is to improve our abilities to debug Python code more systematically. I am going to present an example for <b>Delta Debugging</b> (sometimes dubbed automatic debugging), a scientific debugging approach pioneered by <b>Prof. Andreas Zeller</b>, author of the landmark book in this field: <a href="http://www.wyprogramsfail.com" target="_blank">Why Programs Fail</a>. The example will introduce Delta Debugging itself and highlight its strengths and weaknesses.</p>
+
+<p>A moderated discussion on debugging techniques will follow after the presentation. If you have ever considered anything apart from the Python debugger and the occasional <code>print</code> statement/function, this will be a good moment to share your experience.</p>
+
+<img src="/posts/images/sudoku_problem.png" class="media-object" alt="Sudoku problem for automated debugging" width="50%">
+
+<p><i>Can we identify errors in the sudoku automatically?</i></p>
+
+
+<hr>
+
 
 <h2>The Mechanics of Learning</h2>
 
@@ -21,16 +35,6 @@ I am prepared to talk on the following subjects off the cuff:
 
 <hr>
 
-<h2>How to write a Bytecode interpreter</h2>
-
-<p>After watching a movie on Alan Turing, I designed a simple
-assembler language on an interpreter written in the brainf*** language. Here is an excerpt of the source code:</p>
-<code>->-->>>>>>,>,<[>>,>,<]<<[<<]>>[-<<+<<+>>>>]>[-<<+<<+>>>>]<<<<<[->>>>+<<<<]>[->>>>+<<<<]>[<<<[-]>[-]>[-]>-[-<+<<+>>>]<<+<[>[-]<-]>[<<<.>>>-]>[->+<]>[<<<[-]>[-]>[-]>-[-<+<<+>>>]<<+<[>[-]<-]>[<<.>>-]>[->+<]>[<<<[-]>[-]>[-]>-[-<+<<+>>>]<<+<[>[-]<-]>[>>>.<<<-]>[->+<]>[<<<[-]>[-]>[-]>-[-<+<<+>>>]<<
-</code>
-
-<p>The talk illustrates fundamental concepts of computation like instruction sets, processor registers and Turing completeness.</p>
-
-<hr>
 
 <h2>How to be a Posdoc</h2>
 
