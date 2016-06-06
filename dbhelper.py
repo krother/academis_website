@@ -46,7 +46,7 @@ def get_post(connection, slug):
 def get_all_posts(connection):
     query = '''SELECT title, slug FROM posts'''
     result = connection.execute(query)
-    return list(result)
+    return reversed(list(result))
 
 def get_all_tags(connection, min_number, exclude):
     query = '''SELECT tag, slug, count(tag) FROM tags GROUP BY tag ORDER BY tag'''
@@ -58,7 +58,7 @@ def get_all_tags(connection, min_number, exclude):
 def get_posts_by_tag(connection, slug):
     query = '''SELECT p.title, p.slug FROM tags t INNER JOIN posts p ON t.post_slug=p.slug WHERE t.slug="%s"''' % slug
     result = connection.execute(query)
-    return list(result)
+    return reversed(list(result))
 
 def get_tagname(connection, slug):
     query = '''SELECT tag FROM tags WHERE slug="%s"''' % slug
