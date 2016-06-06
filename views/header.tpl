@@ -22,6 +22,7 @@
       <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
       <!-- css@fontawesome.io für icons -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="/static/css/pygments_default.css">
     <!-- endet: CSS Block -->
 
     <!-- start: Seitentitel -->
