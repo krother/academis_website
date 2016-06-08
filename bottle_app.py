@@ -4,6 +4,7 @@ from bottle import default_app, static_file, route, view, run
 from dbhelper import get_all_posts, get_posts_by_tag, get_post, \
                      get_all_tags, get_tagname 
 from testimonials import get_testimonials
+from rss_feed import get_feed
 from settings import MOD_PATH, DB_PATH, POST_PATH
 import sqlite3
 import os
@@ -49,6 +50,10 @@ def all_posts():
 @route('/blog_list')
 def article_list():
     return all_posts()
+
+@route('/rss')
+def rss_feed():
+    return get_feed(db)
 
 @route('/talks')
 @view('talks')

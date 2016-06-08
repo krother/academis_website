@@ -28,7 +28,7 @@ def add_post(db, filename, title):
     if filename.endswith('.md'):
         content = markdown.markdown(content, extensions=[
             'markdown.extensions.tables', 
-            'markdown.extensions.codehilite'], linenums=True)
+            'markdown.extensions.codehilite'])
         content = wrap_images(content)
     if filename.endswith('.html'):
         mdfn = fn.replace('.html', '.md')
