@@ -8,7 +8,7 @@ TESTIMONIALS = [
        and can continue! Thank you!""",
     """Nasrin H, Freie Universität Berlin"""
     ),
-
+    (
     """BTW students were really impressed by my 
        storytelling skills I demonstrated in class 
        impromptu and was applausing at the end 
@@ -18,6 +18,7 @@ TESTIMONIALS = [
     """Kevin Wong, Data Scientist"""
     ),
 
+    (
     """A few weeks ago I met one of the participants of 
        your workshop in the corridor with an impressive 
        Kanban table. Clearly you’ve made an impact 
