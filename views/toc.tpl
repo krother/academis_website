@@ -7,6 +7,7 @@
     <li><a href="/publications"><i class="fa fa-fw fa-file-text"></i>Publications</a></li>
     <li><a href="/blog_list"><i class="fa fa-fw fa-pencil"></i>Blog</a></li>
     <li><a href="http://www.gitbook.com/@krother/"><i class="fa fa-fw fa-book"></i>Ebooks</a></li>
+    <li><a href="/testimonials"><i class="fa fa-fw fa-heart"></i>Testimonials</a></li>
     <li><a href="http://github.com/krother"><i class="fa fa-fw fa-github"></i>Github</a></li>
     <li><a href="http://www.academis.eu/rss"><i class="fa fa-fw fa-rss"></i>RSS Feed</a></li>
     <li><a href="/impressum"><i class="fa fa-fw fa-gavel"></i>Imprint (Impressum)</a></li>
