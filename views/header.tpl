@@ -7,7 +7,7 @@
 
     <meta name="Keywords" content="I want to support scientists manage projects, teach, prepare seminars and prepare lectures, and to do scientific writing efficiently. Academis provides training, workshops, and tutorials in these subjects. I'll be happy to help you create better science.">
     
-    <meta name="Description" content="Communicate science better">
+    <meta name="Description" content="Create better science">
        
     <meta name="Distribution" content="Global">
     <meta name="Robots" content="index,follow">
