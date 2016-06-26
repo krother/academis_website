@@ -108,6 +108,13 @@ def imprint():
     navi = [('/', 'Academis'), ('/impressum', 'Imprint')]
     return {'tags': ALL_TAGS, 'navi': navi}
 
+@route('/area_c2')
+@view('tm_area')
+def area_c2():
+    """Placeholder for TM page"""
+    title, content = get_post(db, 'area_c2_training')
+    return {'text': content}
+
 
 @route('/posts/images/<filename:path>')
 def static_image(filename):

@@ -1,7 +1,6 @@
 # coding: utf-8
 
 import sqlite3
-import os
 from settings import DB_PATH
 
 DB_SETUP = '''
@@ -9,8 +8,9 @@ DB_SETUP = '''
 CREATE TABLE IF NOT EXISTS posts (
     slug VARCHAR(32),
     title VARCHAR(250),
-    content TEXT
-); 
+    content TEXT,
+    published VARCHAR(1)
+);
 
 CREATE TABLE IF NOT EXISTS tags (
     slug VARCHAR(32),
@@ -22,17 +22,20 @@ CREATE UNIQUE INDEX i1 ON posts(slug);
 
 '''
 
+
 def unslugify(slug):
     slug = slug.replace('_', ' ')
     slug = slug.replace('-', ' ')
     slug = slug.title()
     return slug
 
+
 def initialize_database(path):
     print('creating SQL database from scratch')
     db = sqlite3.connect(path)
     db.executescript(DB_SETUP)
     db.close()
+
 
 def get_post(connection, slug):
     query = '''SELECT title, content FROM posts WHERE slug="%s"''' % slug
@@ -43,22 +46,28 @@ def get_post(connection, slug):
     else:
         return 'Empty blog post', ''
 
+
 def get_all_posts(connection):
-    query = '''SELECT title, slug FROM posts'''
+    query = '''SELECT title, slug FROM posts WHERE published="Y"'''
     result = connection.execute(query)
     return reversed(list(result))
 
+
 def get_all_tags(connection, min_number, exclude):
-    query = '''SELECT tag, slug, count(tag) FROM tags GROUP BY tag ORDER BY tag'''
+    query = '''SELECT tag, slug, count(tag) FROM tags
+      GROUP BY tag ORDER BY tag'''
     result = connection.execute(query)
     result = [r for r in result if r[2] >= min_number]
     result = [r for r in result if r[0] not in exclude]
     return [(r[0], r[1]) for r in result]
 
+
 def get_posts_by_tag(connection, slug):
-    query = '''SELECT p.title, p.slug FROM tags t INNER JOIN posts p ON t.post_slug=p.slug WHERE t.slug="%s"''' % slug
+    query = '''SELECT p.title, p.slug FROM tags t
+      INNER JOIN posts p ON t.post_slug=p.slug WHERE t.slug="%s"''' % slug
     result = connection.execute(query)
     return reversed(list(result))
+
 
 def get_tagname(connection, slug):
     query = '''SELECT tag FROM tags WHERE slug="%s"''' % slug

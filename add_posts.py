@@ -2,7 +2,7 @@
 
 import sqlite3
 from dbhelper import DB_PATH
-from settings import CONTENT_PATH, POST_PATH, PAGE_PATH
+from settings import CONTENT_PATH, POST_PATH
 import markdown
 import os
 import re
@@ -14,36 +14,36 @@ def slugify(s):
     s = s.replace(' ', '_')
     return s
 
+
 def wrap_images(content):
     """Add extra div tag to content"""
     content = re.sub(r'(\<img [^\>]+\>)', r'<div class="media">\1</div>', content)
     content = re.sub(r'\<img ([^\>]+\>)', r'<img class="media-object" \1', content)
     return content
-    
 
-def add_post(db, filename, title):
+
+def add_post(db, filename, title, published):
     fn = os.path.join(POST_PATH, filename)
     slug = slugify(filename)
     content = open(fn).read()
     if filename.endswith('.md'):
         content = markdown.markdown(content, extensions=[
-            'markdown.extensions.tables', 
+            'markdown.extensions.tables',
             'markdown.extensions.codehilite'])
         content = wrap_images(content)
     if filename.endswith('.html'):
         mdfn = fn.replace('.html', '.md')
         if os.path.exists(mdfn):
             return 0
-    query = 'INSERT INTO posts VALUES (?,?,?)'
-    db.execute(query, (slug, title, content))
-    #print ('added post', slug, filename, title)
+    query = 'INSERT INTO posts VALUES (?,?,?,?)'
+    db.execute(query, (slug, title, content, published))
     return 1
+
 
 def add_tag(db, tag, post):
     slug = slugify(tag)
     query = 'INSERT INTO tags VALUES (?,?,?)'
     db.execute(query, (slug, tag, post))
-    #print ('added tag', t, 'to', post)
     return 1
 
 
@@ -62,13 +62,11 @@ if __name__ == '__main__':
             col = line.strip().split('\t')
             if len(col) == 5:
                 filename, title, published, timestamp, tags = col
+                nposts += add_post(db, filename, title, published)
                 if published == 'Y':
-                    nposts += add_post(db, filename, title)
                     post = slugify(filename)
                     for t in tags.split(','):
                         ntags += add_tag(db, t.strip(), post)
-                else:
-                    print('not published: ' + filename)
             else:
                 print('invalid format', col)
 
