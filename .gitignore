@@ -1,2 +1,4 @@
 *.pyc
-acacemis.db
+academis.db
+views/*.html
+rss.xml

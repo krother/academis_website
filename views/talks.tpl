@@ -13,9 +13,23 @@
 </ul>
 <p>This presentation helps you to debug Python code more systematically. I am going to present an example for <b>Delta Debugging</b> (sometimes dubbed automatic debugging), a scientific debugging approach pioneered by <b>Prof. Andreas Zeller</b>, author of the landmark book in this field: <a href="http://www.wyprogramsfail.com" target="_blank">Why Programs Fail</a>. The example will introduce Delta Debugging itself and highlight its strengths and weaknesses. If would like to know what other options for debugging you have apart from the Python debugger and the occasional <code>print</code> statement, this talk is for you.</p>
 
-<img src="/posts/images/sudoku_problem.png" class="media-object" alt="Sudoku problem for automated debugging" width="50%">
+<img src="/posts/images/sudoku_problem.png" class="media-object" alt="Sudoku problem for automated debugging" width="35%">
 
 <p><i>Can we identify errors in the sudoku automatically?</i></p>
+
+<hr>
+
+<ul class="list-spectre">  
+    <li class="leadership"><h3>Sun Tzu</h3><p>What a peaceful leader can learn from ancient war strategy</p></li>
+</ul>
+
+<p><em>Knowing yourself and knowing your adversary, you will not be conquered in a thousand battles.</em></p>
+
+<p>The Chinese general Sun Tzu wrote a book on military strategy 2500 years ago. Today, the book is part of standard literature for managers and leaders worldwide. What leadership techniques have made <em>"The Art of War"</em> timeless reading even for a pacifist? <em>"The Art of War"</em> teaches that leadership is a craft that requires considering forces invisible at first. The real adversary is often not an armed force, but plans, morale and deception. If <em>"the highest excellence is to conquer without battle"</em>, what can we do to conquer the immaterial?</p>
+
+<p>The goal of this workshop is to learn about Sun Tzus philosophy, leadership principles and tools for making clear decisions. I would like to inspire you to read and learn more about leadership.</p>
+
+<img src="/posts/images/making_decisions.png" class="media-object" alt="Decision making with Sun Tzu" width="50%">
 
 <hr>
 
@@ -29,17 +43,6 @@
 
 <hr>
 
-<ul class="list-spectre">  
-    <li class="leadership"><h3>Sun Tzu</h3><p>What a peaceful leader can learn from ancient war strategy</p></li>
-</ul>
-
-<p><em>Knowing yourself and knowing your adversary, you will not be conquered in a thousand battles.</em></p>
-
-<p>The Chinese general Sun Tzu wrote a book on military strategy 2500 years ago. Today, the book is part of standard literature for managers and leaders worldwide. What leadership techniques have made *"The Art of War"* timeless reading even for a pacifist? <em>"The Art of War"</em> teaches that leadership is a craft that requires considering forces invisible at first. The real adversary is often not an armed force, but plans, morale and deception. If <em>"the highest excellence is to conquer without battle"</em>, what can we do to conquer the immaterial?</p>
-
-<p>In this workshop, you will apply three leadership tools based on Sun Tzus philosophy.</p>
-
-<hr>
 
     
 <ul class="list-spectre">  

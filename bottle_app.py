@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from bottle import default_app, static_file, route, view, run
+from bottle import default_app, static_file, route, view
 from dbhelper import get_all_posts, get_posts_by_tag, get_post, \
                      get_all_tags, get_tagname 
 from testimonials import get_testimonials
@@ -13,9 +13,10 @@ import random
 db = sqlite3.connect(DB_PATH)
 testimonials = get_testimonials()
 
-TOC = ['Python', 'Data Analysis', 'Writing', 'Presenting',
-       'Time Management', 'Leadership', 'Project Management',
+TOC = ['Python', 'Data Analysis', 'Presenting',
+       'Leadership', 'Project Management',
        'Teaching']
+       # , 'Writing', 'Time Management', 
 ALL_TAGS = get_all_tags(db, min_number=3, exclude=TOC)
 
 

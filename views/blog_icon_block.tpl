@@ -5,8 +5,8 @@
     <li class="python">
       <h3><a href="/blog/tags/python">Python</a></h3>
     </li>
-    <li class="teaching">
-      <h3><a href="/blog/tags/teaching">Teaching</a></h3>
+    <li class="data_analysis">
+      <h3><a href="/blog/tags/data_analysis">Data Analysis</a></h3>
     </li>
     <li class="leadership">
       <h3><a href="/blog/tags/leadership">Leadership</a></h3>
@@ -17,16 +17,17 @@
     <li class="presenting">
       <h3><a href="/blog/tags/presenting">Presenting</a></h3>
     </li>
+    <li class="teaching">
+      <h3><a href="/blog/tags/teaching">Teaching</a></h3>
+    </li>
+    <!-- 
     <li class="time_management">
       <h3><a href="/blog/tags/time_management">Time Management</a></h3>
     </li>
     <li class="writing">
       <h3><a href="/blog/tags/writing">Writing</a></h3>
     </li>
-    <li class="data_analysis">
-      <h3><a href="/blog/tags/data_analysis">Data Analysis</a></h3>
-    </li>
-    <!-- <li class="grant_writing">
+    <li class="grant_writing">
       <h3><a href="/blog/tags/grant_writing">Grant Writing</a></h3>
     </li>
     <li class="biochemistry">
