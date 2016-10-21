@@ -4,6 +4,7 @@
   <ul class="list-more">
     <li><a href="/courses"><i class="fa fa-fw fa-university"></i>Courses</a></li>
     <li><a href="/talks"><i class="fa fa-fw fa-comments"></i>Talks</a></li>
+    <li><a href="/static/CV_Kristian_Rother.pdf"><i class="fa fa-fw fa-suitcase"></i>CV</a></li>
     <li><a href="/publications"><i class="fa fa-fw fa-file-text"></i>Publications</a></li>
     <li><a href="/blog_list"><i class="fa fa-fw fa-pencil"></i>Blog</a></li>
     <li><a href="http://www.gitbook.com/@krother/"><i class="fa fa-fw fa-book"></i>Ebooks</a></li>
