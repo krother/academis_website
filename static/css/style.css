@@ -207,9 +207,3 @@ ul.list-tags li:hover {
 transition:color .5s ease-out, background 1s ease-in;
 }
 
-hr {
-    height: 0;
-    border-width: 1px 0 0 0;
-    border-color: #efefef;
-    border-style: solid;
-}

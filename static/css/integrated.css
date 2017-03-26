@@ -267,6 +267,9 @@ a.current {
 	.data_analysis {
 		background-image: url("../images/data_analysis.png");
 	}
+	.agile {
+		background-image: url("../images/agile.png");
+	}
 
 	/* Inhaltsverzeichnis vom einem Bereich */
 	ul.list-content {
