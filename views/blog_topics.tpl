@@ -3,9 +3,17 @@
   <h2>This is my book of recipes</h2>
 
   <ul class="list-spectre">
+    <li class="python_best_practices">
+      <h3><a href="/blog/tags/python_best_practices">Python Best Practices</a></h3>
+      <p>Tools to debug, test and maintain Python programs.</p>
+    </li>
+    <li class="python_basics">
+      <h3><a href="/blog/tags/python_basics">Python Basics</a></h3>
+      <p>Tips for beginners in the Python language.</p>
+    </li>
     <li class="python">
-      <h3><a href="/blog/tags/python">Python</a></h3>
-      <p>Developing big and small programs in the Python language.</p>
+      <h3><a href="/blog/tags/python">Other Python Stuff</a></h3>
+      <p>Selected content for the casual Python user.</p>
     </li>
     <li class="data_analysis">
       <h3><a href="/blog/tags/data_analysis">Data Analysis</a></h3>
@@ -14,10 +22,6 @@
     <li class="leadership">
       <h3><a href="/blog/tags/leadership">Leadership</a></h3>
       <p>Take responsibility, support and motivate a team.</p>
-    </li>
-    <li class="project_management">
-      <h3><a href="/blog/tags/project_management">Project Management</a></h3>
-      <p>Structure your project into achievable goals and reach them.</p>
     </li>
     <li class="presenting">
       <h3><a href="/blog/tags/presenting">Presenting</a></h3>
@@ -28,6 +32,10 @@
       <p>Spice up your lectures and prepare interactive workshops.</p>
     </li>
     <!--
+    <li class="project_management">
+      <h3><a href="/blog/tags/project_management">Project Management</a></h3>
+      <p>Structure your project into achievable goals and reach them.</p>
+    </li>
     <li class="time_management">
       <h3><a href="/blog/tags/time_management">Time Management</a></h3>
       <p>Be in charge of your own time.</p>

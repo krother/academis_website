@@ -2,7 +2,7 @@
 
 from bottle import default_app, static_file, route, view
 from dbhelper import get_all_posts, get_posts_by_tag, get_post, \
-                     get_all_tags, get_tagname 
+                     get_all_tags, get_tagname
 from testimonials import get_testimonials
 from rss_feed import get_feed
 from settings import MOD_PATH, DB_PATH, POST_PATH
@@ -13,10 +13,14 @@ import random
 db = sqlite3.connect(DB_PATH)
 testimonials = get_testimonials()
 
-TOC = ['Python', 'Data Analysis', 'Presenting',
-       'Leadership', 'Project Management',
-       'Teaching']
-       # , 'Writing', 'Time Management', 
+TOC = ['Python Best Practices', 'Python Basics', 'Python', 
+       'Data Analysis', 'Presenting',
+       'Teaching',
+       'Leadership', 
+       # 'Agile', 
+       # 'Time Management', 
+       # , 'Writing', 
+       ]
 ALL_TAGS = get_all_tags(db, min_number=3, exclude=TOC)
 
 

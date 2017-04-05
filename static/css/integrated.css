@@ -260,6 +260,12 @@ a.current {
 		background-image: url("../images/biochemistry.png");
 	}
 
+	.python_best_practices {
+		background-image: url("../images/python_best_practices.png");
+	}
+	.python_basics {
+		background-image: url("../images/python_basics.png");
+	}
 	.python {
 		background-image: url("../images/python.png");
 	}
