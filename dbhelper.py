@@ -12,6 +12,13 @@ CREATE TABLE IF NOT EXISTS posts (
     published VARCHAR(1)
 );
 
+CREATE TABLE IF NOT EXISTS talks (
+    title VARCHAR(250),
+    tag VARCHAR(32),
+    content TEXT,
+    published VARCHAR(1)
+);
+
 CREATE TABLE IF NOT EXISTS tags (
     slug VARCHAR(32),
     tag VARCHAR(32),
@@ -49,6 +56,12 @@ def get_post(connection, slug):
 
 def get_all_posts(connection):
     query = '''SELECT title, slug FROM posts WHERE published="Y"'''
+    result = connection.execute(query)
+    return reversed(list(result))
+
+
+def get_all_talks(connection):
+    query = '''SELECT title, tag, content FROM talks WHERE published="Y"'''
     result = connection.execute(query)
     return reversed(list(result))
 
