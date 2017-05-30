@@ -13,6 +13,7 @@ Article = namedtuple('Article', ['filename', 'title', 'published', 'timestamp', 
 
 
 def slugify(s):
+    s = os.path.split(s)[-1]
     s = s.strip().lower()
     s = s.replace('.md', '')
     s = s.replace('.html', '')

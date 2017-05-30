@@ -13,3 +13,7 @@ Distributed under the conditions of the Creative Commons Attribution Share-alike
 4. fill the database: `python3 add_posts.py`
 5. start `run_app.py` (local)
 
+## Addendum
+
+The folder academis/posts/time_management is from a separate git repository.
+
