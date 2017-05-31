@@ -55,8 +55,8 @@ def add_post(db, article):
     fn = os.path.join(POST_PATH, article.filename)
     slug = slugify(article.filename)
     content = read_content(fn)
-    query = 'INSERT INTO posts VALUES (?,?,?,?)'
-    db.execute(query, (slug, article.title, content, article.published))
+    query = 'INSERT INTO posts VALUES (?,?,?,?,?)'
+    db.execute(query, (slug, article.title, content, article.published, article.timestamp))
     return 1
 
 

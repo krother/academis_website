@@ -9,7 +9,8 @@ CREATE TABLE IF NOT EXISTS posts (
     slug VARCHAR(32),
     title VARCHAR(250),
     content TEXT,
-    published VARCHAR(1)
+    published VARCHAR(1),
+    date_published VARCHAR(32)
 );
 
 CREATE TABLE IF NOT EXISTS talks (
@@ -55,7 +56,7 @@ def get_post(connection, slug):
 
 
 def get_all_posts(connection):
-    query = '''SELECT title, slug FROM posts WHERE published="Y"'''
+    query = '''SELECT title, slug FROM posts WHERE published="Y" ORDER BY date_published DESC'''
     result = connection.execute(query)
     return reversed(list(result))
 
@@ -77,7 +78,7 @@ def get_all_tags(connection, min_number, exclude):
 
 def get_posts_by_tag(connection, slug):
     query = '''SELECT p.title, p.slug FROM tags t
-      INNER JOIN posts p ON t.post_slug=p.slug WHERE t.slug="%s"''' % slug
+      INNER JOIN posts p ON t.post_slug=p.slug WHERE t.slug="%s" ORDER BY p.date_published''' % slug
     result = connection.execute(query)
     return reversed(list(result))
 
