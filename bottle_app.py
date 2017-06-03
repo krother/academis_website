@@ -35,10 +35,10 @@ def index():
 @route('/posts/<slug>')
 @view('blog_post')
 def article_by_name(slug):
-    title, content = get_post(db, slug)
+    title, content, license = get_post(db, slug)
     navi = [('/', 'Academis'), ('/blog', 'Blog'),
             ('/posts/{}'.format(slug), title)]
-    return {'title': title, 'text': content, 'tags': ALL_TAGS, 'navi': navi}
+    return {'title': title, 'text': content, 'tags': ALL_TAGS, 'navi': navi, 'license': license}
 
 
 @route('/blog/tags/<tag>')

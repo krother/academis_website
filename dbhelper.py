@@ -10,7 +10,9 @@ CREATE TABLE IF NOT EXISTS posts (
     title VARCHAR(250),
     content TEXT,
     published VARCHAR(1),
-    date_published VARCHAR(32)
+    date_published VARCHAR(32),
+    language VARCHAR(8),
+    license VARCHAR(16)
 );
 
 CREATE TABLE IF NOT EXISTS talks (
@@ -46,13 +48,12 @@ def initialize_database(path):
 
 
 def get_post(connection, slug):
-    query = '''SELECT title, content FROM posts WHERE slug="%s"''' % slug
+    query = '''SELECT title, content, license FROM posts WHERE slug="%s"''' % slug
     result = list(connection.execute(query))
     if result:
-        title, content = result[0]
-        return title, content
+        return result[0]
     else:
-        return 'Empty blog post', ''
+        return 'Empty blog post', '', ''
 
 
 def get_all_posts(connection):

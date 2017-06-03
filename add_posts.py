@@ -9,7 +9,7 @@ import re
 from collections import namedtuple
 
 
-Article = namedtuple('Article', ['filename', 'title', 'published', 'timestamp', 'tags'])
+Article = namedtuple('Article', ['filename', 'title', 'published', 'timestamp', 'tags', 'language', 'license'])
 
 
 def slugify(s):
@@ -55,8 +55,8 @@ def add_post(db, article):
     fn = os.path.join(POST_PATH, article.filename)
     slug = slugify(article.filename)
     content = read_content(fn)
-    query = 'INSERT INTO posts VALUES (?,?,?,?,?)'
-    db.execute(query, (slug, article.title, content, article.published, article.timestamp))
+    query = 'INSERT INTO posts VALUES (?,?,?,?,?,?,?)'
+    db.execute(query, (slug, article.title, content, article.published, article.timestamp, article.language, article.license))
     return 1
 
 
@@ -70,7 +70,7 @@ def add_tag(db, tag, post):
 def parse_article_list(fn):
     for line in open(fn):
         col = line.strip().split('\t')
-        if len(col) == 5:
+        if len(col) == 7:
             yield Article(*col)
         else:
             print('invalid format', col)
