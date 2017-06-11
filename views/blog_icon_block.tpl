@@ -3,7 +3,7 @@
 
   <ul class="list-spectre">    
     <li class="python_best_practices">
-      <h3><a href="/blog/python_best_practices">Python Best Practices</a></h3>
+      <h3><a href="/blog/tags/python_best_practices">Python Best Practices</a></h3>
     </li>
     <li class="python_basics">
       <h3><a href="/blog/tags/python_basics">Python Basics</a></h3>

@@ -2,7 +2,7 @@
 
 import sqlite3
 from dbhelper import DB_PATH
-from settings import CONTENT_PATH, POST_PATH, TALK_PATH
+from settings import CONTENT_PATH, POST_PATH, TALK_PATH, COURSE_PATH
 import markdown
 import os
 import re
@@ -42,12 +42,13 @@ def read_content(fn):
     return content
 
 
-def add_talk(db, article):
-    fn = os.path.join(TALK_PATH, article.filename)
+def add_article(db, article, path, tablename):
+    fn = os.path.join(path, article.filename)
+    slug = slugify(article.filename)
     content = read_content(fn)
     content = re.sub('.+\<\/h1\>', '', content)
-    query = 'INSERT INTO talks VALUES (?,?,?,?)'
-    db.execute(query, (article.title, article.tags, content, article.published))
+    query = 'INSERT INTO {} VALUES (?,?,?,?,?)'.format(tablename)
+    db.execute(query, (article.title, slug, article.tags, content, article.published))
     return 1
 
 
@@ -83,6 +84,7 @@ if __name__ == '__main__':
         db.executescript('DELETE FROM posts')
         db.executescript('DELETE FROM tags')
         db.executescript('DELETE FROM talks')
+        db.executescript('DELETE FROM courses')
 
         nposts = 0
         ntags = 0
@@ -96,10 +98,18 @@ if __name__ == '__main__':
         print('posts added: %i' % nposts)
         print('tag entries added: %i' % ntags)
 
+        # talks
         ntalks = 0
         for article in parse_article_list(CONTENT_PATH + 'talks.txt'):
             if article.published == 'Y':
-                add_talk(db, article)
+                add_article(db, article, TALK_PATH, 'talks')
                 ntalks += 1
-
         print('talks added: {}'.format(ntalks))
+
+        # courses
+        ncourses = 0
+        for article in parse_article_list(CONTENT_PATH + 'courses.txt'):
+            if article.published == 'Y':
+                add_article(db, article, COURSE_PATH, 'courses')
+                ncourses += 1
+        print('courses added: {}'.format(ncourses))

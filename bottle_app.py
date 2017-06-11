@@ -2,7 +2,8 @@
 
 from bottle import default_app, static_file, route, view
 from dbhelper import get_all_posts, get_posts_by_tag, get_post, \
-                     get_all_talks, get_all_tags, get_tagname
+                     get_all_talks, get_all_courses, \
+                     get_all_tags, get_tagname
 from testimonials import get_testimonials
 from rss_feed import get_feed
 from settings import MOD_PATH, DB_PATH, POST_PATH
@@ -13,10 +14,10 @@ import random
 db = sqlite3.connect(DB_PATH)
 testimonials = get_testimonials()
 
-TOC = ['Python Best Practices', 'Python Basics', 'Python', 
+TOC = ['Python Best Practices', 'Python Basics', 'Python',
        'Data Analysis', 'Presenting',
        'Teaching',
-       'Leadership', 
+       'Leadership',
        # 'Agile', 
        # 'Time Management', 
        # , 'Writing', 
@@ -76,14 +77,15 @@ def rss_feed():
 def talks():
     talks = get_all_talks(db)
     navi = [('/', 'Academis'), ('/talks', 'Talks')]
-    return {'talks': talks, 'talgs': ALL_TAGS, 'navi': navi}
+    return {'talks': talks, 'tags': ALL_TAGS, 'navi': navi}
 
 
 @route('/courses')
 @view('courses')
 def courses():
+    courses = get_all_courses(db)
     navi = [('/', 'Academis'), ('/courses', 'Courses')]
-    return {'tags': ALL_TAGS, 'navi': navi}
+    return {'courses': courses, 'tags': ALL_TAGS, 'navi': navi}
 
 
 @route('/testimonials')
@@ -128,5 +130,6 @@ def static_filename(filename):
 @route('/static/<filename:path>')
 def send_static(filename):
     return static_file(filename, root=os.path.join(MOD_PATH, 'static'))
+
 
 application = default_app()

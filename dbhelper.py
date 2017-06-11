@@ -15,8 +15,17 @@ CREATE TABLE IF NOT EXISTS posts (
     license VARCHAR(16)
 );
 
+CREATE TABLE IF NOT EXISTS courses (
+    title VARCHAR(250),
+    slug VARCHAR(32),
+    tag VARCHAR(32),
+    content TEXT,
+    published VARCHAR(1)
+);
+
 CREATE TABLE IF NOT EXISTS talks (
     title VARCHAR(250),
+    slug VARCHAR(32),
     tag VARCHAR(32),
     content TEXT,
     published VARCHAR(1)
@@ -59,13 +68,21 @@ def get_post(connection, slug):
 def get_all_posts(connection):
     query = '''SELECT title, slug FROM posts WHERE published="Y" ORDER BY date_published DESC'''
     result = connection.execute(query)
-    return reversed(list(result))
+    return list(result)
+
+
+def get_all_articles(connection, tablename):
+    query = '''SELECT title, slug, tag, content FROM {} WHERE published="Y"'''.format(tablename)
+    result = connection.execute(query)
+    return list(result)
 
 
 def get_all_talks(connection):
-    query = '''SELECT title, tag, content FROM talks WHERE published="Y"'''
-    result = connection.execute(query)
-    return reversed(list(result))
+    return get_all_articles(connection, 'talks')
+
+
+def get_all_courses(connection):
+    return get_all_articles(connection, 'courses')
 
 
 def get_all_tags(connection, min_number, exclude):

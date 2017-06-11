@@ -8,16 +8,24 @@
 
 <hr>
 
-% for title, tag, content in talks:
-  <ul class="list-spectre">  
-    <li class="{{ tag }}"><h1>{{ title }}</h1>
+<ul>  
+% for title, slug, tag, content in talks:
+    <li><a href="#{{ slug }}">{{ title }}</a></li>
+% end
 </ul>
+
+<hr>
+
+% for title, slug, tag, content in talks:
+<a name="{{ slug }}">
+<h1>{{ title }}</h1></a>
 
 {{ !content }}
 
 <hr>
-
 % end
+
+
 
 </section>
 </div>
