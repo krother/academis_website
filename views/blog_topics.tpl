@@ -1,6 +1,6 @@
 
 <section>
-  <h2>This is my book of recipes</h2>
+  <h2>These are my course materials:</h2>
 
   <ul class="list-spectre">
     <li class="python_best_practices">

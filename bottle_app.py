@@ -32,6 +32,12 @@ def index():
     return {'tags': ALL_TAGS, 'testimonial': random.choice(testimonials),
             'navi': navi}
 
+@route('/cv')
+@view('cv')
+def cv():
+    navi = [('/', 'Academis')]
+    return {'tags': ALL_TAGS, 'testimonial': random.choice(testimonials),
+            'navi': navi}
 
 @route('/posts/<slug>')
 @view('blog_post')

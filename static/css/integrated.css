@@ -185,7 +185,7 @@ a.current {
 		padding: 1em 1em 1em 5em;
 		background-size: 4em;
 		background-repeat: no-repeat;
-		background-position: left center;
+		background-position: left top;
 	}
 
 	#wrapper-secondary ul.list-spectre {
@@ -269,12 +269,19 @@ a.current {
 	.python {
 		background-image: url("../images/python.png");
 	}
+	.softdev {
+		background-image: url("../images/softdev.png");
+	}
 
 	.data_analysis {
 		background-image: url("../images/data_analysis.png");
 	}
 	.agile {
 		background-image: url("../images/agile.png");
+	}
+
+	.world {
+		background-image: url("../images/other.png");
 	}
 
 	/* Inhaltsverzeichnis vom einem Bereich */
