@@ -266,6 +266,12 @@ a.current {
 	.python_basics {
 		background-image: url("../images/python_basics.png");
 	}
+	.python_advanced {
+		background-image: url("../images/python_advanced.png");
+	}
+	.biopython {
+		background-image: url("../images/biopython.png");
+	}
 	.python {
 		background-image: url("../images/python.png");
 	}
@@ -275,6 +281,9 @@ a.current {
 
 	.data_analysis {
 		background-image: url("../images/data_analysis.png");
+	}
+	.machine_learning {
+		background-image: url("../images/ml.png");
 	}
 	.agile {
 		background-image: url("../images/agile.png");

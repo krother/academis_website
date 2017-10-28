@@ -3,13 +3,13 @@
   <h2>These are my course materials:</h2>
 
   <ul class="list-spectre">
-    <li class="python_best_practices">
-      <h3><a href="/blog/tags/python_best_practices">Python Best Practices</a></h3>
-      <p>Tools to debug, test and maintain Python programs.</p>
-    </li>
     <li class="python_basics">
       <h3><a href="/blog/tags/python_basics">Python Basics</a></h3>
       <p>Tips for beginners in the Python language.</p>
+    </li>
+    <li class="python_best_practices">
+      <h3><a href="/blog/tags/python_best_practices">Python Best Practices</a></h3>
+      <p>Tools to debug, test and maintain Python programs.</p>
     </li>
     <li class="python">
       <h3><a href="/blog/tags/python">Other Python Stuff</a></h3>

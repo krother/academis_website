@@ -4,53 +4,42 @@
 <div id="wrapper-primary">
 <section>
 
-<h1>Courses</h1>
+<h1>Academis Courses in 2018</h1>
 
-<ul>  
-% for title, slug, tag, content in courses:
-    <li><a href="#{{ slug }}">{{ title }}</a></li>
-% end
-</ul>
+  <ul class="list-spectre">
+    <li class="python_basics">
+      <h3><a href="/courses/python_basics_en">First Steps in Python</a></h3>
+      <p>Writing your own programs, data structures, control flow, reading and writing files, functions, debugging.</p>
+    </li>
+    <li class="data_analysis">
+      <h3><a href="/courses/python_pandas_en">Data Analysis with pandas</a></h3>
+      <p>Working with DataFrames, indexing, data wrangling, aggregation, using Jupyter notebooks, plotting.</p>
+    </li>
+    <li class="machine_learning">
+      <h3>Introduction to Machine Learning</h3>
+      <p>Fundamentals, supervised learning with scikit-learn, clustering, neural networks with TensorFlow.</p>
+    </li>
+    <li class="python_advanced">
+      <h3>Advanced Python</h3>
+      <p>Decorators, Context Managers, Generators,
+handling Exceptions, OOP in Python, Type Annotations.</p>
+    </li>
+    <li class="python_best_practices">
+      <h3><a href="/courses/python_best_practices_en">Python Best Practices</a></h3>
+      <p>Debugging, Testing and Maintenance, including virtual environments, linting, packageing and documentation with Sphinx</p>
+    </li>
+    <li class="softdev">
+      <h3>Software Engineering</h3>
+      <p>Development processes, requirements, software architecture,
+Design Patterns, verification and validation, version control.</p>
+    </li>
+    <li class="biopython">
+      <h3><a href="/courses/python_biopython_en">Python for Biologists</a></h3>
+      <p>Handling DNA- and protein sequences with Biopython, working with 3D structures, calculating phylogenetic trees and more.</p>
+    </li>
 
-<hr>
 
-% for title, slug, tag, content in courses:
-<a name="{{ slug }}">
-<h1>{{ title }}</h1></a>
-
-{{ !content }}
-
-<hr>
-% end
-
-<ul class="list-spectre">  
-    <li class="teaching"><h3>Other Course Topics</h3>
-    <p></p></li>
-</ul>
-
-     <ul>
-     <li>Leadership for Software Developers</li>
-     <li>Software Engineering Fundamentals</li>
-     <li>Introduction to Scrum</li>
-     <li>Python for Biologists</li>
-     <li>Introduction to MongoDB</li>
-     <li>Introduction to Apache Solr</li>
-     <li>Introduction to PostGreSQL</li>
-     <li>Version Control with Git</li>
-     <li>Version Control with Mercurial</li>
-    </ul>
-
-<!--     <div class="row">
-      <div class="col-md-6">
-    <table class="table table-striped table-bordered">
-     <tbody><tr><th>Title</th><th>Duration [days]</th></tr>
-     <tr><td>Leadership for Software Developers</td><td>2</td></tr>
-     <tr><td>Software Engineering Fundamentals</td><td>2</td></tr>
-     <tr><td>Version Control with Mercurial</td><td>1</td></tr>
-    </tbody></table>
-    </div></div> !-->
-
-    <p>I am happy to customize course content and duration to your needs. <br>You can choose the training language among English, German or Polish. <br>Discounts for multiple days / bookings are available.</p>
+    <p>I am happy to customize course content and duration to your needs. <br>You can choose the training language among English, German or Polish.</p>
     
 </section>
 </div>

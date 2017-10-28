@@ -84,6 +84,11 @@ def get_all_talks(connection):
 def get_all_courses(connection):
     return get_all_articles(connection, 'courses')
 
+def get_course_by_slug(connection, slug):
+    query = '''SELECT c.title, c.slug, c.content FROM courses c
+    WHERE c.slug="%s"''' % slug
+    result = connection.execute(query)
+    return list(result)[0]
 
 def get_all_tags(connection, min_number, exclude):
     query = '''SELECT tag, slug, count(tag) FROM tags

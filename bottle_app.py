@@ -3,6 +3,7 @@
 from bottle import default_app, static_file, route, view
 from dbhelper import get_all_posts, get_posts_by_tag, get_post, \
                      get_all_talks, get_all_courses, \
+                     get_course_by_slug, \
                      get_all_tags, get_tagname
 from testimonials import get_testimonials
 from rss_feed import get_feed
@@ -92,6 +93,13 @@ def courses():
     courses = get_all_courses(db)
     navi = [('/', 'Academis'), ('/courses', 'Courses')]
     return {'courses': courses, 'tags': ALL_TAGS, 'navi': navi}
+
+@route('/courses/<slug>')
+@view('course_page')
+def courses(slug):
+    title, slug, content = get_course_by_slug(db, slug)
+    navi = [('/', 'Academis'), ('/courses', 'Courses'), ('/'+slug, title)]
+    return {'title': title, 'content': content, 'tags': ALL_TAGS, 'navi': navi}
 
 
 @route('/testimonials')
