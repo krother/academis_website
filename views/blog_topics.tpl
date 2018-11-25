@@ -4,8 +4,8 @@
 
   <ul class="list-spectre">
     <li class="python_basics">
-      <h3><a href="/blog/tags/python_basics">Python Basics</a></h3>
-      <p>Tips for beginners in the Python language.</p>
+      <h3><a href="/blog/tags/python_basics">Python 3 Basics</a></h3>
+      <p>Exercises for beginners in the Python language.</p>
     </li>
     <li class="python_best_practices">
       <h3><a href="/blog/tags/python_best_practices">Python Best Practices</a></h3>

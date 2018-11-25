@@ -6,9 +6,9 @@
     <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
 
     <meta name="Keywords" content="I want to support scientists manage projects, teach, prepare seminars and prepare lectures, and to do scientific writing efficiently. Academis provides training, workshops, and tutorials in these subjects. I'll be happy to help you create better science.">
-    
+
     <meta name="Description" content="Create better science">
-       
+
     <meta name="Distribution" content="Global">
     <meta name="Robots" content="index,follow">
     <meta name="author" content="Dr. Kristian Rother">
@@ -29,7 +29,7 @@
     <title>Academis • {{title}}</title>
     <!-- endet: Seitentitel -->
   </head>
-  
+
 <body>
 
 <!-- start: Headerbereich -->
@@ -42,15 +42,3 @@
 </div>
 <!-- endet: Headerbereich -->
 <div id="wrapper-master" class="group">
-
-<!-- start:  Navigator -->
-<nav id="navigator">
-  <ul class="list-navigator">
-    <li><strong>You are here:</strong></li>
-    % for href, name in navi:
-    <li><a href="{{ href }}">{{name}}</a></li>
-    % end
-  </ul>
-</nav>
-<!-- endet:  Navigator -->
-

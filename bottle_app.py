@@ -19,9 +19,9 @@ TOC = ['Python Best Practices', 'Python Basics', 'Python',
        'Data Analysis', 'Presenting',
        'Teaching',
        'Leadership',
-       # 'Agile', 
-       # 'Time Management', 
-       # , 'Writing', 
+       # 'Agile',
+       # 'Time Management',
+       # , 'Writing',
        ]
 ALL_TAGS = get_all_tags(db, min_number=3, exclude=TOC)
 
@@ -72,34 +72,6 @@ def all_posts():
 @route('/blog_list')
 def article_list():
     return all_posts()
-
-
-@route('/rss')
-def rss_feed():
-    return get_feed(db)
-
-
-@route('/talks')
-@view('talks')
-def talks():
-    talks = get_all_talks(db)
-    navi = [('/', 'Academis'), ('/talks', 'Talks')]
-    return {'talks': talks, 'tags': ALL_TAGS, 'navi': navi}
-
-
-@route('/courses')
-@view('courses')
-def courses():
-    courses = get_all_courses(db)
-    navi = [('/', 'Academis'), ('/courses', 'Courses')]
-    return {'courses': courses, 'tags': ALL_TAGS, 'navi': navi}
-
-@route('/courses/<slug>')
-@view('course_page')
-def courses(slug):
-    title, slug, content = get_course_by_slug(db, slug)
-    navi = [('/', 'Academis'), ('/courses', 'Courses'), ('/'+slug, title)]
-    return {'title': title, 'content': content, 'tags': ALL_TAGS, 'navi': navi}
 
 
 @route('/testimonials')

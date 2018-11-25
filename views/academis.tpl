@@ -3,10 +3,13 @@
 <!-- start: WRAPPER PRIMARY -->
 <div id="wrapper-primary">
 % include('preamble.tpl')
-% include('blog_topics.tpl')
-% include('blog_tags.tpl')
+% include('outgoing_links.tpl')
+<!--
+ include('blog_topics.tpl')
+ include('blog_tags.tpl')
+ !-->
 
-</div> 
+</div>
 <!-- endet: WRAPPER PRIMARY -->
 
 <!-- start: WRAPPER SECONDARY -->
