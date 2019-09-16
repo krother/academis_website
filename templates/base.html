@@ -26,7 +26,7 @@
     <!-- endet: CSS Block -->
 
     <!-- start: Seitentitel -->
-    <title>Academis • {{title}}</title>
+    <title>Academis • {% block title %}Dr. Kristian Rother{% endblock %}</title>
     <!-- endet: Seitentitel -->
   </head>
 
@@ -42,3 +42,31 @@
 </div>
 <!-- endet: Headerbereich -->
 <div id="wrapper-master" class="group">
+
+<!-- start: WRAPPER PRIMARY -->
+<div id="wrapper-primary">
+<section>
+{% block content %}
+
+{% endblock %}
+</section>
+</div>
+<!-- endet: WRAPPER PRIMARY -->
+
+
+<!-- start: WRAPPER SECONDARY -->
+<div id="wrapper-secondary">
+{% block sidebar %}
+
+{% include('aboutme.html') %}
+{% include('testimonial.html') %}
+{% include('toc.html') %}
+
+{% endblock %}
+</div>
+<!-- endet: WRAPPER SECONDARY -->
+
+</div>
+
+</body>
+</html>

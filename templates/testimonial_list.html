@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Testimonials{% endblock %}
+
+{% block content %}
+
+<h1>Testimonials</h1>
+
+{% for testimonial in testimonials: %}
+<p>
+  <strong>{{ testimonial[0]|safe }}</strong><br>
+  <em>({{ testimonial[1]|safe }})</em>
+</p>
+{% endfor %}
+
+{% endblock %}
