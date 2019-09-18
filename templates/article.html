@@ -1,22 +1,9 @@
-% include('header.tpl', title="Academis Article")
+{% extends 'base.html' %}
 
-  <div class="container-narrow">
+{% block title %}{{ title }}{% endblock %}
 
-    <p></p>
+{% block content %}
 
-<div class="row-fluid marketing">
-  
-<div class="span12">
+{{ content|safe }}
 
-    {{!text}}
-
-&nbsp;
-&nbsp;
-
-</div></div>
-
-    <p></p>
-
-    </div> <!-- /container -->
-
-% include('footer.tpl')
+{% endblock %}

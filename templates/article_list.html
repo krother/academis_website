@@ -1,21 +1,17 @@
-% include('header.tpl', title=title)
+{% extends 'base.html' %}
 
-<!-- start: WRAPPER PRIMARY -->
-<div id="wrapper-primary">
-<section>
-  <h1>{{title}}</h1>
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+<h1>{{ title }}</h1>
+    {% for heading, posts in articles %}
+    <h2>{{ heading }}</h2>
     <ul class="list-content">
-    % for title, slug in articles:
-    <li><a href="/posts/{{slug}}">{{title}}</a></li>
-    % end
+      {% for art_title, slug in posts %}
+      <li><a href="/posts/{{ tag }}/{{ slug }}">{{ art_title }}</a></li>
+      {% endfor %}
     </ul>
-</section>
+    {% endfor %}
 
-% include('blog_tags.tpl')
-
-</div> 
-<!-- endet: WRAPPER PRIMARY -->
-
-% include('std_sidebar.tpl')
-
-% include('footer.tpl')
+{% endblock %}
