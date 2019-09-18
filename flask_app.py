@@ -2,6 +2,7 @@
 
 from flask import Flask, render_template
 from testimonials import get_testimonials
+from content import get_content_list, get_post
 import os
 import random
 
@@ -29,28 +30,29 @@ def cv():
     navi = [('/', 'Academis')]
     return render_template('cv.html', testimonial=random.choice(testimonials))
 
-@app.route('/posts/<slug>')
-#@view('blog_post')
-def article_by_name(slug):
-    title, content, license = get_post(db, slug)
-    navi = [('/', 'Academis'), ('/blog', 'Blog'),
-            ('/posts/{}'.format(slug), title)]
-    return {'title': title, 'text': content, 'navi': navi, 'license': license}
+@app.route('/posts/<tag>/<slug>')
+def article_by_name(tag, slug):
+    title, content = get_post(tag, slug)
+    return render_template('article.html', title=title, \
+           tag=tag, slug=slug, content=content, \
+           testimonial=random.choice(testimonials))
 
+@app.route('/posts/<tag>/<slug>/<subslug>')
+def article_deep(tag, slug, subslug):
+    return article_by_name(tag, slug + '/' + subslug)
 
 @app.route('/blog/tags/<tag>')
-#@view('article_list')
 def articles_by_tag(tag):
-    articles = get_posts_by_tag(db, tag)
-    title = get_tagname(db, tag)
-    navi = [('/', 'Academis'), ('/blog', 'Blog'),
-            ('/blog/tags/{}'.format(tag), title)]
-    return {'articles': articles, 'tags': ALL_TAGS,
-            'title': title, 'navi': navi}
+    articles = get_content_list(tag)
+    title = tag.capitalize()
+    return render_template('article_list.html', title=title, \
+           tag=tag, \
+           articles=articles, testimonial=random.choice(testimonials))
+    #navi = [('/', 'Academis'), ('/blog', 'Blog'),
+    #        ('/blog/tags/{}'.format(tag), title)]
 
 
 @app.route('/blog')
-#@view('article_list')
 def all_posts():
     articles = get_all_posts(db)
     navi = [('/', 'Academis'), ('/blog', 'Blog')]

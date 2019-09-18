@@ -2,3 +2,4 @@
 academis.db
 views/*.html
 rss.xml
+content/*
