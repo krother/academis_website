@@ -2,7 +2,7 @@
 
 from flask import Flask, render_template
 from testimonials import get_testimonials
-from content import get_content_list, get_post
+from content import get_readme, get_post
 import os
 import random
 
@@ -37,32 +37,19 @@ def article_by_name(tag, slug):
            tag=tag, slug=slug, content=content, \
            testimonial=random.choice(testimonials))
 
+@app.route('/blog/tags/<tag>')
+def article_list(tag):
+    title, content = get_readme(tag)
+    return render_template('article.html', title=title, \
+           tag=tag, slug=tag, content=content, \
+           testimonial=random.choice(testimonials))
+
 @app.route('/posts/<tag>/<slug>/<subslug>')
 def article_deep(tag, slug, subslug):
     return article_by_name(tag, slug + '/' + subslug)
-
-@app.route('/blog/tags/<tag>')
-def articles_by_tag(tag):
-    articles = get_content_list(tag)
-    title = tag.capitalize()
-    return render_template('article_list.html', title=title, \
-           tag=tag, \
-           articles=articles, testimonial=random.choice(testimonials))
     #navi = [('/', 'Academis'), ('/blog', 'Blog'),
     #        ('/blog/tags/{}'.format(tag), title)]
 
-
-@app.route('/blog')
-def all_posts():
-    articles = get_all_posts(db)
-    navi = [('/', 'Academis'), ('/blog', 'Blog')]
-    return {'articles': articles, 'tags': ALL_TAGS,
-            'title': 'All Blog Posts', 'navi': navi}
-
-
-@app.route('/blog_list')
-def article_list():
-    return all_posts()
 
 @app.route('/testimonials')
 def testimonial_list():

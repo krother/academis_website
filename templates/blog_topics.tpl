@@ -4,28 +4,28 @@
 
   <ul class="list-spectre">
     <li class="python_basics">
-      <h3><a href="https://github.com/krother/Python3_Basics_Tutorial">Python 3 Basics</a>
+      <h3><a href="/blog/tags/python_basics">Python 3 Exercises</a>
         (<a href="/blog/tags/python_basics_DE">also in German</a>)</h3>
       <p>Exercises for beginners in the Python language.</p>
     </li>
     <li class="python">
-      <h3><a href="https://github.com/krother/Python3_Reference">Python 3 Reference</a></h3>
+      <h3><a href="/blog/tags/python_reference">Python 3 Reference</a></h3>
       <p>Overview of Python commands for beginners.</p>
     </li>
     <li class="python_best_practices">
-      <h3><a href="https://github.com/krother/Python3_Package_Examples">Python Package Examples</a></h3>
+      <h3><a href="/blog/tags/python_packages">Python Packages</a></h3>
       <p> A collection of my favourite Python packages with code examples.</p>
     </li>
     <li class="python_advanced">
-      <h3><a href="https://github.com/krother/advanced_python">Advanced Python Examples</a></h3>
+      <h3><a href="/blog/tags/advanced_python">Advanced Python Examples</a></h3>
       <p>Code examples for structuring programs and useful shortcuts.</p>
     </li>
     <li class="project_management">
-      <h3><a href="https://github.com/krother/python_testing_tutorial">Python Testing Tutorial</a></h3>
+      <h3><a href="/blog/tags/python_testing">Python Testing Tutorial</a></h3>
       <p>Introduction to automated testing with pytest.</p>
     </li>
     <li class="biochemistry">
-      <h3><a href="https://github.com/krother/Biopython_Tutorial">Biopython</a></h3>
+      <h3><a href="/blog/tags/biopython">Biopython</a></h3>
       <p>Introduction to Biopython.</p>
     </li>
     <li class="teaching">
