@@ -4,42 +4,47 @@
 
   <ul class="list-spectre">
     <li class="python_basics">
-      <h3><a href="/blog/tags/python_basics">Python 3 Basics</a></h3>
+      <h3><a href="https://github.com/krother/Python3_Basics_Tutorial">Python 3 Basics</a>
+        (<a href="/blog/tags/python_basics_DE">also in German</a>)</h3>
       <p>Exercises for beginners in the Python language.</p>
     </li>
-    <li class="python_best_practices">
-      <h3><a href="/blog/tags/python_best_practices">Python Best Practices</a></h3>
-      <p>Tools to debug, test and maintain Python programs.</p>
-    </li>
     <li class="python">
-      <h3><a href="/blog/tags/python">Other Python Stuff</a></h3>
-      <p>Selected content for the casual Python user.</p>
+      <h3><a href="https://github.com/krother/Python3_Reference">Python 3 Reference</a></h3>
+      <p>Overview of Python commands for beginners.</p>
     </li>
-    <li class="data_analysis">
-      <h3><a href="/blog/tags/data_analysis">Data Analysis</a></h3>
-      <p>Tools &amp; Techniques from Excel to Big Data.</p>
+    <li class="python_best_practices">
+      <h3><a href="https://github.com/krother/Python3_Package_Examples">Python Package Examples</a></h3>
+      <p> A collection of my favourite Python packages with code examples.</p>
     </li>
-    <li class="leadership">
-      <h3><a href="/blog/tags/leadership">Leadership</a></h3>
-      <p>Take responsibility, support and motivate a team.</p>
+    <li class="python_advanced">
+      <h3><a href="https://github.com/krother/advanced_python">Advanced Python Examples</a></h3>
+      <p>Code examples for structuring programs and useful shortcuts.</p>
     </li>
-    <li class="presenting">
-      <h3><a href="/blog/tags/presenting">Presenting</a></h3>
-      <p>Develop a clear message and communicate it with confidence.</p>
+    <li class="project_management">
+      <h3><a href="https://github.com/krother/python_testing_tutorial">Python Testing Tutorial</a></h3>
+      <p>Introduction to automated testing with pytest.</p>
+    </li>
+    <li class="biochemistry">
+      <h3><a href="https://github.com/krother/Biopython_Tutorial">Biopython</a></h3>
+      <p>Introduction to Biopython.</p>
     </li>
     <li class="teaching">
-      <h3><a href="/blog/tags/teaching">Teaching</a></h3>
+      <h3><a href="/blog/tags/teaching">Teaching Programming</a></h3>
       <p>Spice up your lectures and prepare interactive workshops.</p>
     </li>
-    <!--
-    <li class="project_management">
-      <h3><a href="/blog/tags/project_management">Project Management</a></h3>
-      <p>Structure your project into achievable goals and reach them.</p>
+    <li class="presenting">
+      <h3><a href="/blog/tags/speech_projects">Presenting</a></h3>
+      <p>Speech projects to develop your confidence on the stage.</p>
     </li>
+    <!--
     <li class="time_management">
       <h3><a href="/blog/tags/time_management">Time Management</a></h3>
       <p>Be in charge of your own time.</p>
     </li>
+    <li class="data_analysis">
+    <h3><a href="/blog/tags/data_analysis">Data Analysis</a></h3>
+    <p>Tools &amp; Techniques from Excel to Big Data.</p>
+  </li>
     <li class="writing">
       <h3><a href="/blog/tags/writing">Writing</a></h3>
       <p>Structure your thesis and write your first research articles.</p>
@@ -48,9 +53,6 @@
       <h3><a href="/blog/tags/grant_writing">Grant Writing</a></h3>
       <p>Apply for research funding as a graduate student or postdoc.</p>
     </li>
-    <li class="biochemistry">
-      <h3><a href="/blog/tags/biochemistry">Biochemistry</a></h3>
-      <p>Exercises in the basics of biology, biochemistry and chemistry.</p>
-    </li> !-->
+    !-->
   </ul>
 </section>

@@ -3,3 +3,4 @@ academis.db
 views/*.html
 rss.xml
 content/*
+static/content/*
