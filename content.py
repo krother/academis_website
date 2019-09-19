@@ -36,7 +36,6 @@ def get_post(tag, slug):
     title = re.findall(r'#+\s(.+)', text)[0]
     # fix image links
     text = re.sub(r"!\[(.*)\]\(.+\/([^\/]+)\)", f"![\g<1>](/static/content/{tag}/\g<2>)", text)
-    print(text)
     content = markdown.markdown(text, extensions=[
             'markdown.extensions.tables',
             'markdown.extensions.codehilite'])
