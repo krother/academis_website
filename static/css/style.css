@@ -68,7 +68,7 @@ header .menu
     margin: 0px;;
     height: 100%;
     width: 100%;
-    position: relative; 
+    position: relative;
 }
 header .menu .item
 {
@@ -118,10 +118,10 @@ header .menu .item
 .right
 {
     background-color: #ffffff;
-    float: right; 
-    display: inline-block; 
-    line-height: 2em; 
-    text-align: justify; 
+    float: right;
+    display: inline-block;
+    line-height: 2em;
+    text-align: justify;
     width: 280px;
     height: 100%;
 }
@@ -133,19 +133,19 @@ header .menu .item
     color: #112233;
 }
 
-.content > p 
+.content > p
 {
     color: #334455;
 }
 .container-narrow
 {
     font-size:18px;
-    line-height: 1.7em; 
+    line-height: 1.7em;
 }
 .container-narrow li, .container-narrow code
 {
     font-size:18px;
-    line-height: 1.7em; 
+    line-height: 1.7em;
     color: #000000;
 }
 
@@ -206,4 +206,3 @@ ul.list-tags li:hover {
 /* ...and now override with proper CSS property */
 transition:color .5s ease-out, background 1s ease-in;
 }
-

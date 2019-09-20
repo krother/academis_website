@@ -1,6 +1,7 @@
 /* Body */
 body {
 	font-family: Lato;
+	font-size: 1.4em;
 	background: url(../images/header-alt.jpg) no-repeat;
 }
 
@@ -76,15 +77,15 @@ nav#navigator {
 /* Text: Überschriften und Absatz */
 
 h1 {
-	font-size: 1.5em;
+	font-size: 1.8em;
 }
 
 h2 {
-	font-size: 1.25em;
+	font-size: 1.5em;
 }
 
 h3 {
-	font-size: 1em;
+	font-size: 1.25em;
 }
 
 	ul.list-spectre h3 {
@@ -104,6 +105,10 @@ h3 {
 		font-size: 1em;
 	}
 
+	li {
+		padding-bottom: 0.3em;
+	}
+
 p {
 	font-size: 1em;
 	line-height: 150%;
@@ -111,6 +116,10 @@ p {
 
 .aboutme p {
 	width: 60%;
+}
+
+pre {
+	padding: 2em;
 }
 
 /* Text: Hyperlinks */
