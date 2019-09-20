@@ -12,7 +12,8 @@ def wrap_images(content):
     return content
 
 def markdown_to_html(text, tag):
-    title = re.findall(r'#+\s(.+)', text)[0]
+    title = re.findall(r'#+\s(.+)', text)
+    title = title[0] if title else ''
     # fix image links
     text = re.sub(r"!\[(.*)\]\(.+\/([^\/]+)\)", f"![\g<1>](/static/content/{tag}/\g<2>)", text)
     content = markdown.markdown(text, extensions=[
