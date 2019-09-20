@@ -46,7 +46,7 @@ def read_dir(path, tag):
             out = content + out
         elif filename.endswith('.py'):
             code = format_code(open(path + filename))
-            out += f'\n<hr>\n<h2>{filename}</h2>\n{code}'
+            out += '\n<hr>\n<h2>{}</h2>\n{}'.format(filename, code)
     return title, out
 
 
