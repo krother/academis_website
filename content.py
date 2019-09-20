@@ -15,7 +15,7 @@ def markdown_to_html(text, tag):
     title = re.findall(r'#+\s(.+)', text)
     title = title[0] if title else ''
     # fix image links
-    text = re.sub(r"!\[(.*)\]\(.+\/([^\/]+)\)", f"![\g<1>](/static/content/{tag}/\g<2>)", text)
+    text = re.sub(r"!\[(.*)\]\(.+\/([^\/]+)\)", "![\g<1>](/static/content/{}/\g<2>)".format(tag), text)
     content = markdown.markdown(text, extensions=[
             'markdown.extensions.tables',
             'markdown.extensions.codehilite'])
@@ -32,7 +32,7 @@ def get_readme(tag):
     path = BASE_PATH + tag
     readme_fn = path + '/README.md'
     text = open(readme_fn).read()
-    text = re.sub("\* \[([^\]]+)\]\(([^\)]+)\)", f"* [\g<1>](/posts/{tag}/\g<2>)" , text)
+    text = re.sub("\* \[([^\]]+)\]\(([^\)]+)\)", "* [\g<1>](/posts/{}/\g<2>)".format(tag) , text)
     title, content = markdown_to_html(text, tag)
     return title, content
 

@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
 mkdir -p content
+cd content
 
 git clone https://github.com/krother/Python3_Basics_Tutorial.git
 git clone https://github.com/krother/python3_grundlagenkurs.git
