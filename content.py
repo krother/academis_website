@@ -21,6 +21,12 @@ def markdown_to_html(text, tag):
     content = wrap_images(content)
     return title, content
 
+
+def format_code(f):
+    code = ''.join(['    ' + x for x in f])
+    return markdown_to_html(code, '-')[1]
+
+
 def get_readme(tag):
     path = BASE_PATH + tag
     readme_fn = path + '/README.md'
@@ -29,9 +35,24 @@ def get_readme(tag):
     title, content = markdown_to_html(text, tag)
     return title, content
 
+def read_dir(path, tag):
+    out = ''
+    title = tag.capitalize()
+    for filename in os.listdir(path):
+        if filename.endswith('.md'):
+            s = open(path + filename).read()
+            title, content = markdown_to_html(s, tag)
+            out = content + out
+        elif filename.endswith('.py'):
+            code = format_code(open(path + filename))
+            out += f'\n<hr>\n<h2>{filename}</h2>\n{code}'
+    return title, out
+
 
 def get_post(tag, slug):
     fn = BASE_PATH + tag + '/' + slug
+    if os.path.isdir(fn):
+        return read_dir(fn, tag)
     text = open(fn).read()
     title, content = markdown_to_html(text, tag)
     return title, content

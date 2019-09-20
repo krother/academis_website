@@ -30,7 +30,7 @@ def cv():
     navi = [('/', 'Academis')]
     return render_template('cv.html', testimonial=random.choice(testimonials))
 
-@app.route('/posts/<tag>/<slug>')
+@app.route('/posts/<tag>/<path:slug>')
 def article_by_name(tag, slug):
     title, content = get_post(tag, slug)
     return render_template('article.html', title=title, \
@@ -44,11 +44,8 @@ def article_list(tag):
            tag=tag, slug=tag, content=content, \
            testimonial=random.choice(testimonials))
 
-@app.route('/posts/<tag>/<slug>/<subslug>')
-def article_deep(tag, slug, subslug):
-    return article_by_name(tag, slug + '/' + subslug)
-    #navi = [('/', 'Academis'), ('/blog', 'Blog'),
-    #        ('/blog/tags/{}'.format(tag), title)]
+# navi = [('/', 'Academis'), ('/blog', 'Blog'),
+#        ('/blog/tags/{}'.format(tag), title)]
 
 
 @app.route('/testimonials')
