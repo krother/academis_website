@@ -32,14 +32,14 @@ def get_readme(tag):
     path = BASE_PATH + tag
     readme_fn = path + '/README.md'
     text = open(readme_fn).read()
-    text = re.sub("\* \[([^\]]+)\]\(([^\)]+)\)", "* [\g<1>](/posts/{}/\g<2>)".format(tag) , text)
+    text = re.sub("\* \[([^\]]+)\]\((?!http)([^\)]+)\)", "* [\g<1>](/posts/{}/\g<2>)".format(tag) , text)
     title, content = markdown_to_html(text, tag)
     return title, content
 
 def read_dir(path, tag):
     out = ''
     title = tag.capitalize()
-    for filename in os.listdir(path):
+    for filename in sorted(os.listdir(path)):
         if filename.endswith('.md'):
             s = open(path + filename).read()
             title, content = markdown_to_html(s, tag)
