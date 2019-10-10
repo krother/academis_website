@@ -11,28 +11,38 @@ def wrap_images(content):
     content = re.sub(r'\<img ([^\>]+\>)', r'<img class="media-object" \1', content)
     return content
 
+def fix_links(text, tag):
+    """
+    Hammer on the links to documents and images
+    so that they point to URLs in Flask
+    and still work on GitHub.
+    Supports both HTML and Markdown image links
+    """
+    text = re.sub("\* \[([^\]]+)\]\((?!http)([^\)]+)\)", "* [\g<1>](/posts/{}/\g<2>)".format(tag) , text)
+    text = re.sub("\| \[([^\]]+)\]\((?!http)([^\)]+)\)", "| [\g<1>](/posts/{}/\g<2>)".format(tag) , text)
+    text = re.sub('\<img src=\"(.+\/)?([^\"\/]+)\"', '<img src="/static/content/{}/\g<2>"'.format(tag), text)
+    text = re.sub(r"!\[(.*)\]\(.+\/([^\/]+)\)", "![\g<1>](/static/content/{}/\g<2>)".format(tag), text)
+    return text
+
+
 def markdown_to_html(text, tag):
     title = re.findall(r'#+\s(.+)', text)
     title = title[0] if title else ''
-    # fix image links
-    text = re.sub(r"!\[(.*)\]\(.+\/([^\/]+)\)", "![\g<1>](/static/content/{}/\g<2>)".format(tag), text)
+    text = fix_links(text, tag)
     content = markdown.markdown(text, extensions=[
             'markdown.extensions.tables',
             'markdown.extensions.codehilite'])
     content = wrap_images(content)
     return title, content
 
-
 def format_code(f):
     code = ''.join(['    ' + x for x in f])
     return markdown_to_html(code, '-')[1]
-
 
 def get_readme(tag):
     path = BASE_PATH + tag
     readme_fn = path + '/README.md'
     text = open(readme_fn).read()
-    text = re.sub("\* \[([^\]]+)\]\((?!http)([^\)]+)\)", "* [\g<1>](/posts/{}/\g<2>)".format(tag) , text)
     title, content = markdown_to_html(text, tag)
     return title, content
 
@@ -48,7 +58,6 @@ def read_dir(path, tag):
             code = format_code(open(path + filename))
             out += '\n<hr>\n<h2>{}</h2>\n{}'.format(filename, code)
     return title, out
-
 
 def get_post(tag, slug):
     fn = BASE_PATH + tag + '/' + slug

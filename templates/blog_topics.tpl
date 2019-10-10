@@ -20,6 +20,10 @@
       <h3><a href="/blog/tags/advanced_python">Advanced Python Examples</a></h3>
       <p>Code examples for structuring programs and useful shortcuts.</p>
     </li>
+    <li class="machine_learning">
+      <h3><a href="/blog/tags/python_challenges_DE">Python Programming Challenges (in German)</a></h3>
+      <p>Code examples for structuring programs and useful shortcuts.</p>
+    </li>
     <li class="project_management">
       <h3><a href="/blog/tags/python_testing">Python Testing Tutorial</a></h3>
       <p>Introduction to automated testing with pytest.</p>

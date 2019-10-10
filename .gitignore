@@ -4,3 +4,5 @@ views/*.html
 rss.xml
 content/*
 static/content/*
+localhost:5000/*
+sitemap.txt
