@@ -28,6 +28,10 @@
       <h3><a href="/blog/tags/python_testing">Python Testing Tutorial</a></h3>
       <p>Introduction to automated testing with pytest.</p>
     </li>
+    <li class="data_analysis">
+      <h3><a href="/blog/tags/generative_art">Generative Art with NumPy</a></h3>
+      <p>Learn NumPy by creating images.</p>
+    </li>
     <li class="biochemistry">
       <h3><a href="/blog/tags/biopython">Biopython</a></h3>
       <p>Introduction to Biopython.</p>
