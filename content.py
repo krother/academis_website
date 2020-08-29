@@ -25,10 +25,22 @@ def fix_links(text, tag):
     return text
 
 
+def replace_includes(text, path):
+    """resolves :::include xx.py directives"""
+    included = []
+    for pyfile in re.findall(r"\:\:\:include (\w+\.py)", text, re.IGNORECASE):
+        py = open(path + pyfile).read()
+        pyform = "\n    :::python3\n    " + py.replace("\n", "\n    ")
+        text = text.replace(":::include " + pyfile, pyform)
+        included.append(pyfile)
+    return text, included
+
+
 def markdown_to_html(text, tag):
     title = re.findall(r'#+\s(.+)', text)
     title = title[0] if title else ''
     text = fix_links(text, tag)
+
     content = markdown.markdown(text, extensions=[
             'markdown.extensions.tables',
             'markdown.extensions.codehilite'])
@@ -49,12 +61,15 @@ def get_readme(tag):
 def read_dir(path, tag):
     out = ''
     title = tag.capitalize()
+    included = []
     for filename in sorted(os.listdir(path)):
         if filename.endswith('.md'):
             s = open(path + filename).read()
+            s, inc = replace_includes(s, path)
+            included += inc
             title, content = markdown_to_html(s, tag)
             out = content + out
-        elif filename.endswith('.py'):
+        elif filename.endswith('.py') and filename not in included:
             code = format_code(open(path + filename))
             out += '\n<hr>\n<h2>{}</h2>\n{}'.format(filename, code)
     return title, out
