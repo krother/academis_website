@@ -21,7 +21,7 @@
       <p>Code examples for structuring programs and useful shortcuts.</p>
     </li>
     <li class="machine_learning">
-      <h3><a href="/blog/tags/python_challenges_EN">Python Programming Challenges 🇬🇧 in English</a> / <a href="/blog/tags/python_challenges_DE">🇩🇪 in German</a></h3>
+      <h3><a href="/blog/tags/python_challenges_EN">Python Programming Challenges 🇬🇧 in English</a> / <a href="/blog/tags/python_basics_DE">🇩🇪 in German</a></h3>
       <p>Code examples for structuring programs and useful shortcuts.</p>
     </li>
     <li class="project_management">
