@@ -94,6 +94,11 @@ h3 {
 		margin: 0;
 	}
 
+	ul.list-spectre h4 {
+		padding: 0;
+		margin: 0;
+	}
+
 	ul.list-spectre p {
 		padding: 0;
 		margin: 0;

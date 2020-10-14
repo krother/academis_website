@@ -4,8 +4,8 @@
 
   <ul class="list-spectre">
     <li class="python_basics">
-      <h3><a href="/blog/tags/python_basics">Python 3 Exercises 🇬🇧 in English </a> /
-        <a href="/blog/tags/python_basics_DE">🇩🇪 in German</a></h3>
+      <h3><a href="/blog/tags/python_basics">Python 3 Exercises</a></h3>
+        <h4><a href="/blog/tags/python_basics">🇬🇧 in English </a> / <a href="/blog/tags/python_basics_DE">🇩🇪 auf Deutsch</a></h4>
       <p>Exercises for beginners in the Python language.</p>
     </li>
     <li class="python">
@@ -21,7 +21,8 @@
       <p>Code examples for structuring programs and useful shortcuts.</p>
     </li>
     <li class="machine_learning">
-      <h3><a href="/blog/tags/python_challenges_EN">Python Programming Challenges 🇬🇧 in English</a> / <a href="/blog/tags/python_basics_DE">🇩🇪 in German</a></h3>
+      <h3><a href="/blog/tags/python_challenges_EN">Python Programming Challenges</a></h3>
+      <h4><a href="/blog/tags/python_challenges_EN">🇬🇧 in English </a> / <a href="/blog/tags/python_basics_DE">🇩🇪 auf Deutsch</a></h4>
       <p>Code examples for structuring programs and useful shortcuts.</p>
     </li>
     <li class="project_management">
