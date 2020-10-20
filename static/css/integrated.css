@@ -95,12 +95,12 @@ h3 {
 	}
 
 	ul.list-spectre h4 {
-		padding: 0;
+		padding: 0.4em 0.2em 0em 0em;
 		margin: 0;
 	}
 
 	ul.list-spectre p {
-		padding: 0;
+		padding: 0.3em 0.2em;
 		margin: 0;
 	}
 
@@ -195,8 +195,8 @@ a.current {
 		list-style-type: none;
 	}
 	ul.list-spectre li {
-		margin: 0.5em 0;
-		padding: 1em 1em 1em 5em;
+		margin: 1em 1em 1em 0em;
+		padding: 0em 0em 1em 5em;
 		background-size: 4em;
 		background-repeat: no-repeat;
 		background-position: left top;
@@ -207,7 +207,7 @@ a.current {
 		list-style-type: none;
 	}
 	#wrapper-secondary ul.list-spectre li {
-		padding: 0m 1em 0 2em;
+		padding: 0em 1em 0 2em;
 		margin: 0;
 		background-size: 1.5em;
 		background-repeat: no-repeat;
@@ -293,7 +293,13 @@ a.current {
 		background-image: url("../images/softdev.png");
 	}
 
+	.genart {
+		background-image: url("../images/numpy.png");
+	}
 	.data_analysis {
+		background-image: url("../images/bar.png");
+	}
+	.math {
 		background-image: url("../images/data_analysis.png");
 	}
 	.machine_learning {
@@ -301,6 +307,10 @@ a.current {
 	}
 	.agile {
 		background-image: url("../images/agile.png");
+	}
+
+	.games {
+		background-image: url("../images/pac.png");
 	}
 
 	.world {

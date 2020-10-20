@@ -10,20 +10,9 @@ app = Flask(__name__)
 
 testimonials = get_testimonials()
 
-TOC = ['Python Best Practices',
-       'Python Basics',
-       'Python',
-       'Data Analysis',
-       'Generative Art with NumPy',
-       'Presenting',
-       'Teaching',
-       'Leadership',
-       ]
-
 
 @app.route('/')
 def index():
-    navi = [('/', 'Academis')]
     return render_template('academis.html', testimonial=random.choice(testimonials))
 
 @app.route('/cv')
@@ -40,14 +29,11 @@ def article_by_name(tag, slug):
 
 @app.route('/blog/tags/<tag>')
 def article_list(tag):
+    """legacy URL - kept for external links"""
     title, content = get_readme(tag)
     return render_template('article.html', title=title, \
            tag=tag, slug=tag, content=content, \
            testimonial=random.choice(testimonials))
-
-# navi = [('/', 'Academis'), ('/blog', 'Blog'),
-#        ('/blog/tags/{}'.format(tag), title)]
-
 
 @app.route('/testimonials')
 def testimonial_list():
@@ -60,3 +46,8 @@ def publications():
 @app.route('/impressum')
 def imprint():
     return render_template('impressum.html', testimonial=random.choice(testimonials))
+
+
+@app.route('/<tag>')
+def tag_direct(tag):
+    return article_list(tag)
