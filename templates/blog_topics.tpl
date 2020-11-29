@@ -31,6 +31,10 @@
       <h3><a href="/advanced_python">Advanced Python Examples</a></h3>
       <p>Code examples for structuring programs and useful shortcuts.</p>
     </li>
+    <li class="softdev">
+      <h3><a href="/software_engineering_EN">Software Engineering</a></h3>
+      <p>Tools and Techniques to write better Python software.</p>
+    </li>
     <li class="project_management">
       <h3><a href="/python_testing">Python Testing Tutorial</a></h3>
       <p>Introduction to automated testing with pytest.</p>
