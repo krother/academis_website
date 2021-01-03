@@ -51,10 +51,14 @@
       <h3><a href="/speech_projects">Presenting</a></h3>
       <p>Speech projects to develop your confidence on the stage.</p>
     </li>
-    <!--
     <li class="time_management">
       <h3><a href="/time_management">Time Management</a></h3>
       <p>Be in charge of your own time.</p>
+    </li>
+    <!--
+    <li class="leadership">
+      <h3><a href="/leadership">Leadership</a></h3>
+      <p>Structure your thesis and write your first research articles.</p>
     </li>
     <li class="writing">
       <h3><a href="/writing">Writing</a></h3>
