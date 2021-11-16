@@ -22,6 +22,7 @@ def fix_links(text, tag):
     text = re.sub("\| \[([^\]]+)\]\((?!http)([^\)]+)\)", "| [\g<1>](/posts/{}/\g<2>)".format(tag) , text)
     text = re.sub('\<img src=\"(.+\/)?([^\"\/]+)\"', '<img src="/static/content/{}/\g<2>"'.format(tag), text)
     text = re.sub(r"!\[(.*)\]\(.+\/([^\/]+)\)", "![\g<1>](/static/content/{}/\g<2>)".format(tag), text)
+    text = re.sub(r":::file ([^\s]+)", "[\g<1>](/static/content/{}/\g<1>)".format(tag), text)
     return text
 
 
