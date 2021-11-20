@@ -3,7 +3,7 @@ import os
 import re
 import markdown
 
-BASE_PATH = os.path.split(__file__)[0] + '/content/'
+BASE_PATH = os.path.join(os.path.split(__file__)[0], '../content/')
 
 def wrap_images(content):
     """Add extra div tag to content"""
@@ -18,11 +18,13 @@ def fix_links(text, tag):
     and still work on GitHub.
     Supports both HTML and Markdown image links
     """
-    text = re.sub("\* \[([^\]]+)\]\((?!http)([^\)]+)\)", "* [\g<1>](/posts/{}/\g<2>)".format(tag) , text)
-    text = re.sub("\| \[([^\]]+)\]\((?!http)([^\)]+)\)", "| [\g<1>](/posts/{}/\g<2>)".format(tag) , text)
-    text = re.sub('\<img src=\"(.+\/)?([^\"\/]+)\"', '<img src="/static/content/{}/\g<2>"'.format(tag), text)
-    text = re.sub(r"!\[(.*)\]\([^\/]+\/([^\)]+)\)", "![\g<1>](/static/content/{}/\g<2>)".format(tag), text)
-    text = re.sub(r":::file ([^\s]+)", "[\g<1>](/static/content/{}/\g<1>)".format(tag), text)
+    text = re.sub(r"\* \[([^\]]+)\]\((?!http)([^\)]+)\)", r"* [\g<1>](/posts/{}/\g<2>)".format(tag) , text)
+    text = re.sub(r"\| \[([^\]]+)\]\((?!http)([^\)]+)\)", r"| [\g<1>](/posts/{}/\g<2>)".format(tag) , text)
+    text = re.sub(r'\<img src=\"(.+\/)?([^\"\/]+)\"', r'<img src="/static/content/{}/\g<2>"'.format(tag), text)
+
+    text = re.sub(r"!\[(.*)\]\(\.\.\/([^\)]+)\)", r"![\g<1>](\g<2>)", text)
+    text = re.sub(r"!\[(.*)\]\([^\/]+\/([^\)]+)\)", r"![\g<1>](/static/content/{}/\g<2>)".format(tag), text)
+    text = re.sub(r":::file ([^\s]+)", r"[\g<1>](/static/content/{}/\g<1>)".format(tag), text)
     return text
 
 

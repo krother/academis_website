@@ -1,12 +1,15 @@
 # coding: utf-8
 
 from flask import Flask, render_template
-from testimonials import get_testimonials
-from content import get_readme, get_post
-import os
+from academis.testimonials import get_testimonials
+from academis.content import get_readme, get_post
 import random
+import os
 
-app = Flask(__name__)
+BASE_PATH = os.path.join(os.path.split(__file__)[0], '..')
+
+
+app = Flask(__name__, root_path=BASE_PATH)
 
 testimonials = get_testimonials()
 
