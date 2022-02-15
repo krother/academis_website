@@ -9,13 +9,13 @@ def get_feed(db):
     fg = FeedGenerator()
     fg.id('http://www.academis.eu/feed')
     fg.title('Academis Blog')
-    fg.author( {'name':'Kristian Rother','email':'krother@academis.eu'} )
+    fg.author( {'name':'Kristian Rother','email':'kristian.rother@posteo.de'} )
     fg.link( href='http://www.academis.eu', rel='alternate' )
     fg.logo('http://www.academis.eu/static/images/academis_kr350.png')
     fg.subtitle('Articles on Python programming, Data analysis and Leadership in tech')
     fg.link( href='http://www.academis.eu/academis.atom', rel='self' )
     fg.language('en')
-    fg.contributor( name='Kristian Rother', email='krother@academis.eu' )
+    fg.contributor( name='Kristian Rother', email='kristian.rother@posteo.de' )
 
     for title, slug in get_all_posts(db):
         title, content = get_post(db, slug)
