@@ -16,8 +16,9 @@
       <h4><a href="/data_analysis_DE">Datenanalyse mit Python und pandas 🇩🇪</a></h4>
     </li>
     <li class="genart">
-      <h3><a href="/generative_art">Graphics with  Numpy 🇬🇧</a></h3>
-      <h4><a href="/grafik_DE">Grafik mit Numpy 🇩🇪</a></h4>
+      <h3><a href="/generative_art">Graphics with Numpy 🇬🇧</a></h3>
+      <p>Use arrays and matrices to generate art.</p>
+      <!-- <h4><a href="/grafik_DE">Grafik mit Numpy 🇩🇪</a></h4> !-->
     </li>
     <li class="games">
       <h3><a href="/games_EN">Game Programming in Python 🇬🇧</a></h3>
