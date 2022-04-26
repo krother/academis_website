@@ -21,10 +21,14 @@ RUN cp -r content/python_basics/images static/content/python_basics
 
 # install flask app locally
 ADD . /app
-RUN python setup.py install
+#ADD setup.py /app
+#ADD academis/. /app/academis
+RUN pip install --editable .
 
 ENV FLASK_APP=academis/flask_app.py
 ENV FLASK_DEBUG=TRUE
+ENV FLASK_RUN_HOST=0.0.0.0
 
-#CMD ["flask", "run"]
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "-e", "FLASK_DEBUG=TRUE", "academis.flask_app:app"]
+CMD ["flask", "run"]
+# gunicorn does not allow debug mode
+#CMD ["gunicorn", "--debug", "-b", "0.0.0.0:5000", "-e", "FLASK_DEBUG=TRUE", "academis.flask_app:app"]
