@@ -7,7 +7,10 @@
     let subMenuLinks = document.getElementsByClassName("sub-menu-links")[0];
 
     navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
+        link.addEventListener("click", (e) => {
+            // e.preventDefault()
+            // Weiterleitung zur Seite um 0.4s verzögern
+            // console.log(link);
             toggler.checked = false
         })
     })

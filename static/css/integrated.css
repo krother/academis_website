@@ -1,163 +1,18 @@
 /* Variables */
 :root {
-
     --main-font: Lato;
     --main-bg-color: #ffffff;
     --secondary-color: #008000;
+    --bg-color: #0080006c;
     --link-color:#008000;
     --line-color: rgba(0, 128, 0, 0.298);
     --main-text-color: #000000;
 }
 
-/* Body */
-body {
-	font-family: Lato;
-	font-size: 1.4em;
-	background: url(../images/header-alt.jpg) no-repeat;
-}
-
-/* Clearfix */
-html {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-*, *:before, *:after {
-	-webkit-box-sizing: inherit;
-	-moz-box-sizing: inherit;
-	box-sizing: inherit;
-}
-
-.group:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
-/* Layout: Grid */
-
-@media (min-width: 30em) {
-	#wrapper {
-		max-width: 50em;
-		margin: 0 auto;
-	}
-}
-
-@media (min-width: 65em) {
-	#wrapper-master {
-		max-width: 90em;
-		margin: 0 auto;
-	}
-	#wrapper-primary {
-		width: 66%;
-		float: left;
-		border-right: 1px solid #efefef;
-	}
-	#wrapper-secondary {
-		width: 33%;
-		float: left;
-	}
-}
 
 /* Layout: div */
 
 /* Layout: header, section, article und nav */
-
-header {
-	padding: 2em 3em;
-	margin: 0em;
-	text-align: left;
-}
-
-footer {
-	padding: 1em 3em;
-}
-
-section {
-	margin: 3em;
-}
-
-article {
-	margin: 3em;
-}
-
-nav#navigator {
-	border-bottom: 1px solid #efefef;
-}
-
-/* Text: Überschriften und Absatz */
-
-h1 {
-	font-size: 1.8em;
-}
-
-h2 {
-	font-size: 1.5em;
-}
-
-h3 {
-	font-size: 1.25em;
-}
-
-ul.list-spectre h3 {
-	font-size: 1.4em;
-	padding: 0;
-	margin: 0;
-}
-
-ul.list-spectre h4 {
-	padding: 0.4em 0.2em 0em 0em;
-	margin: 0;
-}
-
-ul.list-spectre p {
-	padding: 0.3em 0.2em;
-	margin: 0;
-}
-
-#wrapper-secondary ul.list-spectre h3 {
-	padding: 0 0.5em;
-	margin: 0.3em 0;
-	font-size: 1em;
-}
-
-li {
-	padding-bottom: 0.3em;
-}
-
-p {
-	font-size: 1em;
-	line-height: 150%;
-}
-
-.aboutme p {
-	width: 60%;
-}
-
-pre {
-	padding: 2em;
-}
-
-/* Text: Hyperlinks */
-
-a {
-	color: #3C6F1F;
-	text-decoration: none;
-}
-
-a:hover {
-	color: darkred;
-	-o-transition:     color .5s ease-out, background 1s ease-in;
-	-ms-transition:    color .5s ease-out, background 1s ease-in;
-	-moz-transition:   color .5s ease-out, background 1s ease-in;
-	-webkit-transition:color .5s ease-out, background 1s ease-in;
-	/* ...and now override with proper CSS property */
-	transition:        color .5s ease-out, background 1s ease-in;
-}
-
-a.current {
-	color: darkred;
-}
 
 /* Listen */
 
@@ -360,21 +215,7 @@ a.current {
 		border-bottom: 1px solid #efefef;
 	}
 
-	/* Inhaltsverzeichnis "See More" */
-	#wrapper-secondary ul.list-more {
-		padding: 0;
-		list-style-type: none;
-	}
-	#wrapper-secondary ul.list-more li {
-		padding: 0.2em 1em 0.2em 0;
-		margin: 0;
-		background-size: 1.5em;
-		background-repeat: no-repeat;
-		background-position: left center;
-	}
-	#wrapper-secondary ul.list-more li i {
-		margin: 0 1em 0 0;
-	}
+
 
 	/* Tags */
 	ul.list-tags {
@@ -415,10 +256,7 @@ img.media-logo {
 	max-height: 3em;
 }
 
-img.media-head {
-	max-width: 8em;
-	float: right;
-}
+
 
 @media (min-width: 30em) {
 	img.media-logo {
@@ -489,18 +327,179 @@ tbody tr:nth-child(even) {
 
 
 
-/******************* TODO: NAVBAR START *******************/
+/************************************** FIXME: NEW CODE **************************************/
 
-/* FIXME: Position im CSS Code ändern */
 
-/* header {
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-  color: var(--secondary-color);
-  display: flex;
-  justify-content: space-between;
+html {
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth; 
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+    color: var(--main-text-color);
+    font-family: var(--main-font);
+	font-size: 1.4rem;
+	background: url(../images/header-alt.jpg) no-repeat;
+}
+
+*, *:before, *:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.group:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+
+/* Layout: header, section, article und nav */
+
+header {
+	padding: 2rem 3rem;
+	margin: 0rem;
+	text-align: left;
+}
+
+section {
+	margin: 4rem;
+}
+
+article {
+	margin: 3rem;
+}
+
+nav#navigator {
+	border-bottom: 1px solid #efefef;
+}
+
+/* Text: Überschriften und Absatz TODO: Am Ende Anpassen*/
+
+h1 {
+	font-size: 2.2rem;
+}
+
+h2 {
+	font-size: 1.9rem;
+}
+
+h3 {
+	font-size: 1.5rem;
+}
+
+ul.list-spectre h3 {
+	font-size: 1.4em;
+	padding: 0;
+	margin: 0;
+}
+
+ul.list-spectre h4 {
+	padding: 0.4em 0.2em 0em 0em;
+	margin: 0;
+}
+
+ul.list-spectre p {
+	padding: 0.3em 0.2em;
+	margin: 0;
+}
+
+#wrapper-secondary ul.list-spectre h3 {
+	padding: 0 0.5em;
+	margin: 0.3em 0;
+	font-size: 1em;
+}
+
+/* li {
+	padding-bottom: 0.3em;
 } */
+
+p {
+	font-size: 1em;
+	line-height: 150%;
+}
+
+
+pre {
+	padding: 2em;
+}
+
+/* Text: Hyperlinks */
+
+a {
+	color: #3C6F1F;
+	text-decoration: none;
+}
+
+a:hover {
+	color: darkred;
+	-o-transition:     color .5s ease-out, background 1s ease-in;
+	-ms-transition:    color .5s ease-out, background 1s ease-in;
+	-moz-transition:   color .5s ease-out, background 1s ease-in;
+	-webkit-transition:color .5s ease-out, background 1s ease-in;
+	/* ...and now override with proper CSS property */
+	transition:        color .5s ease-out, background 1s ease-in;
+}
+
+a.current {
+	color: darkred;
+}
+
+
+/******************* WRAPPER START *******************/
+
+/* #id {
+
+}
+
+#wrapper {
+
+} */
+
+/* HEADER WRAPPER */
+#wrapper-master {
+    width: 100%;
+}
+
+/* MAIN CONTENT WRAPPER */
+#wrapper-primary {
+    width: 100%;
+}
+
+/* INTRO WRAPPER */
+#headline {
+    margin-bottom: 2.5rem;
+}
+
+#intro-wrapper {
+    width: 100%;
+    height: 60vh;
+    padding: 5rem;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    position: relative;
+    margin: 0;
+}
+
+img.media-head {
+	max-width: 15rem;
+}
+
+
+
+/******************* NAVBAR START *******************/
+
 
 .logo img {
     position: fixed;
@@ -668,47 +667,92 @@ nav {
   transition: color 0.3s ease;
 }
 
+/******************* NAVBAR END *******************/
+
+
+/******************* FOOTER START *******************/
+
+#wrapper-secondary {
+    width: 100%;
+    flex-direction: column;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: var(--bg-color);
+    padding: 2rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+}
+
+.copyright {
+    align-self: center;
+}
+
+#wrapper-secondary ul.list-more {
+    padding: 0;
+    list-style-type: none;
+}
+
+.list-more li i {
+    margin: 0 1rem 0 0;
+}
+
+.list-more li a {
+    cursor: pointer;
+}
+
+/******************* FOOTER END *******************/
+
+
+/******************* FIXME: MEDIA QUERIES START - RESPONSIVE DESIGN *******************/
 
 @media (min-width: 1200px) and (max-width: 1342px) {
-  nav {
-    width: 30vw;
+    nav {
+      width: 30vw;
+    }
   }
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-  nav {
-    width: 40vw;
+  
+  @media (min-width: 992px) and (max-width: 1199px) {
+    nav {
+      width: 40vw;
+    }
   }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  nav {
-    width: 50vw;
+  
+  @media (min-width: 768px) and (max-width: 991px) {
+    nav {
+      width: 50vw;
+    }
   }
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-
-  nav {
-    width: 70vw;
+  
+  @media (min-width: 576px) and (max-width: 767px) {
+  
+    nav {
+      width: 70vw;
+    }
   }
-}
-
-@media (max-width: 575px) {
-
-  .logo img {
-    visibility: hidden;
+  
+  @media (max-width: 575px) {
+  
+    .logo img {
+      visibility: hidden;
+    }
+  
+    nav {
+      width: 100vw;
+    }
+    .menu {
+      background-color: rgba(255, 255, 255, 0.993);
+    }
+    .nav-container .menu > div > div {
+      margin: 3rem;
+    }
   }
 
-  nav {
-    width: 100vw;
-  }
-  .menu {
-    background-color: rgba(255, 255, 255, 0.993);
-  }
-  .nav-container .menu > div > div {
-    margin: 3rem;
-  }
-}
-
-/******************* NAVBAR END *******************/
+  /******************* MEDIA QUERIES END *******************/
