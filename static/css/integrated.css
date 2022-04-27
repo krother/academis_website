@@ -679,6 +679,7 @@ footer {
     flex-direction: column;
     position: relative;
     background-color: var(--bg-color);
+	/* background-color: pink; */
     padding: 2rem;
 }
 
@@ -750,5 +751,6 @@ footer {
       margin: 3rem;
     }
   }
+
 
   /******************* MEDIA QUERIES END *******************/
