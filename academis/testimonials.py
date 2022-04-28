@@ -1,4 +1,7 @@
 
+import random
+
+
 TESTIMONIALS = [
 
 	(
@@ -100,5 +103,9 @@ TESTIMONIALS = [
     ),
 ]
 
-def get_testimonials():
+def get_all_testimonials():
     return TESTIMONIALS
+
+def get_random_testimonial():
+   return random.choice(TESTIMONIALS)
+   
