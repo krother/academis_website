@@ -23,3 +23,4 @@ SUBS = [
 @pytest.mark.parametrize(['text', 'tag', 'expected'], SUBS)
 def test_fix_links(text, tag, expected):
     assert fix_links(text, tag) == expected
+

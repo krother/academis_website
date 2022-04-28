@@ -1,4 +1,5 @@
 
+import os
 import re
 import markdown
 from dataclasses import dataclass
@@ -71,7 +72,7 @@ def directory_to_article(path, tag):
             s = open(path + filename).read()
             s, inc = replace_includes(s, path)
             included += inc
-            title, content = markdown_to_html(s, tag)
+            title, content, _ = markdown_to_html(s, tag)
             out = content + out
         elif filename.endswith('.py') and filename not in included:
             code = format_code(open(path + filename))
