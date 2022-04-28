@@ -9,6 +9,7 @@ class Article:
     """Data objects the Flask app needs"""
     title: str
     text: str
+    links: list
 
 
 def wrap_images(content):
@@ -49,12 +50,13 @@ def markdown_to_html(text, tag):
     title = re.findall(r'#+\s(.+)', text)
     title = title[0] if title else ''
     text = fix_links(text, tag)
+    links = re.findall(r'/posts/' + tag + r'/([^)]+)\)', text)
 
     content = markdown.markdown(text, extensions=[
             'markdown.extensions.tables',
             'markdown.extensions.codehilite'])
     content = wrap_images(content)
-    return title, content
+    return title, content, links
 
 def format_code(f):
     code = ''.join(['    ' + x for x in f])
@@ -74,7 +76,7 @@ def directory_to_article(path, tag):
         elif filename.endswith('.py') and filename not in included:
             code = format_code(open(path + filename))
             out += f'\n<hr>\n<h2>{filename}</h2>\n{code}'
-    return Article(title, out)
+    return Article(title, out, [])
 
 def markdown_to_article(text, tag):
     return Article(*markdown_to_html(text, tag))
