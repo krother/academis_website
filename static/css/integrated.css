@@ -276,8 +276,9 @@ th, td {
 	border-width: 1px 0;
 }
 
+/* FIXME: width für alle Tabellen anpassen */
 td {
-	width: 70%;
+	/* width: 70%; */
 }
 
 tr {
@@ -296,13 +297,29 @@ tbody tr:nth-child(even) {
 /* Bonus */
 
 	/* Feedbackblock */
+
+	/* FIXME: Version I */
 	.paragraph-feedback {
 	  padding: 3px 1em;
 	  color: rgb(40,40,40);
 	  border-width: 1px 0;
 	  border-top: 1px solid;
 	  border-color: #ccc;
+	  /* background-color: var(--bg-color); */
 	}
+
+	/* FIXME: Version II */
+
+	.paragraph-feedback {
+		padding: 3px 1em;
+		color: rgb(40,40,40);
+		border-width: 1px 0;
+		border-bottom: 1px solid;
+		border-color: #ccc;
+		margin: 0;
+		padding: 2em;
+		background-color: var(--bg-color);
+	  }
 
 	.paragraph-feedback p, .cv-headline p {
 	  text-align: center;
@@ -323,7 +340,7 @@ tbody tr:nth-child(even) {
 
 	.cv-headline {
 		margin: 0;
-		padding: 1.5em;
+		padding: 3em;
 	}
 
 	/* Referenzblock */
