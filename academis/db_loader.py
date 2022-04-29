@@ -56,4 +56,4 @@ if __name__ == "__main__":
         initialize(db)
         clear(db)
         n = load_all_articles(db)
-        print(f"{n} articles added")
+        print(f"\n{n} articles added")

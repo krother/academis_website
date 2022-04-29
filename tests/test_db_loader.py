@@ -22,4 +22,4 @@ def temp_db():
 def test_load_db(temp_db):
     load_all_articles(temp_db)
     result = list(temp_db.execute("SELECT count(*) FROM article"))
-    assert result[0][0] > 100
+    assert result[0][0  ] > 100
