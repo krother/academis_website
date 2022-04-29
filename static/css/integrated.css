@@ -1,7 +1,7 @@
 /* Variables */
 :root {
     --main-font: Lato;
-    --main-bg-color: #ffffff;
+    /* --main-bg-color: #ffffff; */
     --secondary-color: #008000;
 	--hover-color: #004800;
     --bg-color: #00800030;
@@ -322,8 +322,7 @@ tbody tr:nth-child(even) {
 	  color: rgb(40,40,40)
 	}
 
-
-
+	
 
 /************************************** FIXME: NEW CODE **************************************/
 
@@ -386,14 +385,22 @@ nav#navigator {
 
 h1 {
 	font-size: 2.2rem;
+	padding: 2rem 0rem 1.5rem 0rem;
 }
 
 h2 {
 	font-size: 1.9rem;
+	padding: 2rem 0rem 1.5rem 0rem;
 }
 
 h3 {
 	font-size: 1.5rem;
+	padding: 1.5rem 0rem 1rem 0rem;
+}
+
+h4 {
+	/* font-size: 1.5rem; */
+	padding: 1rem 0rem 0.5rem 0rem;
 }
 
 ul.list-spectre h3 {
@@ -418,15 +425,23 @@ ul.list-spectre p {
 	font-size: 1em;
 }
 
-/* li {
-	padding-bottom: 0.3em;
-} */
+li {
+	/* padding-bottom: 0.3em; */
+	padding-left: 2rem;
+}
+
+ul {
+	margin-block-start: 1rem;
+    margin-block-end: 1rem;
+    /* margin-inline-start: 0px; */
+    /* margin-inline-end: 0px; */
+    padding-inline-start: 3rem;
+}
 
 p {
 	font-size: 1em;
-	line-height: 150%;
+	line-height: 130%;
 }
-
 
 pre {
 	padding: 2em;
@@ -647,6 +662,11 @@ nav {
 .menu-link li, .show-more li {
   border-bottom: 2px solid var(--line-color);
   padding: 10px;
+  padding-left: 0;
+}
+
+.sub-menu-links {
+	padding-inline-start: 0;
 }
 
 .sub-menu-links > a > li{
@@ -682,7 +702,6 @@ footer {
     flex-direction: column;
     position: relative;
     background-color: var(--bg-color);
-	/* background-color: pink; */
 	/* color: var(--footer-link-color); */
     padding: 2rem;
 }
