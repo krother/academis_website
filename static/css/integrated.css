@@ -4,7 +4,7 @@
     --main-bg-color: #ffffff;
     --secondary-color: #008000;
 	--hover-color: #004800;
-    --bg-color: #0080005e;
+    --bg-color: #00800030;
     --link-color:#008000;
 	--footer-link-color: #efefef;
     --line-color: rgba(0, 128, 0, 0.298);
@@ -677,6 +677,7 @@ nav {
 
 footer {
     width: 100%;
+	height: auto;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -689,11 +690,11 @@ footer {
 .footer-links {
     display: flex;
     justify-content: space-around;
+	align-items: flex-end;
 	/* color: #efefef; */
 }
-
-.copyright {
-    align-self: center;
+.fa-copyright {
+	padding-top: 1.5rem;
 }
 
 #wrapper-secondary ul.list-more {
@@ -710,10 +711,18 @@ footer {
 	/* color: var(--footer-link-color); */
 }
 
+.copyright {
+    align-self: center;
+	/* align-self: flex-end; */
+}
+
+.copyright li {
+	padding: 0px 2rem;
+}
 /******************* FOOTER END *******************/
 
-
 /******************* FIXME: MEDIA QUERIES START - RESPONSIVE DESIGN *******************/
+
 
 @media (min-width: 1200px) and (max-width: 1342px) {
     nav {
