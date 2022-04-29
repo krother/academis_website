@@ -294,68 +294,6 @@ tbody tr:nth-child(even) {
 	background: #f0f0f0;
 }
 
-/* Bonus */
-
-	/* Feedbackblock */
-
-	/* FIXME: Version I */
-	.paragraph-feedback {
-	  padding: 3px 1em;
-	  color: rgb(40,40,40);
-	  border-width: 1px 0;
-	  border-top: 1px solid;
-	  border-color: #ccc;
-	  /* background-color: var(--bg-color); */
-	}
-
-	/* FIXME: Version II */
-
-	.paragraph-feedback {
-		padding: 3px 1em;
-		color: rgb(40,40,40);
-		border-width: 1px 0;
-		border-bottom: 1px solid;
-		border-color: #ccc;
-		margin: 0;
-		padding: 2em;
-		background-color: var(--bg-color);
-	  }
-
-	.paragraph-feedback p, .cv-headline p {
-	  text-align: center;
-	  font-style: italic;
-	  color: gray;
-	  padding-bottom: 0.4em;
-	}
-
-	.cv-headline p {
-		padding-bottom: 0;
-	  }
-
-	.paragraph-feedback h2, .cv-headline h2 {
-	  text-align: center;
-	  font-weight: bold;
-	  font-style: italic;
-	}
-
-	.cv-headline {
-		margin: 0;
-		padding: 3em;
-	}
-
-	/* Referenzblock */
-	.paragraph-reference {
-	  background-color: rgb(220,220,220);
-	  -moz-border-radius: 0.5em;
-	  -webkit-border-radius: 0.5em;
-	  -khtml-border-radius: 0.5em;
-	  border-radius: 0.5em;
-	  padding: 3px 1em;
-	  font-size: 0.8em;
-	  color: rgb(40,40,40)
-	}
-
-	
 
 /************************************** FIXME: NEW CODE **************************************/
 
@@ -466,14 +404,15 @@ li {
 ul {
 	margin-block-start: 1rem;
     margin-block-end: 1rem;
-    /* margin-inline-start: 0px; */
-    /* margin-inline-end: 0px; */
     padding-inline-start: 3rem;
 }
 
 p {
 	font-size: 1em;
 	line-height: 130%;
+	/* FIXME: User Agent Stylesheet */
+	margin-block-start: 0.6em;
+    margin-block-end: 0.6em;
 }
 
 pre {
@@ -720,6 +659,85 @@ nav {
 
 /******************* NAVBAR END *******************/
 
+/******************* CV WRAPPER START *******************/
+
+/* FIXME: Table in CV anpassen */
+/* .cv-wrapper ul li table tbody td {
+	width: 100%;
+} */
+
+
+.license-wrapper {
+	background-color: pink;
+}
+
+/******************* CV WRAPPER END *******************/
+
+
+/******************* FEEDBACK/TESTIMONIALS START *******************/
+
+/* Bonus */
+
+	/* Feedbackblock */
+
+	/* FIXME: Version I */
+	.paragraph-feedback {
+		padding: 3px 1em;
+		color: rgb(40,40,40);
+		border-width: 1px 0;
+		border-top: 1px solid;
+		border-color: #ccc;
+		/* background-color: var(--bg-color); */
+	  }
+  
+	  /* FIXME: Version II */
+  
+	  .paragraph-feedback {
+		  padding: 3px 1em;
+		  color: rgb(40,40,40);
+		  border-width: 1px 0;
+		  border-bottom: 1px solid;
+		  border-color: #ccc;
+		  margin: 0;
+		  padding: 2em;
+		  background-color: var(--bg-color);
+		}
+  
+	  .paragraph-feedback p, .cv-headline p {
+		text-align: center;
+		font-style: italic;
+		color: gray;
+		padding-bottom: 0.4em;
+	  }
+  
+	  .cv-headline p {
+		  padding-bottom: 0;
+		}
+  
+	  .paragraph-feedback h2, .cv-headline h2 {
+		text-align: center;
+		font-weight: bold;
+		font-style: italic;
+	  }
+  
+	  .cv-headline {
+		  margin: 0;
+		  padding: 2.5em;
+	  }
+  
+	  /* Referenzblock */
+	  .paragraph-reference {
+		background-color: rgb(220,220,220);
+		-moz-border-radius: 0.5em;
+		-webkit-border-radius: 0.5em;
+		-khtml-border-radius: 0.5em;
+		border-radius: 0.5em;
+		padding: 3px 1em;
+		font-size: 0.8em;
+		color: rgb(40,40,40)
+	  }
+  
+/******************* FEEDBACK/TESTIMONIALS END *******************/
 
 /******************* FOOTER START *******************/
 
@@ -775,7 +793,6 @@ footer {
 
 /******************* FIXME: MEDIA QUERIES START - RESPONSIVE DESIGN *******************/
 
-
 @media (min-width: 1200px) and (max-width: 1342px) {
     nav {
       width: 30vw;
@@ -817,6 +834,5 @@ footer {
       margin: 3rem;
     }
   }
-
 
   /******************* MEDIA QUERIES END *******************/
