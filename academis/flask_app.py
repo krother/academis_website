@@ -2,14 +2,14 @@
 
 from flask import Flask, render_template
 from academis.testimonials import get_random_testimonial, get_all_testimonials
-from academis.content import get_article_list_html, get_article_html
+from academis.content import MarkdownContentRepository
 import os
 
 BASE_PATH = os.path.join(os.path.split(__file__)[0], "..")
 
 
 app = Flask(__name__, root_path=BASE_PATH)
-
+repo = MarkdownContentRepository()
 
 @app.route("/")
 def index():
@@ -23,7 +23,7 @@ def cv():
 
 @app.route("/posts/<tag>/<path:slug>")
 def article_by_name(tag, slug):
-    article = get_article_html(tag, slug)
+    article = repo.get_article_html(tag, slug)
     return render_template(
         "article.html",
         title=article.title,
@@ -37,7 +37,7 @@ def article_by_name(tag, slug):
 @app.route("/blog/tags/<tag>")
 def article_list(tag):
     """legacy URL - kept for external links"""
-    article = get_article_list_html(tag)
+    article = repo.get_article_list_html(tag)
     return render_template(
         "article.html",
         title=article.title,

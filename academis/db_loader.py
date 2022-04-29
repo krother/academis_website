@@ -2,10 +2,7 @@
 
 import sqlite3
 from academis.content import (
-    get_all_tags,
-    get_all_article_slugs,
-    get_article_list_html,
-    get_article_html,
+    MarkdownContentRepository,
     BASE_PATH,
 )
 
@@ -36,14 +33,15 @@ def insert_article(db, tag, slug, a):
 
 def load_all_articles(db):
     n = 0
-    for tag in get_all_tags():
+    repo = MarkdownContentRepository()
+    for tag in repo.get_all_tags():
         print(f"\nprocessing {tag}")
-        a = get_article_list_html(tag)
+        a = repo.get_article_list_html(tag)
         insert_article(db, tag, None, a)
         n += 1
-        for slug in get_all_article_slugs(tag):
+        for slug in repo.get_all_article_slugs(tag):
             print(".", end="")
-            a = get_article_html(tag, slug)
+            a = repo.get_article_html(tag, slug)
             insert_article(db, tag, slug, a)
             n += 1
     return n

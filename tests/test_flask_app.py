@@ -2,7 +2,7 @@
 import pytest
 import re
 from academis.flask_app import app
-from academis.content import get_all_tags, get_all_slugs
+from academis.content import MarkdownContentRepository
 
 @pytest.fixture
 def client():
@@ -11,9 +11,11 @@ def client():
         yield client
     
 
+repo = MarkdownContentRepository()
+
 URLS = ['/', '/impressum', '/cv', '/testimonials', '/publications']
-URLS += [f'/{tag}' for tag in get_all_tags()]
-URLS += [f'/posts/{tag}/{slug}' for tag, slug in get_all_slugs()]
+URLS += [f'/{tag}' for tag in repo.get_all_tags()]
+URLS += [f'/posts/{tag}/{slug}' for tag, slug in repo.get_all_slugs()]
 #TODO: /courses
 
 @pytest.mark.parametrize('url', URLS)
