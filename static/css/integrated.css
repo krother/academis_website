@@ -266,7 +266,7 @@ img.media-logo {
 
 table {
 	border-collapse: collapse;
-	width: 100%;
+	width: 80%;
 }
 
 th, td {
@@ -274,6 +274,10 @@ th, td {
 	text-align: left;
 	border: solid #ccc;
 	border-width: 1px 0;
+}
+
+td {
+	width: 70%;
 }
 
 tr {
@@ -296,18 +300,30 @@ tbody tr:nth-child(even) {
 	  padding: 3px 1em;
 	  color: rgb(40,40,40);
 	  border-width: 1px 0;
-	  border-style: solid;
+	  border-top: 1px solid;
 	  border-color: #ccc;
 	}
-	.paragraph-feedback p {
+
+	.paragraph-feedback p, .cv-headline p {
 	  text-align: center;
 	  font-style: italic;
 	  color: gray;
+	  padding-bottom: 0.4em;
 	}
-	.paragraph-feedback h2 {
+
+	.cv-headline p {
+		padding-bottom: 0;
+	  }
+
+	.paragraph-feedback h2, .cv-headline h2 {
 	  text-align: center;
 	  font-weight: bold;
 	  font-style: italic;
+	}
+
+	.cv-headline {
+		margin: 0;
+		padding: 1.5em;
 	}
 
 	/* Referenzblock */
