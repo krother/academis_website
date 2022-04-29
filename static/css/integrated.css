@@ -3,8 +3,10 @@
     --main-font: Lato;
     --main-bg-color: #ffffff;
     --secondary-color: #008000;
-    --bg-color: #0080006c;
+	--hover-color: #004800;
+    --bg-color: #0080005e;
     --link-color:#008000;
+	--footer-link-color: #efefef;
     --line-color: rgba(0, 128, 0, 0.298);
     --main-text-color: #000000;
 }
@@ -438,7 +440,7 @@ a {
 }
 
 a:hover {
-	color: darkred;
+	color: var(--hover-color);
 	-o-transition:     color .5s ease-out, background 1s ease-in;
 	-ms-transition:    color .5s ease-out, background 1s ease-in;
 	-moz-transition:   color .5s ease-out, background 1s ease-in;
@@ -448,7 +450,7 @@ a:hover {
 }
 
 a.current {
-	color: darkred;
+	color: var(--hover-color);
 }
 
 
@@ -654,7 +656,7 @@ nav {
 }
 
 .menu-link li:hover, .sub-menu-links > a > li:hover {
-  color: #004800;
+  color: var(--hover-color);
 }
 
 .nav-container .menu > div > div > ul > li > a {
@@ -680,12 +682,14 @@ footer {
     position: relative;
     background-color: var(--bg-color);
 	/* background-color: pink; */
+	/* color: var(--footer-link-color); */
     padding: 2rem;
 }
 
 .footer-links {
     display: flex;
     justify-content: space-around;
+	/* color: #efefef; */
 }
 
 .copyright {
@@ -703,6 +707,7 @@ footer {
 
 .list-more li a {
     cursor: pointer;
+	/* color: var(--footer-link-color); */
 }
 
 /******************* FOOTER END *******************/
