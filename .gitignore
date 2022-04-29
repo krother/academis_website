@@ -118,3 +118,4 @@ tweego/config.ini
 
 # credentials for AWS server
 *.pem
+academis.sqlite3
