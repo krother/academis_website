@@ -10,7 +10,6 @@
     --main-text-color: #000000;
 }
 
-
 /* Listen */
 
 	/* Breadcrumb Menü */
@@ -212,8 +211,6 @@
 		border-bottom: 1px solid #efefef;
 	}
 
-
-
 	/* Tags */
 	ul.list-tags {
 		text-align: left;
@@ -244,7 +241,6 @@
 	}
 
 /* Medienobjekte */
-
 img.media-object {
 	max-width: 100%;
 }
@@ -261,17 +257,14 @@ table {
 .cv-wrapper table {
 	width: 100%;
 }
+.cv-wrapper ul.list-spectre li {
+    margin: 1em 1em 2em 0em;
+}
 th, td {
 	padding: 0.4em;
 	text-align: left;
 	border: solid #ccc;
 	border-width: 1px 0;
-}
-
-/* FIXME: width für alle Tabellen anpassen */
-
-td {
-	/* width: 70%; */
 }
 tr {
 	padding: 1em;
@@ -405,7 +398,6 @@ ul.list-spectre p {
 }
 
 li {
-	/* padding-bottom: 0.3em; */
 	padding-left: 2rem;
 }
 
@@ -432,7 +424,6 @@ a {
 	color: #3C6F1F;
 	text-decoration: none;
 }
-
 a:hover {
 	color: var(--hover-color);
 	-o-transition:     color .5s ease-out, background 1s ease-in;
@@ -442,7 +433,6 @@ a:hover {
 	/* ...and now override with proper CSS property */
 	transition:        color .5s ease-out, background 1s ease-in;
 }
-
 a.current {
 	color: var(--hover-color);
 }
@@ -503,19 +493,16 @@ img.media-head {
     cursor: pointer;
   }
 
-
 nav {
   position: fixed;
   top: 0px;
   right: 0px;
   display: flex;
-  z-index: 1000;
-  height: 100%;
   align-items: flex-start;
   overflow: scroll;
+  height: auto;
   transition: 0.4s ease-in;
 }
-
 .nav-container .toggler {
   position: absolute;
   top: 30px;
@@ -526,7 +513,6 @@ nav {
   height: 40px;
   opacity: 0;
 }
-
 .burger-menu {
     top: 30px;
     right: 30px;
@@ -538,7 +524,6 @@ nav {
     align-items: center;
     justify-content: center;
 }
-
 .burger-menu > div {
   position: relative;
   flex: none;
@@ -550,7 +535,6 @@ nav {
   justify-content: center;
   transition: all 0.4s ease;
 }
-
 .burger-menu > div::before,
 .burger-menu > div::after {
   content: '';
@@ -561,30 +545,23 @@ nav {
   height: 4px;
   background: inherit;
 }
-
 .burger-menu > div::after {
   top: 9px;
 }
-
 .nav-container .toggler:checked + .burger-menu > div {
   transform: rotate(135deg);
 }
-
 .nav-container .toggler:checked + .burger-menu > div:before,
 .nav-container .toggler:checked + .burger-menu > div:after {
   top: 0;
   transform: rotate(90deg);
 }
-
 .nav-container .toggler:checked:hover + .burger-menu > div {
   transform: rotate(135deg);
 }
-
 .nav-container{
   width: 100%;
-  height: 100%;
 }
-
 .menu {
   display: flex;
   flex-direction: column;
@@ -593,29 +570,23 @@ nav {
   width: 100%;
   height: 100%;
 }
-
 .menu ul {
   list-style: none;
 }
-
 .menu a {
   cursor: pointer;
   text-decoration: none;
 }
-
 .nav-container .toggler:checked ~ .menu {
   visibility: visible;
 }
-
 .nav-container .toggler:checked ~ .menu > div {
   transition-duration: 0.3s;
 } 
-
 .nav-container .toggler:checked ~ .menu > div > div {
   opacity: 1;
   transition:  opacity 0.3s ease 0.3s;
 }
-
 .nav-container .menu > div {
   width: 100%;
   height: 100%;
@@ -624,7 +595,6 @@ nav {
   justify-content: center;
   transition: all 0.3s ease;
 }
-
 .nav-container .menu > div > div {
   margin: 3rem;
   max-width: 90vw;
@@ -632,34 +602,28 @@ nav {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-
 .menu-link, .show-more {
   width: 100%;
   list-style: none;
   color: var(--secondary-color);
   font-size: 1.4rem;
 }
-
 .menu-link li, .show-more li {
   border-bottom: 2px solid var(--line-color);
   padding: 10px;
   padding-left: 0;
 }
-
 .sub-menu-links {
 	padding-inline-start: 0;
 }
-
 .sub-menu-links > a > li{
   padding-left: 20px;
   font-size: 1rem;
   border-bottom: 2px solid var(--line-color);
 }
-
 .menu-link li:hover, .sub-menu-links > a > li:hover {
   color: var(--hover-color);
 }
-
 .nav-container .menu > div > div > ul > li > a {
   color: inherit;
   text-decoration: none;
@@ -668,22 +632,13 @@ nav {
 
 /******************* NAVBAR END *******************/
 
-/******************* CV WRAPPER START *******************/
 
-/* FIXME: Table in CV anpassen */
-/* .cv-wrapper ul li table tbody td {
-	width: 100%;
-} */
+/* FIXME: */
 .license-wrapper {
 	background-color: pink;
 }
 
-/******************* CV WRAPPER END *******************/
-
-
 /******************* FEEDBACK/TESTIMONIALS START *******************/
-
-/* Bonus */
 
 	/* Feedbackblock */
 
@@ -696,7 +651,6 @@ nav {
 		border-color: #ccc;
 		/* background-color: var(--bg-color); */
 	  }
-  
 	/* FIXME: Version II */
 	.paragraph-feedback {
 		padding: 3px 1em;
@@ -758,14 +712,12 @@ footer {
     flex-direction: column;
     position: relative;
     background-color: var(--bg-color);
-	/* color: var(--footer-link-color); */
     padding: 2rem;
 }
 .footer-links {
     display: flex;
     justify-content: space-around;
 	align-items: flex-end;
-	/* color: #efefef; */
 }
 .footer-links p {
 	margin-block-start: 0;
@@ -782,11 +734,9 @@ footer {
 }
 .list-more li a {
     cursor: pointer;
-	/* color: var(--footer-link-color); */
 }
 .copyright {
     align-self: center;
-	/* align-self: flex-end; */
 }
 .copyright li {
 	padding: 0px 2rem;
@@ -794,7 +744,7 @@ footer {
 
 /******************* FOOTER END *******************/
 
-/******************* FIXME: MEDIA QUERIES START - RESPONSIVE DESIGN *******************/
+/******************* MEDIA QUERIES START - RESPONSIVE DESIGN *******************/
 
 @media (min-width: 1200px) and (max-width: 1342px) {
     nav {
@@ -964,8 +914,6 @@ footer {
 		background-image: none;
 	}
 
-
-
   }
   
   /* IPHONE SIZES */
@@ -1111,7 +1059,6 @@ footer {
 	.cv-wrapper .world {
 		background-image: none;
 	}
-
 
   }
 

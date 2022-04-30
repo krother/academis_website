@@ -11,6 +11,7 @@
             // e.preventDefault()
             // Weiterleitung zur Seite um 0.4s verzögern
             // console.log(link);
+            // toggle navbar z-index
             toggler.checked = false
         })
     })
