@@ -372,6 +372,7 @@ h4 {
 ul.list-spectre h3 {
 	font-size: 1.4em;
 	padding: 0;
+	padding-bottom: 0.3em;
 	margin: 0;
 }
 
@@ -405,8 +406,7 @@ ul {
 p {
 	font-size: 1em;
 	line-height: 130%;
-	/* FIXME: User Agent Stylesheet */
-	margin-block-start: 0.6em;
+	margin-block-start: 0.8em;
     margin-block-end: 0.6em;
 }
 
@@ -804,6 +804,7 @@ footer {
     }
   }
   
+  /* IPHONE SIZES */
   @media (max-width: 575px) {
   
 	body {
@@ -816,6 +817,22 @@ footer {
   
 	section  {
 		margin: 2rem;
+	}
+
+	table {
+		width: 100%;
+	}
+
+	ul {
+		padding-inline-start: 2rem;
+	}
+
+	li {
+		padding-left: 1rem;
+	}
+	
+	a, p {
+		overflow-wrap: break-word;  
 	}
 
     nav {
@@ -840,10 +857,12 @@ footer {
 		flex-direction: column;
 	}
 
+	/* LISTS */
 	ul.list-spectre li {
 		margin: 1em 0em;
 	}
 
+	/* FOOTER */
 	.footer-links {
 		flex-direction: column;
 		align-items: flex-start;
@@ -851,9 +870,92 @@ footer {
 	.footer-links li {
 		padding-left: 0;
 	}
-
 	.copyright li {
 		padding: 0;
+	}
+
+
+	/* .blog-topics{
+		background-color: pink;
+	} */
+
+	/* .cv-wrapper {
+		background-color: pink;
+	} */
+
+	/* .cv-wrapper ul.list-spectre li {
+		margin: 1em 0em;
+
+	} */
+
+	.cv-wrapper ul.list-spectre li {
+		padding: 0em 0em 2em 0em;
+	}
+
+
+	/* Inhaltsverzeichnis, Icons für Spektrum */
+	.cv-wrapper .teaching {
+		background-image: none;
+	}
+	.cv-wrapper .leadership {
+		background-image: none;
+	}
+	.cv-wrapper .project_management {
+		background-image: none;
+	}
+	.cv-wrapper .presenting {
+		background-image: none;
+	}
+	.cv-wrapper .time_management {
+		background-image: none;
+	}
+	.cv-wrapper .writing {
+		background-image: none;
+	}
+	.cv-wrapper .grant_writing {
+		background-image: none;
+	}
+	.cv-wrapper .biochemistry {
+		background-image: none;
+	}
+	.cv-wrapper .python_best_practices {
+		background-image: none;
+	}
+	.cv-wrapper .python_basics {
+		background-image: none;
+	}
+	.cv-wrapper .python_advanced {
+		background-image: none;
+	}
+	.cv-wrapper .biopython {
+		background-image: none;
+	}
+	.cv-wrapper .python {
+		background-image: none;
+	}
+	.cv-wrapper .softdev {
+		background-image: none;
+	}
+	.cv-wrapper .genart {
+		background-image: none;
+	}
+	.cv-wrapper .data_analysis {
+		background-image: none;
+	}
+	.cv-wrapper .math {
+		background-image: none;
+	}
+	.cv-wrapper .machine_learning {
+		background-image: none;
+	}
+	.cv-wrapper .agile {
+		background-image: none;
+	}
+	.cv-wrapper .games {
+		background-image: none;
+	}
+	.cv-wrapper .world {
+		background-image: none;
 	}
 
 

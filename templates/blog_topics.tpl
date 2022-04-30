@@ -1,5 +1,5 @@
 
-<section>
+<section class="blog-topics">
   <h2>These are my course materials:</h2>
 
   <ul class="list-spectre">
