@@ -1,7 +1,6 @@
 /* Variables */
 :root {
     --main-font: Lato;
-    /* --main-bg-color: #ffffff; */
     --secondary-color: #008000;
 	--hover-color: #004800;
     --bg-color: #00800030;
@@ -255,13 +254,6 @@ img.media-logo {
 }
 
 
-
-@media (min-width: 30em) {
-	img.media-logo {
-		max-height: 4em;
-	}
-}
-
 /* Tabelleneigenschaft */
 
 table {
@@ -277,6 +269,7 @@ th, td {
 }
 
 /* FIXME: width für alle Tabellen anpassen */
+
 td {
 	/* width: 70%; */
 }
@@ -353,10 +346,12 @@ nav#navigator {
 }
 
 /* Text: Überschriften und Absatz TODO: Am Ende Anpassen*/
+/* Zurück in em ändern */
 
 h1 {
 	font-size: 2.2rem;
 	padding: 2rem 0rem 1.5rem 0rem;
+	margin: 0;
 }
 
 h2 {
@@ -443,13 +438,6 @@ a.current {
 
 /******************* WRAPPER START *******************/
 
-/* #id {
-
-}
-
-#wrapper {
-
-} */
 
 /* HEADER WRAPPER */
 #wrapper-master {
@@ -665,8 +653,6 @@ nav {
 /* .cv-wrapper ul li table tbody td {
 	width: 100%;
 } */
-
-
 .license-wrapper {
 	background-color: pink;
 }
@@ -690,52 +676,51 @@ nav {
 		/* background-color: var(--bg-color); */
 	  }
   
-	  /* FIXME: Version II */
-  
-	  .paragraph-feedback {
-		  padding: 3px 1em;
-		  color: rgb(40,40,40);
-		  border-width: 1px 0;
-		  border-bottom: 1px solid;
-		  border-color: #ccc;
-		  margin: 0;
-		  padding: 2em;
-		  background-color: var(--bg-color);
-		}
-  
-	  .paragraph-feedback p, .cv-headline p {
-		text-align: center;
-		font-style: italic;
-		color: gray;
-		padding-bottom: 0.4em;
-	  }
-  
-	  .cv-headline p {
-		  padding-bottom: 0;
-		}
-  
-	  .paragraph-feedback h2, .cv-headline h2 {
-		text-align: center;
-		font-weight: bold;
-		font-style: italic;
-	  }
-  
-	  .cv-headline {
-		  margin: 0;
-		  padding: 2.5em;
-	  }
-  
-	  /* Referenzblock */
-	  .paragraph-reference {
-		background-color: rgb(220,220,220);
-		-moz-border-radius: 0.5em;
-		-webkit-border-radius: 0.5em;
-		-khtml-border-radius: 0.5em;
-		border-radius: 0.5em;
+	/* FIXME: Version II */
+	.paragraph-feedback {
 		padding: 3px 1em;
-		font-size: 0.8em;
-		color: rgb(40,40,40)
-	  }
+		color: rgb(40,40,40);
+		border-width: 1px 0;
+		border-bottom: 1px solid;
+		border-color: #ccc;
+		margin: 0;
+		padding: 2em;
+		background-color: var(--bg-color);
+	}
+
+	.paragraph-feedback p, .cv-headline p {
+	text-align: center;
+	font-style: italic;
+	color: gray;
+	padding-bottom: 0.4em;
+	}
+  
+	.cv-headline p {
+		padding-bottom: 0;
+	}
+
+	.paragraph-feedback h2, .cv-headline h2 {
+	text-align: center;
+	font-weight: bold;
+	font-style: italic;
+	}
+
+	.cv-headline {
+		margin: 0;
+		padding: 2.5em;
+	}
+
+	/* Referenzblock */
+	.paragraph-reference {
+	background-color: rgb(220,220,220);
+	-moz-border-radius: 0.5em;
+	-webkit-border-radius: 0.5em;
+	-khtml-border-radius: 0.5em;
+	border-radius: 0.5em;
+	padding: 3px 1em;
+	font-size: 0.8em;
+	color: rgb(40,40,40)
+	}
   
 /******************* FEEDBACK/TESTIMONIALS END *******************/
 
@@ -789,6 +774,7 @@ footer {
 .copyright li {
 	padding: 0px 2rem;
 }
+
 /******************* FOOTER END *******************/
 
 /******************* FIXME: MEDIA QUERIES START - RESPONSIVE DESIGN *******************/
@@ -820,10 +806,18 @@ footer {
   
   @media (max-width: 575px) {
   
-    .logo img {
-      visibility: hidden;
-    }
+	body {
+		font-size: 1.1rem;
+	}
+
+	img.media-logo {
+		max-height: 2.5em;
+	}
   
+	section  {
+		margin: 2rem;
+	}
+
     nav {
       width: 100vw;
     }
@@ -833,6 +827,36 @@ footer {
     .nav-container .menu > div > div {
       margin: 3rem;
     }
+
+	/* INTRO WRAPPER */
+	#headline {
+		margin-bottom: 1rem;
+	}
+
+	#intro-wrapper {
+		width: 100%;
+		height: auto;
+		padding: 1rem;
+		flex-direction: column;
+	}
+
+	ul.list-spectre li {
+		margin: 1em 0em;
+	}
+
+	.footer-links {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.footer-links li {
+		padding-left: 0;
+	}
+
+	.copyright li {
+		padding: 0;
+	}
+
+
   }
 
   /******************* MEDIA QUERIES END *******************/
