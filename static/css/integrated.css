@@ -10,235 +10,234 @@
     --main-text-color: #000000;
 }
 
-/* Listen */
 
-	/* Breadcrumb Menü */
+/* Listen */
+/* Breadcrumb Menü */
+ul.list-navigator {
+	padding: 1em 1em 1em 3em;
+	margin: 0;
+}
+ul.list-navigator li {
+	padding: 0.2em 0;
+	list-style-type: none;
+}
+ul.list-navigator li:after {
+	color: #008000;
+	content: '»';
+	padding: 0 0.5em;
+	font-weight: bold;
+}
+@media (min-width: 30em) {
 	ul.list-navigator {
-	  padding: 1em 1em 1em 3em;
-	  margin: 0;
+		padding: 1em 1em 1em 3em;
+		margin: 0;
 	}
 	ul.list-navigator li {
-	  padding: 0.2em 0;
-	  list-style-type: none;
+		display: inline-block;
+		padding-right: 0;
 	}
 	ul.list-navigator li:after {
-	    color: #008000;
-	    content: '»';
-	    padding: 0 0.5em;
-	    font-weight: bold;
-	}
-	@media (min-width: 30em) {
-		ul.list-navigator {
-			padding: 1em 1em 1em 3em;
-			margin: 0;
-		}
-		ul.list-navigator li {
-			display: inline-block;
-			padding-right: 0;
-		}
-		ul.list-navigator li:after {
-			color: green;
-			content: '»';
-			padding: 0 0.5em;
-			font-weight: bold;
-		}
-	}
-
-	ul.list-navigator li:last-child:after {
-		content: ' ';
-	}
-	ul.list-navigator li:first-child:after {
-	  content: ' ';
-	}
-
-	/* Inhaltsverzeichnis, Spektrum */
-	ul.list-spectre {
-		padding: 0;
-		list-style-type: none;
-	}
-	ul.list-spectre li {
-		margin: 1em 1em 1em 0em;
-		padding: 0em 0em 1em 5em;
-		background-size: 4em;
-		background-repeat: no-repeat;
-		background-position: left top;
-	}
-
-	#wrapper-secondary ul.list-spectre {
-		padding: 0;
-		list-style-type: none;
-	}
-	#wrapper-secondary ul.list-spectre li {
-		padding: 0em 1em 0 2em;
-		margin: 0;
-		background-size: 1.5em;
-		background-repeat: no-repeat;
-		background-position: left center;
-	}
-	@media (min-width: 30em) {
-		ul.list-spectre-min {
-			-webkit-column-count: 2;
-			-moz-column-count: 2;
-			-ms-column-count: 2;
-			-o-column-count: 2;
-			column-count: 2;
-			-webkit-column-gap:1em;
-			-moz-column-gap:1em;
-			-ms-column-gap:1em;
-			-o-column-gap:1em;
-			column-gap:1em;
-			columns: 2;
-		}
-	}
-
-	#wrapper-secondary ul.list-spectre {
-		padding: 0;
-		list-style-type: none;
-	}
-	#wrapper-secondary ul.list-spectre li {
-		padding: 0.1em 1em 0.1em 2em;
-		margin: 0;
-		background-size: 1.5em;
-		background-repeat: no-repeat;
-		background-position: left center;
-	}
-
-	/* Inhaltsverzeichnis, Icons für Spektrum */
-	.teaching {
-		background-image: url('../images/teaching.png');
-	}
-
-	.leadership {
-		background-image: url("../images/leadership.png");
-	}
-
-	.project_management {
-		background-image: url("../images/project_management.png");
-	}
-
-	.presenting {
-		background-image: url("../images/presenting.png");
-	}
-
-	.time_management {
-		background-image: url("../images/time_management.png");
-	}
-
-	.writing {
-		background-image: url("../images/writing.png");
-	}
-
-	.grant_writing {
-		background-image: url("../images/grant_writing.png");
-	}
-
-	.biochemistry {
-		background-image: url("../images/biochemistry.png");
-	}
-
-	.python_best_practices {
-		background-image: url("../images/python_best_practices.png");
-	}
-	.python_basics {
-		background-image: url("../images/python_basics.png");
-	}
-	.python_advanced {
-		background-image: url("../images/python_advanced.png");
-	}
-	.biopython {
-		background-image: url("../images/biopython.png");
-	}
-	.python {
-		background-image: url("../images/python.png");
-	}
-	.softdev {
-		background-image: url("../images/softdev.png");
-	}
-
-	.genart {
-		background-image: url("../images/numpy.png");
-	}
-	.data_analysis {
-		background-image: url("../images/bar.png");
-	}
-	.math {
-		background-image: url("../images/data_analysis.png");
-	}
-	.machine_learning {
-		background-image: url("../images/ml.png");
-	}
-	.agile {
-		background-image: url("../images/agile.png");
-	}
-
-	.games {
-		background-image: url("../images/pac.png");
-	}
-
-	.world {
-		background-image: url("../images/other.png");
-	}
-
-	/* Inhaltsverzeichnis vom einem Bereich */
-	ul.list-content {
-		padding: 0em 0em 1em 0em;
-		margin: 0em 0em 1em 0em;
-		list-style-type: square;
-		border-bottom: 1px solid #efefef;
-	}
-
-	ul.list-content li {
-		padding: 0.4em 1em 0.4em 1.2em;
-		margin: 0 0 0 1.0em;
-		background-size: 1.5em;
-		background-repeat: no-repeat;
-		background-position: left center;
-		font-size: 1.2em;
-	}
-
-	#wrapper-secondary ul.list-content {
-		padding: 0;
-		margin-left: -3em;
-		list-style-type: none;
-	}
-	#wrapper-secondary ul.list-content li {
-		padding: 0.4em 1em 0.4em 3em;
-		margin: 0;
-		font-size: 1em;
-		background-size: 1.5em;
-		background-repeat: no-repeat;
-		background-position: left center;
-		border-bottom: 1px solid #efefef;
-	}
-
-	/* Tags */
-	ul.list-tags {
-		text-align: left;
-		padding: 0;
-		margin: 0;
-		list-style-type: none;
-	}
-	ul.list-tags li {
-		margin: 0.2em 0.2em 0.2em 0;
-		padding: 0.2em 0.5em;
-		display: inline-block;
-		background: #f0f0f0;
-		-moz-border-radius:    0.3em;
-		-webkit-border-radius: 0.3em;
-		-khtml-border-radius:  0.3em;
-		border-radius: 0.3em;
-		font-size: 0.85em;
+		color: green;
+		content: '»';
+		padding: 0 0.5em;
 		font-weight: bold;
 	}
-	ul.list-tags li:hover {
-		background-color: #E9CDCB;
-		-o-transition:     color .5s ease-out, background 1s ease-in;
-		-ms-transition:    color .5s ease-out, background 1s ease-in;
-		-moz-transition:   color .5s ease-out, background 1s ease-in;
-		-webkit-transition:color .5s ease-out, background 1s ease-in;
-		/* ...and now override with proper CSS property */
-		transition:         color .5s ease-out, background 1s ease-in;
+}
+
+ul.list-navigator li:last-child:after {
+	content: ' ';
+}
+ul.list-navigator li:first-child:after {
+	content: ' ';
+}
+
+/* Inhaltsverzeichnis, Spektrum */
+ul.list-spectre {
+	padding: 0;
+	list-style-type: none;
+}
+ul.list-spectre li {
+	margin: 1em 1em 1em 0em;
+	padding: 0em 0em 1em 5em;
+	background-size: 4em;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+
+#wrapper-secondary ul.list-spectre {
+	padding: 0;
+	list-style-type: none;
+}
+#wrapper-secondary ul.list-spectre li {
+	padding: 0em 1em 0 2em;
+	margin: 0;
+	background-size: 1.5em;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+@media (min-width: 30em) {
+	ul.list-spectre-min {
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		-ms-column-count: 2;
+		-o-column-count: 2;
+		column-count: 2;
+		-webkit-column-gap:1em;
+		-moz-column-gap:1em;
+		-ms-column-gap:1em;
+		-o-column-gap:1em;
+		column-gap:1em;
+		columns: 2;
 	}
+}
+
+#wrapper-secondary ul.list-spectre {
+	padding: 0;
+	list-style-type: none;
+}
+#wrapper-secondary ul.list-spectre li {
+	padding: 0.1em 1em 0.1em 2em;
+	margin: 0;
+	background-size: 1.5em;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+/* Inhaltsverzeichnis, Icons für Spektrum */
+.teaching {
+	background-image: url('../images/teaching.png');
+}
+.leadership {
+	background-image: url("../images/leadership.png");
+}
+.project_management {
+	background-image: url("../images/project_management.png");
+}
+.presenting {
+	background-image: url("../images/presenting.png");
+}
+.time_management {
+	background-image: url("../images/time_management.png");
+}
+.writing {
+	background-image: url("../images/writing.png");
+}
+.grant_writing {
+	background-image: url("../images/grant_writing.png");
+}
+.biochemistry {
+	background-image: url("../images/biochemistry.png");
+}
+.python_best_practices {
+	background-image: url("../images/python_best_practices.png");
+}
+.python_basics {
+	background-image: url("../images/python_basics.png");
+}
+.python_advanced {
+	background-image: url("../images/python_advanced.png");
+}
+.biopython {
+	background-image: url("../images/biopython.png");
+}
+.python {
+	background-image: url("../images/python.png");
+}
+.softdev {
+	background-image: url("../images/softdev.png");
+}
+.genart {
+	background-image: url("../images/numpy.png");
+}
+.data_analysis {
+	background-image: url("../images/bar.png");
+}
+.math {
+	background-image: url("../images/data_analysis.png");
+}
+.machine_learning {
+	background-image: url("../images/ml.png");
+}
+.agile {
+	background-image: url("../images/agile.png");
+}
+.games {
+	background-image: url("../images/pac.png");
+}
+.world {
+	background-image: url("../images/other.png");
+}
+
+/* Inhaltsverzeichnis vom einem Bereich */
+ul.list-content {
+	padding: 0em 0em 1em 0em;
+	margin: 0em 0em 1em 0em;
+	list-style-type: square;
+	border-bottom: 1px solid #efefef;
+}
+
+ul.list-content li {
+	padding: 0.4em 1em 0.4em 1.2em;
+	margin: 0 0 0 1.0em;
+	background-size: 1.5em;
+	background-repeat: no-repeat;
+	background-position: left center;
+	font-size: 1.2em;
+}
+
+#wrapper-secondary ul.list-content {
+	padding: 0;
+	margin-left: -3em;
+	list-style-type: none;
+}
+#wrapper-secondary ul.list-content li {
+	padding: 0.4em 1em 0.4em 3em;
+	margin: 0;
+	font-size: 1em;
+	background-size: 1.5em;
+	background-repeat: no-repeat;
+	background-position: left center;
+	border-bottom: 1px solid #efefef;
+}
+
+/* Tags */
+ul.list-tags {
+	text-align: left;
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+ul.list-tags li {
+	margin: 0.2em 0.2em 0.2em 0;
+	padding: 0.2em 0.5em;
+	display: inline-block;
+	background: #f0f0f0;
+	-moz-border-radius:    0.3em;
+	-webkit-border-radius: 0.3em;
+	-khtml-border-radius:  0.3em;
+	border-radius: 0.3em;
+	font-size: 0.85em;
+	font-weight: bold;
+}
+ul.list-tags li:hover {
+	background-color: #E9CDCB;
+	-o-transition:     color .5s ease-out, background 1s ease-in;
+	-ms-transition:    color .5s ease-out, background 1s ease-in;
+	-moz-transition:   color .5s ease-out, background 1s ease-in;
+	-webkit-transition:color .5s ease-out, background 1s ease-in;
+	/* ...and now override with proper CSS property */
+	transition:         color .5s ease-out, background 1s ease-in;
+}
+
+
+
+
+
+
+
+
+/************************************** NEW CODE **************************************/
+
 
 /* Medienobjekte */
 img.media-object {
@@ -247,7 +246,6 @@ img.media-object {
 img.media-logo {
 	max-height: 3em;
 }
-
 
 /* Tabelleneigenschaft */
 table {
@@ -282,10 +280,6 @@ th {
 tbody tr:nth-child(even) {
 	background: #f0f0f0;
 }
-
-
-/************************************** FIXME: NEW CODE **************************************/
-
 
 html {
     height: 100%;
@@ -337,7 +331,6 @@ button:hover {
 }
 
 /* Layout: header, section, article und nav */
-
 header {
 	padding: 2rem 3rem;
 	margin: 0rem;
@@ -379,27 +372,22 @@ ul.list-spectre h3 {
 	padding-bottom: 0.3em;
 	margin: 0;
 }
-
 ul.list-spectre h4 {
 	padding: 0.4em 0.2em 0em 0em;
 	margin: 0;
 }
-
 ul.list-spectre p {
 	padding: 0.3em 0.2em;
 	margin: 0;
 }
-
 #wrapper-secondary ul.list-spectre h3 {
 	padding: 0 0.5em;
 	margin: 0.3em 0;
 	font-size: 1em;
 }
-
 li {
 	padding-left: 2rem;
 }
-
 ul {
 	margin-block-start: 1rem;
     margin-block-end: 1rem;
@@ -418,7 +406,6 @@ pre {
 }
 
 /* Text: Hyperlinks */
-
 a {
 	color: #3C6F1F;
 	text-decoration: none;
@@ -480,158 +467,7 @@ img.media-head {
 }
 
 
-
 /******************* NAVBAR START *******************/
-
-
-/* 
-nav {
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  display: flex;
-  align-items: flex-start;
-  overflow: scroll;
-  height: auto;
-  transition: 0.4s ease-in;
-  z-index: 1;
-}
-.nav-container .toggler {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  z-index: 2;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  opacity: 0;
-}
-.burger-menu {
-    top: 30px;
-    right: 30px;
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.burger-menu > div {
-  position: relative;
-  flex: none;
-  width: 100%;
-  height: 4px;
-  background-color: var(--secondary-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.4s ease;
-}
-.burger-menu > div::before,
-.burger-menu > div::after {
-  content: '';
-  position: absolute;
-  z-index: 1;
-  top: -9px;
-  width: 100%;
-  height: 4px;
-  background: inherit;
-}
-.burger-menu > div::after {
-  top: 9px;
-}
-.nav-container .toggler:checked + .burger-menu > div {
-  transform: rotate(135deg);
-}
-.nav-container .toggler:checked + .burger-menu > div:before,
-.nav-container .toggler:checked + .burger-menu > div:after {
-  top: 0;
-  transform: rotate(90deg);
-}
-.nav-container .toggler:checked:hover + .burger-menu > div {
-  transform: rotate(135deg);
-}
-.nav-container{
-  width: 100%;
-}
-.menu {
-	display: flex;
-	flex-direction: column;
-	visibility: hidden;
-	overflow: scroll;
-	background-color: rgba(255, 255, 255, 0.958);
-	width: 100%;
-	height: 100%;
-}
-.menu ul {
-	list-style: none;
-	padding-inline-start: 0;
-}
-.menu a {
-  cursor: pointer;
-  text-decoration: none;
-}
-.nav-container .toggler:checked ~ .menu {
-  visibility: visible;
-}
-.nav-container .toggler:checked ~ .menu > div {
-  transition-duration: 0.3s;
-} 
-.nav-container .toggler:checked ~ .menu > div > div {
-  opacity: 1;
-  transition:  opacity 0.3s ease 0.3s;
-}
-.nav-container .menu > div {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex: none;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-.nav-container .menu > div > div {
-  margin: 3rem;
-  max-width: 90vw;
-  max-height: 100vh;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.menu-link, .show-more {
-  width: 100%;
-  list-style: none;
-  color: var(--secondary-color);
-  font-size: 1.4rem;
-}
-.menu-link li, .show-more li {
-  border-bottom: 2px solid var(--line-color);
-  padding: 10px;
-  padding-left: 0;
-}
-.sub-menu-links {
-	padding-inline-start: 0;
-	margin-block-start: 0;
-	margin-block-end: 0;
-}
-.sub-menu-links > a > li{
-  padding-left: 20px;
-  font-size: 1rem;
-  border-bottom: 2px solid var(--line-color);
-}
-.menu-link li:hover, .sub-menu-links > a > li:hover {
-  color: var(--hover-color);
-}
-.nav-container .menu > div > div > ul > li > a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.3s ease;
-} 
-*/
-
-/******************* NAVBAR END *******************/
-
-
-/******************* NAVBAR ALTERNATIVE START *******************/
 
 .off {
 	visibility: hidden;
@@ -771,7 +607,6 @@ nav {
 /******************* NAVBAR END *******************/
 
 
-
 /******************* FEEDBACK/TESTIMONIALS START *******************/
 
 /* Feedbackblock */
@@ -833,6 +668,7 @@ nav {
   
 /******************* FEEDBACK/TESTIMONIALS END *******************/
 
+
 /******************* FOOTER START *******************/
 
 #wrapper-secondary {
@@ -880,6 +716,7 @@ footer {
 }
 
 /******************* FOOTER END *******************/
+
 
 /******************* MEDIA QUERIES START - RESPONSIVE DESIGN *******************/
 

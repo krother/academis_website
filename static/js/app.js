@@ -1,20 +1,11 @@
-// console.log("hello World")
 (function () {
 
-    let toggler = document.getElementsByClassName("toggler")[0];
-    let navLinks = document.querySelectorAll(".menu-link");
-    let showMoreListItemsInNav = document.getElementsByClassName("show-more")[0];
-    let subMenuLinks = document.getElementsByClassName("sub-menu-links")[0];
-    let offOnToggler = document.getElementsByClassName("off-on-toggler");
-    let navbar = document.querySelector("nav");
-
-    // offOnToggler.addEventListener("click", () => {
-    //     console.log("hello")
-    // })
+    const toggler = document.getElementsByClassName("toggler")[0];
+    const navLinks = document.querySelectorAll(".menu-link");
+    const navbar = document.querySelector("nav");
 
     toggler.addEventListener("click", () => {
         navbar.classList.toggle("off")
-        // console.log("hello")
     })
 
     navLinks.forEach((link) => {
@@ -31,6 +22,5 @@
     coursesAnchor.scrollIntoView(({ behavior: "smooth" }));
 
     const contactAnchor = document.querySelector('#contact');
-    contactAnchor.scrollIntoView(({ behavior: "smooth" }));
-    
+    contactAnchor.scrollIntoView(({ behavior: "smooth" })); 
 })();
