@@ -485,14 +485,6 @@ img.media-head {
 
 
 /* 
-TODO: DELETE: .logo img {
-    position: fixed;
-    height: 60px;
-    margin: 30px;
-    z-index: 50;
-    cursor: pointer;
-  }
-
 nav {
   position: fixed;
   top: 0px;
@@ -639,16 +631,10 @@ nav {
 /******************* NAVBAR END *******************/
 
 
-
-
-
-
-
 /******************* NAVBAR ALTERNATIVE START *******************/
 
 .off {
 	visibility: hidden;
-	transition: 0.3s ease-in;
 }
 nav {
   position: fixed;
@@ -658,7 +644,6 @@ nav {
   align-items: flex-start;
   overflow: scroll;
   height: auto;
-  transition: 0.3s ease-in;
   z-index: 1;
 }
 .toggler {
@@ -691,7 +676,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s ease;
+  /* FIXME: Wenn Transition off dann gibt es keinen glitch beim clicken des Links */
+  /* transition: all 0.4s ease; */
 }
 .burger-menu > div::before,
 .burger-menu > div::after {
@@ -724,18 +710,13 @@ nav {
 	display: flex;
 	flex-direction: column;
 	opacity: 1;
-	transition:  opacity 0.3s ease 0.3s;
 	overflow: scroll;
 	background-color: rgba(255, 255, 255, 0.958);
 	width: 100%;
 	height: 100%;
 }
-.menu > div {
-	/* transition-duration: 0.3s; */
-  }
 .menu > div > div {
 	opacity: 1;
-	/* transition:  opacity 0.3s ease 0.3s; */
   }
 .menu ul {
 	list-style: none;
@@ -751,14 +732,12 @@ nav {
   display: flex;
   flex: none;
   justify-content: center;
-  /* transition: all 0.3s ease; */
 }
 .nav-container .menu > div > div {
   margin: 3rem;
   max-width: 90vw;
   max-height: 100vh;
   opacity: 1;
-  /* transition: opacity 0.3s ease; */
 }
 .menu-link, .show-more {
   width: 100%;
@@ -787,33 +766,11 @@ nav {
 .nav-container .menu > div > div > ul > li > a {
   color: inherit;
   text-decoration: none;
-  /* transition: color 0.3s ease; */
 }
 
 /******************* NAVBAR END *******************/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* FIXME: */
-.license-wrapper {
-	background-color: pink;
-}
 
 /******************* FEEDBACK/TESTIMONIALS START *******************/
 
