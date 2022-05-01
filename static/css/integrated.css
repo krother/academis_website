@@ -3,7 +3,7 @@
     --main-font: Lato;
     --secondary-color: #3C6F1F;
 	--hover-color: #1b4403;
-    --bg-color: #3C6F1F30;
+    --bg-color: #3c6f1f51;
     --link-color:#3C6F1F;
 	--footer-link-color: #efefef;
     --line-color: rgba(0, 128, 0, 0.298);
@@ -173,7 +173,7 @@ ul.list-content {
 	padding: 0em 0em 1em 0em;
 	margin: 0em 0em 1em 0em;
 	list-style-type: square;
-	border-bottom: 1px solid #efefef;
+	/* border-bottom: 1px solid #efefef; */
 }
 
 ul.list-content li {
@@ -197,7 +197,7 @@ ul.list-content li {
 	background-size: 1.5em;
 	background-repeat: no-repeat;
 	background-position: left center;
-	border-bottom: 1px solid #efefef;
+	/* border-bottom: 1px solid #efefef; */
 }
 
 /* Tags */
@@ -232,8 +232,6 @@ ul.list-tags li:hover {
 
 
 
-
-
 /************************************** NEW CODE **************************************/
 
 
@@ -263,7 +261,7 @@ table {
 th, td {
 	padding: 0.4em;
 	text-align: left;
-	border: solid #ccc;
+	border: solid var(--footer-link-color);
 	border-width: 1px 0;
 }
 /* td {
@@ -367,6 +365,9 @@ h4 {
 	/* font-size: 1.5rem; */
 	padding: 1rem 0rem 0.5rem 0rem;
 }
+hr{
+	border: none;
+}
 
 ul.list-spectre h3 {
 	font-size: 1.4em;
@@ -454,7 +455,7 @@ a.current {
 #intro-wrapper {
     width: 100%;
     height: 60vh;
-    padding: 5rem;
+    padding: 1rem 5rem;
     display: flex;
     justify-content: center;
     position: relative;
@@ -521,7 +522,7 @@ nav {
 	align-items: center;
 	justify-content: center;
 	/* FIXME: Wenn Transition off dann gibt es keinen glitch beim clicken des Links */
-	/* transition: all 0.4s ease; */
+	transition: all 0.4s ease;
 }
 .burger-menu > div::before,
 .burger-menu > div::after {
@@ -532,8 +533,6 @@ nav {
 	width: 100%;
 	height: 4px;
 	background: inherit;
-	overflow: scroll;
-
 }
 .burger-menu > div::after {
   	top: 9px;
@@ -551,19 +550,16 @@ nav {
 }
 .nav-container{
   	width: 100%;
-	overflow: scroll;
 }
 .menu {
 	display: flex;
 	flex-direction: column;
 	opacity: 1;
-	overflow: scroll;
 	background-color: rgba(255, 255, 255, 0.958);
 	width: 100%;
 	height: 100%;
 }
 .menu > div > div {
-	overflow: scroll;
 	opacity: 1;
   }
 .menu ul {
@@ -571,20 +567,18 @@ nav {
 	padding-inline-start: 0;
 }
 .menu a {
-  cursor: pointer;
-  text-decoration: none;
+  	cursor: pointer;
+  	text-decoration: none;
 }
 .nav-container .menu > div {
 	width: 100%;
 	height: 100%;
 	display: flex;
-	overflow: scroll;
 	flex: none;
 	justify-content: center;
 }
 .nav-container .menu > div > div {
   	margin: 3rem;
-	overflow: scroll;
 	max-width: 90vw;
 	max-height: 100vh;
 	opacity: 1;
@@ -594,8 +588,6 @@ nav {
 	list-style: none;
 	color: var(--secondary-color);
 	font-size: 1.4rem;
-	overflow: scroll;
-
 }
 .menu-link li, .show-more li {
 	border-bottom: 2px solid var(--line-color);
@@ -606,19 +598,18 @@ nav {
 	padding-inline-start: 0;
 	margin-block-start: 0;
 	margin-block-end: 0;
-	overflow: scroll;
 }
 .sub-menu-links > a > li{
-  padding-left: 20px;
-  font-size: 1rem;
-  border-bottom: 2px solid var(--line-color);
+	padding-left: 20px;
+	font-size: 1rem;
+	border-bottom: 2px solid var(--line-color);
 }
 .menu-link li:hover, .sub-menu-links > a > li:hover {
-  color: var(--hover-color);
+  	color: var(--hover-color);
 }
 .nav-container .menu > div > div > ul > li > a {
-  color: inherit;
-  text-decoration: none;
+  	color: inherit;
+  	text-decoration: none;
 }
 
 /******************* NAVBAR END *******************/
@@ -758,6 +749,7 @@ footer {
   }
   
   @media (min-width: 768px) and (max-width: 991px) {
+
     nav {
       width: 50vw;
     }

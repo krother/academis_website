@@ -16,12 +16,8 @@
         });
     })
 
-    // const anchor = document.querySelector('#anchor');
-    // anchor.scrollIntoView(({ behavior: "smooth" }));
-    
-    // const coursesAnchor = document.querySelector('#courses-anchor');
-    // coursesAnchor.scrollIntoView(({ behavior: "smooth" }));
-
     const contactAnchor = document.querySelector('#contact');
     contactAnchor.scrollIntoView(({ behavior: "smooth" })); 
+
+
 })();
