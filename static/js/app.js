@@ -10,14 +10,9 @@
 
     navLinks.forEach((link) => {
         link.addEventListener("click", (e) => {
-            console.log("link clicked")
             toggler.checked = false;
             navbar.classList.add("off");
         });
     })
-
-    const contactAnchor = document.querySelector('#contact');
-    contactAnchor.scrollIntoView(({ behavior: "smooth" })); 
-
 
 })();

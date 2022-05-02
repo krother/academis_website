@@ -321,15 +321,14 @@ button {
     background-color: var(--secondary-color);
     cursor: pointer;
 }
-button a {
-	color: var(--footer-link-color);
-}
-button a:hover {
+button {
 	color: var(--footer-link-color);
 }
 button:hover {
-    background-color: var(--hover-color);
+	color: var(--footer-link-color);
+	background-color: var(--hover-color);
 }
+
 
 /* Layout: header, section, article und nav */
 header {
@@ -464,11 +463,12 @@ a.current {
 #img-wrapper{
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
+	padding-top: 7%;
 }
 img.media-head {
 	max-width: 14rem;
-	padding-left: 1.5rem;
+	padding-left: 1rem;
 }
 
 
