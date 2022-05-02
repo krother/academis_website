@@ -1,6 +1,5 @@
 
 import pytest
-import re
 from academis.flask_app import app
 from academis.content import MarkdownContentRepository
 
@@ -11,13 +10,14 @@ def client():
         yield client
     
 
-repo = MarkdownContentRepository()
+def get_all_urls():
+    repo = MarkdownContentRepository()
+    urls = ['/', '/impressum', '/cv', '/testimonials', '/publications']
+    urls += [f'/{tag}' for tag in repo.get_all_tags()]
+    urls += [f'/posts/{tag}/{slug}' for tag, slug in repo.get_all_slugs()]
+    #TODO: /courses
+    return urls
 
-URLS = ['/', '/impressum', '/cv', '/testimonials', '/publications']
-URLS += [f'/{tag}' for tag in repo.get_all_tags()]
-URLS += [f'/posts/{tag}/{slug}' for tag, slug in repo.get_all_slugs()]
-#TODO: /courses
-
-@pytest.mark.parametrize('url', URLS)
+@pytest.mark.parametrize('url', get_all_urls())
 def test_url(client, url):
     assert client.get(url).status == '200 OK'

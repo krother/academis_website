@@ -1,9 +1,8 @@
 import os
 from academis.html_converter import markdown_to_article, directory_to_article
 from academis.repository import AbstractContentRepository
+from academis.config import TAGS, BASE_PATH
 
-
-BASE_PATH = os.path.join(os.path.split(__file__)[0], "../content/")
 
 
 class MarkdownContentRepository(AbstractContentRepository):
@@ -24,7 +23,7 @@ class MarkdownContentRepository(AbstractContentRepository):
         return markdown_to_article(text, tag)
 
     def get_all_tags(self):
-        return os.listdir(BASE_PATH)
+        return TAGS
 
     def get_all_article_slugs(self, tag):
         a = self.get_article_list_html(tag)

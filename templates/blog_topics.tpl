@@ -33,7 +33,7 @@
       <p>Code examples for structuring programs and useful shortcuts.</p>
     </li>
     <li class="softdev">
-      <h3><a href="/software_engineering_EN">Python Software Development</a></h3>
+      <h3><a href="/software_engineering">Python Software Development</a></h3>
       <p>Tools and Techniques to write better Python software.</p>
     </li>
     <li class="project_management">

@@ -3,11 +3,11 @@
 import sqlite3
 from academis.content import (
     MarkdownContentRepository,
-    BASE_PATH,
 )
+import os
 
 
-DB_PATH = BASE_PATH + "../academis.sqlite3"
+DB_PATH = os.path.join(os.path.split(__file__)[0], "../academis.sqlite3")
 
 SQL_CREATE = """
 CREATE TABLE IF NOT EXISTS article (

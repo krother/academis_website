@@ -3,13 +3,18 @@
 from flask import Flask, render_template
 from academis.testimonials import get_random_testimonial, get_all_testimonials
 from academis.content import MarkdownContentRepository
+from academis.db_content import SQLContentRepository
 import os
 
 BASE_PATH = os.path.join(os.path.split(__file__)[0], "..")
 
 
 app = Flask(__name__, root_path=BASE_PATH)
-repo = MarkdownContentRepository()
+
+if os.environ.get('ACADEMIS_DOCSOURCE') == 'files':
+    repo = MarkdownContentRepository()
+else:
+    repo = MarkdownContentRepository()
 
 @app.route("/")
 def index():
