@@ -10,8 +10,22 @@ class Article:
 
     title: str
     text: str
-    links: list
+    linked_files: list
 
+
+class LinkBuilder:
+    """
+    Replaces internal hyperlinks in markdown format
+    by relative URLs.
+    Implements the Builder Pattern.
+    """
+    pass
+
+def get_file_links(content):
+    links = re.findall(r'\[[^\]]+\]\(([^\)]+)\)', content)
+    return [lk for lk in links if not lk.startswith('http')]
+
+#    img = open(fn, 'rb').read()
 
 def wrap_images(content):
     """Add extra div tag to content"""
@@ -72,35 +86,64 @@ def markdown_to_html(text, tag):
     text = fix_links(text, tag)
     links = re.findall(r"/posts/" + tag + r"/([^)]+)\)", text)
 
+    text, includes = replace_includes(text, path)
+
     content = markdown.markdown(
         text,
         extensions=["markdown.extensions.tables", "markdown.extensions.codehilite"],
     )
     content = wrap_images(content)
-    return title, content, links
+    return title, content, links, includes
 
 
-def format_code(f):
-    code = "".join(["    " + x for x in f])
-    return markdown_to_html(code, "-")[1]
+
+class ArticleFromFiles:
+    """
+    Concatenates all files in a directory into a single article.
+    Implements the Builder Pattern
+    """
+    def __init__(self, path, tag):
+        self.path = path
+        self.tag = tag
+        self.text = ""
+        self.title = self.tag.capitalize()
+        self._included = []
+
+    def add_markdown(self, raw)
+            title, content, _, includes = markdown_to_html(raw, self.tag)
+            self.title = title
+            self.text += content
+            self._included += includes
+
+    def add_python_code(self, fn, raw):
+        filename = os.path.split(fn)[-1]
+        code = "".join(["    " + x for x in raw.split('\n')])
+        code = markdown_to_html(code, "-")[1]
+        text += f"\n<hr>\n<h2>{filename}</h2>\n{code}"
+
+    def add_file(self, fn):
+        raw = open(fn).read()
+        if fn.endswith(".md"):
+            self.add_markdown(raw)
+        elif fn.endswith(".py") and fn not in self._included:
+            self.add_python_code(fn, raw)
+ 
+    def process_dir(self, path):
+        for filename in sorted(os.listdir(path)):
+            fn = os.path.join(path, filename)
+            #TODO: try pattern matching
+            self.add_file(fn)
+
+    def get_article(self):
+        return Article(self.title, self.text, [])
 
 
 def directory_to_article(path, tag):
-    out = ""
-    title = tag.capitalize()
-    included = []
-    for filename in sorted(os.listdir(path)):
-        if filename.endswith(".md"):
-            s = open(path + filename).read()
-            s, inc = replace_includes(s, path)
-            included += inc
-            title, content, _ = markdown_to_html(s, tag)
-            out = content + out
-        elif filename.endswith(".py") and filename not in included:
-            code = format_code(open(path + filename))
-            out += f"\n<hr>\n<h2>{filename}</h2>\n{code}"
-    return Article(title, out, [])
+    artgen = ArticleFromFiles(tag)
+    artgen.process_dir(path)
+    return artgen.get_article()
 
 
 def markdown_to_article(text, tag):
+    """Converts a Markdown text to an Article object"""
     return Article(*markdown_to_html(text, tag))

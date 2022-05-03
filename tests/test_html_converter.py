@@ -1,6 +1,7 @@
 
 import pytest
-from academis.html_converter import fix_links
+from academis.html_converter import fix_links, get_file_links
+from testconf import TEST_DATA_PATH
 
 SUBS = [
     # normal content unmodified
@@ -24,3 +25,11 @@ SUBS = [
 def test_fix_links(text, tag, expected):
     assert fix_links(text, tag) == expected
 
+def test_get_file_links():
+    md = open(TEST_DATA_PATH + '/image_and_file_links.md').read()
+    result = get_file_links(md)
+    assert len(result) == 4
+    assert result[0][0] == '/images/unicorn.png'
+
+def test_link_builder():
+    ...
