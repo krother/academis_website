@@ -3,6 +3,8 @@ import re
 import markdown
 from dataclasses import dataclass
 
+STATIC_WILDCARDS = 'png,gif,svg,jpg,zip,pdf'.split(',')
+
 
 @dataclass
 class Article:
@@ -10,7 +12,8 @@ class Article:
 
     title: str
     text: str
-    linked_files: list
+    links: list
+    files: list
 
 
 class LinkBuilder:
@@ -19,19 +22,48 @@ class LinkBuilder:
     by relative URLs.
     Implements the Builder Pattern.
     """
-    pass
+    def __init__(self, text, tag, path):
+        self.text = text
+        self.tag = tag
+        self.path = path
+        self.file_slugs = []
+        self.files = []
+        self.links = []
 
-def get_file_links(content):
-    links = re.findall(r'\[[^\]]+\]\(([^\)]+)\)', content)
-    return [lk for lk in links if not lk.startswith('http')]
+    @property
+    def hyperlinks(self):
+        return re.findall(r'\[[^\]]+\]\(([^\)]+)\)', self.text)
 
-#    img = open(fn, 'rb').read()
+    @staticmethod
+    def is_internal(link):
+        return not (link.startswith('http') or link.startswith('www'))
 
-def wrap_images(content):
-    """Add extra div tag to content"""
-    content = re.sub(r"(\<img [^\>]+\>)", r'<div class="media">\1</div>', content)
-    content = re.sub(r"\<img ([^\>]+\>)", r'<img class="media-object" \1', content)
-    return content
+    @staticmethod
+    def is_markdown_link(link):
+        return link.endswith('.md') or link.endswith('/')
+
+    def create_relative_link(self, link):
+        if link[-3:].lower() in STATIC_WILDCARDS:
+            link = re.sub(r'^\.\.\/?', '', link)
+            return f'/static/{self.tag}/' + link
+        elif self.is_markdown_link(link):
+            return link
+        else:
+            raise ValueError(f'unknown link type: {link}')
+
+    def insert_links(self):
+        """Replaces the hyperlinks in the markdown document"""
+        for link in self.hyperlinks:
+            if self.is_internal(link):
+                new_link = self.create_relative_link(link)
+                self.text = self.text.replace(f'({link})', f'({new_link})')
+                if self.is_markdown_link(link):
+                    self.links.append(new_link)
+                else:
+                    link = re.sub(r'^\.\./', '', link)
+                    fn = os.path.join(self.path, link)
+                    self.files.append(open(fn, 'rb').read())
+                    self.file_slugs.append(new_link)
 
 
 def fix_links(text, tag):
@@ -69,6 +101,13 @@ def fix_links(text, tag):
     return text
 
 
+def wrap_images(content):
+    """Add extra div tag to content"""
+    content = re.sub(r"(\<img [^\>]+\>)", r'<div class="media">\1</div>', content)
+    content = re.sub(r"\<img ([^\>]+\>)", r'<img class="media-object" \1', content)
+    return content
+
+
 def replace_includes(text, path):
     """resolves :::include xx.py directives"""
     included = []
@@ -80,20 +119,22 @@ def replace_includes(text, path):
     return text, included
 
 
-def markdown_to_html(text, tag):
+def markdown_to_html(text, tag, path):
     title = re.findall(r"#+\s(.+)", text)
     title = title[0] if title else ""
-    text = fix_links(text, tag)
-    links = re.findall(r"/posts/" + tag + r"/([^)]+)\)", text)
+    #text = fix_links(text, tag)
 
-    text, includes = replace_includes(text, path)
+    text, _ = replace_includes(text, path)
+
+    bl = LinkBuilder(text, tag, path)
+    bl.insert_links()
 
     content = markdown.markdown(
-        text,
+        bl.text,
         extensions=["markdown.extensions.tables", "markdown.extensions.codehilite"],
     )
     content = wrap_images(content)
-    return title, content, links, includes
+    return title, content, bl.links, list(zip(bl.file_slugs, bl.files))
 
 
 
@@ -109,11 +150,11 @@ class ArticleFromFiles:
         self.title = self.tag.capitalize()
         self._included = []
 
-    def add_markdown(self, raw)
-            title, content, _, includes = markdown_to_html(raw, self.tag)
-            self.title = title
-            self.text += content
-            self._included += includes
+    def add_markdown(self, raw):
+        title, content, _, includes = markdown_to_html(raw, self.tag)
+        self.title = title
+        self.text += content
+        self._included += includes
 
     def add_python_code(self, fn, raw):
         filename = os.path.split(fn)[-1]
@@ -128,14 +169,14 @@ class ArticleFromFiles:
         elif fn.endswith(".py") and fn not in self._included:
             self.add_python_code(fn, raw)
  
-    def process_dir(self, path):
-        for filename in sorted(os.listdir(path)):
-            fn = os.path.join(path, filename)
+    def process_dir(self):
+        for filename in sorted(os.listdir(self.path)):
+            fn = os.path.join(self.path, filename)
             #TODO: try pattern matching
             self.add_file(fn)
 
     def get_article(self):
-        return Article(self.title, self.text, [])
+        return Article(self.title, self.text, [], [])
 
 
 def directory_to_article(path, tag):
@@ -144,6 +185,6 @@ def directory_to_article(path, tag):
     return artgen.get_article()
 
 
-def markdown_to_article(text, tag):
+def markdown_to_article(text, tag, path):
     """Converts a Markdown text to an Article object"""
-    return Article(*markdown_to_html(text, tag))
+    return Article(*markdown_to_html(text, tag, path))

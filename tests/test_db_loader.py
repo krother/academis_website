@@ -34,7 +34,8 @@ def test_insert_file(temp_db):
     assert len(result) == 0
 
     fn = TEST_DATA_PATH + '/brain.png'
-    insert_file(temp_db, 'test', fn)
+    data = open(fn, 'rb').read()
+    insert_file(temp_db, 'test', fn, data)
 
     result = list(temp_db.execute("SELECT tag, name, data FROM file"))
     assert len(result) == 1

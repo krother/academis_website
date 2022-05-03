@@ -11,16 +11,18 @@ class MarkdownContentRepository(AbstractContentRepository):
     in the individual git repos of each category.
     """
     def get_article_list_html(self, tag):
-        fn = BASE_PATH + tag + "/README.md"
+        path = BASE_PATH + tag
+        fn = path + "/README.md"
         text = open(fn).read()
-        return markdown_to_article(text, tag)
+        return markdown_to_article(text, tag, path)
 
     def get_article_html(self, tag, slug):
-        fn = BASE_PATH + tag + "/" + slug
+        path = BASE_PATH + tag
+        fn = path + "/" + slug
         if os.path.isdir(fn):
             return directory_to_article(fn, tag)
         text = open(fn).read()
-        return markdown_to_article(text, tag)
+        return markdown_to_article(text, tag, path)
 
     def get_all_tags(self):
         return TAGS

@@ -17,13 +17,13 @@ class SQLContentRepository(AbstractContentRepository):
     def get_article_list_html(self, tag):
         cursor = self.db.execute("SELECT title, text FROM article WHERE tag=? AND slug IS NULL", (tag,))
         title, text = next(cursor)
-        return Article(title, text, None)
+        return Article(title, text, None, None)
 
 
     def get_article_html(self, tag, slug):
         cursor = self.db.execute("SELECT title, text FROM article WHERE tag=? AND slug=?", (tag, slug))
         title, text = next(cursor)
-        return Article(title, text, None)
+        return Article(title, text, None, None)
 
 
     def get_all_tags(self):

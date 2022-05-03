@@ -37,40 +37,24 @@ def insert_article(db, tag, slug, a):
     db.execute(query, (tag, slug, a.title, a.text))
 
 
-def insert_file(db, tag, filedata):
+def insert_file(db, tag, slug, data):
     """saves a file (image, zip) attached to an article to the DB"""
-    slug, data = filedata
     query = "INSERT INTO file VALUES (?,?,?)"
     db.execute(query, (tag, slug, data))
 
 
-def save_article(db, tag, article):
+def save_article(db, tag, slug, article):
     """saves an article and all files inside to DB"""
     insert_article(db, tag, slug, article)
-    for filedata in article.files:
-        insert_file(db, tag, filedata)
-
-
-def get_all_articles():
-    repo = MarkdownContentRepository()
-    for tag in repo.get_all_tags():
-        print(f"\nprocessing {tag}")
-
-        # insert TOC article
-        a = repo.get_article_list_html(tag)
-        yield tag, None, a
-
-        # normal posts
-        for slug in repo.get_all_article_slugs(tag):
-            print(".", end="")
-            a = repo.get_article_html(tag, slug)
-            yield tag, slug, a
+    for slug, data in article.files:
+        insert_file(db, tag, slug, data)
 
 
 def load_all_articles(db):
     """loads entire content into the database"""
     n = 0
-    for tag, slug, article in get_all_articles():
+    repo = MarkdownContentRepository()
+    for tag, slug, article in repo.get_all_articles():
         save_article(db, tag, slug, article)
         n += 1
     return n
