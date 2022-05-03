@@ -1,12 +1,19 @@
 
 # Example Images and file links
 
-![a unicorn](../images/unicorn.png)
+## images
+![a brain](brain.png)
+![gauss curve](../images/gauss.jpg)
+![a python](images/python.gif)
+![image in subfolder](../images/subfolder/teaching.png)
 
-![a dinosaur](images/dino.gif)
+## other static files
+[zipped stuff](stuff.zip)
 
-![zipped stuff](../images/stuff.zip)
+## links to other docs
+[Markdown doc](other.md)
+[Markdown folder](hello_world/)
 
-![image in subfolder](../images/subfolder/image.jpg)
-
-![totally external link](http://unsplash.com/foo.png)
+## external links
+[external page](http://external.de)
+[external page](www.coolpa.ge)
