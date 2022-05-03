@@ -22,6 +22,7 @@
       <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
       <!-- css@fontawesome.io für icons -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <!-- formatierung pythoncode !! do not change !! -->
       <link rel="stylesheet" href="/static/css/pygments_default.css">
     <!-- endet: CSS Block -->
 
@@ -36,8 +37,51 @@
 <div id="row" class="top">
     <div id="wrapper-master">
         <header>
-            <a href="/"><img src="/static/images/academis_kr350.png" alt="Academis" class="media-logo" /></a>
+            <a href="/"><img src="/static/images/academis_kr350.png" alt="Academis Logo" class="media-logo" /></a>
         </header>
+
+    <!-- NAVBAR START
+         TODO: Links anpassen
+    -->
+
+    <label for="toggler">Navigation Menu</label>
+    <input type="checkbox" class="toggler" id="toggler">
+    <div class="burger-menu">
+        <div class="burger-line"></div>
+    </div>
+
+      <nav class="off">
+        <div class="nav-container">
+            <div class="menu">
+                <div>
+                    <div>
+                        <ul>
+                            <a class="menu-link" href="/"><li>Home</li></a> 
+                            <a class="menu-link" href="/courses"><li>Courses</li></a> 
+                            <ul class="sub-menu-links">
+                                <a class="menu-link" href="/python_basics"><li>Python Exercises for beginners</li></a> 
+                                <a class="menu-link" href="#"><li>Python 3 Reference</li></a> 
+                                <a class="menu-link" href="#"><li>Data Analysis with Python and pandas</li></a> 
+                                <a class="menu-link" href="#"><li>Game Programming in Python</li></a> 
+                                <a class="menu-link" href="#"><li>Python Packages</li></a> 
+                                <a class="menu-link" href="#"><li>Advanced Python Examples</li></a> 
+                                <a class="menu-link" href="#"><li>Python Software Development</li></a> 
+                                <a class="menu-link" href="#"><li>Python Testing Tutorial</li></a> 
+                                <a class="menu-link" href="#"><li>GBiopython</li></a> 
+                                <a class="menu-link" href="#"><li>Teaching Programming</li></a> 
+                                <a class="menu-link" href="#"><li>Presenting</li></a> 
+                                <a class="menu-link" href="#"><li>Time Management</li></a> 
+                            </ul>   
+                            <a class="menu-link" href="#contact"><li>Contact</li></a> 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- NAVBAR END -->
+
     </div>
 </div>
 <!-- endet: Headerbereich -->
@@ -45,30 +89,33 @@
 
 <!-- start: WRAPPER PRIMARY -->
 <div id="wrapper-primary">
-<section>
 
-{% block content %}
+  <section>
 
-{% endblock %}
+    {% block content %}
+    {% endblock %}
 
-</section>
+  </section>
 </div>
 <!-- endet: WRAPPER PRIMARY -->
 
 
 <!-- start: WRAPPER SECONDARY -->
+
 <div id="wrapper-secondary">
-{% block sidebar %}
+  
+  {% block sidebar %}
+  <!-- {% include('aboutme.html') %} -->
+  {% include('testimonial.html') %}
+  {% include('toc.html') %}
+  {% endblock %}
 
-{% include('aboutme.html') %}
-{% include('testimonial.html') %}
-{% include('toc.html') %}
-
-{% endblock %}
 </div>
+
 <!-- endet: WRAPPER SECONDARY -->
 
 </div>
 
+<script src="/static/js/app.js"></script>
 </body>
 </html>
