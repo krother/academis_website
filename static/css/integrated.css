@@ -7,7 +7,6 @@
 	--icon-frame-color: #80b940;
 	--icon-body-color: #b3d789;
 	--hover-color: #1b4403;
-    --bg-color: #3c6f1f51;
     --link-color:#3C6F1F;
 	--footer-link-color: #efefef;
     --line-color: rgba(0, 128, 0, 0.298);
@@ -15,227 +14,6 @@
 }
 
 /******************* VARIABLES END *******************/
-
-
-/* Listen */
-/* Breadcrumb Menü */
-ul.list-navigator {
-	padding: 1em 1em 1em 3em;
-	margin: 0;
-}
-ul.list-navigator li {
-	padding: 0.2em 0;
-	list-style-type: none;
-}
-ul.list-navigator li:after {
-	color: var(--secondary-color);
-	content: '»';
-	padding: 0 0.5em;
-	font-weight: bold;
-}
-@media (min-width: 30em) {
-	ul.list-navigator {
-		padding: 1em 1em 1em 3em;
-		margin: 0;
-	}
-	ul.list-navigator li {
-		display: inline-block;
-		padding-right: 0;
-	}
-	ul.list-navigator li:after {
-		color: #008000;
-		content: '»';
-		padding: 0 0.5em;
-		font-weight: bold;
-	}
-}
-
-ul.list-navigator li:last-child:after {
-	content: ' ';
-}
-ul.list-navigator li:first-child:after {
-	content: ' ';
-}
-
-/* Inhaltsverzeichnis, Spektrum */
-ul.list-spectre {
-	padding: 0;
-	list-style-type: none;
-}
-ul.list-spectre li {
-	margin: 1em 1em 1em 0em;
-	padding: 0em 0em 1em 5em;
-	background-size: 4em;
-	background-repeat: no-repeat;
-	background-position: left top;
-}
-
-#wrapper-secondary ul.list-spectre {
-	padding: 0;
-	list-style-type: none;
-}
-#wrapper-secondary ul.list-spectre li {
-	padding: 0em 1em 0 2em;
-	margin: 0;
-	background-size: 1.5em;
-	background-repeat: no-repeat;
-	background-position: left center;
-}
-@media (min-width: 30em) {
-	ul.list-spectre-min {
-		-webkit-column-count: 2;
-		-moz-column-count: 2;
-		-ms-column-count: 2;
-		-o-column-count: 2;
-		column-count: 2;
-		-webkit-column-gap:1em;
-		-moz-column-gap:1em;
-		-ms-column-gap:1em;
-		-o-column-gap:1em;
-		column-gap:1em;
-		columns: 2;
-	}
-}
-
-#wrapper-secondary ul.list-spectre {
-	padding: 0;
-	list-style-type: none;
-}
-#wrapper-secondary ul.list-spectre li {
-	padding: 0.1em 1em 0.1em 2em;
-	margin: 0;
-	background-size: 1.5em;
-	background-repeat: no-repeat;
-	background-position: left center;
-}
-
-/* Inhaltsverzeichnis, Icons für Spektrum */
-.teaching {
-	background-image: url('../images/teaching.png');
-}
-.leadership {
-	background-image: url("../images/leadership.png");
-}
-.project_management {
-	background-image: url("../images/project_management.png");
-}
-.presenting {
-	background-image: url("../images/presenting.png");
-}
-.time_management {
-	background-image: url("../images/time_management.png");
-}
-.writing {
-	background-image: url("../images/writing.png");
-}
-.grant_writing {
-	background-image: url("../images/grant_writing.png");
-}
-.biochemistry {
-	background-image: url("../images/biochemistry.png");
-}
-.python_best_practices {
-	background-image: url("../images/python_best_practices.png");
-}
-.python_basics {
-	background-image: url("../images/python_basics.png");
-}
-.python_advanced {
-	background-image: url("../images/python_advanced.png");
-}
-.biopython {
-	background-image: url("../images/biopython.png");
-}
-.python {
-	background-image: url("../images/python.png");
-}
-.softdev {
-	background-image: url("../images/softdev.png");
-}
-.genart {
-	background-image: url("../images/numpy.png");
-}
-.data_analysis {
-	background-image: url("../images/bar.png");
-}
-.math {
-	background-image: url("../images/data_analysis.png");
-}
-.machine_learning {
-	background-image: url("../images/ml.png");
-}
-.agile {
-	background-image: url("../images/agile.png");
-}
-.games {
-	background-image: url("../images/pac.png");
-}
-.world {
-	background-image: url("../images/other.png");
-}
-
-/* Inhaltsverzeichnis vom einem Bereich */
-ul.list-content {
-	padding: 0em 0em 1em 0em;
-	margin: 0em 0em 1em 0em;
-	list-style-type: square;
-	/* border-bottom: 1px solid #efefef; */
-}
-
-ul.list-content li {
-	padding: 0.4em 1em 0.4em 1.2em;
-	margin: 0 0 0 1.0em;
-	background-size: 1.5em;
-	background-repeat: no-repeat;
-	background-position: left center;
-	font-size: 1.2em;
-}
-
-#wrapper-secondary ul.list-content {
-	padding: 0;
-	margin-left: -3em;
-	list-style-type: none;
-}
-#wrapper-secondary ul.list-content li {
-	padding: 0.4em 1em 0.4em 3em;
-	margin: 0;
-	font-size: 1em;
-	background-size: 1.5em;
-	background-repeat: no-repeat;
-	background-position: left center;
-	/* border-bottom: 1px solid #efefef; */
-}
-
-/* Tags */
-ul.list-tags {
-	text-align: left;
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
-}
-ul.list-tags li {
-	margin: 0.2em 0.2em 0.2em 0;
-	padding: 0.2em 0.5em;
-	display: inline-block;
-	background: #f0f0f0;
-	-moz-border-radius:    0.3em;
-	-webkit-border-radius: 0.3em;
-	-khtml-border-radius:  0.3em;
-	border-radius: 0.3em;
-	font-size: 0.85em;
-	font-weight: bold;
-}
-ul.list-tags li:hover {
-	background-color: #E9CDCB;
-	-o-transition:     color .5s ease-out, background 1s ease-in;
-	-ms-transition:    color .5s ease-out, background 1s ease-in;
-	-moz-transition:   color .5s ease-out, background 1s ease-in;
-	-webkit-transition:color .5s ease-out, background 1s ease-in;
-	/* ...and now override with proper CSS property */
-	transition:         color .5s ease-out, background 1s ease-in;
-}
-
-
 
 
 /************************************** NEW CODE **************************************/
@@ -622,41 +400,41 @@ img.media-head {
 
 /******************* COURSES START *******************/
 
-	#courses-wrapper {
-		width: 100%;
-		padding: 1rem 5rem;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		position: relative;
-		margin: 0;
-	}
-	#courses-container {
-		width: 100%;
-		height: 100%;
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		margin: 0;
-	}
-	#courses-container .courses-content {
-		min-width: 300px;
-		max-width: 400px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding: 1em;
-		margin: 1em;
-		border: 2px solid var(--icon-frame-color);
-		border-radius: 3%;
-		cursor: pointer;
-	}
-	/* #courses-container .courses-content:hover {
-		transform: translateY(-9px);
-		transition: ease-in-out 300ms;
-	} */
-	img.courses-img {
-		max-width: 12rem;
-	}
+#courses-wrapper {
+	width: 100%;
+	padding: 1rem 5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	margin: 0;
+}
+#courses-container {
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	margin: 0;
+}
+#courses-container .courses-content {
+	min-width: 300px;
+	max-width: 400px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1em;
+	margin: 1em;
+	border: 2px solid var(--icon-frame-color);
+	border-radius: 3%;
+	cursor: pointer;
+}
+/* #courses-container .courses-content:hover {
+	transform: translateY(-9px);
+	transition: ease-in-out 300ms;
+} */
+img.courses-img {
+	max-width: 12rem;
+}
 
 /******************* COURSES END *******************/
 
@@ -664,46 +442,46 @@ img.media-head {
 
 /******************* FEEDBACK/TESTIMONIALS START *******************/
 
-	/* Feedbackblock */
+/* Feedbackblock */
 
-	.paragraph-feedback {
-		margin: 4em;
-		padding: 3px 1em;
-		color: rgb(40,40,40);
-		border-width: 1px 0;
-		border-top: 1px solid;
-		border-color: #ccc;
-	}
-	.paragraph-feedback p, .cv-headline p {
-		text-align: center;
-		font-style: italic;
-		color: gray;
-		padding-bottom: 0.4em;
-	}
-	.cv-headline {
-		margin: 0;
-		padding: 2.5em;
-	}
-	.cv-headline p {
-		padding-bottom: 0;
-	}
-	.paragraph-feedback h2, .cv-headline h2 {
-		text-align: center;
-		font-weight: bold;
-		font-style: italic;
-	}
+.paragraph-feedback {
+	margin: 4em;
+	padding: 3px 1em;
+	color: rgb(40,40,40);
+	border-width: 1px 0;
+	border-top: 1px solid;
+	border-color: #ccc;
+}
+.paragraph-feedback p, .cv-headline p {
+	text-align: center;
+	font-style: italic;
+	color: gray;
+	padding-bottom: 0.4em;
+}
+.cv-headline {
+	margin: 0;
+	padding: 2.5em;
+}
+.cv-headline p {
+	padding-bottom: 0;
+}
+.paragraph-feedback h2, .cv-headline h2 {
+	text-align: center;
+	font-weight: bold;
+	font-style: italic;
+}
 
-	/* Referenzblock */
-	.paragraph-reference {
-		background-color: rgb(220,220,220);
-		-moz-border-radius: 0.5em;
-		-webkit-border-radius: 0.5em;
-		-khtml-border-radius: 0.5em;
-		border-radius: 0.5em;
-		padding: 3px 1em;
-		font-size: 0.8em;
-		color: rgb(40,40,40)
-	}
+/* Referenzblock */
+.paragraph-reference {
+	background-color: rgb(220,220,220);
+	-moz-border-radius: 0.5em;
+	-webkit-border-radius: 0.5em;
+	-khtml-border-radius: 0.5em;
+	border-radius: 0.5em;
+	padding: 3px 1em;
+	font-size: 0.8em;
+	color: rgb(40,40,40)
+}
   
 /******************* FEEDBACK/TESTIMONIALS END *******************/
 
@@ -711,64 +489,251 @@ img.media-head {
 
 /******************* FOOTER START *******************/
 
-	img.media-footer {
-		display: none;
-	}
-	#wrapper-secondary {
-		width: 100%;
-		flex-direction: column;
-	}
-	footer {
-		width: 100%;
-		height: auto;
-		display: flex;
-		flex-direction: column;
-		position: relative;
-		background-color: var(--icon-body-color);
-		color: var(--secondary-color);
-		padding: 2rem 5rem;
-	}
-	.footer-links {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-end;
-	}
-	.footer-links p {
-		margin-block-start: 0;
-	}
-	.footer-links h2 {
-		padding: 1rem 0rem 0.5rem 0rem;
-	}
-	.fa-copyright {
-		padding-top: 1.5rem;
-	}
-	#wrapper-secondary ul.list-more {
-		padding: 0;
-		list-style-type: none;
-	}
-	.list-more li i {
-		margin: 0 1rem 0 0;
-	}
-	.list-more li a {
-		cursor: pointer;
-	}
-	.copyright {
-		width: 100%;
-		display: flex;
-		justify-content: space-between;
-		align-self: flex-end;
-		font-size: 1rem;
-		padding-top: 2rem;
-	}
-	.copyright i {
-		padding: 0;
-	}
-	.copyright a {
-		padding-left: 20px;
-		cursor: pointer;
-	}
+img.media-footer {
+	display: none;
+}
+#wrapper-secondary {
+	width: 100%;
+	flex-direction: column;
+}
+footer {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	background-color: var(--icon-body-color);
+	color: var(--secondary-color);
+	padding: 2rem 5rem;
+}
+.footer-links {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+.footer-links p {
+	margin-block-start: 0;
+}
+.footer-links h2 {
+	padding: 1rem 0rem 0.5rem 0rem;
+}
+.fa-copyright {
+	padding-top: 1.5rem;
+}
+#wrapper-secondary ul.list-more {
+	padding: 0;
+	list-style-type: none;
+}
+.list-more li i {
+	margin: 0 1rem 0 0;
+}
+.list-more li a {
+	cursor: pointer;
+}
+.copyright {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-self: flex-end;
+	font-size: 1rem;
+	padding-top: 2rem;
+}
+.copyright i {
+	padding: 0;
+}
+.copyright a {
+	padding-left: 20px;
+	cursor: pointer;
+}
 
 /******************* FOOTER END *******************/
+
+
+/******************* OTHERS START *******************/
+
+/* Listen */
+/* Breadcrumb Menü */
+ul.list-navigator {
+	padding: 1em 1em 1em 3em;
+	margin: 0;
+}
+ul.list-navigator li {
+	padding: 0.2em 0;
+	list-style-type: none;
+}
+ul.list-navigator li:after {
+	color: var(--secondary-color);
+	content: '»';
+	padding: 0 0.5em;
+	font-weight: bold;
+}
+ul.list-navigator li:last-child:after {
+	content: ' ';
+}
+ul.list-navigator li:first-child:after {
+	content: ' ';
+}
+
+/* Inhaltsverzeichnis, Spektrum */
+ul.list-spectre {
+	padding: 0;
+	list-style-type: none;
+}
+ul.list-spectre li {
+	margin: 1em 1em 1em 0em;
+	padding: 0em 0em 1em 5em;
+	background-size: 4em;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+
+#wrapper-secondary ul.list-spectre {
+	padding: 0;
+	list-style-type: none;
+}
+#wrapper-secondary ul.list-spectre li {
+	padding: 0em 1em 0 2em;
+	margin: 0;
+	background-size: 1.5em;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+#wrapper-secondary ul.list-spectre {
+	padding: 0;
+	list-style-type: none;
+}
+#wrapper-secondary ul.list-spectre li {
+	padding: 0.1em 1em 0.1em 2em;
+	margin: 0;
+	background-size: 1.5em;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+/* Inhaltsverzeichnis, Icons für Spektrum */
+.teaching {
+	background-image: url('../images/teaching.png');
+}
+.leadership {
+	background-image: url("../images/leadership.png");
+}
+.project_management {
+	background-image: url("../images/project_management.png");
+}
+.presenting {
+	background-image: url("../images/presenting.png");
+}
+.time_management {
+	background-image: url("../images/time_management.png");
+}
+.writing {
+	background-image: url("../images/writing.png");
+}
+.grant_writing {
+	background-image: url("../images/grant_writing.png");
+}
+.biochemistry {
+	background-image: url("../images/biochemistry.png");
+}
+.python_best_practices {
+	background-image: url("../images/python_best_practices.png");
+}
+.python_basics {
+	background-image: url("../images/python_basics.png");
+}
+.python_advanced {
+	background-image: url("../images/python_advanced.png");
+}
+.biopython {
+	background-image: url("../images/biopython.png");
+}
+.python {
+	background-image: url("../images/python.png");
+}
+.softdev {
+	background-image: url("../images/softdev.png");
+}
+.genart {
+	background-image: url("../images/numpy.png");
+}
+.data_analysis {
+	background-image: url("../images/bar.png");
+}
+.math {
+	background-image: url("../images/data_analysis.png");
+}
+.machine_learning {
+	background-image: url("../images/ml.png");
+}
+.agile {
+	background-image: url("../images/agile.png");
+}
+.games {
+	background-image: url("../images/pac.png");
+}
+.world {
+	background-image: url("../images/other.png");
+}
+
+/* Inhaltsverzeichnis vom einem Bereich */
+ul.list-content {
+	padding: 0em 0em 1em 0em;
+	margin: 0em 0em 1em 0em;
+	list-style-type: square;
+}
+ul.list-content li {
+	padding: 0.4em 1em 0.4em 1.2em;
+	margin: 0 0 0 1.0em;
+	background-size: 1.5em;
+	background-repeat: no-repeat;
+	background-position: left center;
+	font-size: 1.2em;
+}
+
+#wrapper-secondary ul.list-content {
+	padding: 0;
+	margin-left: -3em;
+	list-style-type: none;
+}
+#wrapper-secondary ul.list-content li {
+	padding: 0.4em 1em 0.4em 3em;
+	margin: 0;
+	font-size: 1em;
+	background-size: 1.5em;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+/* Tags */
+ul.list-tags {
+	text-align: left;
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+ul.list-tags li {
+	margin: 0.2em 0.2em 0.2em 0;
+	padding: 0.2em 0.5em;
+	display: inline-block;
+	background: #f0f0f0;
+	-moz-border-radius:    0.3em;
+	-webkit-border-radius: 0.3em;
+	-khtml-border-radius:  0.3em;
+	border-radius: 0.3em;
+	font-size: 0.85em;
+	font-weight: bold;
+}
+ul.list-tags li:hover {
+	background-color: #E9CDCB;
+	-o-transition:     color .5s ease-out, background 1s ease-in;
+	-ms-transition:    color .5s ease-out, background 1s ease-in;
+	-moz-transition:   color .5s ease-out, background 1s ease-in;
+	-webkit-transition:color .5s ease-out, background 1s ease-in;
+	/* ...and now override with proper CSS property */
+	transition:         color .5s ease-out, background 1s ease-in;
+}
+
+/******************* OTHERS END *******************/
 
 
 
@@ -1178,10 +1143,40 @@ img.media-head {
 
 		}
 
-  /******************* MEDIA QUERIES END *******************/
+		@media (min-width: 30em) {
+			ul.list-spectre-min {
+				-webkit-column-count: 2;
+				-moz-column-count: 2;
+				-ms-column-count: 2;
+				-o-column-count: 2;
+				column-count: 2;
+				-webkit-column-gap:1em;
+				-moz-column-gap:1em;
+				-ms-column-gap:1em;
+				-o-column-gap:1em;
+				column-gap:1em;
+				columns: 2;
+			}
+			ul.list-navigator {
+				padding: 1em 1em 1em 3em;
+				margin: 0;
+			}
+			ul.list-navigator li {
+				display: inline-block;
+				padding-right: 0;
+			}
+			ul.list-navigator li:after {
+				color: #008000;
+				content: '»';
+				padding: 0 0.5em;
+				font-weight: bold;
+			}
+		}
+
+/******************* MEDIA QUERIES END *******************/
 
 
-  /* FIXME: verschieben, und anpassen sobald Klasse eingefügt ist */
-  .courses-wrapper-python-basics table td {
+/* FIXME: verschieben, und anpassen sobald Klasse eingefügt ist */
+.courses-wrapper-python-basics table td {
 	width: 70%;
 }
