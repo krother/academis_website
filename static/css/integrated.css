@@ -2,6 +2,9 @@
 :root {
     --main-font: Lato;
     --secondary-color: #3C6F1F;
+    /* --secondary-color: #80b940; */
+	--icon-frame-color: #80b940;
+	--icon-body-color: #b3d789;
 	--hover-color: #1b4403;
     --bg-color: #3c6f1f51;
     --link-color:#3C6F1F;
@@ -37,7 +40,7 @@ ul.list-navigator li:after {
 		padding-right: 0;
 	}
 	ul.list-navigator li:after {
-		color: green;
+		color: #008000;
 		content: '»';
 		padding: 0 0.5em;
 		font-weight: bold;
@@ -252,9 +255,9 @@ table {
 .cv-wrapper table {
 	width: 100%;
 }
-/* .cv-wrapper table td {
+.cv-wrapper table td {
 	width: auto;
-} */
+}
 .cv-wrapper ul.list-spectre li {
     margin: 1em 1em 2em 0em;
 }
@@ -689,7 +692,8 @@ footer {
     display: flex;
     flex-direction: column;
     position: relative;
-    background-color: var(--bg-color);
+    background-color: var(--icon-body-color);
+	/* color: var(--footer-link-color); */
     padding: 2rem;
 }
 .footer-links {
@@ -699,9 +703,13 @@ footer {
 }
 .footer-links p {
 	margin-block-start: 0;
+	/* color: var(--footer-link-color); */
+
 }
 .footer-links h2 {
 	padding: 1rem 0rem 0.5rem 0rem;
+	/* color: var(--footer-link-color); */
+
 }
 .fa-copyright {
 	padding-top: 1.5rem;
@@ -709,15 +717,18 @@ footer {
 #wrapper-secondary ul.list-more {
     padding: 0;
     list-style-type: none;
+	/* color: var(--footer-link-color); */
 }
 .list-more li i {
     margin: 0 1rem 0 0;
 }
 .list-more li a {
     cursor: pointer;
+	/* color: var(--footer-link-color); */
 }
 .copyright {
     align-self: center;
+	/* color: var(--footer-link-color); */
 }
 .copyright li {
 	padding: 0px 2rem;
@@ -1047,3 +1058,9 @@ footer {
   }
 
   /******************* MEDIA QUERIES END *******************/
+
+
+  /* FIXME: verschieben, und anpassen sobald Klasse eingefügt ist */
+  .courses-wrapper-python-basics table td {
+	width: 70%;
+}
