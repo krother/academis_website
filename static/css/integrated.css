@@ -352,25 +352,21 @@ article {
 }
 
 
-/* Text: Überschriften und Absatz TODO: Am Ende Anpassen*/
-/* Zurück in em ändern */
 h1 {
 	font-size: 2.1rem;
-	padding: 3rem 0rem 1.5rem 0rem;
+	padding: 3rem 0rem 1rem 0rem;
 	margin: 0;
 }
 h2 {
 	font-size: 1.6rem;
-	padding: 3rem 0rem 1.5rem 0rem;
+	padding: 3rem 0rem 0rem 0rem;
 }
 h3 {
 	font-size: 1.5rem;
-	/* padding: 1.5rem 0rem 1rem 0rem; */
 	padding: 3.5rem 0rem 0rem 0rem;
 }
 h4 {
-	/* font-size: 1.5rem; */
-	padding: 1rem 0rem 0.5rem 0rem;
+	padding: 1rem 0rem 0rem 0rem;
 }
 hr{
 	border: none;
@@ -503,7 +499,6 @@ nav {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	/* FIXME: Wenn Transition off dann gibt es keinen glitch beim clicken des Links */
 	transition: all 0.4s ease;
 }
 .burger-menu > div::before,
@@ -565,12 +560,6 @@ nav {
 	max-height: 100vh;
 	opacity: 1;
 }
-.menu-link, .show-more {
-	width: 100%;
-	list-style: none;
-	color: var(--secondary-color);
-	font-size: 1.4rem;
-}
 .menu-link li, .show-more li {
 	border-bottom: 2px solid var(--line-color);
 	padding: 10px;
@@ -583,7 +572,6 @@ nav {
 }
 .sub-menu-links > a > li{
 	padding-left: 20px;
-	font-size: 1rem;
 	border-bottom: 2px solid var(--line-color);
 }
 .menu-link li:hover, .sub-menu-links > a > li:hover {
@@ -632,554 +620,564 @@ img.media-head {
 
 /******************* INTRO END *******************/
 
+
+
 /******************* COURSES START *******************/
 
-#courses-wrapper {
-    width: 100%;
-    height: 80vh;
-    padding: 1rem 5rem;
-    display: flex;
-	flex-direction: column;
-    justify-content: center;
-    position: relative;
-    margin: 0;
-}
-#courses-container {
-	width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-	align-items: center;
-    margin: 0;
-}
-#courses-container .courses-content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	flex-wrap: wrap;
-	padding: 1em;
-	margin: 1em;
-	border: 2px solid var(--icon-frame-color);
-	border-radius: 3%;
-	cursor: pointer;
-}
-#courses-container .courses-content:hover {
-	transform: translateY(-9px);
-	transition: ease-in-out 300ms;
-}
-img.courses-img {
-	max-width: 12rem;
-}
+	#courses-wrapper {
+		width: 100%;
+		height: 80vh;
+		padding: 1rem 5rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		position: relative;
+		margin: 0;
+	}
+	#courses-container {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		/* flex-wrap: wrap; */
+		justify-content: center;
+		align-items: center;
+		margin: 0;
+	}
+	#courses-container .courses-content {
+		min-width: 300px;
+		max-width: 400px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 1em;
+		margin: 1em;
+		border: 2px solid var(--icon-frame-color);
+		border-radius: 3%;
+		cursor: pointer;
+	}
+	#courses-container .courses-content:hover {
+		transform: translateY(-9px);
+		transition: ease-in-out 300ms;
+	}
+	img.courses-img {
+		max-width: 12rem;
+	}
 
 /******************* COURSES END *******************/
 
+
+
 /******************* FEEDBACK/TESTIMONIALS START *******************/
 
-/* Feedbackblock */
+	/* Feedbackblock */
 
-.paragraph-feedback {
-	margin: 4em;
-	padding: 3px 1em;
-	color: rgb(40,40,40);
-	border-width: 1px 0;
-	border-top: 1px solid;
-	border-color: #ccc;
-}
-.paragraph-feedback p, .cv-headline p {
-	text-align: center;
-	font-style: italic;
-	color: gray;
-	padding-bottom: 0.4em;
-}
-.cv-headline {
-	margin: 0;
-	padding: 2.5em;
-}
-.cv-headline p {
-	padding-bottom: 0;
-}
-.paragraph-feedback h2, .cv-headline h2 {
-	text-align: center;
-	font-weight: bold;
-	font-style: italic;
-}
+	.paragraph-feedback {
+		margin: 4em;
+		padding: 3px 1em;
+		color: rgb(40,40,40);
+		border-width: 1px 0;
+		border-top: 1px solid;
+		border-color: #ccc;
+	}
+	.paragraph-feedback p, .cv-headline p {
+		text-align: center;
+		font-style: italic;
+		color: gray;
+		padding-bottom: 0.4em;
+	}
+	.cv-headline {
+		margin: 0;
+		padding: 2.5em;
+	}
+	.cv-headline p {
+		padding-bottom: 0;
+	}
+	.paragraph-feedback h2, .cv-headline h2 {
+		text-align: center;
+		font-weight: bold;
+		font-style: italic;
+	}
 
-
-/* Referenzblock */
-.paragraph-reference {
-	background-color: rgb(220,220,220);
-	-moz-border-radius: 0.5em;
-	-webkit-border-radius: 0.5em;
-	-khtml-border-radius: 0.5em;
-	border-radius: 0.5em;
-	padding: 3px 1em;
-	font-size: 0.8em;
-	color: rgb(40,40,40)
-}
+	/* Referenzblock */
+	.paragraph-reference {
+		background-color: rgb(220,220,220);
+		-moz-border-radius: 0.5em;
+		-webkit-border-radius: 0.5em;
+		-khtml-border-radius: 0.5em;
+		border-radius: 0.5em;
+		padding: 3px 1em;
+		font-size: 0.8em;
+		color: rgb(40,40,40)
+	}
   
 /******************* FEEDBACK/TESTIMONIALS END *******************/
 
 
+
 /******************* FOOTER START *******************/
-img.media-footer {
-	display: none;
-}
-#wrapper-secondary {
-    width: 100%;
-    flex-direction: column;
-}
-footer {
-    width: 100%;
-	height: auto;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    background-color: var(--icon-body-color);
-	color: var(--secondary-color);
-    padding: 2rem 5rem;
-}
-.footer-links {
-    display: flex;
-	justify-content: space-between;
-	align-items: flex-end;
-}
-.footer-links p {
-	margin-block-start: 0;
-}
-.footer-links h2 {
-	padding: 1rem 0rem 0.5rem 0rem;
-}
-.fa-copyright {
-	padding-top: 1.5rem;
-}
-#wrapper-secondary ul.list-more {
-    padding: 0;
-    list-style-type: none;
-	/* color: var(--footer-link-color); */
-}
-.list-more li i {
-    margin: 0 1rem 0 0;
-}
-.list-more li a {
-    cursor: pointer;
-	/* color: var(--footer-link-color); */
-}
-.copyright {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-    align-self: flex-end;
-	font-size: 1rem;
-	padding-top: 2rem;
-	/* color: var(--footer-link-color); */
-}
-.copyright i {
-	padding: 0;
-}
-.copyright a {
-	padding-left: 20px;
-    cursor: pointer;
-}
+
+	img.media-footer {
+		display: none;
+	}
+	#wrapper-secondary {
+		width: 100%;
+		flex-direction: column;
+	}
+	footer {
+		width: 100%;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		background-color: var(--icon-body-color);
+		color: var(--secondary-color);
+		padding: 2rem 5rem;
+	}
+	.footer-links {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+	.footer-links p {
+		margin-block-start: 0;
+	}
+	.footer-links h2 {
+		padding: 1rem 0rem 0.5rem 0rem;
+	}
+	.fa-copyright {
+		padding-top: 1.5rem;
+	}
+	#wrapper-secondary ul.list-more {
+		padding: 0;
+		list-style-type: none;
+	}
+	.list-more li i {
+		margin: 0 1rem 0 0;
+	}
+	.list-more li a {
+		cursor: pointer;
+	}
+	.copyright {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-self: flex-end;
+		font-size: 1rem;
+		padding-top: 2rem;
+	}
+	.copyright i {
+		padding: 0;
+	}
+	.copyright a {
+		padding-left: 20px;
+		cursor: pointer;
+	}
 
 /******************* FOOTER END *******************/
 
 
+
 /******************* MEDIA QUERIES START - RESPONSIVE DESIGN *******************/
 
-/* @media (min-width: 1200px) and (max-width: 1342px) { */
-@media (min-width: 1200px) {
+		/* @media (min-width: 1200px) and (max-width: 1342px) { */
+		@media (min-width: 1200px) {
 
-    nav {
-      width: 30vw;
-    }
-	h3 {
-		padding: 3.5rem 0rem 0rem 0rem;
-	}
-  }
-  
-  @media (min-width: 992px) and (max-width: 1199px) {
-    nav {
-      width: 40vw;
-    }
-	h3 {
-		padding: 3.5rem 0rem 0rem 0rem;
-	}
-  }
-  
-  @media (min-width: 768px) and (max-width: 991px) {
+			nav {
+			width: 30vw;
+			}
+			h3 {
+				padding: 3.5rem 0rem 0rem 0rem;
+			}
+		}
+		
+		@media (min-width: 992px) and (max-width: 1199px) {
+			nav {
+			width: 40vw;
+			}
+			h3 {
+				padding: 3.5rem 0rem 0rem 0rem;
+			}
+			#courses-wrapper {
+				height: auto;
+			}
+			#courses-container {
+				height: auto;
+				grid-template-columns: 1fr 1fr;
+			}
 
-    nav {
-      width: 50vw;
-    }
-	body {
-		font-size: 1.3rem;
-	}
-	table {
-		width: 100%;
-	}
+		}
+		
+		@media (min-width: 768px) and (max-width: 991px) {
 
-	/* INTRO WRAPPER */
-	#intro-wrapper {
-		height: auto;
-		padding: 1rem;
-	}
+			nav {
+			width: 50vw;
+			}
+			body {
+				font-size: 1.3rem;
+			}
+			table {
+				width: 100%;
+			}
 
-	/* COURSES WRAPPER */
-	#courses-wrapper {
-		height: auto;
-		padding: 2rem 2rem;
-		justify-content: flex-start;
-	}
-	#courses-container {
-		width: 50%;
-		height: auto;
-		flex-wrap: wrap;
-	}
-	img.courses-img {
-		max-width: 10rem;
-	}
+			/* INTRO WRAPPER */
+			#intro-wrapper {
+				height: auto;
+				padding: 1rem;
+			}
 
-  }
-  
-  @media (min-width: 576px) and (max-width: 767px) {
-  
-    nav {
-      width: 70vw;
-    }
+			/* COURSES WRAPPER */
+			#courses-wrapper {
+				height: auto;
+				padding: 2rem 2rem;
+				justify-content: flex-start;
+			}
+			#courses-container {
+				height: auto;
+				grid-template-columns: 1fr 1fr;
+			}
+			img.courses-img {
+				max-width: 10rem;
+			}
 
-	body {
-		font-size: 1.3rem;
-	}
-	img.media-logo {
-		max-height: 3em;
-	}
-	section  {
-		/* margin: 2.5rem; */
-		padding: 2.5rem;
-	}
-	table {
-		width: 100%;
-	}
-	a, p {
-		overflow-wrap: break-word;  
-	}
+		}
+		
+		@media (min-width: 576px) and (max-width: 767px) {
+		
+			nav {
+			width: 70vw;
+			}
 
-	/* INTRO WRAPPER */
-	#headline {
-		margin-bottom: 0;
-	}
-	#intro-wrapper {
-		height: auto;
-		padding: 1rem;
-	}
-	#img-wrapper {
-		margin: 10px;
-	}
-	img.media-head {
-		max-width: 13rem;
-	}
+			body {
+				font-size: 1.3rem;
+			}
+			img.media-logo {
+				max-height: 3em;
+			}
+			section  {
+				/* margin: 2.5rem; */
+				padding: 2.5rem;
+			}
+			table {
+				width: 100%;
+			}
+			a, p {
+				overflow-wrap: break-word;  
+			}
 
-	/* COURSES WRAPPER */
-	#courses-wrapper {
-		height: auto;
-		padding: 1rem 1rem;
-		justify-content: flex-start;
-	}
-	#courses-container {
-		height: auto;
-		flex-direction: column;
-	}
-	img.courses-img {
-		max-width: 10rem;
-	}
+			/* INTRO WRAPPER */
+			#headline {
+				margin-bottom: 0;
+			}
+			#intro-wrapper {
+				height: auto;
+				padding: 1rem;
+			}
+			#img-wrapper {
+				margin: 10px;
+			}
+			img.media-head {
+				max-width: 13rem;
+			}
 
-	/* LISTS */
-	ul {
-		padding-inline-start: 2rem;
-	}
-	li {
-		padding-left: 1rem;
-	}
-	ul.list-spectre li {
-		margin: 1em 0em;
-	}
-	.cv-wrapper ul.list-spectre li {
-		padding: 0em 0em 2em 0em;
-	}
+			/* COURSES WRAPPER */
+			#courses-wrapper {
+				height: auto;
+				padding: 1rem 1rem;
+				justify-content: flex-start;
+			}
+			#courses-container {
+				height: auto;
+				grid-template-columns: 1fr;
+			}
+			img.courses-img {
+				max-width: 10rem;
+			}
 
-	/* FOOTER */
-	.footer-links {
-		flex-direction: column;
-		align-items: flex-start;
-		padding: 1em;
-	}
-	.footer-links li {
-		padding-left: 0em;
-	}
-	.copyright{
-		flex-direction: column;
-	}
-	.copyright i {
-		padding: 0;
-	}
-	.copyright a {
-		padding-left: 0;
-	}
-	.copyright :nth-child(2) {
-		display: flex;
-		flex-direction: column;
-	}
+			/* LISTS */
+			ul {
+				padding-inline-start: 2rem;
+			}
+			li {
+				padding-left: 1rem;
+			}
+			ul.list-spectre li {
+				margin: 1em 0em;
+			}
+			.cv-wrapper ul.list-spectre li {
+				padding: 0em 0em 2em 0em;
+			}
 
-	/* ICONS */
-	.cv-wrapper .teaching {
-		background-image: none;
-	}
-	.cv-wrapper .leadership {
-		background-image: none;
-	}
-	.cv-wrapper .project_management {
-		background-image: none;
-	}
-	.cv-wrapper .presenting {
-		background-image: none;
-	}
-	.cv-wrapper .time_management {
-		background-image: none;
-	}
-	.cv-wrapper .writing {
-		background-image: none;
-	}
-	.cv-wrapper .grant_writing {
-		background-image: none;
-	}
-	.cv-wrapper .biochemistry {
-		background-image: none;
-	}
-	.cv-wrapper .python_best_practices {
-		background-image: none;
-	}
-	.cv-wrapper .python_basics {
-		background-image: none;
-	}
-	.cv-wrapper .python_advanced {
-		background-image: none;
-	}
-	.cv-wrapper .biopython {
-		background-image: none;
-	}
-	.cv-wrapper .python {
-		background-image: none;
-	}
-	.cv-wrapper .softdev {
-		background-image: none;
-	}
-	.cv-wrapper .genart {
-		background-image: none;
-	}
-	.cv-wrapper .data_analysis {
-		background-image: none;
-	}
-	.cv-wrapper .math {
-		background-image: none;
-	}
-	.cv-wrapper .machine_learning {
-		background-image: none;
-	}
-	.cv-wrapper .agile {
-		background-image: none;
-	}
-	.cv-wrapper .games {
-		background-image: none;
-	}
-	.cv-wrapper .world {
-		background-image: none;
-	}
+			/* FOOTER */
+			.footer-links {
+				flex-direction: column;
+				align-items: flex-start;
+				padding: 1em;
+			}
+			.footer-links li {
+				padding-left: 0em;
+			}
+			.copyright{
+				flex-direction: column;
+			}
+			.copyright i {
+				padding: 0;
+			}
+			.copyright a {
+				padding-left: 0;
+			}
+			.copyright :nth-child(2) {
+				display: flex;
+				flex-direction: column;
+			}
 
-  }
-  
-  /* IPHONE SIZES */
-  @media (max-width: 575px) {
-	
-	body {
-		font-size: 1.1rem;
-	}
-	img.media-logo {
-		max-height: 2.5em;
-	}
-	section  {
-		/* margin: 2rem; */
-		padding: 2rem;
-	}
-	table {
-		width: 100%;
-	}
-	a, p {
-		overflow-wrap: break-word;  
-	}	
+			/* ICONS */
+			.cv-wrapper .teaching {
+				background-image: none;
+			}
+			.cv-wrapper .leadership {
+				background-image: none;
+			}
+			.cv-wrapper .project_management {
+				background-image: none;
+			}
+			.cv-wrapper .presenting {
+				background-image: none;
+			}
+			.cv-wrapper .time_management {
+				background-image: none;
+			}
+			.cv-wrapper .writing {
+				background-image: none;
+			}
+			.cv-wrapper .grant_writing {
+				background-image: none;
+			}
+			.cv-wrapper .biochemistry {
+				background-image: none;
+			}
+			.cv-wrapper .python_best_practices {
+				background-image: none;
+			}
+			.cv-wrapper .python_basics {
+				background-image: none;
+			}
+			.cv-wrapper .python_advanced {
+				background-image: none;
+			}
+			.cv-wrapper .biopython {
+				background-image: none;
+			}
+			.cv-wrapper .python {
+				background-image: none;
+			}
+			.cv-wrapper .softdev {
+				background-image: none;
+			}
+			.cv-wrapper .genart {
+				background-image: none;
+			}
+			.cv-wrapper .data_analysis {
+				background-image: none;
+			}
+			.cv-wrapper .math {
+				background-image: none;
+			}
+			.cv-wrapper .machine_learning {
+				background-image: none;
+			}
+			.cv-wrapper .agile {
+				background-image: none;
+			}
+			.cv-wrapper .games {
+				background-image: none;
+			}
+			.cv-wrapper .world {
+				background-image: none;
+			}
 
-	/* NAVBAR */
-	nav {
-		width: 100vw;
-		height: 100%;
-	}
-	.menu {
-		background-color: rgba(255, 255, 255, 0.993);
-	}
-	.nav-container .menu > div > div {
-		margin: 3rem;
-	}
+		}
+		
+		/* IPHONE SIZES */
+		@media (max-width: 575px) {
+			
+			body {
+				font-size: 1.1rem;
+			}
+			img.media-logo {
+				max-height: 2.5em;
+			}
+			section  {
+				/* margin: 2rem; */
+				padding: 2rem;
+			}
+			table {
+				width: 100%;
+			}
+			a, p {
+				overflow-wrap: break-word;  
+			}	
 
-	/* INTRO WRAPPER */
-	#headline {
-		margin-bottom: 1rem;
-	}
-	#intro-wrapper {
-		width: 100%;
-		height: auto;
-		padding: 1rem;
-		flex-direction: column;
-	}
-	#img-wrapper {
-		flex-direction: row;
-	}
-	img.media-head {
-		display: none;
-	}
+			/* NAVBAR */
+			nav {
+				width: 100vw;
+				height: 100%;
+			}
+			.menu {
+				background-color: rgba(255, 255, 255, 0.993);
+			}
+			.nav-container .menu > div > div {
+				margin: 3rem;
+			}
 
-	/* COURSES WRAPPER */
-	#courses-wrapper {
-		height: auto;
-		padding: 1rem 1rem;
-		justify-content: flex-start;
-	}
-	#courses-container {
-		height: auto;
-		flex-direction: column;
-	}
-	img.courses-img {
-		max-width: 10rem;
-	}
+			/* INTRO WRAPPER */
+			#headline {
+				margin-bottom: 1rem;
+			}
+			#intro-wrapper {
+				width: 100%;
+				height: auto;
+				padding: 1rem;
+				flex-direction: column;
+			}
+			#img-wrapper {
+				flex-direction: row;
+			}
+			img.media-head {
+				display: none;
+			}
 
-	/* LISTS */
-	ul {
-		padding-inline-start: 2rem;
-	}
-	li {
-		padding-left: 1rem;
-	}
-	ul.list-spectre li {
-		margin: 1em 0em;
-	}
-	.cv-wrapper ul.list-spectre li {
-		padding: 0em 0em 2em 0em;
-	}
+			/* COURSES WRAPPER */
+			#courses-wrapper {
+				height: auto;
+				padding: 1rem 1rem;
+				justify-content: flex-start;
+			}
+			#courses-container {
+				height: auto;
+				grid-template-columns: 1fr;
+			}
+			img.courses-img {
+				max-width: 10rem;
+			}
 
-	/* FOOTER */
-    footer {
-		padding: 2rem 2rem;
-	}
-	.footer-links {
-		width: 100%;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-	.footer-links :first-child {
-		/* width: 100%; */
-		/* align-self: center; */
-	}
-	.footer-links li {
-		padding-left: 0;
-	}
-	.footer-links ul {
-		margin: 10px;	
-	}
-	.copyright {
-		flex-direction: column;
-	}
-	.copyright i {
-		padding: 0;
-	}
-	.copyright a {
-		padding-left: 0;
-	}
-	.copyright :nth-child(2) {
-		display: flex;
-		flex-direction: column;
-	}
-	#img-footer-container{
-		align-self: center;
-	}
-	img.media-footer {
-		max-width: 11rem;
-		display: block;
-	}
+			/* LISTS */
+			ul {
+				padding-inline-start: 2rem;
+			}
+			li {
+				padding-left: 1rem;
+			}
+			ul.list-spectre li {
+				margin: 1em 0em;
+			}
+			.cv-wrapper ul.list-spectre li {
+				padding: 0em 0em 2em 0em;
+			}
 
-	/* ICONS */
-	.cv-wrapper .teaching {
-		background-image: none;
-	}
-	.cv-wrapper .leadership {
-		background-image: none;
-	}
-	.cv-wrapper .project_management {
-		background-image: none;
-	}
-	.cv-wrapper .presenting {
-		background-image: none;
-	}
-	.cv-wrapper .time_management {
-		background-image: none;
-	}
-	.cv-wrapper .writing {
-		background-image: none;
-	}
-	.cv-wrapper .grant_writing {
-		background-image: none;
-	}
-	.cv-wrapper .biochemistry {
-		background-image: none;
-	}
-	.cv-wrapper .python_best_practices {
-		background-image: none;
-	}
-	.cv-wrapper .python_basics {
-		background-image: none;
-	}
-	.cv-wrapper .python_advanced {
-		background-image: none;
-	}
-	.cv-wrapper .biopython {
-		background-image: none;
-	}
-	.cv-wrapper .python {
-		background-image: none;
-	}
-	.cv-wrapper .softdev {
-		background-image: none;
-	}
-	.cv-wrapper .genart {
-		background-image: none;
-	}
-	.cv-wrapper .data_analysis {
-		background-image: none;
-	}
-	.cv-wrapper .math {
-		background-image: none;
-	}
-	.cv-wrapper .machine_learning {
-		background-image: none;
-	}
-	.cv-wrapper .agile {
-		background-image: none;
-	}
-	.cv-wrapper .games {
-		background-image: none;
-	}
-	.cv-wrapper .world {
-		background-image: none;
-	}
+			/* FOOTER */
+			footer {
+				padding: 2rem 2rem;
+			}
+			.footer-links {
+				width: 100%;
+				flex-direction: column;
+				align-items: flex-start;
+			}
+			.footer-links li {
+				padding-left: 0;
+			}
+			.footer-links ul {
+				margin: 10px;	
+			}
+			.copyright {
+				flex-direction: column;
+			}
+			.copyright i {
+				padding: 0;
+			}
+			.copyright a {
+				padding-left: 0;
+			}
+			.copyright :nth-child(2) {
+				display: flex;
+				flex-direction: column;
+			}
+			#img-footer-container{
+				align-self: center;
+			}
+			img.media-footer {
+				max-width: 11rem;
+				display: block;
+			}
 
-  }
+			/* ICONS */
+			.cv-wrapper .teaching {
+				background-image: none;
+			}
+			.cv-wrapper .leadership {
+				background-image: none;
+			}
+			.cv-wrapper .project_management {
+				background-image: none;
+			}
+			.cv-wrapper .presenting {
+				background-image: none;
+			}
+			.cv-wrapper .time_management {
+				background-image: none;
+			}
+			.cv-wrapper .writing {
+				background-image: none;
+			}
+			.cv-wrapper .grant_writing {
+				background-image: none;
+			}
+			.cv-wrapper .biochemistry {
+				background-image: none;
+			}
+			.cv-wrapper .python_best_practices {
+				background-image: none;
+			}
+			.cv-wrapper .python_basics {
+				background-image: none;
+			}
+			.cv-wrapper .python_advanced {
+				background-image: none;
+			}
+			.cv-wrapper .biopython {
+				background-image: none;
+			}
+			.cv-wrapper .python {
+				background-image: none;
+			}
+			.cv-wrapper .softdev {
+				background-image: none;
+			}
+			.cv-wrapper .genart {
+				background-image: none;
+			}
+			.cv-wrapper .data_analysis {
+				background-image: none;
+			}
+			.cv-wrapper .math {
+				background-image: none;
+			}
+			.cv-wrapper .machine_learning {
+				background-image: none;
+			}
+			.cv-wrapper .agile {
+				background-image: none;
+			}
+			.cv-wrapper .games {
+				background-image: none;
+			}
+			.cv-wrapper .world {
+				background-image: none;
+			}
+
+		}
 
   /******************* MEDIA QUERIES END *******************/
 
