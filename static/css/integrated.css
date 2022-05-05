@@ -1,4 +1,5 @@
-/* Variables */
+/******************* VARIABLES START *******************/
+
 :root {
     --main-font: Lato;
     --secondary-color: #3C6F1F;
@@ -12,6 +13,8 @@
     --line-color: rgba(0, 128, 0, 0.298);
     --main-text-color: #000000;
 }
+
+/******************* VARIABLES END *******************/
 
 
 /* Listen */
@@ -336,11 +339,13 @@ button:hover {
 /* Layout: header, section, article und nav */
 header {
 	padding: 2rem 3rem;
+	height: 20vh;
 	margin: 0rem;
 	text-align: left;
 }
 section {
-	margin: 4rem;
+	/* margin: 4rem; */
+	padding: 4rem;
 }
 article {
 	margin: 3rem;
@@ -456,7 +461,7 @@ a.current {
 }
 #intro-wrapper {
     width: 100%;
-    height: 60vh;
+    height: 80vh;
     padding: 1rem 5rem;
     display: flex;
     justify-content: center;
@@ -483,6 +488,9 @@ img.media-head {
 /* für Accessibility */
 label {
 	color: transparent;
+	position: absolute;
+	top: 20px;
+	right: 20px;
 }
 nav {
 	position: fixed;
@@ -491,6 +499,8 @@ nav {
 	display: flex;
 	align-items: flex-start;
 	overflow: scroll;
+	/* scrollbar-width: none;
+  	-ms-overflow-style: none; */
 	height: auto;
 	z-index: 1;
 }
@@ -792,7 +802,8 @@ footer {
 		max-height: 3em;
 	}
 	section  {
-		margin: 2.5rem;
+		/* margin: 2.5rem; */
+		padding: 2.5rem;
 	}
 	table {
 		width: 100%;
@@ -932,7 +943,8 @@ footer {
 		max-height: 2.5em;
 	}
 	section  {
-		margin: 2rem;
+		/* margin: 2rem; */
+		padding: 2rem;
 	}
 	table {
 		width: 100%;
