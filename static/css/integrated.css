@@ -462,18 +462,17 @@ nav {
 	right: 0px;
 	display: flex;
 	align-items: flex-start;
-	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow: scroll;
 	scrollbar-width: none;
-	height: auto;
 	min-height: 100vh;
-	z-index: 1;
+	height: 100%;
+	z-index: 2;
 }
 .toggler {
 	position: fixed;
 	top: 30px;
 	right: 30px;
-	z-index: 3;
+	z-index: 4;
 	cursor: pointer;
 	width: 40px;
 	height: 40px;
@@ -485,7 +484,7 @@ nav {
     right: 30px;
     width: 40px;
     height: 40px;
-    z-index: 2;
+    z-index: 3;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -505,7 +504,7 @@ nav {
 .burger-menu > div::after {
 	content: '';
 	position: absolute;
-	z-index: 1;
+	z-index: 2;
 	top: -9px;
 	width: 100%;
 	height: 4px;
@@ -1057,6 +1056,9 @@ img.media-head {
 			}
 			img.courses-img {
 				max-width: 10rem;
+			}
+			#courses-container .courses-content {
+				margin: 1em 0em;
 			}
 
 			/* LISTS */
