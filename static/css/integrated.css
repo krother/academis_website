@@ -678,6 +678,7 @@ img.courses-img {
 /* Feedbackblock */
 
 .paragraph-feedback {
+	margin: 4em;
 	padding: 3px 1em;
 	color: rgb(40,40,40);
 	border-width: 1px 0;
@@ -734,23 +735,19 @@ footer {
     flex-direction: column;
     position: relative;
     background-color: var(--icon-body-color);
-	/* color: var(--footer-link-color); */
+	color: var(--secondary-color);
     padding: 2rem;
 }
 .footer-links {
     display: flex;
-    justify-content: space-around;
+	justify-content: space-between;
 	align-items: flex-end;
 }
 .footer-links p {
 	margin-block-start: 0;
-	/* color: var(--footer-link-color); */
-
 }
 .footer-links h2 {
 	padding: 1rem 0rem 0.5rem 0rem;
-	/* color: var(--footer-link-color); */
-
 }
 .fa-copyright {
 	padding-top: 1.5rem;
@@ -768,7 +765,10 @@ footer {
 	/* color: var(--footer-link-color); */
 }
 .copyright {
+	display: flex;
+	justify-content: space-evenly;
     align-self: center;
+	font-size: 1rem;
 	/* color: var(--footer-link-color); */
 }
 .copyright li {
@@ -817,6 +817,12 @@ footer {
 		height: auto;
 		padding: 1rem;
 	}
+	.copyright{
+		flex-direction: column;
+	}
+	.copyright li {
+		padding: 0;
+	}
 
   }
   
@@ -858,6 +864,20 @@ footer {
 		max-width: 13rem;
 	}
 
+	/* COURSES WRAPPER */
+	#courses-wrapper {
+		height: auto;
+		padding: 1rem 1rem;
+		justify-content: flex-start;
+	}
+	#courses-container {
+		height: auto;
+		flex-direction: column;
+	}
+	img.courses-img {
+		max-width: 10rem;
+	}
+
 	/* LISTS */
 	ul {
 		padding-inline-start: 2rem;
@@ -883,6 +903,9 @@ footer {
 	}
 	.copyright li {
 		padding: 0;
+	}
+	.copyright{
+		flex-direction: column;
 	}
 
 	/* ICONS */
@@ -995,16 +1018,9 @@ footer {
 		flex-direction: column;
 	}
 	#img-wrapper {
-		/* FIXME: Position absolute? */
-		/* position: absolute;
-		top: 4.5em;
-		right: -1.6em; */
 		flex-direction: row;
-		/* margin: 10px; */
 	}
 	img.media-head {
-		/* padding-left: 0;
-		max-width: 12rem; */
 		display: none;
 	}
 
@@ -1021,7 +1037,6 @@ footer {
 	img.courses-img {
 		max-width: 10rem;
 	}
-
 
 	/* LISTS */
 	ul {
@@ -1044,6 +1059,9 @@ footer {
 	}
 	.footer-links li {
 		padding-left: 0;
+	}
+	.copyright{
+		flex-direction: column;
 	}
 	.copyright li {
 		padding: 0;
