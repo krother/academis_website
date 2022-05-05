@@ -736,7 +736,7 @@ footer {
     position: relative;
     background-color: var(--icon-body-color);
 	color: var(--secondary-color);
-    padding: 2rem;
+    padding: 2rem 5rem;
 }
 .footer-links {
     display: flex;
@@ -765,14 +765,20 @@ footer {
 	/* color: var(--footer-link-color); */
 }
 .copyright {
+	width: 100%;
 	display: flex;
-	justify-content: space-evenly;
-    align-self: center;
+	justify-content: space-between;
+    align-self: flex-end;
 	font-size: 1rem;
+	padding-top: 2rem;
 	/* color: var(--footer-link-color); */
 }
-.copyright li {
-	padding: 0px 2rem;
+.copyright i {
+	padding: 0;
+}
+.copyright a {
+	padding-left: 20px;
+    cursor: pointer;
 }
 
 /******************* FOOTER END *******************/
@@ -817,11 +823,20 @@ footer {
 		height: auto;
 		padding: 1rem;
 	}
-	.copyright{
-		flex-direction: column;
+
+	/* COURSES WRAPPER */
+	#courses-wrapper {
+		height: auto;
+		padding: 2rem 2rem;
+		justify-content: flex-start;
 	}
-	.copyright li {
-		padding: 0;
+	#courses-container {
+		width: 50%;
+		height: auto;
+		flex-wrap: wrap;
+	}
+	img.courses-img {
+		max-width: 10rem;
 	}
 
   }
@@ -901,10 +916,17 @@ footer {
 	.footer-links li {
 		padding-left: 0em;
 	}
-	.copyright li {
+	.copyright{
+		flex-direction: column;
+	}
+	.copyright i {
 		padding: 0;
 	}
-	.copyright{
+	.copyright a {
+		padding-left: 0;
+	}
+	.copyright :nth-child(2) {
+		display: flex;
 		flex-direction: column;
 	}
 
@@ -1053,25 +1075,39 @@ footer {
 	}
 
 	/* FOOTER */
+    footer {
+		padding: 2rem 2rem;
+	}
 	.footer-links {
+		width: 100%;
 		flex-direction: column;
 		align-items: flex-start;
+	}
+	.footer-links :first-child {
+		/* width: 100%; */
+		/* align-self: center; */
 	}
 	.footer-links li {
 		padding-left: 0;
 	}
-	.copyright{
+	.footer-links ul {
+		margin: 10px;	
+	}
+	.copyright {
 		flex-direction: column;
 	}
-	.copyright li {
+	.copyright i {
 		padding: 0;
 	}
-	#img-footer-container{
-		width: 100%;
+	.copyright a {
+		padding-left: 0;
+	}
+	.copyright :nth-child(2) {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+	}
+	#img-footer-container{
+		align-self: center;
 	}
 	img.media-footer {
 		max-width: 11rem;
