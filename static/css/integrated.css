@@ -429,11 +429,12 @@ img.media-head {
 	border: 2px solid var(--icon-frame-color);
 	border-radius: 3%;
 	cursor: pointer;
+	transition: 300ms;
 }
-/* #courses-container .courses-content:hover {
+#courses-container .courses-content:hover {
 	transform: translateY(-9px);
-	transition: ease-in-out 300ms;
-} */
+	transition: all 300ms ease-in-out;
+}
 img.courses-img {
 	max-width: 12rem;
 }
