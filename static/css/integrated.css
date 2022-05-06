@@ -18,6 +18,55 @@
 
 /************************************** NEW CODE **************************************/
 
+html {
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth; 
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+    color: var(--main-text-color);
+    font-family: var(--main-font);
+	font-size: 1.4rem;
+	background: url(../images/header-alt.jpg) no-repeat;
+}
+*, *:before, *:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+.group:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Button */
+button {
+    width: 130px;
+    height: 40px;
+	font-size: 0.8em;
+    margin: 20px 0px;
+	border: none;
+    border-radius: 3px;
+    background-color: var(--secondary-color);
+    cursor: pointer;
+}
+button {
+	color: var(--footer-link-color);
+}
+button:hover {
+	color: var(--footer-link-color);
+	background-color: var(--hover-color);
+}
+
 
 /* Medienobjekte */
 img.media-object {
@@ -62,56 +111,8 @@ tbody tr:nth-child(even) {
 	background: #f0f0f0;
 }
 
-html {
-    height: 100%;
-    width: 100%;
-    scroll-behavior: smooth; 
-    -webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
 
-body {
-	height: 100%;
-	width: 100%;
-	overflow-x: hidden;
-    color: var(--main-text-color);
-    font-family: var(--main-font);
-	font-size: 1.4rem;
-	background: url(../images/header-alt.jpg) no-repeat;
-}
 
-*, *:before, *:after {
-	-webkit-box-sizing: inherit;
-	-moz-box-sizing: inherit;
-	box-sizing: inherit;
-    margin: 0;
-    padding: 0;
-}
-
-.group:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
-button {
-    width: 130px;
-    height: 40px;
-	font-size: 0.8em;
-    margin: 20px 0px;
-	border: none;
-    border-radius: 3px;
-    background-color: var(--secondary-color);
-    cursor: pointer;
-}
-button {
-	color: var(--footer-link-color);
-}
-button:hover {
-	color: var(--footer-link-color);
-	background-color: var(--hover-color);
-}
 
 
 /* Layout: header, section, article und nav */
@@ -208,8 +209,7 @@ a.current {
 }
 
 
-/******************* WRAPPER START *******************/
-
+/******************* MAIN WRAPPER *******************/
 
 /* HEADER WRAPPER */
 #wrapper-master {
@@ -390,7 +390,8 @@ nav {
 	padding-top: 7%;
 }
 img.media-head {
-	max-width: 14rem;
+	min-width: 14rem;
+	width: 12vw;
 	padding-left: 1rem;
 }
 
@@ -444,7 +445,6 @@ img.courses-img {
 /******************* FEEDBACK/TESTIMONIALS START *******************/
 
 /* Feedbackblock */
-
 .paragraph-feedback {
 	margin: 4em;
 	padding: 3px 1em;
@@ -752,6 +752,7 @@ ul.list-tags li:hover {
 			body {
 				font-size: 1.5rem;
 			}
+
 		}
 		
 		@media (min-width: 992px) and (max-width: 1199px) {
