@@ -305,7 +305,6 @@ nav {
 .nav-container{
   	width: 100%;
 	min-height: 100vh;
-
 }
 .menu {
 	display: flex;
@@ -330,7 +329,7 @@ nav {
 	justify-content: center;
 }
 .nav-container .menu > div > div {
-  	margin: 5rem 3rem 3rem 3rem;
+  	margin: 4rem 3rem 3rem 3rem;
 	max-width: 90vw;
 	opacity: 1;
 }
