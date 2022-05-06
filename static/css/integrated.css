@@ -113,8 +113,6 @@ tbody tr:nth-child(even) {
 
 
 
-
-
 /* Layout: header, section, article und nav */
 header {
 	padding: 2rem 3rem;
@@ -174,6 +172,11 @@ li {
 	padding-left: 2rem;
 }
 ul {
+	margin-block-start: 1rem;
+    margin-block-end: 1rem;
+    padding-inline-start: 3rem;
+}
+ol {
 	margin-block-start: 1rem;
     margin-block-end: 1rem;
     padding-inline-start: 3rem;
