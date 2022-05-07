@@ -332,7 +332,7 @@ nav {
 	justify-content: center;
 }
 .nav-container .menu > div > div {
-  	margin: 4rem 3rem 3rem 3rem;
+  	margin: 3rem;
 	max-width: 90vw;
 	opacity: 1;
 }
@@ -341,7 +341,7 @@ nav {
 	border-bottom: 2px solid var(--line-color);
 	padding: 10px;
 	padding-left: 0;
-	font-size: 1.3rem;
+	font-size: 1.2rem;
 }
 .sub-menu-links {
 	padding-inline-start: 0;
