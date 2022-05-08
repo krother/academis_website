@@ -38,8 +38,8 @@ class SQLContentRepository(AbstractContentRepository):
 
     def get_all_slugs(self):
         result = []
-        for tag in get_all_tags():
-            result += [(tag, slug) for slug in get_all_article_slugs(tag)]
+        for tag in self.get_all_tags():
+            result += [(tag, slug) for slug in self.get_all_article_slugs(tag)]
         return result
 
 
