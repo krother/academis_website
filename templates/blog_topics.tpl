@@ -1,7 +1,7 @@
 
 <section class="blog-topics">
   <h2>These are my course materials:</h2>
-
+  <br>
   <ul class="list-spectre">
     <li class="python_basics">
       <h3><a href="/python_basics">Python Exercises for beginners 🇬🇧</a></h3>
