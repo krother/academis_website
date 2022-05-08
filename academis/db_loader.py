@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS article (
 
 CREATE TABLE IF NOT EXISTS file (
     tag VARCHAR(100),
-    name VARCHAR(200),
+    slug VARCHAR(200),
     data TEXT
 )
 """
@@ -30,6 +30,7 @@ def initialize(db):
 
 def clear(db):
     db.executescript("DELETE FROM article")
+    db.executescript("DELETE FROM file")
 
 
 def insert_article(db, tag, slug, a):

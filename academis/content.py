@@ -10,6 +10,7 @@ class MarkdownContentRepository(AbstractContentRepository):
     Generates HTML content directly from Markdown files
     in the individual git repos of each category.
     """
+
     def get_article_list_html(self, tag):
         path = BASE_PATH + tag
         fn = path + "/README.md"
@@ -22,7 +23,10 @@ class MarkdownContentRepository(AbstractContentRepository):
         if os.path.isdir(fn):
             return directory_to_article(fn, tag)
         text = open(fn).read()
-        return markdown_to_article(text, tag, path)
+        article = markdown_to_article(text, tag, path)
+        #for slug, data in article.files:
+        #    self.files[(tag, slug)] = data
+        return article
 
     def get_all_tags(self):
         return TAGS
@@ -36,6 +40,11 @@ class MarkdownContentRepository(AbstractContentRepository):
         for tag in self.get_all_tags():
             result += [(tag, slug) for slug in self.get_all_article_slugs(tag)]
         return result
+
+    def get_file(self, tag, slug):
+        fn = os.path.join(BASE_PATH, tag, slug)
+        return open(fn, 'rb').read()
+
 
 
 if __name__ == "__main__":

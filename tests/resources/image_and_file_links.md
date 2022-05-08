@@ -10,9 +10,12 @@
 ## other static files
 [zipped stuff](stuff.zip)
 
+:::file more_stuff.zip
+
 ## links to other docs
 [Markdown doc](other.md)
 [Markdown folder](hello_world/)
+
 
 ## external links
 [external page](http://external.de)

@@ -26,6 +26,10 @@ class AbstractContentRepository(ABC):
     def get_all_slugs(self):
         pass
 
+    @abstractmethod
+    def get_file(self, tag, slug):
+        pass
+
     def get_all_articles(self, verbose=False):
         """Iterates over all articles"""
         for tag in self.get_all_tags():

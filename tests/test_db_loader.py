@@ -37,10 +37,9 @@ def test_insert_file(temp_db):
     data = open(fn, 'rb').read()
     insert_file(temp_db, 'test', fn, data)
 
-    result = list(temp_db.execute("SELECT tag, name, data FROM file"))
+    result = list(temp_db.execute("SELECT tag, slug, data FROM file"))
     assert len(result) == 1
     tag, name, data = result[0]
     assert tag == 'test'
     assert name.endswith('brain.png')
     assert len(data) > 200
-    #open('out.png', 'wb').write(img)

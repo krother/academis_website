@@ -42,6 +42,11 @@ class SQLContentRepository(AbstractContentRepository):
             result += [(tag, slug) for slug in get_all_article_slugs(tag)]
         return result
 
+    def get_file(self, tag, slug):
+        cursor = self.db.execute("SELECT data FROM file WHERE tag=? AND slug=?", (tag, slug))
+        return list(cursor)[0][0]
+
+
 
 if __name__ == "__main__":
     repo = SQLContentRepository()

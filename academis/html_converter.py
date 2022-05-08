@@ -32,7 +32,7 @@ class LinkBuilder:
 
     @property
     def hyperlinks(self):
-        return re.findall(r'\[[^\]]+\]\(([^\)]+)\)', self.text)
+        return re.findall(r'\[[^\]]*\]\(([^\)]+)\)', self.text)
 
     @staticmethod
     def is_internal(link):
@@ -42,63 +42,36 @@ class LinkBuilder:
     def is_markdown_link(link):
         return link.endswith('.md') or link.endswith('/')
 
+    def replace_file_directives(self):
+        """takes care of :::file xyz directive"""
+        self.text = re.sub(r':::file ([^\s]+)', r'[\1](\1)', self.text)
+
     def create_relative_link(self, link):
         if link[-3:].lower() in STATIC_WILDCARDS:
             link = re.sub(r'^\.\.\/?', '', link)
-            return f'/static/{self.tag}/' + link
+            return f'/files/{self.tag}/{link}'
         elif self.is_markdown_link(link):
-            return link
+            return f'/posts/{self.tag}/{link}'
         else:
             raise ValueError(f'unknown link type: {link}')
 
+    def add_file(self, link):
+        link = re.sub(r'^\.\./', '', link)
+        fn = os.path.join(self.path, link)
+        self.files.append(open(fn, 'rb').read())
+        self.file_slugs.append(link)
+
     def insert_links(self):
         """Replaces the hyperlinks in the markdown document"""
+        self.replace_file_directives()
         for link in self.hyperlinks:
             if self.is_internal(link):
-                new_link = self.create_relative_link(link)
-                self.text = self.text.replace(f'({link})', f'({new_link})')
+                rel = self.create_relative_link(link)
+                self.text = self.text.replace(f'({link})', f'({rel})')
                 if self.is_markdown_link(link):
-                    self.links.append(new_link)
+                    self.links.append(link)
                 else:
-                    link = re.sub(r'^\.\./', '', link)
-                    fn = os.path.join(self.path, link)
-                    self.files.append(open(fn, 'rb').read())
-                    self.file_slugs.append(new_link)
-
-
-def fix_links(text, tag):
-    """
-    Hammer on the links to documents and images
-    so that they point to URLs in Flask
-    and still work on GitHub.
-    Supports both HTML and Markdown image links
-    """
-    text = re.sub(
-        r"\* \[([^\]]+)\]\((?!http)([^\)]+)\)",
-        r"* [\g<1>](/posts/{}/\g<2>)".format(tag),
-        text,
-    )
-    text = re.sub(
-        r"\| \[([^\]]+)\]\((?!http)([^\)]+)\)",
-        r"| [\g<1>](/posts/{}/\g<2>)".format(tag),
-        text,
-    )
-    text = re.sub(
-        r"\<img src=\"(.+\/)?([^\"\/]+)\"",
-        r'<img src="/static/content/{}/\g<2>"'.format(tag),
-        text,
-    )
-
-    text = re.sub(r"!\[(.*)\]\(\.\.\/([^\)]+)\)", r"![\g<1>](\g<2>)", text)
-    text = re.sub(
-        r"!\[(.*)\]\([^\/]+\/([^\)]+)\)",
-        r"![\g<1>](/static/content/{}/\g<2>)".format(tag),
-        text,
-    )
-    text = re.sub(
-        r":::file ([^\s]+)", r"[\g<1>](/static/content/{}/\g<1>)".format(tag), text
-    )
-    return text
+                    self.add_file(link)
 
 
 def wrap_images(content):
@@ -122,7 +95,6 @@ def replace_includes(text, path):
 def markdown_to_html(text, tag, path):
     title = re.findall(r"#+\s(.+)", text)
     title = title[0] if title else ""
-    #text = fix_links(text, tag)
 
     text, _ = replace_includes(text, path)
 
