@@ -20,3 +20,6 @@ def get_all_urls():
 @pytest.mark.parametrize('url', get_all_urls())
 def test_url(client, url):
     assert client.get(url).status == '200 OK'
+
+def test_file(client):
+    assert client.get('/files/python_basics/images/ada.jpg').status == '200 OK'

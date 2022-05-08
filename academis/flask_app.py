@@ -1,9 +1,10 @@
 # coding: utf-8
 
-from flask import Flask, render_template
+from flask import Flask, render_template, send_file
 from academis.testimonials import get_random_testimonial, get_all_testimonials
 from academis.content import MarkdownContentRepository
 from academis.db_content import SQLContentRepository
+from io import BytesIO
 import os
 
 BASE_PATH = os.path.join(os.path.split(__file__)[0], "..")
@@ -14,7 +15,8 @@ app = Flask(__name__, root_path=BASE_PATH)
 if os.environ.get('ACADEMIS_DOCSOURCE') == 'files':
     repo = MarkdownContentRepository()
 else:
-    repo = MarkdownContentRepository()
+    repo = SQLContentRepository()
+print(repo)
 
 @app.route("/")
 def index():
@@ -71,6 +73,11 @@ def publications():
 def imprint():
     return render_template("impressum.html", testimonial=get_random_testimonial())
 
+
+@app.route("/files/<tag>/<path:slug>")
+def content_file(tag, slug):
+    data = repo.get_file(tag, slug)
+    return send_file(BytesIO(data), download_name=slug) 
 
 @app.route("/<tag>")
 def tag_direct(tag):

@@ -17,13 +17,13 @@ class SQLContentRepository(AbstractContentRepository):
     def get_article_list_html(self, tag):
         cursor = self.db.execute("SELECT title, text FROM article WHERE tag=? AND slug IS NULL", (tag,))
         title, text = next(cursor)
-        return Article(title, text, None)
+        return Article(title, text, None, None)
 
 
     def get_article_html(self, tag, slug):
         cursor = self.db.execute("SELECT title, text FROM article WHERE tag=? AND slug=?", (tag, slug))
         title, text = next(cursor)
-        return Article(title, text, None)
+        return Article(title, text, None, None)
 
 
     def get_all_tags(self):
@@ -41,6 +41,11 @@ class SQLContentRepository(AbstractContentRepository):
         for tag in self.get_all_tags():
             result += [(tag, slug) for slug in self.get_all_article_slugs(tag)]
         return result
+
+    def get_file(self, tag, slug):
+        cursor = self.db.execute("SELECT data FROM file WHERE tag=? AND slug=?", (tag, slug))
+        return list(cursor)[0][0]
+
 
 
 if __name__ == "__main__":

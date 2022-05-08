@@ -33,3 +33,10 @@ def test_get_all_article_slugs(repo):
 def test_get_all_slugs(repo):
     s = repo.get_all_slugs()
     assert len(s) > 300
+
+def test_get_all_articles(repo):
+    list(repo.get_all_articles(verbose=True))
+
+def test_get_file(repo):
+    ada = repo.get_file('python_basics', 'images/ada.jpg')
+    assert len(ada) > 100
