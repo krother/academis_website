@@ -15,7 +15,6 @@ def get_all_urls():
     urls = ['/', '/impressum', '/cv', '/testimonials', '/publications']
     urls += [f'/{tag}' for tag in repo.get_all_tags()]
     urls += [f'/posts/{tag}/{slug}' for tag, slug in repo.get_all_slugs()]
-    #TODO: /courses
     return urls
 
 @pytest.mark.parametrize('url', get_all_urls())
