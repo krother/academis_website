@@ -1,6 +1,8 @@
 
 <section class="blog-topics">
-  <h2>These are my course materials:</h2>
+
+  <h1>Course Materials</h1>
+
   <br>
   <ul class="list-spectre">
     <li class="python_basics">
