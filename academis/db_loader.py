@@ -51,11 +51,11 @@ def save_article(db, tag, slug, article):
         insert_file(db, tag, slug, data)
 
 
-def load_all_articles(db):
+def load_all_articles(db, verbose=False):
     """loads entire content into the database"""
     n = 0
     repo = MarkdownContentRepository()
-    for tag, slug, article in repo.get_all_articles():
+    for tag, slug, article in repo.get_all_articles(verbose):
         save_article(db, tag, slug, article)
         n += 1
     return n
@@ -67,5 +67,5 @@ if __name__ == "__main__":
     with db:
         initialize(db)
         clear(db)
-        n = load_all_articles(db)
+        n = load_all_articles(db, verbose=True)
         print(f"\n{n} articles added")

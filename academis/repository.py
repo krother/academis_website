@@ -42,7 +42,7 @@ class AbstractContentRepository(ABC):
             # normal post
             for slug in self.get_all_article_slugs(tag):
                 if verbose:
-                    print(slug)
+                    print(tag, slug)
                 else:
                     print(".", end="")
                 a = self.get_article_html(tag, slug)

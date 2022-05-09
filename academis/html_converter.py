@@ -3,7 +3,9 @@ import re
 import markdown
 from dataclasses import dataclass
 
-STATIC_WILDCARDS = 'png,gif,svg,jpg,zip,pdf'.split(',')
+STATIC_WILDCARDS = 'png,gif,svg,jpg,zip,pdf,csv'.split(',')
+
+FILETYPES_TO_ADD = {'.md', '.py'}
 
 
 @dataclass
@@ -16,60 +18,93 @@ class Article:
     files: list
 
 
+class Link:
+    """Resolves paths to URLs"""
+    def __init__(self, link, path, subdir, tag):
+        self.link = link
+        self.path = path
+        self.subdir = subdir
+        self.tag = tag
+
+    @property
+    def is_internal(self):
+        return not (
+            self.link.startswith('http') or 
+            self.link.startswith('www') or
+            self.link.startswith('mailto')
+            )
+
+    @property
+    def is_article(self):
+        return self.link.endswith('.md') or self.link.endswith('/')
+
+    @property
+    def is_static(self):
+        return self.link[-3:] in STATIC_WILDCARDS
+
+    @property
+    def full_filepath(self):
+        fp = os.path.join(self.path, self.subdir, self.link)
+        if self.subdir:
+            fp = fp.replace(f'{self.subdir}/../', '')
+        return fp
+
+    @property
+    def slug(self):
+        slug = self.link
+        if self.subdir:
+            slug = f'{self.subdir}/' + slug
+            slug = slug.replace(f'{self.subdir}/../', '')
+        return slug
+
+    @property
+    def url(self):        
+        if self.is_article:
+            url = f'/posts/{self.tag}/{self.slug}'
+        elif self.is_static:
+            url = f'/files/{self.tag}/{self.slug}'
+        else:
+            raise ValueError(f'unknown link type: {self.link}')
+        return url
+
+
+
 class LinkBuilder:
     """
     Replaces internal hyperlinks in markdown format
     by relative URLs.
     Implements the Builder Pattern.
     """
-    def __init__(self, text, tag, path):
+    def __init__(self, text, tag, path, subdir):
         self.text = text
         self.tag = tag
         self.path = path
+        self.subdir = subdir
         self.file_slugs = []
         self.files = []
         self.links = []
 
     @property
     def hyperlinks(self):
-        return re.findall(r'\[[^\]]*\]\(([^\)]+)\)', self.text)
-
-    @staticmethod
-    def is_internal(link):
-        return not (link.startswith('http') or link.startswith('www'))
-
-    @staticmethod
-    def is_markdown_link(link):
-        return link.endswith('.md') or link.endswith('/')
-
+        for link in re.findall(r'\[[^\]]*\]\(([^\)]+)\)', self.text):
+            yield Link(link, self.path, self.subdir, self.tag)
+            
     def replace_file_directives(self):
         """takes care of :::file xyz directive"""
         self.text = re.sub(r':::file ([^\s]+)', r'[\1](\1)', self.text)
 
-    def create_relative_link(self, link):
-        if link[-3:].lower() in STATIC_WILDCARDS:
-            link = re.sub(r'^\.\.\/?', '', link)
-            return f'/files/{self.tag}/{link}'
-        elif self.is_markdown_link(link):
-            return f'/posts/{self.tag}/{link}'
-        else:
-            raise ValueError(f'unknown link type: {link}')
-
     def add_file(self, link):
-        link = re.sub(r'^\.\./', '', link)
-        fn = os.path.join(self.path, link)
-        self.files.append(open(fn, 'rb').read())
-        self.file_slugs.append(link)
+        self.files.append(open(link.full_filepath, 'rb').read())
+        self.file_slugs.append(link.slug)
 
     def insert_links(self):
         """Replaces the hyperlinks in the markdown document"""
         self.replace_file_directives()
         for link in self.hyperlinks:
-            if self.is_internal(link):
-                rel = self.create_relative_link(link)
-                self.text = self.text.replace(f'({link})', f'({rel})')
-                if self.is_markdown_link(link):
-                    self.links.append(link)
+            if link.is_internal:
+                self.text = self.text.replace(f'({link.link})', f'({link.url})')
+                if link.is_article:
+                    self.links.append(link.slug)
                 else:
                     self.add_file(link)
 
@@ -92,13 +127,13 @@ def replace_includes(text, path):
     return text, included
 
 
-def markdown_to_html(text, tag, path):
+def markdown_to_html(text, tag, path, subdir=''):
     title = re.findall(r"#+\s(.+)", text)
     title = title[0] if title else ""
 
     text, _ = replace_includes(text, path)
 
-    bl = LinkBuilder(text, tag, path)
+    bl = LinkBuilder(text, tag, path, subdir)
     bl.insert_links()
 
     content = markdown.markdown(
@@ -117,13 +152,14 @@ class ArticleFromFiles:
     """
     def __init__(self, path, tag):
         self.path = path
+        self.maindir, self.subdir = os.path.split(path)
         self.tag = tag
         self.text = ""
         self.title = self.tag.capitalize()
         self._included = []
 
     def add_markdown(self, raw):
-        title, content, _, includes = markdown_to_html(raw, self.tag)
+        title, content, _, includes = markdown_to_html(raw, self.tag, self.maindir, self.subdir)
         self.title = title
         self.text += content
         self._included += includes
@@ -131,8 +167,8 @@ class ArticleFromFiles:
     def add_python_code(self, fn, raw):
         filename = os.path.split(fn)[-1]
         code = "".join(["    " + x for x in raw.split('\n')])
-        code = markdown_to_html(code, "-")[1]
-        text += f"\n<hr>\n<h2>{filename}</h2>\n{code}"
+        code = markdown_to_html(code, "-", self.path)[1]
+        self.text += f"\n<hr>\n<h2>{filename}</h2>\n{code}"
 
     def add_file(self, fn):
         raw = open(fn).read()
@@ -144,16 +180,17 @@ class ArticleFromFiles:
     def process_dir(self):
         for filename in sorted(os.listdir(self.path)):
             fn = os.path.join(self.path, filename)
-            #TODO: try pattern matching
-            self.add_file(fn)
+            if os.path.isfile(fn) and fn[-3:] in FILETYPES_TO_ADD:
+                #TODO: try pattern matching
+                self.add_file(fn)
 
     def get_article(self):
         return Article(self.title, self.text, [], [])
 
 
 def directory_to_article(path, tag):
-    artgen = ArticleFromFiles(tag)
-    artgen.process_dir(path)
+    artgen = ArticleFromFiles(path, tag)
+    artgen.process_dir()
     return artgen.get_article()
 
 

@@ -3,9 +3,9 @@
 
 ## images
 ![a brain](brain.png)
-![gauss curve](../images/gauss.jpg)
+![gauss curve](images/gauss.jpg)
 ![a python](images/python.gif)
-![image in subfolder](../images/subfolder/teaching.png)
+![image in subfolder](images/subfolder/teaching.png)
 
 ## other static files
 [zipped stuff](stuff.zip)

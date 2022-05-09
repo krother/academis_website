@@ -24,8 +24,6 @@ class MarkdownContentRepository(AbstractContentRepository):
             return directory_to_article(fn, tag)
         text = open(fn).read()
         article = markdown_to_article(text, tag, path)
-        #for slug, data in article.files:
-        #    self.files[(tag, slug)] = data
         return article
 
     def get_all_tags(self):
@@ -38,6 +36,7 @@ class MarkdownContentRepository(AbstractContentRepository):
     def get_all_slugs(self):
         result = []
         for tag in self.get_all_tags():
+            print(tag)
             result += [(tag, slug) for slug in self.get_all_article_slugs(tag)]
         return result
 
