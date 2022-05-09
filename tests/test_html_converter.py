@@ -1,7 +1,7 @@
 
 import pytest
 from academis.html_converter import (
-    markdown_to_article,
+    markdown_file_to_article,
     directory_to_article,
     LinkBuilder,
     Link
@@ -72,9 +72,8 @@ def test_link_builder():
     assert '/test/hello_world/' in builder.text
 
 
-def test_markdown_to_article():
-    md = open(TEST_DATA_PATH + '/image_and_file_links.md').read()
-    article = markdown_to_article(md, 'test', path=TEST_DATA_PATH)
+def test_markdown_file_to_article():
+    article = markdown_file_to_article('test', path=TEST_DATA_PATH, filename='image_and_file_links.md')
     assert len(article.files) == 6
     assert len(article.links) == 2
     assert '/files/test/images/python.gif' in article.text

@@ -3,7 +3,7 @@ import re
 import markdown
 from dataclasses import dataclass
 
-STATIC_WILDCARDS = 'png,gif,svg,jpg,zip,pdf,csv'.split(',')
+STATIC_WILDCARDS = 'png,gif,svg,jpg,zip,pdf,csv,ttf,sql,xlsx'.split(',')
 
 FILETYPES_TO_ADD = {'.md', '.py'}
 
@@ -26,6 +26,9 @@ class Link:
         self.subdir = subdir
         self.tag = tag
 
+    def __repr__(self):
+        return f"<link: '{self.link}', path: '{self.path}', subdir: '{self.subdir}', tag: '{self.tag}'>"
+
     @property
     def is_internal(self):
         return not (
@@ -40,7 +43,7 @@ class Link:
 
     @property
     def is_static(self):
-        return self.link[-3:] in STATIC_WILDCARDS
+        return self.link.split('.')[-1] in STATIC_WILDCARDS
 
     @property
     def full_filepath(self):
@@ -127,20 +130,30 @@ def replace_includes(text, path):
     return text, included
 
 
-def markdown_to_html(text, tag, path, subdir=''):
-    title = re.findall(r"#+\s(.+)", text)
-    title = title[0] if title else ""
-
-    text, _ = replace_includes(text, path)
-
-    bl = LinkBuilder(text, tag, path, subdir)
-    bl.insert_links()
-
+def markdown_to_html(text):
     content = markdown.markdown(
-        bl.text,
+        text,
         extensions=["markdown.extensions.tables", "markdown.extensions.codehilite"],
     )
     content = wrap_images(content)
+    return content
+
+
+def markdown_file_to_html(tag, path, filepath):
+    fn = os.path.join(path, filepath)
+    text = open(fn).read()
+
+    title = re.findall(r"#+\s(.+)", text)
+    title = title[0] if title else ""
+
+    subdir, _ = os.path.split(filepath)
+
+    text, _ = replace_includes(text, os.path.join(path, subdir))
+
+    bl = LinkBuilder(text, tag, path, subdir)
+    bl.insert_links()
+    content = markdown_to_html(bl.text)
+
     return title, content, bl.links, list(zip(bl.file_slugs, bl.files))
 
 
@@ -158,31 +171,32 @@ class ArticleFromFiles:
         self.title = self.tag.capitalize()
         self._included = []
 
-    def add_markdown(self, raw):
-        title, content, _, includes = markdown_to_html(raw, self.tag, self.maindir, self.subdir)
+    def add_markdown(self, fn):
+        fn = os.path.join(self.subdir, fn)
+        title, content, _, includes = markdown_file_to_html(self.tag, self.maindir, fn)
         self.title = title
         self.text += content
         self._included += includes
 
-    def add_python_code(self, fn, raw):
+    def add_python_code(self, fn):
+        fn = os.path.join(self.maindir, self.subdir, fn)
+        raw = open(fn).read()
         filename = os.path.split(fn)[-1]
         code = "".join(["    " + x for x in raw.split('\n')])
-        code = markdown_to_html(code, "-", self.path)[1]
+        code = markdown_to_html(code)
         self.text += f"\n<hr>\n<h2>{filename}</h2>\n{code}"
 
     def add_file(self, fn):
-        raw = open(fn).read()
         if fn.endswith(".md"):
-            self.add_markdown(raw)
+            self.add_markdown(fn)
         elif fn.endswith(".py") and fn not in self._included:
-            self.add_python_code(fn, raw)
+            self.add_python_code(fn)
  
     def process_dir(self):
         for filename in sorted(os.listdir(self.path)):
             fn = os.path.join(self.path, filename)
             if os.path.isfile(fn) and fn[-3:] in FILETYPES_TO_ADD:
-                #TODO: try pattern matching
-                self.add_file(fn)
+                self.add_file(filename)
 
     def get_article(self):
         return Article(self.title, self.text, [], [])
@@ -194,6 +208,6 @@ def directory_to_article(path, tag):
     return artgen.get_article()
 
 
-def markdown_to_article(text, tag, path):
+def markdown_file_to_article(tag, path, filename):
     """Converts a Markdown text to an Article object"""
-    return Article(*markdown_to_html(text, tag, path))
+    return Article(*markdown_file_to_html(tag, path, filename))

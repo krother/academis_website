@@ -12,6 +12,8 @@
 
 :::file more_stuff.zip
 
+:::include includeme.py
+
 ## links to other docs
 [Markdown doc](other.md)
 [Markdown folder](hello_world/)
