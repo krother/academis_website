@@ -79,9 +79,10 @@ def test_markdown_file_to_article():
     assert '/files/test/images/python.gif' in article.text
     assert '<h1>' in article.text
 
-
-def test_directory_to_article():
-    a = directory_to_article(TEST_DATA_PATH + '/article_dir', 'test')
+@pytest.mark.parametrize('path', [TEST_DATA_PATH + '/article_dir/', TEST_DATA_PATH + '/article_dir'])
+def test_directory_to_article(path):
+    a = directory_to_article(path, 'test')
     assert 'To get a hello world message' in a.text
     assert a.text.count('print') == 2
     assert 'article_dir/images' not in a.text
+    assert '/files/test/images/gauss.jpg' in a.text

@@ -3,7 +3,7 @@ import re
 import markdown
 from dataclasses import dataclass
 
-STATIC_WILDCARDS = 'png,gif,svg,jpg,zip,pdf,csv,ttf,sql,xlsx'.split(',')
+STATIC_WILDCARDS = 'py,png,gif,svg,jpg,zip,pdf,csv,ttf,sql,xlsx,fasta,gbk,pdb'.split(',')
 
 FILETYPES_TO_ADD = {'.md', '.py'}
 
@@ -123,7 +123,7 @@ def replace_includes(text, path):
     """resolves :::include xx.py directives"""
     included = []
     for pyfile in re.findall(r"\:\:\:include (\w+\.py)", text, re.IGNORECASE):
-        py = open(path + pyfile).read()
+        py = open(os.path.join(path, pyfile)).read()
         pyform = "\n    :::python3\n    " + py.replace("\n", "\n    ")
         text = text.replace(":::include " + pyfile, pyform)
         included.append(pyfile)
@@ -165,11 +165,12 @@ class ArticleFromFiles:
     """
     def __init__(self, path, tag):
         self.path = path
-        self.maindir, self.subdir = os.path.split(path)
+        self.maindir, self.subdir = os.path.split(path.rstrip('/'))
         self.tag = tag
         self.text = ""
         self.title = self.tag.capitalize()
         self._included = []
+        
 
     def add_markdown(self, fn):
         fn = os.path.join(self.subdir, fn)
@@ -182,7 +183,8 @@ class ArticleFromFiles:
         fn = os.path.join(self.maindir, self.subdir, fn)
         raw = open(fn).read()
         filename = os.path.split(fn)[-1]
-        code = "".join(["    " + x for x in raw.split('\n')])
+        code = "\n".join(["    " + x for x in raw.split('\n')])
+        code = "\n    :::python\n" + code
         code = markdown_to_html(code)
         self.text += f"\n<hr>\n<h2>{filename}</h2>\n{code}"
 
