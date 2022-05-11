@@ -20,7 +20,7 @@ def temp_db():
     db.close()
     os.remove(fn)
 
-
+@pytest.mark.no_ci
 def test_load_db(temp_db):
     load_all_articles(temp_db)
     result = list(temp_db.execute("SELECT count(*) FROM article"))
