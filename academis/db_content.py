@@ -37,7 +37,7 @@ class SQLContentRepository(AbstractContentRepository):
 
     def get_all_article_slugs(self, tag):
         self.db = sqlite3.connect(DB_PATH)
-        cursor = self.db.execute("SELECT slug FROM article WHERE tag=?", (tag,))
+        cursor = self.db.execute("SELECT slug FROM article WHERE tag=? AND slug NOT NULL", (tag,))
         return [row[0] for row in cursor]
 
 
