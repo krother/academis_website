@@ -4,7 +4,7 @@ Sibling of content.py
 Has the same API but uses DB connection
 """
 import sqlite3
-from academis.db_loader import DB_PATH
+from academis.db_loader import DB_PATH, initialize
 from academis.html_converter import Article
 from academis.repository import AbstractContentRepository
 
@@ -12,8 +12,8 @@ from academis.repository import AbstractContentRepository
 class SQLContentRepository(AbstractContentRepository):
 
     def __init__(self):
-        #self.db = sqlite3.connect(DB_PATH)
-        pass
+        db = sqlite3.connect(DB_PATH)
+        initialize(db)
 
     def get_article_list_html(self, tag):
         self.db = sqlite3.connect(DB_PATH)

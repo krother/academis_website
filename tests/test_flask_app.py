@@ -18,6 +18,7 @@ URLS =  ['/', '/impressum', '/cv', '/testimonials', '/publications'] + \
 def test_url(client, url):
     assert client.get(url).status == '200 OK'
 
+@pytest.mark.no_ci
 def test_file(client):
     assert client.get('/files/python_basics/images/ada.jpg').status == '200 OK'
 
