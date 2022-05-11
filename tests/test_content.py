@@ -39,6 +39,7 @@ def test_get_all_slugs(repo):
     s = repo.get_all_slugs()
     assert len(s) > 300
 
+@pytest.mark.no_ci
 def test_get_all_articles(repo):
     list(repo.get_all_articles(verbose=True))
 
