@@ -1,27 +1,45 @@
 
 import pytest
-from academis.html_converter import (
-    markdown_file_to_article,
-    directory_to_article,
-    LinkBuilder,
-    Link
-)
 from testconf import TEST_DATA_PATH
+
+from academis.html_converter import (Link, LinkBuilder, directory_to_article,
+                                     markdown_file_to_article)
 
 
 @pytest.mark.parametrize('link, path, subdir, tag, url', [
- 
-    ('image_and_file_links.md', TEST_DATA_PATH, '', 'test', '/posts/test/image_and_file_links.md'),
-    ('article_dir/README.md', TEST_DATA_PATH, '', 'test', '/posts/test/article_dir/README.md'),
+
+    (
+        'image_and_file_links.md', TEST_DATA_PATH, '', 'test',
+        '/posts/test/image_and_file_links.md'
+        ),
+    (
+        'article_dir/README.md', TEST_DATA_PATH, '', 'test',
+        '/posts/test/article_dir/README.md'
+        ),
 
     ('brain.png', TEST_DATA_PATH, '', 'test', '/files/test/brain.png'),
-    ('images/gauss.jpg', TEST_DATA_PATH, '', 'test', '/files/test/images/gauss.jpg'),
-    ('images/subfolder/teaching.png', TEST_DATA_PATH, '', 'test', '/files/test/images/subfolder/teaching.png'),
-    ('../images/brain.png', TEST_DATA_PATH, 'article_dir', 'test', '/files/test/images/brain.png'),
+    (
+        'images/gauss.jpg', TEST_DATA_PATH, '', 'test',
+        '/files/test/images/gauss.jpg'
+        ),
+    (
+        'images/subfolder/teaching.png', TEST_DATA_PATH, '', 'test',
+        '/files/test/images/subfolder/teaching.png'
+        ),
+    (
+        '../images/brain.png', TEST_DATA_PATH, 'article_dir', 'test',
+        '/files/test/images/brain.png'
+        ),
 
     ('stuff.zip', TEST_DATA_PATH, '', 'test', '/files/test/stuff.zip'),
-    ('more_stuff.zip', TEST_DATA_PATH, '', 'test', '/files/test/more_stuff.zip'),
-    ('file_in_subfolder.zip', TEST_DATA_PATH, 'article_dir', 'test', '/files/test/article_dir/file_in_subfolder.zip'),
+    (
+        'more_stuff.zip', TEST_DATA_PATH, '', 'test',
+        '/files/test/more_stuff.zip'
+        ),
+    (
+        'file_in_subfolder.zip', TEST_DATA_PATH, 'article_dir', 'test',
+        '/files/test/article_dir/file_in_subfolder.zip'
+        ),
 ])
 def test_link_to_url(link, path, subdir, tag, url):
     link = Link(link, path, subdir, tag)
@@ -29,23 +47,43 @@ def test_link_to_url(link, path, subdir, tag, url):
 
 
 @pytest.mark.parametrize('link, path, subdir, tag, filepath', [
- 
-    ('image_and_file_links.md', TEST_DATA_PATH, '', 'test', TEST_DATA_PATH + '/image_and_file_links.md'),
-    ('article_dir/README.md', TEST_DATA_PATH, '', 'test',  TEST_DATA_PATH + '/article_dir/README.md'),
+
+    (
+        'image_and_file_links.md', TEST_DATA_PATH, '', 'test',
+        TEST_DATA_PATH + '/image_and_file_links.md'
+        ),
+    (
+        'article_dir/README.md', TEST_DATA_PATH, '', 'test',
+        TEST_DATA_PATH + '/article_dir/README.md'
+        ),
 
     ('brain.png', TEST_DATA_PATH, '', 'test', TEST_DATA_PATH + '/brain.png'),
-    ('images/gauss.jpg', TEST_DATA_PATH, '', 'test', TEST_DATA_PATH + '/images/gauss.jpg'),
-    ('images/subfolder/teaching.png', TEST_DATA_PATH, '', 'test', TEST_DATA_PATH + '/images/subfolder/teaching.png'),
-    ('../images/brain.png', TEST_DATA_PATH, 'article_dir', 'test', TEST_DATA_PATH + '/images/brain.png'),
+    (
+        'images/gauss.jpg', TEST_DATA_PATH, '', 'test',
+        TEST_DATA_PATH + '/images/gauss.jpg'
+        ),
+    (
+        'images/subfolder/teaching.png', TEST_DATA_PATH, '', 'test',
+        TEST_DATA_PATH + '/images/subfolder/teaching.png'
+        ),
+    (
+        '../images/brain.png', TEST_DATA_PATH, 'article_dir', 'test',
+        TEST_DATA_PATH + '/images/brain.png'
+        ),
 
     ('stuff.zip', TEST_DATA_PATH, '', 'test', TEST_DATA_PATH + '/stuff.zip'),
-    ('more_stuff.zip', TEST_DATA_PATH, '', 'test', TEST_DATA_PATH + '/more_stuff.zip'),
-    ('file_in_subfolder.zip', TEST_DATA_PATH, 'article_dir', 'test', TEST_DATA_PATH + '/article_dir/file_in_subfolder.zip'),
+    (
+        'more_stuff.zip', TEST_DATA_PATH, '', 'test',
+        TEST_DATA_PATH + '/more_stuff.zip'
+        ),
+    (
+        'file_in_subfolder.zip', TEST_DATA_PATH, 'article_dir', 'test',
+        TEST_DATA_PATH + '/article_dir/file_in_subfolder.zip'
+        ),
 ])
 def test_link_to_filepath(link, path, subdir, tag, filepath):
     link = Link(link, path, subdir, tag)
     assert link.full_filepath == filepath
-
 
 
 def test_link_builder():
@@ -73,13 +111,19 @@ def test_link_builder():
 
 
 def test_markdown_file_to_article():
-    article = markdown_file_to_article('test', path=TEST_DATA_PATH, filename='image_and_file_links.md')
+    article = markdown_file_to_article(
+        'test', path=TEST_DATA_PATH, filename='image_and_file_links.md'
+        )
     assert len(article.files) == 6
     assert len(article.links) == 2
     assert '/files/test/images/python.gif' in article.text
     assert '<h1>' in article.text
 
-@pytest.mark.parametrize('path', [TEST_DATA_PATH + '/article_dir/', TEST_DATA_PATH + '/article_dir'])
+
+@pytest.mark.parametrize(
+    'path',
+    [TEST_DATA_PATH + '/article_dir/', TEST_DATA_PATH + '/article_dir']
+    )
 def test_directory_to_article(path):
     a = directory_to_article(path, 'test')
     assert 'To get a hello world message' in a.text

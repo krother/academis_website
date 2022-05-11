@@ -1,8 +1,9 @@
 import os
-from academis.html_converter import markdown_file_to_article, directory_to_article
-from academis.repository import AbstractContentRepository
-from academis.config import TAGS, BASE_PATH
 
+from academis.config import BASE_PATH, TAGS
+from academis.html_converter import (directory_to_article,
+                                     markdown_file_to_article)
+from academis.repository import AbstractContentRepository
 
 
 class MarkdownContentRepository(AbstractContentRepository):
@@ -39,7 +40,6 @@ class MarkdownContentRepository(AbstractContentRepository):
     def get_file(self, tag, slug):
         fn = os.path.join(BASE_PATH, tag, slug)
         return open(fn, 'rb').read()
-
 
 
 if __name__ == "__main__":

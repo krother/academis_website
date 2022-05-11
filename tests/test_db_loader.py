@@ -1,14 +1,11 @@
 
 import os
-import pytest
 import sqlite3
 
-from academis.db_loader import (
-    initialize,
-    load_all_articles,
-    insert_file,
-)
+import pytest
 from testconf import TEST_DATA_PATH
+
+from academis.db_loader import initialize, insert_file, load_all_articles
 
 
 @pytest.fixture
@@ -19,6 +16,7 @@ def temp_db():
     yield db
     db.close()
     os.remove(fn)
+
 
 @pytest.mark.no_ci
 def test_load_db(temp_db):

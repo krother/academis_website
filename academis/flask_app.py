@@ -1,11 +1,13 @@
 # coding: utf-8
 
+import os
+from io import BytesIO
+
 from flask import Flask, render_template, send_file
-from academis.testimonials import get_random_testimonial, get_all_testimonials
+
 from academis.content import MarkdownContentRepository
 from academis.db_content import SQLContentRepository
-from io import BytesIO
-import os
+from academis.testimonials import get_all_testimonials, get_random_testimonial
 
 BASE_PATH = os.path.join(os.path.split(__file__)[0], "..")
 
@@ -18,14 +20,21 @@ else:
     repo = SQLContentRepository()
 print(repo)
 
+
 @app.route("/")
 def index():
-    return render_template("academis.html", testimonial=get_random_testimonial())
+    return render_template(
+        "academis.html",
+        testimonial=get_random_testimonial()
+        )
 
 
 @app.route("/cv")
 def cv():
-    return render_template("cv.html", testimonial=get_random_testimonial())
+    return render_template(
+        "cv.html",
+        testimonial=get_random_testimonial()
+        )
 
 
 @app.route("/posts/<tag>/<path:slug>")
@@ -66,18 +75,25 @@ def testimonial_list():
 
 @app.route("/publications")
 def publications():
-    return render_template("publications.html", testimonial=get_random_testimonial())
+    return render_template(
+        "publications.html",
+        testimonial=get_random_testimonial()
+        )
 
 
 @app.route("/impressum")
 def imprint():
-    return render_template("impressum.html", testimonial=get_random_testimonial())
+    return render_template(
+        "impressum.html",
+        testimonial=get_random_testimonial()
+        )
 
 
 @app.route("/files/<tag>/<path:slug>")
 def content_file(tag, slug):
     data = repo.get_file(tag, slug)
-    return send_file(BytesIO(data), download_name=slug) 
+    return send_file(BytesIO(data), download_name=slug)
+
 
 @app.route("/<tag>")
 def tag_direct(tag):

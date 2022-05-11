@@ -25,4 +25,4 @@ jobs:
 
     - name: Tests
       run: |
-        pytest --ci
+        pytest --ci --flake8 --isort

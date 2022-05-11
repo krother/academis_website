@@ -1,11 +1,9 @@
 # coding: utf-8
 
-import sqlite3
-from academis.content import (
-    MarkdownContentRepository,
-)
 import os
+import sqlite3
 
+from academis.content import MarkdownContentRepository
 
 DB_PATH = os.path.join(os.path.split(__file__)[0], "../academis.sqlite3")
 
@@ -23,6 +21,7 @@ CREATE TABLE IF NOT EXISTS file (
     data TEXT
 )
 """
+
 
 def initialize(db):
     db.executescript(SQL_CREATE)

@@ -1,9 +1,13 @@
 import os
 import re
-import markdown
 from dataclasses import dataclass
 
-STATIC_WILDCARDS = 'py,ipynb,png,gif,svg,jpg,zip,pdf,csv,ttf,sql,xlsx,fasta,gbk,pdb,TXT'.split(',')
+import markdown
+
+STATIC_WILDCARDS = (
+    'py,ipynb,png,gif,svg,jpg,zip,pdf'
+    ',csv,ttf,sql,xlsx,fasta,gbk,pdb,TXT'
+).split(',')
 
 FILETYPES_TO_ADD = {'.md', '.py'}
 
@@ -27,12 +31,15 @@ class Link:
         self.tag = tag
 
     def __repr__(self):
-        return f"<link: '{self.link}', path: '{self.path}', subdir: '{self.subdir}', tag: '{self.tag}'>"
+        return (
+            f"<link: '{self.link}', path: '{self.path}', "
+            f"subdir: '{self.subdir}', tag: '{self.tag}'>"
+        )
 
     @property
     def is_internal(self):
         return not (
-            self.link.startswith('http') or 
+            self.link.startswith('http') or
             self.link.startswith('www') or
             self.link.startswith('mailto')
             )
@@ -61,7 +68,7 @@ class Link:
         return slug
 
     @property
-    def url(self):        
+    def url(self):
         if self.is_article:
             url = f'/posts/{self.tag}/{self.slug}'
         elif self.is_static:
@@ -69,7 +76,6 @@ class Link:
         else:
             raise ValueError(f'unknown link type: {self.link}')
         return url
-
 
 
 class LinkBuilder:
@@ -91,7 +97,7 @@ class LinkBuilder:
     def hyperlinks(self):
         for link in re.findall(r'\[[^\]]*\]\(([^\)]+)\)', self.text):
             yield Link(link, self.path, self.subdir, self.tag)
-            
+
     def replace_file_directives(self):
         """takes care of :::file xyz directive"""
         self.text = re.sub(r':::file ([^\s]+)', r'[\1](\1)', self.text)
@@ -105,7 +111,9 @@ class LinkBuilder:
         self.replace_file_directives()
         for link in self.hyperlinks:
             if link.is_internal:
-                self.text = self.text.replace(f'({link.link})', f'({link.url})')
+                self.text = self.text.replace(
+                    f'({link.link})', f'({link.url})'
+                    )
                 if link.is_article:
                     self.links.append(link.slug)
                 else:
@@ -114,8 +122,16 @@ class LinkBuilder:
 
 def wrap_images(content):
     """Add extra div tag to content"""
-    content = re.sub(r"(\<img [^\>]+\>)", r'<div class="media">\1</div>', content)
-    content = re.sub(r"\<img ([^\>]+\>)", r'<img class="media-object" \1', content)
+    content = re.sub(
+        r"(\<img [^\>]+\>)",
+        r'<div class="media">\1</div>',
+        content
+        )
+    content = re.sub(
+        r"\<img ([^\>]+\>)",
+        r'<img class="media-object" \1',
+        content
+        )
     return content
 
 
@@ -133,7 +149,10 @@ def replace_includes(text, path):
 def markdown_to_html(text):
     content = markdown.markdown(
         text,
-        extensions=["markdown.extensions.tables", "markdown.extensions.codehilite"],
+        extensions=[
+            "markdown.extensions.tables",
+            "markdown.extensions.codehilite"
+            ],
     )
     content = wrap_images(content)
     return content
@@ -154,8 +173,8 @@ def markdown_file_to_html(tag, path, filepath):
     bl.insert_links()
     content = markdown_to_html(bl.text)
 
-    return title, content, bl.links, list(zip(bl.file_slugs, bl.files)), included
-
+    files = list(zip(bl.file_slugs, bl.files))
+    return title, content, bl.links, files, included
 
 
 class ArticleFromFiles:
@@ -175,7 +194,8 @@ class ArticleFromFiles:
 
     def add_markdown(self, fn):
         fn = os.path.join(self.subdir, fn)
-        title, content, links, files, includes = markdown_file_to_html(self.tag, self.maindir, fn)
+        title, content, links, files, includes = \
+            markdown_file_to_html(self.tag, self.maindir, fn)
         self.title = title
         self.text += content
         self.links += links
@@ -196,7 +216,7 @@ class ArticleFromFiles:
             self.add_markdown(fn)
         elif fn.endswith(".py") and fn not in self._included:
             self.add_python_code(fn)
- 
+
     def process_dir(self):
         for filename in sorted(os.listdir(self.path)):
             fn = os.path.join(self.path, filename)
