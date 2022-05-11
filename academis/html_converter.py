@@ -3,7 +3,7 @@ import re
 import markdown
 from dataclasses import dataclass
 
-STATIC_WILDCARDS = 'py,png,gif,svg,jpg,zip,pdf,csv,ttf,sql,xlsx,fasta,gbk,pdb'.split(',')
+STATIC_WILDCARDS = 'py,ipynb,png,gif,svg,jpg,zip,pdf,csv,ttf,sql,xlsx,fasta,gbk,pdb,TXT'.split(',')
 
 FILETYPES_TO_ADD = {'.md', '.py'}
 
@@ -148,13 +148,13 @@ def markdown_file_to_html(tag, path, filepath):
 
     subdir, _ = os.path.split(filepath)
 
-    text, _ = replace_includes(text, os.path.join(path, subdir))
+    text, included = replace_includes(text, os.path.join(path, subdir))
 
     bl = LinkBuilder(text, tag, path, subdir)
     bl.insert_links()
     content = markdown_to_html(bl.text)
 
-    return title, content, bl.links, list(zip(bl.file_slugs, bl.files))
+    return title, content, bl.links, list(zip(bl.file_slugs, bl.files)), included
 
 
 
@@ -169,14 +169,17 @@ class ArticleFromFiles:
         self.tag = tag
         self.text = ""
         self.title = self.tag.capitalize()
+        self.links = []
+        self.files = []
         self._included = []
-        
 
     def add_markdown(self, fn):
         fn = os.path.join(self.subdir, fn)
-        title, content, _, includes = markdown_file_to_html(self.tag, self.maindir, fn)
+        title, content, links, files, includes = markdown_file_to_html(self.tag, self.maindir, fn)
         self.title = title
         self.text += content
+        self.links += links
+        self.files += files
         self._included += includes
 
     def add_python_code(self, fn):
@@ -201,7 +204,7 @@ class ArticleFromFiles:
                 self.add_file(filename)
 
     def get_article(self):
-        return Article(self.title, self.text, [], [])
+        return Article(self.title, self.text, self.links, self.files)
 
 
 def directory_to_article(path, tag):
@@ -212,4 +215,5 @@ def directory_to_article(path, tag):
 
 def markdown_file_to_article(tag, path, filename):
     """Converts a Markdown text to an Article object"""
-    return Article(*markdown_file_to_html(tag, path, filename))
+    title, text, links, files, _ = markdown_file_to_html(tag, path, filename)
+    return Article(title, text, links, files)

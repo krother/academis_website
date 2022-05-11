@@ -18,8 +18,8 @@
       <p>Overview of Python commands for beginners.</p>
     </li>
     <li class="data_analysis">
-      <h3><a href="/data_analysis">Data Analysis with Python and pandas 🇬🇧</a></h3>
-      <h4><a href="/datenanalyse">Datenanalyse mit Python und pandas 🇩🇪</a></h4>
+      <h3><a href="/data_analysis">Data Analysis 🇬🇧</a></h3>
+      <h4><a href="/datenanalyse">Datenanalyse 🇩🇪</a></h4>
     </li>
     <li class="genart">
       <h3><a href="/numpy_graphics">Graphics with Numpy 🇬🇧</a></h3>

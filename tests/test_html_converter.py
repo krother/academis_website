@@ -86,3 +86,4 @@ def test_directory_to_article(path):
     assert a.text.count('print') == 2
     assert 'article_dir/images' not in a.text
     assert '/files/test/images/gauss.jpg' in a.text
+    assert len(a.files) == 2
