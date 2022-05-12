@@ -5,8 +5,6 @@
     const navbar = document.querySelector("nav");
     const coursesImg = Array.from(document.getElementsByClassName('courses-img'));
 
-    console.log(coursesImg[0].src)
-
     coursesImg.forEach(img => {
         img.addEventListener('mouseover', (e) => {
             e.target.src = "../static/images/vortex.gif"
@@ -16,7 +14,6 @@
         })
     });
         
-
     toggler.addEventListener("click", () => {
         navbar.classList.toggle("off")
     })
@@ -27,5 +24,4 @@
             navbar.classList.add("off")
         })
     });
-
 })();

@@ -445,6 +445,8 @@ img.courses-img {
 
 
 
+
+
 /******************* FEEDBACK/TESTIMONIALS START *******************/
 
 /* Feedbackblock */
@@ -746,25 +748,7 @@ ul.list-tags li:hover {
 		/* @media (min-width: 1200px) and (max-width: 1342px) { */
 		
 
-			@media (min-width: 1400px) {
-
-				h3 {
-					padding: 3.5rem 0rem 0rem 0rem;
-				}
-				#img-wrapper {
-					padding-top: 3.5rem;
-				}
-				body {
-					font-size: 1.5rem;
-				}
-				#intro-wrapper {
-					height: auto;
-					padding: 1rem 26rem;
-				}
-			}
-
-		
-			@media (min-width: 1200px) and (max-width: 1399px) {
+		@media only screen and (min-width: 1400px) {
 
 			h3 {
 				padding: 3.5rem 0rem 0rem 0rem;
@@ -775,6 +759,23 @@ ul.list-tags li:hover {
 			body {
 				font-size: 1.5rem;
 			}
+			#intro-wrapper {
+				height: auto;
+				padding: 1rem 26rem;
+			}
+		}
+
+		@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+		h3 {
+			padding: 3.5rem 0rem 0rem 0rem;
+		}
+		#img-wrapper {
+			padding-top: 3.5rem;
+		}
+		body {
+			font-size: 1.5rem;
+		}
 		}
 		
 		@media (min-width: 992px) and (max-width: 1199px) {
@@ -794,7 +795,7 @@ ul.list-tags li:hover {
 
 		}
 		
-		@media (min-width: 768px) and (max-width: 991px) {
+		@media only screen and (min-width: 768px) and (max-width: 991px) {
 
 			nav {
 			width: 50vw;
@@ -860,7 +861,7 @@ ul.list-tags li:hover {
 
 		}
 		
-		@media (min-width: 576px) and (max-width: 767px) {
+		@media only screen and (min-width: 576px) and (max-width: 767px) {
 		
 			nav {
 			width: 70vw;
@@ -1029,10 +1030,10 @@ ul.list-tags li:hover {
 		}
 		
 		/* IPHONE SIZES */
-		@media (max-width: 575px) {
+		@media only screen and (max-width: 575px) {
 			
 			body {
-				font-size: 1.1rem;
+				font-size: 1rem;
 			}
 			img.media-logo {
 				max-height: 2.5em;
@@ -1040,6 +1041,9 @@ ul.list-tags li:hover {
 			section  {
 				/* margin: 2rem; */
 				padding: 2rem;
+			}
+			section .blog-topics {
+				padding-left: 0;
 			}
 			table {
 				width: 100%;
@@ -1080,7 +1084,7 @@ ul.list-tags li:hover {
 			/* COURSES WRAPPER */
 			#courses-wrapper {
 				height: auto;
-				padding: 1rem 1rem;
+				padding: 0.5rem 0.5rem;
 				justify-content: flex-start;
 			}
 			#courses-container {
@@ -1088,10 +1092,11 @@ ul.list-tags li:hover {
 				grid-template-columns: 1fr;
 			}
 			img.courses-img {
-				max-width: 10rem;
+				max-width: 8rem;
 			}
 			#courses-container .courses-content {
 				margin: 1em 0em;
+				min-width: 100%;
 			}
 
 			/* LISTS */
@@ -1110,7 +1115,7 @@ ul.list-tags li:hover {
 
 			/* FOOTER */
 			footer {
-				padding: 2rem 4rem;
+				padding: 2rem 2rem;
 			}
 			.footer-links {
 				width: 100%;
@@ -1219,7 +1224,7 @@ ul.list-tags li:hover {
 
 		}
 
-		@media (min-width: 30em) {
+		@media only screen and (min-width: 30em) {
 			ul.list-spectre-min {
 				-webkit-column-count: 2;
 				-moz-column-count: 2;
