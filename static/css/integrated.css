@@ -421,9 +421,9 @@ img.media-head {
 	margin: 0;
 }
 #courses-wrapper .media-video {
-	height: 70vh;
-	max-width: 70vw;
-	margin-bottom: 2rem;
+	height: 50vh;
+	/* max-width: 60%; */
+	/* padding: 3rem 4rem 3rem 0rem; */
 }
 #courses-container {
 	width: 100%;
@@ -792,6 +792,11 @@ ul.list-tags li:hover {
 			section .blog-topics {
 				margin: 0 5rem;
 				padding: 0;
+			}
+			#courses-wrapper .media-video {
+				height: 60vh;
+				max-width: 70%;
+				padding: 4rem 4rem 3rem 0rem;
 			}
 		}
 
