@@ -109,6 +109,9 @@ th {
 tbody tr:nth-child(even) {
 	background: #f0f0f0;
 }
+.courses-wrapper-python-basics table td {
+	width: 70%;
+}
 
 
 
@@ -120,8 +123,7 @@ header {
 	text-align: left;
 }
 section {
-	/* margin: 4rem; */
-	padding: 4rem;
+	padding: 5rem;
 }
 article {
 	margin: 3rem;
@@ -422,8 +424,6 @@ img.media-head {
 }
 #courses-wrapper .media-video {
 	height: 50vh;
-	/* max-width: 60%; */
-	/* padding: 3rem 4rem 3rem 0rem; */
 }
 #courses-container {
 	width: 100%;
@@ -761,6 +761,7 @@ ul.list-tags li:hover {
 
 			#intro-wrapper {
 				min-height: auto;
+				margin-bottom: 5rem;
 			}
 			.paragraph-feedback {
 				margin: 0em 4em 4em 4em;
@@ -857,7 +858,6 @@ ul.list-tags li:hover {
 
 			/* COURSES WRAPPER */
 			#courses-wrapper {
-				/* height: auto; */
 				padding: 2rem 2rem;
 				justify-content: flex-start;
 			}
@@ -913,7 +913,6 @@ ul.list-tags li:hover {
 				max-height: 3em;
 			}
 			section  {
-				/* margin: 2.5rem; */
 				padding: 2.5rem;
 			}
 			table {
@@ -1299,7 +1298,3 @@ ul.list-tags li:hover {
 /******************* MEDIA QUERIES END *******************/
 
 
-/* FIXME: verschieben, und anpassen sobald Klasse eingefügt ist */
-.courses-wrapper-python-basics table td {
-	width: 70%;
-}
