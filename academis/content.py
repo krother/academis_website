@@ -1,86 +1,48 @@
-
 import os
-import re
-import markdown
 
-BASE_PATH = os.path.join(os.path.split(__file__)[0], '../content/')
+from academis.config import BASE_PATH, TAGS
+from academis.html_converter import (directory_to_article,
+                                     markdown_file_to_article)
+from academis.repository import AbstractContentRepository
 
-def wrap_images(content):
-    """Add extra div tag to content"""
-    content = re.sub(r'(\<img [^\>]+\>)', r'<div class="media">\1</div>', content)
-    content = re.sub(r'\<img ([^\>]+\>)', r'<img class="media-object" \1', content)
-    return content
 
-def fix_links(text, tag):
+class MarkdownContentRepository(AbstractContentRepository):
     """
-    Hammer on the links to documents and images
-    so that they point to URLs in Flask
-    and still work on GitHub.
-    Supports both HTML and Markdown image links
+    Generates HTML content directly from Markdown files
+    in the individual git repos of each category.
     """
-    text = re.sub(r"\* \[([^\]]+)\]\((?!http)([^\)]+)\)", r"* [\g<1>](/posts/{}/\g<2>)".format(tag) , text)
-    text = re.sub(r"\| \[([^\]]+)\]\((?!http)([^\)]+)\)", r"| [\g<1>](/posts/{}/\g<2>)".format(tag) , text)
-    text = re.sub(r'\<img src=\"(.+\/)?([^\"\/]+)\"', r'<img src="/static/content/{}/\g<2>"'.format(tag), text)
 
-    text = re.sub(r"!\[(.*)\]\(\.\.\/([^\)]+)\)", r"![\g<1>](\g<2>)", text)
-    text = re.sub(r"!\[(.*)\]\([^\/]+\/([^\)]+)\)", r"![\g<1>](/static/content/{}/\g<2>)".format(tag), text)
-    text = re.sub(r":::file ([^\s]+)", r"[\g<1>](/static/content/{}/\g<1>)".format(tag), text)
-    return text
+    def get_article_list_html(self, tag):
+        path = BASE_PATH + tag
+        return markdown_file_to_article(tag, path, 'README.md')
+
+    def get_article_html(self, tag, slug):
+        path = BASE_PATH + tag
+        fn = os.path.join(path, slug)
+        if os.path.isdir(fn):
+            return directory_to_article(fn, tag)
+        article = markdown_file_to_article(tag, path, slug)
+        return article
+
+    def get_all_tags(self):
+        return TAGS
+
+    def get_all_article_slugs(self, tag):
+        a = self.get_article_list_html(tag)
+        return a.links
+
+    def get_all_slugs(self):
+        result = []
+        for tag in self.get_all_tags():
+            result += [(tag, slug) for slug in self.get_all_article_slugs(tag)]
+        return result
+
+    def get_file(self, tag, slug):
+        fn = os.path.join(BASE_PATH, tag, slug)
+        return open(fn, 'rb').read()
 
 
-def replace_includes(text, path):
-    """resolves :::include xx.py directives"""
-    included = []
-    for pyfile in re.findall(r"\:\:\:include (\w+\.py)", text, re.IGNORECASE):
-        py = open(path + pyfile).read()
-        pyform = "\n    :::python3\n    " + py.replace("\n", "\n    ")
-        text = text.replace(":::include " + pyfile, pyform)
-        included.append(pyfile)
-    return text, included
-
-
-def markdown_to_html(text, tag):
-    title = re.findall(r'#+\s(.+)', text)
-    title = title[0] if title else ''
-    text = fix_links(text, tag)
-
-    content = markdown.markdown(text, extensions=[
-            'markdown.extensions.tables',
-            'markdown.extensions.codehilite'])
-    content = wrap_images(content)
-    return title, content
-
-def format_code(f):
-    code = ''.join(['    ' + x for x in f])
-    return markdown_to_html(code, '-')[1]
-
-def get_readme(tag):
-    path = BASE_PATH + tag
-    readme_fn = path + '/README.md'
-    text = open(readme_fn).read()
-    title, content = markdown_to_html(text, tag)
-    return title, content
-
-def read_dir(path, tag):
-    out = ''
-    title = tag.capitalize()
-    included = []
-    for filename in sorted(os.listdir(path)):
-        if filename.endswith('.md'):
-            s = open(path + filename).read()
-            s, inc = replace_includes(s, path)
-            included += inc
-            title, content = markdown_to_html(s, tag)
-            out = content + out
-        elif filename.endswith('.py') and filename not in included:
-            code = format_code(open(path + filename))
-            out += '\n<hr>\n<h2>{}</h2>\n{}'.format(filename, code)
-    return title, out
-
-def get_post(tag, slug):
-    fn = BASE_PATH + tag + '/' + slug
-    if os.path.isdir(fn):
-        return read_dir(fn, tag)
-    text = open(fn).read()
-    title, content = markdown_to_html(text, tag)
-    return title, content
+if __name__ == "__main__":
+    repo = MarkdownContentRepository()
+    for t, s in repo.get_all_slugs():
+        print(t, s)

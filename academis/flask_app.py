@@ -1,56 +1,100 @@
 # coding: utf-8
 
-from flask import Flask, render_template
-from academis.testimonials import get_testimonials
-from academis.content import get_readme, get_post
-import random
 import os
+from io import BytesIO
 
-BASE_PATH = os.path.join(os.path.split(__file__)[0], '..')
+from flask import Flask, render_template, send_file
+
+from academis.content import MarkdownContentRepository
+from academis.db_content import SQLContentRepository
+from academis.testimonials import get_all_testimonials, get_random_testimonial
+
+BASE_PATH = os.path.join(os.path.split(__file__)[0], "..")
 
 
 app = Flask(__name__, root_path=BASE_PATH)
 
-testimonials = get_testimonials()
+if os.environ.get('ACADEMIS_DOCSOURCE') == 'files':
+    repo = MarkdownContentRepository()
+else:
+    repo = SQLContentRepository()
+print(repo)
 
 
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template('academis.html', testimonial=random.choice(testimonials))
+    return render_template(
+        "academis.html",
+        testimonial=get_random_testimonial()
+        )
 
-@app.route('/cv')
+
+@app.route("/cv")
 def cv():
-    navi = [('/', 'Academis')]
-    return render_template('cv.html', testimonial=random.choice(testimonials))
+    return render_template(
+        "cv.html",
+        testimonial=get_random_testimonial()
+        )
 
-@app.route('/posts/<tag>/<path:slug>')
+
+@app.route("/posts/<tag>/<path:slug>")
 def article_by_name(tag, slug):
-    title, content = get_post(tag, slug)
-    return render_template('article.html', title=title, \
-           tag=tag, slug=slug, content=content, \
-           testimonial=random.choice(testimonials))
+    article = repo.get_article_html(tag, slug)
+    return render_template(
+        "article.html",
+        title=article.title,
+        tag=tag,
+        slug=slug,
+        content=article.text,
+        testimonial=get_random_testimonial(),
+    )
 
-@app.route('/blog/tags/<tag>')
+
+@app.route("/blog/tags/<tag>")
 def article_list(tag):
     """legacy URL - kept for external links"""
-    title, content = get_readme(tag)
-    return render_template('article.html', title=title, \
-           tag=tag, slug=tag, content=content, \
-           testimonial=random.choice(testimonials))
+    article = repo.get_article_list_html(tag)
+    return render_template(
+        "article.html",
+        title=article.title,
+        tag=tag,
+        slug=tag,
+        content=article.text,
+        testimonial=get_random_testimonial(),
+    )
 
-@app.route('/testimonials')
+
+@app.route("/testimonials")
 def testimonial_list():
-    return render_template('testimonial_list.html', testimonials=testimonials, testimonial=random.choice(testimonials))
+    return render_template(
+        "testimonial_list.html",
+        testimonials=get_all_testimonials(),
+        testimonial=get_random_testimonial(),
+    )
 
-@app.route('/publications')
+
+@app.route("/publications")
 def publications():
-    return render_template('publications.html', testimonial=random.choice(testimonials))
+    return render_template(
+        "publications.html",
+        testimonial=get_random_testimonial()
+        )
 
-@app.route('/impressum')
+
+@app.route("/impressum")
 def imprint():
-    return render_template('impressum.html', testimonial=random.choice(testimonials))
+    return render_template(
+        "impressum.html",
+        testimonial=get_random_testimonial()
+        )
 
 
-@app.route('/<tag>')
+@app.route("/files/<tag>/<path:slug>")
+def content_file(tag, slug):
+    data = repo.get_file(tag, slug)
+    return send_file(BytesIO(data), download_name=slug)
+
+
+@app.route("/<tag>")
 def tag_direct(tag):
     return article_list(tag)

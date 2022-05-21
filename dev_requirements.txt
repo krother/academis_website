@@ -1,2 +1,4 @@
 gunicorn
 pytest
+pytest-flake8==1.0.7
+pytest-isort==3.0.0

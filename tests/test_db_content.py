@@ -2,12 +2,12 @@
 import pytest
 
 from academis.config import TAGS
-from academis.content import MarkdownContentRepository
+from academis.db_content import SQLContentRepository
 
 
 @pytest.fixture
 def repo():
-    return MarkdownContentRepository()
+    return SQLContentRepository()
 
 
 @pytest.mark.no_ci
@@ -26,7 +26,7 @@ def test_get_article_html(repo):
 
 @pytest.mark.no_ci
 @pytest.mark.parametrize('tag', TAGS)
-def test_get_all_tags(repo, tag):
+def test_get_all_tags(tag, repo):
     tags = repo.get_all_tags()
     assert tag in tags
 
@@ -42,14 +42,3 @@ def test_get_all_article_slugs(repo):
 def test_get_all_slugs(repo):
     s = repo.get_all_slugs()
     assert len(s) > 300
-
-
-@pytest.mark.no_ci
-def test_get_all_articles(repo):
-    list(repo.get_all_articles(verbose=True))
-
-
-@pytest.mark.no_ci
-def test_get_file(repo):
-    ada = repo.get_file('python_basics', 'images/ada.jpg')
-    assert len(ada) > 100
