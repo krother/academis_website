@@ -1,6 +1,21 @@
 import random
 
 TESTIMONIALS = [
+    ("""Huge and many thanks to Kristian for using interactive teaching methods
+    and keeping a very friendly/relaxed atmosphere.
+    """,
+    """Scikit Cilantro cohort, Spiced Academy Berlin"""
+    ),
+    ("""Kristian is an excellent teacher and takes his time to explain topics in a way,
+    so everybody can understand it.
+    """,
+    """Scikit Cilantro cohort, Spiced Academy Berlin"""
+    ),
+    ("""Amazing teaching, found all explanations very clear & structured
+    (and much appreciate all small tips related to interacting through the terminal.
+    """,
+    """Scikit Cilantro cohort, Spiced Academy Berlin"""
+    ),
     (
         """You successfully explained a complicated software in the
        easiest way possible. Very good approach!
