@@ -1,6 +1,15 @@
 import random
 
 TESTIMONIALS = [
+    ("""The Software Engineering week is a very special and well organized week.
+    As an IT guy, I am also impressed. Thank You.""",
+    """Stationary Sriracha cohort, Spiced Academy Berlin"""
+    ),
+    ("""The lessons and demonstrations taught us how to think and design.
+    It helped enhance our coding skills significantly.
+    In addition, the atmosphere was good & enjoyable. Thank you.""",
+    """Stationary Sriracha cohort, Spiced Academy Berlin"""
+    ),
     ("""Huge and many thanks to Kristian for using interactive teaching methods
     and keeping a very friendly/relaxed atmosphere.
     """,
