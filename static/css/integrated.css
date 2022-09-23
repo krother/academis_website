@@ -170,21 +170,24 @@ ul.list-spectre p {
 }
 li {
 	padding-left: 2rem;
+	line-height: 150%;
 }
 ul {
 	margin-block-start: 1rem;
     margin-block-end: 1rem;
     padding-inline-start: 3rem;
+	line-height: 150%;
 }
 ol {
 	margin-block-start: 1rem;
     margin-block-end: 1rem;
     padding-inline-start: 3rem;
+	line-height: 150%;
 }
 
 p {
 	font-size: 1em;
-	line-height: 130%;
+	line-height: 150%;
 	margin-block-start: 0.8em;
     margin-block-end: 0.6em;
 }
