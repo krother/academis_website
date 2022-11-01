@@ -122,3 +122,5 @@ tweego/config.ini
 # added manually
 academis.sqlite3
 .DS_Store
+sql_connection.txt
+remote_credentials.json

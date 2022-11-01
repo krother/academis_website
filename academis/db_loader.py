@@ -1,46 +1,21 @@
 # coding: utf-8
 
-import os
-import sqlite3
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Session
 
 from academis.content import MarkdownContentRepository
-
-DB_PATH = os.path.join(os.path.split(__file__)[0], "../academis.sqlite3")
-
-SQL_CREATE = """
-CREATE TABLE IF NOT EXISTS article (
-    tag VARCHAR(100),
-    slug VARCHAR(100),
-    title VARCHAR(100),
-    text TEXT
-);
-
-CREATE TABLE IF NOT EXISTS file (
-    tag VARCHAR(100),
-    slug VARCHAR(200),
-    data TEXT
-)
-"""
+from academis.db_model import connection_string, Article, StoredFile, Base
 
 
 def initialize(db):
-    db.executescript(SQL_CREATE)
+    db.execute("DROP TABLE IF EXISTS article")
+    db.execute("DROP TABLE IF EXISTS file")
+    Base.metadata.create_all(db)
 
 
 def clear(db):
-    db.executescript("DELETE FROM article")
-    db.executescript("DELETE FROM file")
-
-
-def insert_article(db, tag, slug, a):
-    query = "INSERT INTO article VALUES (?,?,?,?)"
-    db.execute(query, (tag, slug, a.title, a.text))
-
-
-def insert_file(db, tag, slug, data):
-    """saves a file (image, zip) attached to an article to the DB"""
-    query = "INSERT INTO file VALUES (?,?,?)"
-    db.execute(query, (tag, slug, data))
+    db.execute("DELETE FROM article")
+    db.execute("DELETE FROM file")
 
 
 def save_article(db, tag, slug, article):
@@ -52,19 +27,35 @@ def save_article(db, tag, slug, article):
 
 def load_all_articles(db, verbose=False):
     """loads entire content into the database"""
-    n = 0
-    repo = MarkdownContentRepository()
-    for tag, slug, article in repo.get_all_articles(verbose):
-        save_article(db, tag, slug, article)
-        n += 1
-    return n
+    articles = []
+    files = []
+    with Session(db) as session:
+        repo = MarkdownContentRepository()
+        for tag, slug, article in repo.get_all_articles(verbose):
+            articles.append(Article(
+                    tag=tag,
+                    slug=slug,
+                    title=article.title,
+                    text=article.text
+                ))
+            for slug, data in article.files:
+                files.append(StoredFile(
+                    tag=tag,
+                    slug=slug,
+                    data=data
+                ))
+
+        session.add_all(articles)
+        session.add_all(files)
+        session.commit()
+
+    return len(articles)
 
 
 if __name__ == "__main__":
-    db = sqlite3.connect(DB_PATH)
+    db = create_engine(connection_string)
 
-    with db:
-        initialize(db)
-        clear(db)
-        n = load_all_articles(db, verbose=True)
-        print(f"\n{n} articles added")
+    initialize(db)
+    clear(db)
+    n = load_all_articles(db, verbose=True)
+    print(f"\n{n} articles added")

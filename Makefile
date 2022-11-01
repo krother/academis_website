@@ -1,6 +1,9 @@
 db:
-	rm academis.sqlite3
+	rm -f academis.sqlite3
 	python academis/db_loader.py
+
+dbdeploy:
+	python academis/db_upload.py
 
 deploy:
 	scp academis.sqlite3 krother@ssh.pythonanywhere.com:academis/.
