@@ -1,6 +1,6 @@
 import os
 
-from sqlalchemy import Column, Integer, String, Text, BLOB
+from sqlalchemy import Column, Integer, String, Text, LargeBinary
 from sqlalchemy.orm import declarative_base
 
 
@@ -26,4 +26,4 @@ class StoredFile(Base):
     file_id = Column(Integer, primary_key=True)
     tag = Column(String(100))
     slug = Column(String(200))
-    data = Column(BLOB())
+    data = Column(LargeBinary(10_000_000))

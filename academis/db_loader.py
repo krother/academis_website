@@ -1,7 +1,5 @@
 # coding: utf-8
 
-import base64
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
@@ -41,7 +39,6 @@ def load_all_articles(db, verbose=False):
                     text=article.text
                 ))
             for slug, data in article.files:
-                #data_b64 = base64.b64encode(data)
                 files.append(StoredFile(
                     tag=tag,
                     slug=slug,
