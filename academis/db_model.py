@@ -1,13 +1,13 @@
 import os
 
-from sqlalchemy import Column, Integer, String, Text
+from sqlalchemy import Column, Integer, String, Text, BLOB
 from sqlalchemy.orm import declarative_base
+
 
 CONNECTION_CONFIG = os.path.join(os.path.split(__file__)[0], '../sql_connection.txt')
 connection_string = open(CONNECTION_CONFIG).read().strip()
 
 Base = declarative_base()
-
 
 
 class Article(Base):
@@ -26,4 +26,4 @@ class StoredFile(Base):
     file_id = Column(Integer, primary_key=True)
     tag = Column(String(100))
     slug = Column(String(200))
-    data = Column(Text())
+    data = Column(BLOB())

@@ -3,6 +3,7 @@ Sibling of content.py
 
 Has the same API but uses DB connection
 """
+import base64
 
 from sqlalchemy import create_engine, select
 from sqlalchemy.orm import Session
@@ -63,12 +64,7 @@ class SQLContentRepository(AbstractContentRepository):
                 StoredFile.slug==slug
                 )
             for file_entry in session.scalars(stmt):
-                return file_entry.data
-
-        #cursor = db.execute(
-        #    "SELECT data FROM file WHERE tag=? AND slug=?", (tag, slug)
-        #    )
-        #return list(cursor)[0][0]
+                return base64.b64decode(file_entry.data)
 
 
 if __name__ == "__main__":
