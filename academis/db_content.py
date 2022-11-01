@@ -64,7 +64,7 @@ class SQLContentRepository(AbstractContentRepository):
                 StoredFile.slug==slug
                 )
             for file_entry in session.scalars(stmt):
-                return base64.b64decode(file_entry.data)
+                return file_entry.data # base64.b64decode(file_entry.data)
 
 
 if __name__ == "__main__":

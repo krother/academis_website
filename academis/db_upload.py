@@ -16,7 +16,8 @@ from academis.db_loader import initialize, clear, load_all_articles
 sshtunnel.SSH_TIMEOUT = 5.0
 sshtunnel.TUNNEL_TIMEOUT = 5.0
 
-config = json.load('remote_credentials.json')
+CREDENTIALS = os.path.join(os.path.split(__file__)[0], '../remote_credentials.json')
+config = json.load(open(CREDENTIALS))
 
 
 if __name__ == "__main__":

@@ -41,11 +41,11 @@ def load_all_articles(db, verbose=False):
                     text=article.text
                 ))
             for slug, data in article.files:
-                data_b64 = base64.b64encode(data)
+                #data_b64 = base64.b64encode(data)
                 files.append(StoredFile(
                     tag=tag,
                     slug=slug,
-                    data=data_b64
+                    data=data
                 ))
 
         session.add_all(articles)
