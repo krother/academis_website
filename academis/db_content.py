@@ -57,11 +57,18 @@ class SQLContentRepository(AbstractContentRepository):
         return result
 
     def get_file(self, tag, slug):
-        db = create_engine(connection_string)
-        cursor = db.execute(
-            "SELECT data FROM file WHERE tag=? AND slug=?", (tag, slug)
-            )
-        return list(cursor)[0][0]
+        with Session(self.db) as session:
+            stmt = select(StoredFile).where(
+                StoredFile.tag==tag,
+                StoredFile.slug==slug
+                )
+            for file_entry in session.scalars(stmt):
+                return file_entry.data
+
+        #cursor = db.execute(
+        #    "SELECT data FROM file WHERE tag=? AND slug=?", (tag, slug)
+        #    )
+        #return list(cursor)[0][0]
 
 
 if __name__ == "__main__":
