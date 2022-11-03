@@ -3,6 +3,8 @@ Sibling of content.py
 
 Has the same API but uses DB connection
 """
+import time
+
 from sqlalchemy import create_engine, select
 from sqlalchemy.orm import Session
 
@@ -11,11 +13,25 @@ from academis.html_converter import Article as ArticleObj
 from academis.repository import AbstractContentRepository
 
 
+def retry(func):
+
+    def nested(*args, **kwargs):
+        for i in range(3):
+            try:
+                result = func(*args, **kwargs)
+                return result
+            except:
+                time.sleep(3)
+
+    return nested    
+
+
 class SQLContentRepository(AbstractContentRepository):
 
     def __init__(self):
         self.db = create_engine(connection_string)
 
+    @retry
     def get_article_list_html(self, tag):
         with Session(self.db) as session:
             stmt = select(Article).where(
@@ -25,6 +41,7 @@ class SQLContentRepository(AbstractContentRepository):
             for article in session.scalars(stmt):
                 return ArticleObj(article.title, article.text, None, None)
 
+    @retry
     def get_article_html(self, tag, slug):
         with Session(self.db) as session:
             stmt = select(Article).where(
@@ -34,11 +51,13 @@ class SQLContentRepository(AbstractContentRepository):
             for article in session.scalars(stmt):
                 return ArticleObj(article.title, article.text, None, None)
 
+    @retry
     def get_all_tags(self):
         db = create_engine(connection_string)
         cursor = db.execute("SELECT DISTINCT tag FROM article")
         return [row[0] for row in cursor]
 
+    @retry
     def get_all_article_slugs(self, tag):
         db = create_engine(connection_string)
         cursor = db.execute(
@@ -55,6 +74,7 @@ class SQLContentRepository(AbstractContentRepository):
                 ]
         return result
 
+    @retry
     def get_file(self, tag, slug):
         with Session(self.db) as session:
             stmt = select(StoredFile).where(
