@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
+
+    <meta name="Keywords" content="I teach Python coding, Software Engineering and Data Science.">
+    <meta name="Description" content="Create better science">
+
+    <meta name="Distribution" content="Global">
+    <meta name="Robots" content="index,follow">
+    <meta name="author" content="Dr. Kristian Rother">
+
+    <!-- start: CSS Block -->
+      <link rel="stylesheet" href="static/css/module_normalize.css" type="text/css">
+      <link rel="stylesheet" href="static/css/integrated.css" type="text/css">
+      <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,300,700,300italic,400italic,700italic' type='text/css'>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="static/css/pygments_default.css">
+    <!-- end: CSS Block -->
+
+    <!-- start: Seitentitel -->
+    <title>Academis • {% block title %}Dr. Kristian Rother{% endblock %}</title>
+    <!-- endet: Seitentitel -->
+  </head>
+
+<body>
+
+<!-- start: Headerbereich -->
+<div id="row" class="top">
+  <div id="wrapper-master">
+      <header>
+          <a href="index.html"><img src="static/images/academis_kr350.png" alt="Academis Logo" class="media-logo" /></a>
+      </header>
+
+  {% include('burger_menu.html') %}
+
+  </div>
+</div>
+<!-- endet: Headerbereich -->
+
+<div id="wrapper-master" class="group">
+
+<!-- start: WRAPPER PRIMARY -->
+<div id="wrapper-primary">
+
+  <section>
+
+    {% block content %}
+    {% endblock %}
+
+  </section>
+</div>
+<!-- endet: WRAPPER PRIMARY -->
+
+
+<!-- start: WRAPPER SECONDARY -->
+
+<div id="wrapper-secondary">
+  
+  {% block sidebar %}
+  <!-- {% include('testimonial.html') %} -->
+  {% include('footer.html') %}
+  {% endblock %}
+
+</div>
+
+<!-- endet: WRAPPER SECONDARY -->
+
+</div>
+
+<script src="static/js/app.js"></script>
+</body>
+</html>

@@ -9,7 +9,8 @@ from academis.content import MarkdownContentRepository
 from academis.db_content import SQLContentRepository
 from academis.testimonials import get_all_testimonials, get_random_testimonial
 
-BASE_PATH = os.path.join(os.path.split(__file__)[0], "..")
+
+BASE_PATH = os.path.join(os.path.split(__file__)[0], os.pardir)
 
 
 app = Flask(__name__, root_path=BASE_PATH)
