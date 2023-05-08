@@ -1,15 +1,8 @@
-db:
-	rm -f academis.sqlite3
-	python academis/db_loader.py
-
-dbdeploy:
-	python academis/db_upload.py
+build:
+	rm -rf build
+	mkdir -p build
+	cp -r static build/static
+	python build.py
 
 deploy:
-	scp academis.sqlite3 krother@ssh.pythonanywhere.com:academis/.
-
-test:
-	pytest --flake8 --isort
-
-citest:
-	pytest --flake8 --isort --ci
+	scp -r build/* $(ACADEMIS_SERVER):/www/academis/

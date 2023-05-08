@@ -9,6 +9,5 @@ Distributed under the conditions of the Creative Commons Attribution Share-alike
 
 1. install Python
 2. `pip install -r requirements.txt`
-3. `mkdir -p build`
-4. `python build.py`
-5. open `build/index.html` in your browser 
+3. `make build`
+4. open `build/index.html` in your browser 
