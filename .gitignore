@@ -1,11 +1,6 @@
+build/
 *.pyc
-academis.db
-views/*.html
 rss.xml
-content/*
-static/content/*
-localhost:5000/*
-sitemap.txt
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -110,17 +105,8 @@ ENV/
 # mypy
 .mypy_cache/
 
-# twitter API keys and mongoDB connection
-tweego/config.py
-
-# generated config.ini file from ConfigParser when packaging project
-tweego/config.ini
-
 # credentials for AWS server
 *.pem
 
 # added manually
-academis.sqlite3
 .DS_Store
-sql_connection.txt
-remote_credentials.json

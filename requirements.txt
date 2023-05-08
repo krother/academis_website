@@ -1,5 +1,0 @@
-Markdown==3.3.6
-Pygments==2.7.4
-Flask==2.1.1
-sqlalchemy
-sshtunnel
