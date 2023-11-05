@@ -680,11 +680,11 @@ ul.list-spectre li {
 .data_analysis {
 	background-image: url("../images/bar.png");
 }
-.math {
-	background-image: url("../images/data_analysis.png");
+.statistics {
+	background-image: url("../images/normaldist.png");
 }
 .machine_learning {
-	background-image: url("../images/ml.png");
+	background-image: url("../images/machine_learning.png");
 }
 .agile {
 	background-image: url("../images/agile.png");
