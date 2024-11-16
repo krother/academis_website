@@ -635,6 +635,12 @@ ul.list-spectre li {
 .teaching {
 	background-image: url('../images/teaching.png');
 }
+.probably_fun {
+	background-image: url('../images/pfun.png');
+}
+.dungeon {
+	background-image: url('../images/dungeon_explorer.png');
+}
 .leadership {
 	background-image: url("../images/leadership.png");
 }
