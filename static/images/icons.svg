@@ -11,7 +11,7 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.3.1 r9886"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
    width="606"
    height="139"
    sodipodi:docname="icons.svg">
@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -105,15 +105,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1301"
-     inkscape:window-height="744"
+     inkscape:window-width="1848"
+     inkscape:window-height="1016"
      id="namedview4"
      showgrid="false"
      inkscape:zoom="0.67210148"
-     inkscape:cx="198.60925"
-     inkscape:cy="-218.02873"
-     inkscape:window-x="65"
-     inkscape:window-y="24"
+     inkscape:cx="-71.439255"
+     inkscape:cy="139.0602"
+     inkscape:window-x="72"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2"
      showguides="true"
@@ -803,16 +803,18 @@
        inkscape:export-xdpi="80.300003"
        inkscape:export-filename="C:\Documents and Settings\Kristian\Pulpit\Academis\pictures\braincycle600.png"
        transform="matrix(0.66190852,0,0,0.66190852,487.5574,-150.35787)"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
        id="flowRoot3816"
        xml:space="preserve"><flowRegion
-         id="flowRegion3818"><rect
+         id="flowRegion3818"
+         style="font-family:sans-serif"><rect
            y="669.50507"
            x="20"
            height="168.57143"
            width="200"
-           id="rect3820" /></flowRegion><flowPara
-         style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:FreeSans;-inkscape-font-specification:FreeSans"
+           id="rect3820"
+           style="font-family:sans-serif" /></flowRegion><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:144px;line-height:1.25;font-family:FreeSans;-inkscape-font-specification:FreeSans"
          id="flowPara3822">€</flowPara></flowRoot>  </g>
   <g
      id="g4158"
