@@ -18,7 +18,8 @@ jobs:
 
     - name: build
       run: |
-        pip install -r requirements.txt
+        pip install uv
+        uv sync
         make build
         
     - name: copy to academis server 
