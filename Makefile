@@ -1,8 +1,11 @@
-build:
+clean:
 	rm -rf build
+build:
 	mkdir -p build
 	cp -r static build/static
-	python build.py
+	uv run build.py
 
 deploy:
-	scp -r build/* $(ACADEMIS_SERVER):/www/academis/
+	scp -r build/* $(ACADEMIS_HOST):/www/academis/
+test:
+    uv run pytest -s
