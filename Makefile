@@ -7,5 +7,6 @@ build:
 
 deploy:
 	scp -r build/* $(ACADEMIS_HOST):/www/academis/
+
 test:
-    uv run pytest -s
+	uv run pytest -s

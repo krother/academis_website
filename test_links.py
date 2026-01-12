@@ -7,12 +7,7 @@ This script:
 3. Extracts all links
 4. Tests each link to ensure it returns a valid response
 """
-import http.server
-import socketserver
-import threading
-import time
 from pathlib import Path
-import pytest
 from playwright.sync_api import Page
 
 # Configuration
