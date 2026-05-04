@@ -41,11 +41,6 @@ body {
     margin: 0;
     padding: 0;
 }
-.group:after {
-	content: "";
-	display: table;
-	clear: both;
-}
 
 /* Button */
 button {
@@ -96,9 +91,6 @@ th, td {
 	border: solid var(--footer-link-color);
 	border-width: 1px 0;
 }
-/* td {
-	width: 70%;
-} */
 tr {
 	padding: 1em;
 }
@@ -112,7 +104,6 @@ tbody tr:nth-child(even) {
 .courses-wrapper-python-basics table td {
 	width: 70%;
 }
-
 
 
 /* Layout: header, section, article und nav */
@@ -217,16 +208,17 @@ a.current {
 
 /******************* MAIN WRAPPER *******************/
 
-/* HEADER WRAPPER */
-#wrapper-master {
+header {
     width: 100%;
 }
 
 /* MAIN CONTENT WRAPPER */
-#wrapper-primary {
+content {
     width: 100%;
+	content: "";
+	display: table;
+	clear: both;
 }
-
 
 /******************* NAVBAR START *******************/
 
@@ -380,11 +372,9 @@ nav {
 }
 #intro-wrapper {
     width: 100%;
-    min-height: 80vh;
-    padding: 1rem 8rem;
     display: flex;
-    justify-content: center;
-    position: relative;
+    /*justify-content: center;
+    position: relative;*/
     margin: 0;
 }
 #img-wrapper{
@@ -407,8 +397,6 @@ img.media-head {
 	padding: 5px 5px 0px 0px;
 	font-size: 2rem;
 }
-
-
 
 /******************* INTRO END *******************/
 
@@ -513,10 +501,6 @@ img.courses-img {
 img.media-footer {
 	display: none;
 }
-#wrapper-secondary {
-	width: 100%;
-	flex-direction: column;
-}
 footer {
 	width: 100%;
 	height: auto;
@@ -526,6 +510,9 @@ footer {
 	background-color: var(--icon-body-color);
 	color: var(--secondary-color);
 	padding: 2rem 5rem;
+	content: "";
+	/*display: table;*/
+	clear: both;
 }
 .footer-links {
 	display: flex;
@@ -541,14 +528,14 @@ footer {
 .fa-copyright {
 	padding-top: 1.5rem;
 }
-#wrapper-secondary ul.list-more {
+.footer-list-more {
 	padding: 0;
 	list-style-type: none;
 }
-.list-more li i {
+.footer-list-more li i {
 	margin: 0 1rem 0 0;
 }
-.list-more li a {
+.footer-list-more li a {
 	cursor: pointer;
 }
 .copyright {
@@ -606,29 +593,6 @@ ul.list-spectre li {
 	background-size: 4em;
 	background-repeat: no-repeat;
 	background-position: left top;
-}
-
-#wrapper-secondary ul.list-spectre {
-	padding: 0;
-	list-style-type: none;
-}
-#wrapper-secondary ul.list-spectre li {
-	padding: 0em 1em 0 2em;
-	margin: 0;
-	background-size: 1.5em;
-	background-repeat: no-repeat;
-	background-position: left center;
-}
-#wrapper-secondary ul.list-spectre {
-	padding: 0;
-	list-style-type: none;
-}
-#wrapper-secondary ul.list-spectre li {
-	padding: 0.1em 1em 0.1em 2em;
-	margin: 0;
-	background-size: 1.5em;
-	background-repeat: no-repeat;
-	background-position: left center;
 }
 
 /* Inhaltsverzeichnis, Icons für Spektrum */
@@ -789,7 +753,9 @@ ul.list-tags li:hover {
 				font-size: 1.5rem;
 			}
 			#intro-wrapper {
-				padding: 1rem 20rem;
+				margin: 0 5rem;
+				padding: 0;
+				padding-right: 22rem;
 			}
 			section  {
 				margin: 5rem;
@@ -817,6 +783,12 @@ ul.list-tags li:hover {
 			}
 			body {
 				font-size: 1.5rem;
+			}
+			#intro-wrapper {
+				height: auto;
+				margin: 0 5rem;
+				padding: 0;
+				padding-right: 15rem;
 			}
 			#img-wrapper {
 				padding-top: 3.5rem;

@@ -1,16 +1,18 @@
 # Academis Website
 
-(c) 2025 Dr. Kristian Rother
+(c) 2026 Dr. Kristian Rother
 
 Distributed under the conditions of the Creative Commons Attribution Share-alike License 4.0.
 
 
-## Start locally
+## Build locally
+
+The Academis website is built from JINJA templates with a small builder script.
 
 1. install Python
 2. `pip install uv`
 3. `uv sync`
-4. `make build`
+4. `uv run make build`
 5. open `build/index.html` in your browser
 
 ## Test links

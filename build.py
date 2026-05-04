@@ -10,7 +10,6 @@ PAGES = [
     ('Dr. Kristian Rother', 'index.html'),
     ('Publications', 'publications.html'),
     ('CV Dr. Kristian Rother', 'cv.html'),
-    #('Videos', 'videos.html'),
     ('Testimonials', 'testimonial_list.html'),
     ('Impressum', 'impressum.html'),
 ]
