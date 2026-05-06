@@ -31,3 +31,4 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: "build/*"
         target: "/www/academis/"
+        strip_components: 1
