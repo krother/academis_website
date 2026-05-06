@@ -8,6 +8,7 @@ env = Environment(loader=FileSystemLoader('templates'))
 
 PAGES = [
     ('Dr. Kristian Rother', 'index.html'),
+    ('Courses', 'courses.html'),
     ('Publications', 'publications.html'),
     ('CV Dr. Kristian Rother', 'cv.html'),
     ('Testimonials', 'testimonial_list.html'),

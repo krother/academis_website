@@ -44,17 +44,19 @@ body {
 
 /* Button */
 button {
-    width: 130px;
     height: 40px;
 	font-size: 0.8em;
-    margin: 20px 0px;
+    margin: 40px 0px;
+	padding-top: 10px;
+	padding-bottom: 15px;
+	padding-left: 20px;
+	padding-right: 20px;
 	border: none;
-    border-radius: 3px;
-    background-color: var(--secondary-color);
+    border-radius: 7px;
+    border-color: var(--secondary-color);
+	background-color: var(--icon-body-color);
+	color: black;
     cursor: pointer;
-}
-button {
-	color: var(--footer-link-color);
 }
 button:hover {
 	color: var(--footer-link-color);
