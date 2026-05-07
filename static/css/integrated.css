@@ -448,8 +448,21 @@ img.courses-img {
 
 /******************* COURSES END *******************/
 
-
-
+.mediagroup {
+	display: flex;
+	flex-direction: row;
+}
+.mediaimage {
+	margin-left: 40px;
+	align-self: flex-start; 
+}
+.mediaimage_left {
+	margin-right: 40px;
+	align-self: flex-start; 
+}
+.mediatext {
+	text-align: justify;
+}
 
 
 /******************* FEEDBACK/TESTIMONIALS START *******************/
