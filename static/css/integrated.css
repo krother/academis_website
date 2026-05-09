@@ -43,24 +43,15 @@ body {
 }
 
 /* Button */
-button {
-    height: 40px;
-	font-size: 0.8em;
-    margin: 40px 0px;
-	padding-top: 10px;
-	padding-bottom: 15px;
-	padding-left: 20px;
-	padding-right: 20px;
-	border: none;
-    border-radius: 7px;
-    border-color: var(--secondary-color);
-	background-color: var(--icon-body-color);
-	color: black;
-    cursor: pointer;
-}
-button:hover {
-	color: var(--footer-link-color);
-	background-color: var(--hover-color);
+button.btn {
+    --bs-btn-bg: var(--icon-body-color);
+    --bs-btn-color: black;
+    --bs-btn-border-color: transparent;
+    --bs-btn-hover-bg: var(--hover-color);
+    --bs-btn-hover-color: var(--footer-link-color);
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-active-bg: var(--hover-color);
+    --bs-btn-active-color: var(--footer-link-color);
 }
 
 
@@ -73,93 +64,26 @@ img.media-logo {
 	width: auto;
 }
 
-/* Tabelleneigenschaft */
-table {
-	border-collapse: collapse;
-	width: 80%;
-}
-.cv-wrapper table {
-	width: 100%;
-}
-.cv-wrapper table td {
-	width: auto;
-}
-.cv-wrapper ul.list-spectre li {
-    margin: 1em 1em 2em 0em;
-}
-th, td {
-	padding: 0.4em;
-	text-align: left;
-	border: solid var(--footer-link-color);
-	border-width: 1px 0;
-}
-tr {
-	padding: 1em;
-}
-th {
-	border-top: none;
-	background: #fff;
-}
-tbody tr:nth-child(even) {
-	background: #f0f0f0;
-}
-.courses-wrapper-python-basics table td {
-	width: 70%;
-}
-
-
 /* Layout: header, section, article und nav */
 header {
-	padding: 2rem 3rem;
 	height: 20vh;
-	margin: 0rem;
-	text-align: left;
+	padding-left: 5rem;
+	padding-right: 5rem;
 }
 section {
-	padding: 5rem;
-}
-article {
-	margin: 3rem;
-}
-
-h1 {
-	font-size: 2.1rem;
-	padding: 3rem 0rem 1rem 0rem;
-	margin: 0;
-}
-h2 {
-	font-size: 1.6rem;
-	padding: 3rem 0rem 0.5rem 0rem;
-}
-h3 {
-	font-size: 1.5rem;
-	padding: 3.5rem 0rem 0rem 0rem;
-}
-h4 {
-	padding: 1rem 0rem 0rem 0rem;
-}
-hr{
-	border: none;
+	padding-left: 5rem;
+	padding-right: 5rem;
 }
 
 ul.list-spectre h3 {
 	font-size: 1.4em;
 	padding: 0;
-	padding-bottom: 0.3em;
-	margin: 0;
-}
-ul.list-spectre h4 {
-	padding: 0.4em 0.2em 0em 0em;
+	padding-bottom: 0.1em;
 	margin: 0;
 }
 ul.list-spectre p {
-	padding: 0.3em 0.2em;
 	margin: 0;
-}
-#wrapper-secondary ul.list-spectre h3 {
-	padding: 0 0.5em;
-	margin: 0.3em 0;
-	font-size: 1em;
+	padding-bottom: 0.0em;
 }
 li {
 	padding-left: 2rem;
@@ -205,21 +129,6 @@ a:hover {
 }
 a.current {
 	color: var(--hover-color);
-}
-
-
-/******************* MAIN WRAPPER *******************/
-
-header {
-    width: 100%;
-}
-
-/* MAIN CONTENT WRAPPER */
-content {
-    width: 100%;
-	content: "";
-	display: table;
-	clear: both;
 }
 
 /******************* NAVBAR START *******************/
@@ -355,9 +264,7 @@ nav {
   	color: inherit;
   	text-decoration: none;
 }
-
 /******************* NAVBAR END *******************/
-
 
 /******************* INTRO START *******************/
 
@@ -372,97 +279,13 @@ nav {
 	color: var(--secondary-color);
 	font-style: italic;
 }
-#intro-wrapper {
-    width: 100%;
-    display: flex;
-    /*justify-content: center;
-    position: relative;*/
-    margin: 0;
-}
-#img-wrapper{
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	padding-top: 7%;
-}
 img.media-head {
 	min-width: 14rem;
 	width: 12vw;
-	padding-left: 1rem;
-}
-#intro-icons {
-	display: flex;
-	padding: 0;
-}
-#intro-icons li {
-	list-style: none;
-	padding: 5px 5px 0px 0px;
-	font-size: 2rem;
 }
 
 /******************* INTRO END *******************/
 
-
-
-/******************* COURSES START *******************/
-
-#courses-wrapper {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	position: relative;
-	margin: 0;
-}
-#courses-wrapper .media-video {
-	height: 50vh;
-}
-#courses-container {
-	width: 100%;
-	height: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 15px;
-	margin: 0;
-}
-#courses-container .courses-content {
-	min-width: 300px;
-	max-width: 400px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 1em;
-	border: 2px solid var(--icon-frame-color);
-	border-radius: 3%;
-	cursor: pointer;
-	transition: 300ms;
-}
-#courses-container .courses-content:hover {
-	transform: translateY(-9px);
-	transition: all 300ms ease-in-out;
-}
-img.courses-img {
-	max-width: 8rem;
-}
-
-/******************* COURSES END *******************/
-
-.mediagroup {
-	display: flex;
-	flex-direction: row;
-}
-.mediaimage {
-	margin-left: 40px;
-	align-self: flex-start; 
-}
-.mediaimage_left {
-	margin-right: 40px;
-	align-self: flex-start; 
-}
-.mediatext {
-	text-align: justify;
-}
 
 
 /******************* FEEDBACK/TESTIMONIALS START *******************/
@@ -494,21 +317,8 @@ img.courses-img {
 	font-weight: bold;
 	font-style: italic;
 }
-
-/* Referenzblock */
-.paragraph-reference {
-	background-color: rgb(220,220,220);
-	-moz-border-radius: 0.5em;
-	-webkit-border-radius: 0.5em;
-	-khtml-border-radius: 0.5em;
-	border-radius: 0.5em;
-	padding: 3px 1em;
-	font-size: 0.8em;
-	color: rgb(40,40,40)
-}
   
 /******************* FEEDBACK/TESTIMONIALS END *******************/
-
 
 
 /******************* FOOTER START *******************/
@@ -526,7 +336,6 @@ footer {
 	color: var(--secondary-color);
 	padding: 2rem 5rem;
 	content: "";
-	/*display: table;*/
 	clear: both;
 }
 .footer-links {
@@ -534,38 +343,14 @@ footer {
 	justify-content: space-between;
 	align-items: flex-end;
 }
-.footer-links p {
-	margin-block-start: 0;
-}
-.footer-links h2 {
-	padding: 1rem 0rem 0.5rem 0rem;
-}
-.fa-copyright {
-	padding-top: 1.5rem;
-}
-.footer-list-more {
-	padding: 0;
-	list-style-type: none;
-}
-.footer-list-more li i {
-	margin: 0 1rem 0 0;
-}
-.footer-list-more li a {
-	cursor: pointer;
-}
 .copyright {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-self: flex-end;
 	font-size: 1rem;
-	padding-top: 2rem;
-}
-.copyright i {
-	padding: 0;
 }
 .copyright a {
-	padding-left: 20px;
 	cursor: pointer;
 }
 
@@ -575,27 +360,6 @@ footer {
 /******************* OTHERS START *******************/
 
 /* Listen */
-/* Breadcrumb Menü */
-ul.list-navigator {
-	padding: 1em 1em 1em 3em;
-	margin: 0;
-}
-ul.list-navigator li {
-	padding: 0.2em 0;
-	list-style-type: none;
-}
-ul.list-navigator li:after {
-	color: var(--secondary-color);
-	content: '»';
-	padding: 0 0.5em;
-	font-weight: bold;
-}
-ul.list-navigator li:last-child:after {
-	content: ' ';
-}
-ul.list-navigator li:first-child:after {
-	content: ' ';
-}
 
 /* Inhaltsverzeichnis, Spektrum */
 ul.list-spectre {
@@ -603,14 +367,15 @@ ul.list-spectre {
 	list-style-type: none;
 }
 ul.list-spectre li {
-	margin: 1em 1em 1em 0em;
+	margin: 1em 0em 1em 0em;
 	padding: 0em 0em 1em 5em;
 	background-size: 4em;
 	background-repeat: no-repeat;
 	background-position: left top;
+	min-height: 5.5em;
 }
 
-/* Inhaltsverzeichnis, Icons für Spektrum */
+/* Inhaltsverzeichnis */
 .teaching {
 	background-image: url('../images/teaching.png');
 }
@@ -696,20 +461,6 @@ ul.list-content li {
 	font-size: 1.2em;
 }
 
-#wrapper-secondary ul.list-content {
-	padding: 0;
-	margin-left: -3em;
-	list-style-type: none;
-}
-#wrapper-secondary ul.list-content li {
-	padding: 0.4em 1em 0.4em 3em;
-	margin: 0;
-	font-size: 1em;
-	background-size: 1.5em;
-	background-repeat: no-repeat;
-	background-position: left center;
-}
-
 /* Tags */
 ul.list-tags {
 	text-align: left;
@@ -747,10 +498,6 @@ ul.list-tags li:hover {
 		
 		@media only screen and (min-height: 1000px) {
 
-			#intro-wrapper {
-				min-height: auto;
-				margin-bottom: 5rem;
-			}
 			.paragraph-feedback {
 				margin: 0em 4em 4em 4em;
 			}
@@ -761,27 +508,11 @@ ul.list-tags li:hover {
 			h3 {
 				padding: 3.5rem 0rem 0rem 0rem;
 			}
-			#img-wrapper {
-				padding-top: 3.5rem;
-			}
 			body {
 				font-size: 1.5rem;
 			}
-			#intro-wrapper {
-				margin: 0 5rem;
-				padding: 0;
-				padding-right: 22rem;
-			}
-			section  {
-				margin: 5rem;
-				padding: 2rem 10rem;
-			}
-			section #courses-wrapper {
+			#courses-wrapper {
 				margin: 5rem 5rem;
-				padding: 0;
-			}
-			section .blog-topics {
-				margin: 0 5rem;
 				padding: 0;
 			}
 			#courses-wrapper .media-video {
@@ -799,21 +530,8 @@ ul.list-tags li:hover {
 			body {
 				font-size: 1.5rem;
 			}
-			#intro-wrapper {
-				height: auto;
-				margin: 0 5rem;
-				padding: 0;
-				padding-right: 15rem;
-			}
-			#img-wrapper {
-				padding-top: 3.5rem;
-			}
-			section .blog-topics {
-				margin: 0 5rem;
-				padding: 0;
-			}
 		}
-		
+
 		@media (min-width: 992px) and (max-width: 1199px) {
 			nav {
 			width: 40vw;
@@ -839,18 +557,10 @@ ul.list-tags li:hover {
 			body {
 				font-size: 1.3rem;
 			}
-			table {
-				width: 100%;
-			}
 			img.media-object {
 				max-width: 100%;
 			}
 
-			/* INTRO WRAPPER */
-			#intro-wrapper {
-				height: auto;
-				padding: 1rem;
-			}
 
 			/* COURSES WRAPPER */
 			#courses-wrapper {
@@ -883,19 +593,13 @@ ul.list-tags li:hover {
 			.copyright {
 				flex-direction: column;
 			}
-			.copyright i {
-				padding: 0;
-			}
-			.copyright a {
-				padding-left: 0;
-			}
 			.copyright :nth-child(2) {
 				display: flex;
 				flex-direction: column;
 			}
 
 		}
-		
+
 		@media only screen and (min-width: 576px) and (max-width: 767px) {
 		
 			nav {
@@ -911,9 +615,6 @@ ul.list-tags li:hover {
 			section  {
 				padding: 2.5rem;
 			}
-			table {
-				width: 100%;
-			}
 			a, p {
 				overflow-wrap: break-word;  
 			}
@@ -924,14 +625,6 @@ ul.list-tags li:hover {
 			/* INTRO WRAPPER */
 			#headline {
 				margin-bottom: 0;
-			}
-			#intro-wrapper {
-				height: auto;
-				padding: 1rem;
-			}
-			#img-wrapper {
-				margin: 10px;
-				padding-top: 17%;
 			}
 			img.media-head {
 				max-width: 13rem;
@@ -958,9 +651,6 @@ ul.list-tags li:hover {
 			ul.list-spectre li {
 				margin: 1em 0em;
 			}
-			.cv-wrapper ul.list-spectre li {
-				padding: 0em 0em 2em 0em;
-			}
 
 			/* FOOTER */
 			.footer-links {
@@ -983,82 +673,9 @@ ul.list-tags li:hover {
 			.copyright {
 				flex-direction: column;
 			}
-			.copyright i {
-				padding: 0;
-			}
-			.copyright a {
-				padding-left: 0;
-			}
 			.copyright :nth-child(2) {
 				display: flex;
 				flex-direction: column;
-			}
-
-
-
-			/* ICONS */
-			.cv-wrapper .teaching {
-				background-image: none;
-			}
-			.cv-wrapper .leadership {
-				background-image: none;
-			}
-			.cv-wrapper .project_management {
-				background-image: none;
-			}
-			.cv-wrapper .presenting {
-				background-image: none;
-			}
-			.cv-wrapper .time_management {
-				background-image: none;
-			}
-			.cv-wrapper .writing {
-				background-image: none;
-			}
-			.cv-wrapper .grant_writing {
-				background-image: none;
-			}
-			.cv-wrapper .biochemistry {
-				background-image: none;
-			}
-			.cv-wrapper .python_best_practices {
-				background-image: none;
-			}
-			.cv-wrapper .python_basics {
-				background-image: none;
-			}
-			.cv-wrapper .python_advanced {
-				background-image: none;
-			}
-			.cv-wrapper .biopython {
-				background-image: none;
-			}
-			.cv-wrapper .python {
-				background-image: none;
-			}
-			.cv-wrapper .softdev {
-				background-image: none;
-			}
-			.cv-wrapper .genart {
-				background-image: none;
-			}
-			.cv-wrapper .data_analysis {
-				background-image: none;
-			}
-			.cv-wrapper .math {
-				background-image: none;
-			}
-			.cv-wrapper .machine_learning {
-				background-image: none;
-			}
-			.cv-wrapper .agile {
-				background-image: none;
-			}
-			.cv-wrapper .games {
-				background-image: none;
-			}
-			.cv-wrapper .world {
-				background-image: none;
 			}
 
 		}
@@ -1075,9 +692,6 @@ ul.list-tags li:hover {
 			section  {
 				/* margin: 2rem; */
 				padding: 2rem;
-			}
-			section .blog-topics {
-				padding-left: 0;
 			}
 			table {
 				width: 100%;
@@ -1101,21 +715,8 @@ ul.list-tags li:hover {
 				margin: 3rem;
 			}
 
-			/* INTRO WRAPPER */
 			#headline {
 				margin-bottom: 1rem;
-			}
-			#intro-wrapper {
-				width: 100%;
-				height: auto;
-				padding: 1rem;
-				flex-direction: column;
-			}
-			#img-wrapper {
-				flex-direction: row;
-			}
-			img.media-head {
-				display: none;
 			}
 
 			/* COURSES WRAPPER */
@@ -1146,9 +747,6 @@ ul.list-tags li:hover {
 			ul.list-spectre li {
 				margin: 1em 0em;
 			}
-			.cv-wrapper ul.list-spectre li {
-				padding: 0em 0em 2em 0em;
-			}
 
 			/* FOOTER */
 			footer {
@@ -1174,12 +772,6 @@ ul.list-tags li:hover {
 			.copyright {
 				flex-direction: column;
 			}
-			.copyright i {
-				padding: 0;
-			}
-			.copyright a {
-				padding-left: 0;
-			}
 			.copyright :nth-child(2) {
 				display: flex;
 				flex-direction: column;
@@ -1192,71 +784,6 @@ ul.list-tags li:hover {
 			#img-footer-container img.media-footer {
 				max-width: 12rem;
 				display: block;
-			}
-
-			/* ICONS */
-			.cv-wrapper .teaching {
-				background-image: none;
-			}
-			.cv-wrapper .leadership {
-				background-image: none;
-			}
-			.cv-wrapper .project_management {
-				background-image: none;
-			}
-			.cv-wrapper .presenting {
-				background-image: none;
-			}
-			.cv-wrapper .time_management {
-				background-image: none;
-			}
-			.cv-wrapper .writing {
-				background-image: none;
-			}
-			.cv-wrapper .grant_writing {
-				background-image: none;
-			}
-			.cv-wrapper .biochemistry {
-				background-image: none;
-			}
-			.cv-wrapper .python_best_practices {
-				background-image: none;
-			}
-			.cv-wrapper .python_basics {
-				background-image: none;
-			}
-			.cv-wrapper .python_advanced {
-				background-image: none;
-			}
-			.cv-wrapper .biopython {
-				background-image: none;
-			}
-			.cv-wrapper .python {
-				background-image: none;
-			}
-			.cv-wrapper .softdev {
-				background-image: none;
-			}
-			.cv-wrapper .genart {
-				background-image: none;
-			}
-			.cv-wrapper .data_analysis {
-				background-image: none;
-			}
-			.cv-wrapper .math {
-				background-image: none;
-			}
-			.cv-wrapper .machine_learning {
-				background-image: none;
-			}
-			.cv-wrapper .agile {
-				background-image: none;
-			}
-			.cv-wrapper .games {
-				background-image: none;
-			}
-			.cv-wrapper .world {
-				background-image: none;
 			}
 
 		}
@@ -1275,22 +802,6 @@ ul.list-tags li:hover {
 				column-gap:1em;
 				columns: 2;
 			}
-			ul.list-navigator {
-				padding: 1em 1em 1em 3em;
-				margin: 0;
-			}
-			ul.list-navigator li {
-				display: inline-block;
-				padding-right: 0;
-			}
-			ul.list-navigator li:after {
-				color: #008000;
-				content: '»';
-				padding: 0 0.5em;
-				font-weight: bold;
-			}
 		}
 
 /******************* MEDIA QUERIES END *******************/
-
-

@@ -13,13 +13,13 @@
     <meta name="author" content="Dr. Kristian Rother">
 
     <!-- start: CSS Block -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
       <link rel="stylesheet" href="static/css/module_normalize.css" type="text/css">
-      <link rel="stylesheet" href="static/css/integrated.css" type="text/css">
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,300,700,300italic,400italic,700italic' type='text/css'>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="static/css/integrated.css">
       <link rel="stylesheet" href="static/css/pygments_default.css">
     <!-- end: CSS Block -->
-
     <!-- start: Seitentitel -->
     <title>Academis • {% block title %}Dr. Kristian Rother{% endblock %}</title>
     <!-- end: Seitentitel -->
@@ -29,7 +29,7 @@
 
 <!-- start: Headerbereich -->
 
-<header>
+<header class="mt-4 w-100 text-start">
   <a href="index.html"><img src="static/images/academis_kr350.png" alt="Academis Logo" class="media-logo" /></a>
 </header>
 
@@ -40,12 +40,8 @@
 
 <content>
 
-  <section>
-
-    {% block content %}
-    {% endblock %}
-
-  </section>
+  {% block content %}
+  {% endblock %}
 
 </content>
 
@@ -55,6 +51,7 @@
 {% include('footer.html') %}
   
 
-<script src="static/js/app.js"></script>
+  <script src="static/js/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

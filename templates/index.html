@@ -4,33 +4,32 @@
 
 {% block content %}
 
-<section id="intro-wrapper">
+<section class="d-flex flex-column flex-sm-row pr-3">
     <div>
         <h1>Create Better Science</h1>
         <p>I am a professional Python trainer, developer and author based in Berlin. I believe everybody can learn programming.</p>
-        <ul id="intro-icons">
-            <li><a href="http://github.com/krother"><i class="fa fa-fw fa-github"></i></a></li>
-            <li><a href="mailto:kristian.rother@posteo.de"><i class="fa fa-fw fa-envelope"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/kristian-rother/"><i class="fa fa-fw fa-linkedin"></i></a></li>
+        <ul id="intro-icons" class="d-flex list-unstyled p-0">
+            <li class="ps-0 pe-1 pt-1 fs-2"><a href="http://github.com/krother"><i class="fa fa-fw fa-github"></i></a></li>
+            <li class="ps-0 pe-1 pt-1 fs-2"><a href="mailto:kristian.rother@posteo.de"><i class="fa fa-fw fa-envelope"></i></a></li>
+            <li class="ps-0 pe-1 pt-1 fs-2"><a href="https://www.linkedin.com/in/kristian-rother/"><i class="fa fa-fw fa-linkedin"></i></a></li>
         </ul>
     </div>
 
-    <div id="img-wrapper">
-        <img src="static/images/kristian.gif" class="media-head" alt="Portrait Picture of Dr. Kristian Rother">
+    <div class="d-flex flex-row flex-sm-column justify-content-start">
+        <img src="static/images/kristian.gif" class="media-head d-none d-sm-block pt-5 ps-3" alt="Portrait Picture of Dr. Kristian Rother">
     </div>
 </section>
 
-<section class="blog-topics">
-    <a href="courses.html"><button>Courses</button></a>
-    <a href="courses.html#softeng"><button>Software Engineering</button></a>
-    <a href="courses.html#onboarding"><button>Onboarding Support</button></a>
+<section>
+    <a href="courses.html"><button class="btn my-5 px-5">Courses</button></a>
+    <a href="courses.html#softeng"><button class="btn my-5 px-5">Software Engineering</button></a>
+    <a href="courses.html#onboarding"><button class="btn my-5 px-5">Onboarding Support</button></a>
 </section>
 
-<section class="blog-topics">
+<section>
 
   <h1>Course Materials</h1>
 
-  <br>
   <ul class="list-spectre">
     <li class="teaching">
       <h3><a href="/teaching">Teaching Programming</a></h3>
@@ -39,12 +38,11 @@
     <li class="python_basics">
       <h3><a href="/python_basics">Python Exercises for beginners</a></h3>
       <p>Introductory lessons and beginner-friendly reference</p>
-      <h4><a href="/python_basics_de">Python Übungen für Anfänger 🇩🇪</a></h4>
+      <p><a href="/python_basics_de">Python Übungen für Anfänger 🇩🇪</a></p>
     </li>
     <li class="data_analysis">
       <h3><a href="/pandas_go_to_space/">Data Analysis</a></h3>
       <p>Analyze data with space-traveling pandas</p>
-      <!-- <h4><a href="/datenanalyse">Datenanalyse 🇩🇪</a></h4> -->
     </li>
     <li class="dungeon">
       <h3><a href="/dungeon_explorer">Dungeon Explorer</a></h3>
@@ -53,7 +51,6 @@
     <li class="genart">
       <h3><a href="/numpy_graphics">Graphics with Numpy</a></h3>
       <p>Use arrays and matrices to generate art</p>
-      <!-- <h4><a href="/grafik_DE">Grafik mit Numpy 🇩🇪</a></h4> !-->
     </li>
     <li class="machine_learning">
       <h3><a href="/machine_learning">Machine Learning</a></h3>
