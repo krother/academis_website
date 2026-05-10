@@ -5,6 +5,7 @@
     --secondary-color: #3C6F1F;
 	--icon-frame-color: #80b940;
 	--icon-body-color: #b3d789;
+	--icon-body-color-bright: rgb(215, 230, 196);
 	--hover-color: #1b4403;
     --link-color:#3C6F1F;
 	--footer-link-color: #efefef;
@@ -44,12 +45,12 @@ body {
 
 /* Button */
 button.btn {
-    --bs-btn-bg: var(--icon-body-color);
+    --bs-btn-bg: var(--icon-body-color-bright);
     --bs-btn-color: black;
-    --bs-btn-border-color: transparent;
-    --bs-btn-hover-bg: var(--hover-color);
-    --bs-btn-hover-color: var(--footer-link-color);
-    --bs-btn-hover-border-color: transparent;
+    --bs-btn-border-color: black;
+    --bs-btn-hover-bg: var(--icon-body-color);
+    --bs-btn-hover-color: black;
+    --bs-btn-hover-border-color: black;
     --bs-btn-active-bg: var(--hover-color);
     --bs-btn-active-color: var(--footer-link-color);
 }
@@ -66,11 +67,12 @@ img.media-logo {
 
 /* Layout: header, section, article und nav */
 header {
-	height: 20vh;
+	height: 15vh;
 	padding-left: 5rem;
 	padding-right: 5rem;
 }
 section {
+	padding-top: 3rem;
 	padding-left: 5rem;
 	padding-right: 5rem;
 }
