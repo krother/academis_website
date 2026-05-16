@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}Academis – Dr. Kristian Rother{% endblock %}
+{% block title %}Dr. Kristian Rother{% endblock %}
 
 {% block content %}
 
 <section class="my-5">
-  <ul class="list-group list-group-horizontal">
+  <ul class="list-group list-group-horizontal-sm flex-wrap col-12 col-lg-8 px-0">
     <li class="list-group-item main-menu px-5"><a href="courses.html">Courses</a></li>
     <li class="list-group-item main-menu px-5"><a href="courses.html#course_dates">Course Dates</a></li>
     <li class="list-group-item main-menu px-5"><a href="courses.html#softeng">Software Engineering</a></li>
@@ -24,23 +24,25 @@
     </ul>
 </section>
 
-<section class="d-flex flex-column flex-sm-row pr-3">
+<section class="pr-3">
+  <div id="intro-wrapper" class="d-flex flex-column flex-sm-row col-12 col-lg-8 px-0">
     <div>
-        <h1>Create Better Science</h1>
-        <p>I am a professional Python trainer, developer and author based in Berlin.<br>
-        You can book me for corporate trainings, university courses and<br>
-        software projects in <strong>German</strong> and <strong>English</strong>.
-        <br>I believe everybody can learn programming.</p>
-        <ul id="intro-icons" class="d-flex list-unstyled p-0">
-            <li class="ps-0 pe-1 pt-1 fs-2"><a href="http://github.com/krother"><i class="fa fa-fw fa-github"></i></a></li>
-            <li class="ps-0 pe-1 pt-1 fs-2"><a href="mailto:kristian.rother@posteo.de"><i class="fa fa-fw fa-envelope"></i></a></li>
-            <li class="ps-0 pe-1 pt-1 fs-2"><a href="https://www.linkedin.com/in/kristian-rother/"><i class="fa fa-fw fa-linkedin"></i></a></li>
-        </ul>
+      <h1>Create Better Science</h1>
+      <p style="text-align: justify;">I am a professional Python trainer, developer and author based in Berlin.
+      You can book me for corporate trainings, university courses and
+      software projects in <strong>German</strong> and <strong>English</strong>.
+      I believe everybody can learn programming.</p>
+      <ul id="intro-icons" class="d-flex list-unstyled p-0">
+        <li class="ps-0 pe-1 pt-1 fs-2"><a href="http://github.com/krother"><i class="fa fa-fw fa-github"></i></a></li>
+        <li class="ps-0 pe-1 pt-1 fs-2"><a href="mailto:kristian.rother@posteo.de"><i class="fa fa-fw fa-envelope"></i></a></li>
+        <li class="ps-0 pe-1 pt-1 fs-2"><a href="https://www.linkedin.com/in/kristian-rother/"><i class="fa fa-fw fa-linkedin"></i></a></li>
+      </ul>
     </div>
 
     <div class="d-flex flex-row flex-sm-column justify-content-start">
-        <img src="static/images/kristian.gif" class="media-head d-none d-sm-block pt-5 ps-3" alt="Portrait Picture of Dr. Kristian Rother">
+      <img src="static/images/kristian.gif" class="media-head d-none d-sm-block pt-5 ps-3" alt="Portrait Picture of Dr. Kristian Rother">
     </div>
+  </div>
 </section>
 
 
@@ -98,12 +100,6 @@
       <h3><a href="/python_testing">Python Testing Tutorial</a></h3>
       <p>Introduction to automated testing with pytest.</p>
     </li>
-    <!-- 
-    <li class="biochemistry">
-      <h3><a href="/biopython">Biopython</a></h3>
-      <p>Introduction to Biopython.</p>
-    </li>
-    !-->
     <li class="presenting">
       <h3><a href="/public_speaking">Presenting</a></h3>
       <p>Speech projects to develop your confidence on the stage.</p>
@@ -137,7 +133,7 @@
         <div class="row mb-3">
           <label for="email" class="col-sm-3 col-form-label">Your email <span class="text-muted">(optional)</span></label>
           <div class="col-sm-9">
-            <input type="email" class="form-control" id="email" name="email" placeholder="meine@email.de">
+            <input type="email" class="form-control" id="email" name="email" placeholder="my@email.eu">
           </div>
         </div>
 

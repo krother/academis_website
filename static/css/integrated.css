@@ -83,7 +83,7 @@ img.media-logo {
 
 /* Layout: header, section, article und nav */
 header {
-	height: 15vh;
+	height: 10vh;
 	padding-left: 5rem;
 	padding-right: 5rem;
 }
@@ -92,6 +92,7 @@ section {
 	padding-left: 5rem;
 	padding-right: 5rem;
 }
+
 
 ul.list-spectre h3 {
 	font-size: 1.4em;
