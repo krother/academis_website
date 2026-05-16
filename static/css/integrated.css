@@ -138,7 +138,7 @@ a.current {
 .off {
 	visibility: hidden;
 }
-label {
+#navbar-toggle {
 	color: transparent;
 	position: absolute;
 	top: 20px;
