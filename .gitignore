@@ -110,3 +110,4 @@ ENV/
 
 # added manually
 .DS_Store
+backend/conf.py

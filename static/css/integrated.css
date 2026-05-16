@@ -43,12 +43,28 @@ body {
     padding: 0;
 }
 
+/* Main Menu */
+.main-menu {
+	font-size: 1.2rem;
+	background-color: var(--icon-body-color);
+	color: black;
+}
+
+.main-menu a {
+    color: black;
+}
+
+.main-menu:hover {
+    background-color: var(--icon-body-color-bright);
+	color: var(--link-color);
+}
 /* Button */
 button.btn {
-    --bs-btn-bg: var(--icon-body-color-bright);
+	font-size: 1.2rem;
+    --bs-btn-bg: var(--icon-body-color);
     --bs-btn-color: black;
     --bs-btn-border-color: black;
-    --bs-btn-hover-bg: var(--icon-body-color);
+    --bs-btn-hover-bg: var(--icon-body-color-bright);
     --bs-btn-hover-color: black;
     --bs-btn-hover-border-color: black;
     --bs-btn-active-bg: var(--hover-color);
