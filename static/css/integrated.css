@@ -32,7 +32,7 @@ body {
 	overflow-x: hidden;
     color: var(--main-text-color);
     font-family: var(--main-font);
-	font-size: 1.4rem;
+	font-size: 1.2rem;
 	background: url(../images/header-alt.jpg) no-repeat;
 }
 *, *:before, *:after {
@@ -58,6 +58,7 @@ body {
     background-color: var(--icon-body-color-bright);
 	color: var(--link-color);
 }
+
 /* Button */
 button.btn {
 	font-size: 1.2rem;
@@ -84,13 +85,13 @@ img.media-logo {
 /* Layout: header, section, article und nav */
 header {
 	height: 10vh;
-	padding-left: 5rem;
-	padding-right: 5rem;
 }
 section {
 	padding-top: 3rem;
-	padding-left: 5rem;
-	padding-right: 5rem;
+}
+.card {
+	background-color: #dddddd;
+	font-size: 0.9em;
 }
 
 
@@ -119,6 +120,11 @@ ol {
     margin-block-end: 1rem;
     padding-inline-start: 3rem;
 	line-height: 150%;
+}
+
+h4 {
+	padding-top: 2.0rem;
+	font-weight: bold;
 }
 
 p {
@@ -287,25 +293,12 @@ nav {
 
 /******************* INTRO START *******************/
 
-#headline {
-    margin-bottom: 2.5rem;
-}
-#headline p {
-	margin-block-start: 0.3em;
-	margin-block-end: 0.6em;
-}
-#sub-headline{
-	color: var(--secondary-color);
-	font-style: italic;
-}
 img.media-head {
 	min-width: 14rem;
 	width: 12vw;
 }
 
 /******************* INTRO END *******************/
-
-
 
 /******************* FEEDBACK/TESTIMONIALS START *******************/
 
@@ -353,7 +346,6 @@ footer {
 	position: relative;
 	background-color: var(--icon-body-color);
 	color: var(--secondary-color);
-	padding: 2rem 5rem;
 	content: "";
 	clear: both;
 }
@@ -508,10 +500,7 @@ ul.list-tags li:hover {
 	/* ...and now override with proper CSS property */
 	transition:         color .5s ease-out, background 1s ease-in;
 }
-
 /******************* OTHERS END *******************/
-
-
 
 /******************* MEDIA QUERIES START - RESPONSIVE DESIGN *******************/
 		
@@ -522,27 +511,47 @@ ul.list-tags li:hover {
 			}
 		}
 
+		/* very large screen */
 		@media only screen and (min-width: 1650px) {
 
+			main {
+				padding-left: 8rem;
+				padding-right: 8rem;				
+			}
+			footer {
+				padding-left: 8rem;
+				padding-right: 8rem;				
+			}
+			#intro-wrapper {
+				width: 65%;
+			}
 			h3 {
 				padding: 3.5rem 0rem 0rem 0rem;
 			}
 			body {
 				font-size: 1.5rem;
 			}
-			#courses-wrapper {
-				margin: 5rem 5rem;
-				padding: 0;
-			}
-			#courses-wrapper .media-video {
+			.media-video {
 				height: 60vh;
 				max-width: 70%;
 				padding: 4rem 4rem 3rem 0rem;
 			}
 		}
 
+		/* large screen */
 		@media only screen and (min-width: 1200px) and (max-width: 1649px) {
 
+			main {
+				padding-left: 8rem;
+				padding-right: 8rem;				
+			}
+			footer {
+				padding-left: 8rem;
+				padding-right: 8rem;				
+			}
+			#intro-wrapper {
+				width: 80%;
+			}
 			h3 {
 				padding: 3.5rem 0rem 0rem 0rem;
 			}
@@ -551,44 +560,46 @@ ul.list-tags li:hover {
 			}
 		}
 
+		/* small screen */
 		@media (min-width: 992px) and (max-width: 1199px) {
+			main {
+				padding-left: 2rem;
+				padding-right: 2rem;				
+			}
+			footer {
+				padding-left: 2rem;
+				padding-right: 2rem;				
+			}
+			#intro-wrapper {
+				width: 90%;
+			}
 			nav {
-			width: 40vw;
+				width: 40vw;
 			}
 			h3 {
 				padding: 3.5rem 0rem 0rem 0rem;
 			}
-			#courses-wrapper {
-				height: auto;
-			}
-			#courses-container {
-				height: auto;
-				grid-template-columns: 1fr 1fr;
-			}
-
 		}
 		
 		@media only screen and (min-width: 768px) and (max-width: 991px) {
 
+			main {
+				padding-left: 2rem;
+				padding-right: 2rem;				
+			}
+			footer {
+				padding-left: 2rem;
+				padding-right: 2rem;				
+			}			
+
 			nav {
-			width: 50vw;
+				width: 50vw;
 			}
 			body {
 				font-size: 1.3rem;
 			}
 			img.media-object {
 				max-width: 100%;
-			}
-
-
-			/* COURSES WRAPPER */
-			#courses-wrapper {
-				padding: 2rem 2rem;
-				justify-content: flex-start;
-			}
-			#courses-container {
-				height: auto;
-				grid-template-columns: 1fr 1fr;
 			}
 
 			/* FOOTER */
@@ -621,8 +632,16 @@ ul.list-tags li:hover {
 
 		@media only screen and (min-width: 576px) and (max-width: 767px) {
 		
+			main {
+				padding-left: 2rem;
+				padding-right: 2rem;				
+			}
+			footer {
+				padding-left: 2rem;
+				padding-right: 2rem;				
+			}			
 			nav {
-			width: 70vw;
+				width: 70vw;
 			}
 
 			body {
@@ -630,9 +649,6 @@ ul.list-tags li:hover {
 			}
 			img.media-logo {
 				max-height: 3em;
-			}
-			section  {
-				padding: 2.5rem;
 			}
 			a, p {
 				overflow-wrap: break-word;  
@@ -642,22 +658,8 @@ ul.list-tags li:hover {
 			}
 
 			/* INTRO WRAPPER */
-			#headline {
-				margin-bottom: 0;
-			}
 			img.media-head {
 				max-width: 13rem;
-			}
-
-			/* COURSES WRAPPER */
-			#courses-wrapper {
-				height: auto;
-				padding: 1rem 1rem;
-				justify-content: flex-start;
-			}
-			#courses-container {
-				height: auto;
-				grid-template-columns: 1fr;
 			}
 
 			/* LISTS */
@@ -702,6 +704,14 @@ ul.list-tags li:hover {
 		/* IPHONE SIZES */
 		@media only screen and (max-width: 575px) {
 			
+			main {
+				padding-left: 2rem;
+				padding-right: 2rem;				
+			}
+			footer {
+				padding-left: 2rem;
+				padding-right: 2rem;				
+			}			
 			body {
 				font-size: 1rem;
 			}
@@ -709,7 +719,6 @@ ul.list-tags li:hover {
 				max-height: 2.5em;
 			}
 			section  {
-				/* margin: 2rem; */
 				padding: 2rem;
 			}
 			table {
@@ -732,28 +741,6 @@ ul.list-tags li:hover {
 			}
 			.nav-container .menu > div > div {
 				margin: 3rem;
-			}
-
-			#headline {
-				margin-bottom: 1rem;
-			}
-
-			/* COURSES WRAPPER */
-			#courses-wrapper {
-				height: auto;
-				padding: 0.5rem 0.5rem;
-				justify-content: flex-start;
-			}
-			#courses-container {
-				height: auto;
-				grid-template-columns: 1fr;
-			}
-			img.courses-img {
-				max-width: 7rem;
-			}
-			#courses-container .courses-content {
-				margin: 1em 0em;
-				min-width: 100%;
 			}
 
 			/* LISTS */
@@ -804,7 +791,6 @@ ul.list-tags li:hover {
 				max-width: 12rem;
 				display: block;
 			}
-
 		}
 
 		@media only screen and (min-width: 30em) {

@@ -6,68 +6,84 @@
 
 <section>
     <h1>Courses</h1>
-    <div class="d-flex">
-        <div>
-            <p>I am an experienced trainer and lecturer. You can book me for corporate trainings or university courses that guide your participants towards becoming experienced practitioners. By default, trainings contain substantial <strong>practical exercises</strong>.</p>
-            <p>I believe the best setting for effective training is <strong>in-person</strong>.
-            You are welcome to host trainings in your own rooms. I also have my own <strong>training room in Berlin-Schöneberg</strong> for groups of up to 8 persons. It is fitted with a <strong>projector, flipchart</strong> and lots of equipment for a creative training experience.</p>
+    <div class="row row-cols-1 row-cols-md-3 g-4 my-4">
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                <img src="static/images/featured_courses/pac.png" class="card-img-top" alt="Advanced Python">
+                <h4 class="card-title">Advanced Python</h4>
+                <p class="card-text">Level up your Python skills with OOP, functional patterns and tests by working on in-class programming projects.</p>
+                </div>
+            </div>
         </div>
-        <img class="align-self-start ms-4 flex-shrink-0" width="350px" src="static/images/speaking.jpg" alt="Kristian as conference speaker">
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                <img src="static/images/featured_courses/boxplot.png" class="card-img-top" alt="Data Analysis with polars">
+                    <h4 class="card-title">Data Analysis with polars</h4>
+                    <p class="card-text">Master wrangling tabular data with polars. Create aggregations, plots and pivots packed into a great story.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                <img src="static/images/featured_courses/linreg.png" class="card-img-top" alt="Machine Learning Fundamentals">
+                <h4 class="card-title">Machine Learning Fundamentals</h4>
+                    <p class="card-text">Build solid foundations in supervised and unsupervised learning. Train and evaluate linear models and neural networks.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <section id="course_dates">
 
     <h2>Course Dates</h2>
-    <table class="table table-striped#">
+    <p><strong>All courses are on-site in Berlin.</strong></p>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Course</th>
-                <th>Location</th>
-                <th>Format</th>
-                <th>Dates</th>
+                <th>Date</th>
+                <th>Time</th>
                 <th>Details</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>Python upper intermediate</td>
-                <td>Berlin</td>
-                <td>on-site, all-day</td>
                 <td>26.05. - 28.05.2026</td>
+                <td>all-day</td>
                 <td>closed corporate</td>
             </tr>
             <tr>
                 <td>2D Game Programming with Python</td>
-                <td>Berlin</td>
-                <td>on-site, all-day</td>
                 <td>03.06. - 24.06.2026</td>
+                <td>all-day</td>
                 <td>via <a href="https://www.tu.berlin/en/international/summer-school/summer-school/summer-school-on-campus/2d-game-programming-with-python">TUB|CO Berlin</a></td>
             </tr>
             <tr>
                 <td>Introduction to FastAPI</td>
-                <td>Berlin</td>
-                <td>on-site, all-day</td>
                 <td>13.07. - 16.07.2026</td>
+                <td>all-day</td>
                 <td>closed corporate</td>
             </tr>
             <tr>
                 <td>polars for Data Anaylsis</td>
-                <td>Berlin</td>
-                <td>on-site, all-day</td>
                 <td>31.08. - 2.09.2026</td>
+                <td>all-day</td>
                 <td>6 seats available</td>
             </tr>
             <tr>
                 <td>Art with NumPy</td>
-                <td>Berlin</td>
-                <td>on-site, Fridays 15-18</td>
                 <td>21.08. - 9.10.2026</td>
+                <td>Fridays 15-18</td>
                 <td>6 seats available</td>
             </tr>
         </tbody>
     </table>
-    <a href="mailto:kristian.rother@posteo.de"><button class="btn">Request registration info by email: kristian.rother@posteo.de</button></a>
+    <a href="index.html#contact"><button class="btn">Request registration through the Contact form</button></a>
 </section>
 
 <section>
@@ -112,45 +128,14 @@
 
 <section>
     <h2>Methodology</h2>
-    <p>I use a vast variety of methods to make training and teaching interactive and enjoyable. You can find many of them documented on the <a href="/teaching">Teaching Programming</a> page.</p>
-</section>
-
-<section id="softeng">
-    <h2>Software Engineering</h2>
     <div class="d-flex">
         <div>
-            <p>
-                Since my early days of programming in the 1990's, I have seen a fair bit of software engineering. No matter whether you write in Python or Java, whether you use SQL or NoSQL, in the end everything comes down to finding a good abstraction and creating conditions where maintainable code can thrive. I am available to support projects as a part-time senior developer. Here are a couple of things that I have enjoyed in past projects:
-            </p>
-            <ul>
-                <li>Refactoring legacy code</li>
-                <li>Improving CI pipelines</li>
-                <li>Creating test harnesses</li>
-                <li>Requirements engineering</li>
-                <li>Making sense of vibe-coded prototypes</li>
-            </ul>
+            <p>I am an experienced trainer and lecturer. You can book me for corporate trainings or university courses that guide your participants towards becoming experienced practitioners.
+            I use a vast variety of methods to make training and teaching interactive and enjoyable. You can find many of them documented on the <a href="/teaching">Teaching Programming</a> page.</p>
+            <p>I believe the best setting for effective training is <strong>in-person</strong>.
+            You are welcome to host trainings in your own rooms. I also have my own <strong>training room in Berlin-Schöneberg</strong> for groups of up to 8 persons. It is fitted with a <strong>projector, flipchart</strong> and lots of equipment for a creative training experience.</p>
         </div>
-        <img class="align-self-start ms-4 flex-shrink-0" width="400px" src="static/images/munch_mosaic.png" alt="monte carlo version of Munchs 'scream'">
-    </div>
-</section>
-
-<section id="coaching">
-    <h2>Coaching</h2>
-    <div class="d-flex">
-        <img class="align-self-start me-4 flex-shrink-0" width="400px" src="static/images/bricks.jpg" alt="wooden bricks with git commands">
-        <div>
-            <p>
-            I can support your team by accelerating junior and mid-level developers over several months. Give your team an experienced ear to protect them from cognitive overload. Get them up to speed by combining code reviews, peer coaching and regular training units. When your new hires need to talk to a senior but hiring one full-time would be too much. Includes:
-            </p>
-            <ul>
-                <li>weekly training slots</li>
-                <li>weekly code reviews</li>
-                <li>individual coaching sessions</li>
-                <li>regular temperature checks</li>
-                <li>troubleshooting</li>
-                <li>NDA for confidential work</li>
-            </ul>
-        </div>
+        <img class="align-self-start ms-4 flex-shrink-0" width="350px" src="static/images/speaking.jpg" alt="Kristian as conference speaker">
     </div>
 
 </section>
