@@ -46,7 +46,8 @@ body {
 /* Main Menu */
 .main-menu {
 	font-size: 1.2rem;
-	background-color: var(--icon-body-color);
+	background-color: transparent;
+	border: none;
 	color: black;
 }
 
@@ -77,15 +78,8 @@ button.btn {
 img.media-object {
 	max-width: 45vw;
 }
-img.media-logo {
-	max-height: 3em;
-	width: auto;
-}
 
-/* Layout: header, section, article und nav */
-header {
-	height: 10vh;
-}
+/* Layout: section, article und nav */
 section {
 	padding-top: 3rem;
 }
@@ -93,7 +87,6 @@ section {
 	background-color: #dddddd;
 	font-size: 0.9em;
 }
-
 
 ul.list-spectre h3 {
 	font-size: 1.4em;
@@ -132,6 +125,7 @@ p {
 	line-height: 150%;
 	margin-block-start: 0.8em;
     margin-block-end: 0.6em;
+	text-align: justify;
 }
 
 pre {
@@ -145,18 +139,31 @@ a {
 }
 a:hover {
 	color: var(--hover-color);
-	-o-transition:     color .5s ease-out, background 1s ease-in;
-	-ms-transition:    color .5s ease-out, background 1s ease-in;
-	-moz-transition:   color .5s ease-out, background 1s ease-in;
-	-webkit-transition:color .5s ease-out, background 1s ease-in;
+	-o-transition:     color .5s ease-out, background .5s ease-in;
+	-ms-transition:    color .5s ease-out, background .5s ease-in;
+	-moz-transition:   color .5s ease-out, background .5s ease-in;
+	-webkit-transition:color .5s ease-out, background .5s ease-in;
 	/* ...and now override with proper CSS property */
-	transition:        color .5s ease-out, background 1s ease-in;
+	transition:        color .5s ease-out, background .5s ease-in;
 }
 a.current {
 	color: var(--hover-color);
 }
 
-/******************* NAVBAR START *******************/
+/******************* HEADER START *******************/
+header {
+	height: auto;
+}
+img.header-logo {
+	max-height: 4em;
+	width: auto;
+	background-color: transparent;
+}
+
+a.header-logo {
+	background-color: transparent;
+	border-color: transparent;
+}
 
 .off {
 	visibility: hidden;
@@ -166,6 +173,7 @@ a.current {
 	position: absolute;
 	top: 20px;
 	right: 20px;
+	display: none;
 }
 nav {
 	position: fixed;
@@ -188,15 +196,17 @@ nav {
 	width: 40px;
 	height: 40px;
 	opacity: 0;
+	display: none;
 }
 .burger-menu {
 	position: fixed;
+	display: none;
     top: 30px;
     right: 30px;
     width: 40px;
     height: 40px;
     z-index: 3;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
@@ -289,7 +299,7 @@ nav {
   	color: inherit;
   	text-decoration: none;
 }
-/******************* NAVBAR END *******************/
+/******************* HEADER END *******************/
 
 /******************* INTRO START *******************/
 
@@ -503,6 +513,22 @@ ul.list-tags li:hover {
 /******************* OTHERS END *******************/
 
 /******************* MEDIA QUERIES START - RESPONSIVE DESIGN *******************/
+
+		/* small screens: show burger, hide horizontal nav */
+		@media only screen and (max-width: 991px) {
+			.toggler {
+				display: block;
+			}
+			.burger-menu {
+				display: flex;
+			}
+			#navbar-toggle {
+				display: block;
+			}
+			.main-menu {
+				display: none;
+			}
+		}
 		
 		@media only screen and (min-height: 1000px) {
 
@@ -647,9 +673,6 @@ ul.list-tags li:hover {
 			body {
 				font-size: 1.3rem;
 			}
-			img.media-logo {
-				max-height: 3em;
-			}
 			a, p {
 				overflow-wrap: break-word;  
 			}
@@ -714,9 +737,6 @@ ul.list-tags li:hover {
 			}			
 			body {
 				font-size: 1rem;
-			}
-			img.media-logo {
-				max-height: 2.5em;
 			}
 			section  {
 				padding: 2rem;
