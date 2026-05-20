@@ -15,9 +15,10 @@ def main():
 
 class ContactForm(BaseModel):
     name: str
-    email: str|None = None
+    email: str = "-"
     message: str
     privacy: bool
+    course: str = "-"
 
     @classmethod
     def as_form(
@@ -25,13 +26,18 @@ class ContactForm(BaseModel):
         name: Annotated[str, Form()],
         message: Annotated[str, Form()],
         privacy: Annotated[bool, Form()],
-        email: Annotated[str|None, Form()] = None,
+        email: Annotated[str, Form()] = "-",
+        course: Annotated[str, Form()] = "-",
     ) -> "ContactForm":
-        return cls(name=name, email=email, message=message, privacy=privacy)
+        return cls(name=name, email=email, message=message, privacy=privacy, course=course)
 
 @app.post("/contact")
 def send_message(form: ContactForm = Depends(ContactForm.as_form)):
     subject = f"Academis: new message from {form.name}"
-    msg = (form.email or "") + "\n\n" + form.message
+    msg = "\n\n".join((
+        "e-mail:" + form.email, 
+        "course:" + form.course,
+        form.message
+    ))
     send_email(to_email="kristian.rother@posteo.de", subject=subject, body=msg)
     return RedirectResponse(url="/", status_code=303)

@@ -1,0 +1,76 @@
+<section id="contact" class="list-spectre">
+  <div class="col-12 col-lg-8 px-0 pb-5">
+  <div class="card">
+
+    <div class="card-header">
+      <h2 class="mb-0">Get in touch</h2>
+    </div>
+
+    <div class="card-body">
+
+      <form method="POST" action="/api/contact">
+
+        <div class="row mb-3">
+          <label for="name" class="col-sm-3 col-form-label">Your name</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="email" class="col-sm-3 col-form-label">Your email <span class="text-muted">(optional)</span></label>
+          <div class="col-sm-9">
+            <input type="email" class="form-control" id="email" name="email" placeholder="my@email.eu">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="message" class="col-sm-3 col-form-label">Your message</label>
+          <div class="col-sm-9">
+            <textarea class="form-control" id="message" name="message" rows="5" placeholder="How can I help you?" required></textarea>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-sm-9 offset-sm-3">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="privacy" name="privacy" required>
+              <label class="form-check-label" for="privacy">
+                I have read and understood the
+                <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">data privacy statement</a>.
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-9 offset-sm-3">
+            <button type="submit" class="btn btn-primary">Send message</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- Privacy Statement Modal -->
+<div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="privacyModalLabel">Data Privacy Statement</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>The information you provide in this form (name, email address, and message) will be used solely to respond to your enquiry.</p>
+        <p>Your data will not be shared with third parties and will be deleted once your enquiry has been resolved.</p>
+        <p>For questions about your data, contact <a href="mailto:kristian.rother@posteo.de">kristian.rother@posteo.de</a>.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I understand</button>
+      </div>
+    </div>
+  </div>
+</div>
