@@ -14,6 +14,7 @@ PAGES = [
     ('CV Dr. Kristian Rother', 'cv.html'),
     ('Testimonials', 'testimonial_list.html'),
     ('Impressum', 'impressum.html'),
+    ('Datenschutzerklärung', 'datenschutz.html'),
 ]
 
 # render templates
