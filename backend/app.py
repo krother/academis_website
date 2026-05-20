@@ -1,16 +1,14 @@
 from typing import Annotated
 
-from fastapi import FastAPI, Form, Depends
+from urllib.parse import urlparse
+
+from fastapi import FastAPI, Form, Depends, Request
 from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 
 from send_email import send_email
 
 app = FastAPI()
-
-@app.get("/")
-def main():
-    return "hello world"
 
 
 class ContactForm(BaseModel):
@@ -32,12 +30,14 @@ class ContactForm(BaseModel):
         return cls(name=name, email=email, message=message, privacy=privacy, course=course)
 
 @app.post("/contact")
-def send_message(form: ContactForm = Depends(ContactForm.as_form)):
+def send_message(request: Request, form: ContactForm = Depends(ContactForm.as_form)):
     subject = f"Academis: new message from {form.name}"
     msg = "\n\n".join((
-        "e-mail:" + form.email, 
+        "e-mail:" + form.email,
         "course:" + form.course,
         form.message
     ))
     send_email(to_email="kristian.rother@posteo.de", subject=subject, body=msg)
-    return RedirectResponse(url="/", status_code=303)
+    referer = request.headers.get("referer", "/")
+    redirect_path = urlparse(referer).path or "/"
+    return RedirectResponse(url=f"{redirect_path}?submitted=1", status_code=303)

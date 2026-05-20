@@ -69,22 +69,4 @@
   </div>
 </section>
 
-<!-- Privacy Statement Modal -->
-<div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="privacyModalLabel">Data Privacy Statement</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>The information you provide in this form (name, email address, and message) will be used solely to respond to your enquiry.</p>
-        <p>Your data will not be shared with third parties and will be deleted once your enquiry has been resolved.</p>
-        <p>For questions about your data, contact <a href="mailto:kristian.rother@posteo.de">kristian.rother@posteo.de</a>.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I understand</button>
-      </div>
-    </div>
-  </div>
-</div>
+{% include('form_modals.html') %}
