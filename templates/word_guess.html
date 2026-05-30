@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% block title %}Check &amp; Cross{% endblock %}
+
+{% block content %}
+
+<style>
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  width: 300px;
+}
+
+#guess-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.letter {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+}
+
+.correct {
+  background-color: green;
+}
+
+.partial {
+  background-color: orange;
+}
+
+.wrong {
+  background-color: gray;
+}
+
+#guess-input {
+  width: 300px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+#setup, #game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#game {
+  display: none;
+}
+</style>
+
+<section class="d-flex flex-column align-items-center text-center">
+
+    <h1>Guess the Word</h1>
+
+    <div id="setup">
+      <input type="password" id="teacher-input" maxlength="5" placeholder="Enter secret word" style="width:300px; padding:10px; font-size:18px;" />
+      <button class="btn btn-primary px-5 my-3" onclick="startGame()">Start</button>
+    </div>
+
+    <div id="game">
+      <div id="guess-container"></div>
+      <input type="text" id="guess-input" maxlength="5" placeholder="Enter 5-letter word" />
+      <button class="btn btn-success px-5 my-3" onclick="submitGuess()">Submit Guess</button>
+      <p id="message"></p>
+    </div>
+
+  <script>
+  let targetWord = "";
+
+  function startGame() {
+    const teacherInput = document.getElementById("teacher-input");
+    const word = teacherInput.value.toLowerCase();
+    if (word.length !== 5) {
+      alert("Please enter a 5-letter word.");
+      return;
+    }
+    targetWord = word;
+    document.getElementById("setup").style.display = "none";
+    document.getElementById("game").style.display = "flex";
+  }
+
+  function submitGuess() {
+    const guessInput = document.getElementById("guess-input");
+    const message = document.getElementById("message");
+    const guess = guessInput.value.toLowerCase();
+
+    if (guess.length !== 5) {
+      message.textContent = "Please enter a 5-letter word.";
+      return;
+    }
+
+    displayGuess(guess);
+
+    if (guess === targetWord) {
+      message.textContent = "Congratulations! You guessed the word!";
+      guessInput.disabled = true;
+    } else {
+      message.textContent = "";
+    }
+
+    guessInput.value = "";
+  }
+
+  function displayGuess(guess) {
+    const guessContainer = document.getElementById("guess-container");
+
+    for (let i = 0; i < 5; i++) {
+      const letterDiv = document.createElement("div");
+      letterDiv.classList.add("letter");
+
+      if (guess[i] === targetWord[i]) {
+        letterDiv.classList.add("correct");
+      } else if (targetWord.includes(guess[i])) {
+        letterDiv.classList.add("partial");
+      } else {    
+        letterDiv.classList.add("wrong");
+      }
+
+      letterDiv.textContent = guess[i].toUpperCase();
+      guessContainer.appendChild(letterDiv);
+    }
+  }
+  </script>
+
+</section>
+
+{% endblock %}
