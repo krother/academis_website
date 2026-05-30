@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block title %}Check &amp; Cross{% endblock %}
+
+{% block content %}
+
+  <style>
+    #card_canvas {
+      border: 1px solid #888;
+      background-color: #cccccc;
+      display: none;
+    }
+    #setup {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  </style>
+
+<section class="d-flex flex-column align-items-center text-center">
+
+  <h1>Check &amp; Cross</h1>
+  
+  <div id="setup">
+    <textarea id="word_input" rows="12" cols="30">
+mean
+median
+mode
+quartile
+standard deviation
+range
+category
+ordinal
+variable
+pivot</textarea>
+    <button class="btn btn-success px-5" id="start_btn">Start</button>
+  </div>
+
+  <canvas id="card_canvas" width="1200" height="800"></canvas>
+  
+  <script>
+    const card_words = [];
+    const canvas = document.getElementById("card_canvas");
+    const ctx = canvas.getContext("2d");
+    
+    // Store card data
+    const cards = [];
+
+    // Different light tones of a single color
+    const colors = ["#d7e6c4", "#b3d789", "#80b940"];
+    
+    // Function to generate random positions for the cards
+    function getRandomPosition(width, height, index) {
+      const x = Math.floor((Math.random() / 4 + (index % 4) / 4 ) * (canvas.width - width) );
+      const y = Math.floor((Math.random() / 4 + ((index-1)) / 12) * (canvas.height - height));
+      return { x, y };
+    }
+
+    // Function to draw a card
+    function drawCard(card) {
+      ctx.fillStyle = card.color;
+      ctx.fillRect(card.x, card.y, card.width, card.height);
+      ctx.fillStyle = "#000";
+      ctx.font = "22px Arial";
+      ctx.fillText(card.text, card.x + 20, card.y + 40);
+    }
+    
+    function createCards(words) {
+      words.forEach((word, index) => {
+        const width = 240;
+        const height = 75;
+        const { x, y } = getRandomPosition(width, height, index);
+        const color = colors[index % colors.length];
+
+        const card = { text: word, x, y, width, height, color, visible: true };
+        cards.push(card);
+        drawCard(card);
+      });
+    }
+    
+    // Function to check if a click is within a card
+    function isInsideCard(x, y, card) {
+      return x >= card.x && x <= card.x + card.width &&
+      y >= card.y && y <= card.y + card.height;
+    }
+    
+    // Event listener for clicks on canvas
+    canvas.addEventListener("click", (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickY = e.clientY - rect.top;
+      
+      // Check each card to see if the click was inside it
+      for (const card of cards) {
+        if (card.visible && isInsideCard(clickX, clickY, card)) {
+          card.visible = false;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          cards.filter(card => card.visible).forEach(drawCard);
+          break;
+        }
+      }
+    });
+
+    document.getElementById("start_btn").addEventListener("click", () => {
+      const words = document.getElementById("word_input").value
+        .split("\n")
+        .map(w => w.trim())
+        .filter(w => w.length > 0);
+      document.getElementById("setup").style.display = "none";
+      canvas.style.display = "block";
+      createCards(words);
+    });
+  </script>
+
+</section>
+
+{% endblock %}

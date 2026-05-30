@@ -15,6 +15,9 @@ PAGES = [
     ('Testimonials', 'testimonial_list.html'),
     ('Impressum', 'impressum.html'),
     ('Datenschutzerklärung', 'datenschutz.html'),
+
+    ('Countdown', 'countdown.html'),
+    ('Check &amp; Cross', 'check_cross.html'),
 ]
 
 # render templates

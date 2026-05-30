@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block title %}Countdown{% endblock %}
+
+{% block content %}
+
+<style>
+  #time {
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  svg {
+    transform: rotate(-90deg);
+    margin-top: 30px;
+  }
+
+  .circle-bg {
+    fill: none;
+    stroke: #444;
+    stroke-width: 20;
+  }
+
+  .circle-progress {
+    fill: none;
+    stroke: #80b940;
+    stroke-width: 20;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s linear, stroke 0.5s;
+  }
+</style>
+
+<section class="d-flex flex-column align-items-center text-center">
+
+  <h1>Countdown</h1>
+
+  <form id="timer-form">
+    <label for="minutes">Minutes:</label>
+    <input type="number" id="minutes" value="5" min="1" style="width: 30%; text-align: right" />
+    <br>
+    <button class="btn btn-success px-5 my-3" type="submit">Start</button>
+    <button class="btn btn-danger px-5 my-3" type="button" id="stop-btn">Stop</button>
+  </form>
+  
+  <div id="time">00:00</div>
+  <svg width="300" height="300">
+    <circle class="circle-bg" cx="150" cy="150" r="130" />
+    <circle class="circle-progress" cx="150" cy="150" r="130" />
+  </svg>
+  
+</section>
+
+  <script>
+    const form = document.getElementById('timer-form');
+    const timeDisplay = document.getElementById('time');
+    const progressCircle = document.querySelector('.circle-progress');
+
+    const radius = 130;
+    const circumference = 2 * Math.PI * radius;
+    progressCircle.style.strokeDasharray = circumference;
+
+    let totalTime = 0;
+    let remaining = 0;
+    let timer = null;
+
+    function updateTimeDisplay(seconds) {
+      const m = Math.floor(seconds / 60);
+      const s = seconds % 60;
+      timeDisplay.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    }
+
+    function updateProgress(seconds) {
+      const fraction = seconds / totalTime;
+      const offset = circumference * (1 - fraction);
+      progressCircle.style.strokeDashoffset = offset;
+
+      // Farbe wechseln bei weniger als 20% der Zeit
+      if (fraction < 0.2) {
+        progressCircle.style.stroke = "#ff3333";
+      } else if (fraction < 0.5) {
+        progressCircle.style.stroke = "#ffaa00";
+      } else {
+        progressCircle.style.stroke = "#80b940";
+      }
+    }
+
+    function playBeep() {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = ctx.createOscillator();
+      const gainNode = ctx.createGain();
+
+      oscillator.type = "sine";
+      oscillator.frequency.value = 880; // Tonhöhe
+      oscillator.connect(gainNode);
+      gainNode.connect(ctx.destination);
+      gainNode.gain.setValueAtTime(0.2, ctx.currentTime);
+
+      oscillator.start();
+      oscillator.stop(ctx.currentTime + 1); // 1 Sekunde Ton
+    }
+
+    function tick() {
+      if (remaining >= 0) {
+        updateTimeDisplay(remaining);
+        updateProgress(remaining);
+        remaining--;
+      } else {
+        clearInterval(timer);
+        timeDisplay.textContent = "Fertig!";
+        playBeep();
+      }
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (timer !== null) return; // already running
+      if (remaining > 0 && totalTime > 0) {
+        // Resume from pause
+        timer = setInterval(tick, 1000);
+      } else {
+        // Start fresh
+        const minutesInput = parseInt(document.getElementById('minutes').value, 10);
+        if (isNaN(minutesInput) || minutesInput <= 0) return;
+        totalTime = minutesInput * 60;
+        remaining = totalTime;
+        updateTimeDisplay(remaining);
+        updateProgress(remaining);
+        timer = setInterval(tick, 1000);
+      }
+    });
+
+    document.getElementById('stop-btn').addEventListener('click', () => {
+      clearInterval(timer);
+      timer = null;
+    });
+  </script>
+
+{% endblock %}

@@ -60,6 +60,13 @@ body {
 	color: var(--link-color);
 }
 
+.course-primary {
+	background-color: var(--icon-body-color);
+}
+.course-secondary {
+	background-color: #dddddd;
+}
+
 /* Button */
 button.btn {
 	font-size: 1.2rem;
@@ -149,6 +156,7 @@ a:hover {
 a.current {
 	color: var(--hover-color);
 }
+
 
 /******************* HEADER START *******************/
 header {
