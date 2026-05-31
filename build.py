@@ -19,6 +19,7 @@ PAGES = [
     ('Countdown', 'countdown.html'),
     ('Check &amp; Cross', 'check_cross.html'),
     ('Guess the Word', 'word_guess.html'),
+    ('Flipping Letters', 'char_grid.html'),
     ('Mood Cards', 'mood_cards.html'),
 ]
 

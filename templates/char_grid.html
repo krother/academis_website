@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}Flipping Letters{% endblock %}
+
+{% block content %}
+
+<style>
+
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(6, 180px);
+    grid-template-rows: repeat(4, 180px);
+    gap: 15px;
+  }
+
+  .card {
+    perspective: 1000px;
+  }
+
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+  }
+
+  .card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90px;
+    border-radius: 10px;
+    backface-visibility: hidden;
+  }
+
+  .front {
+    background: #b3d789;
+    color: #000;
+  }
+
+  .back {
+    background: #3C6F1F;
+    transform: rotateY(180deg);
+  }
+  </style>
+
+<section class="d-flex flex-column align-items-center text-center">
+
+  <h1>Flipping Letters</h1>
+
+  <div class="grid" id="grid"></div>
+
+<script>
+  const letters = "INEPBSOSCHAFARWTDEYDNAOTM";
+  const grid = document.getElementById("grid");
+
+  function createCard(letter) {
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    const inner = document.createElement("div");
+    inner.classList.add("card-inner");
+
+    const front = document.createElement("div");
+    front.classList.add("card-face", "front");
+    front.textContent = letter;
+
+    const back = document.createElement("div");
+    back.classList.add("card-face", "back");
+
+    inner.appendChild(front);
+    inner.appendChild(back);
+    card.appendChild(inner);
+
+    card.addEventListener("click", () => {
+      card.classList.toggle("flipped");
+    });
+
+    return card;
+  }
+
+  // Create 24 cards (6x4)
+  for (let i = 0; i < 24; i++) {
+    const letter = letters[i % letters.length];
+    grid.appendChild(createCard(letter));
+  }
+</script>
+
+{% endblock %}
