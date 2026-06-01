@@ -79,7 +79,10 @@ button.btn {
     --bs-btn-active-bg: var(--hover-color);
     --bs-btn-active-color: var(--footer-link-color);
 }
-
+button.btn-secondary {
+    --bs-btn-bg: var(--icon-frame-color);
+    --bs-btn-hover-bg: var(--icon-body-color-bright);
+}
 
 /* Medienobjekte */
 img.media-object {
@@ -91,6 +94,10 @@ section {
 	padding-top: 3rem;
 }
 .card {
+	background-color: #dddddd;
+	font-size: 0.9em;
+}
+.card-footer {
 	background-color: #dddddd;
 	font-size: 0.9em;
 }

@@ -6,32 +6,55 @@
 
 <section>
     <h1>Courses</h1>
-    <div class="row row-cols-1 row-cols-md-3 g-4 my-4">
+    <div class="row row-cols-1 row-cols-md-4 g-4 my-4">
         <div class="col">
             <div class="card h-100">
-                <div class="card-body">
-                <img src="static/images/featured_courses/pac.png" class="card-img-top" alt="Advanced Python">
-                <h4 class="card-title">Advanced Python</h4>
-                <p class="card-text">Level up your Python skills with OOP, functional patterns and tests by working on in-class programming projects.</p>
+                <a href="#advanced_python"><img src="static/images/featured_courses/pac.png" class="card-img-top px-3 pt-3 pb-0 mb-0" alt="Advanced Python"></a>
+                <div class="card-body py-0">
+                    <h4 class="card-title">Advanced Python</h4>
+                    <p class="card-text">Level up your Python skills with OOP, functional patterns and tests by working on in-class programming projects.</p>
+                </div>
+                <div class="card-footer border-top-0">
+                    <a href="#advanced_python"><button class="btn w-100">view details</button></a>
                 </div>
             </div>
         </div>
+
         <div class="col">
             <div class="card h-100">
-                <div class="card-body">
-                <img src="static/images/featured_courses/boxplot.png" class="card-img-top" alt="Data Analysis with polars">
+                <a href="course_polars.html"><img src="static/images/featured_courses/polar_square.png" class="card-img-top px-3 pt-3 pb-0 mb-0" alt="Data Analysis with polars"></a>
+                <div class="card-body py-0">
                     <h4 class="card-title">Data Analysis with polars</h4>
                     <p class="card-text">Master wrangling tabular data with polars. Create aggregations, plots and pivots packed into a great story.</p>
-                    <a href="course_polars.html"><button class="btn btn-success">more info</button></a>
+                </div>
+                <div class="card-footer border-top-0">
+                    <a href="course_polars.html"><button class="btn w-100">view details</button></a>
                 </div>
             </div>
         </div>
+
         <div class="col">
             <div class="card h-100">
-                <div class="card-body">
-                <img src="static/images/featured_courses/linreg.png" class="card-img-top" alt="Machine Learning Fundamentals">
-                <h4 class="card-title">Machine Learning Fundamentals</h4>
+                <a href="#db_infrastructure"><img src="static/images/featured_courses/blue_elephant.png" class="card-img-top px-3 pt-3 pb-0 mb-0" alt="Database Infrastructure"></a>
+                <div class="card-body py-0">
+                    <h4 class="card-title">Database Infrastructure</h4>
+                    <p class="card-text">Work with the most popular SQL and NoSQL databases through Docker. Ingest and request data through Python interfaces.</p>
+                </div>
+                <div class="card-footer border-top-0">
+                    <a href="#db_infrastructure"><button class="btn w-100">view details</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100">
+                <a href="#machine_learning"><img src="static/images/featured_courses/munch_sq.png" class="card-img-top px-3 pt-3 pb-0 mb-0" alt="Machine Learning Fundamentals"></a>
+                <div class="card-body py-0">
+                    <h4 class="card-title">Machine Learning Fundamentals</h4>
                     <p class="card-text">Build solid foundations in supervised and unsupervised learning. Train and evaluate linear models and neural networks.</p>
+                </div>
+                <div class="card-footer border-top-0">
+                    <a href="#machine_learning"><button class="btn w-100">view details</button></a>
                 </div>
             </div>
         </div>
@@ -151,7 +174,7 @@
     </table>
 </section>
 
-<section class="course-primary p-5">
+<section class="course-primary p-5" id="advanced_python">
     <h2>Advanced Python</h2>
     <div class="row align-items-start">
         <div class="col-md-4 pr-4 pt-4">
@@ -178,8 +201,32 @@
 </section>
 
 <section class="course-secondary p-5">
+    <h2>Data Analysis with polars</h2>
+    <div class="row align-items-start">
+        <div class="col-md-8" style="text-align: justify">
+            <p>
+                In this course, you will guide a crew of polar bears on a research expedition through arctic underwater worlds. Keep their vessel on course, solve icy data problems and you may eventually find traces of the fabled penguins.
+            </p>
+            <p>
+                The course introduces you to polars, a modern component of the Python data science stack. Use it to wrangle challenging data sets, create enticing plots and combine your results into a live dashboard. The course discusses typical data biases and statistical tools that everybody working with data should have in their toolbelt.
+            </p>
+            <p>
+                No previous programming knowledge is required.
+            </p>
+            <a href="course_polars.html"><button class="btn btn-primary">Read course outline</button></a>
+        </div>
+        <div class="col-md-4 pr-4 pt-4">
+            <img src="static/images/featured_courses/heatmap.png" alt="Databases" class="img-fluid">
+        </div>
+    </div>
+</section>
+
+<section class="course-primary p-5" id="db_infrastructure">
     <h2>Database Infrastructure</h2>
     <div class="row align-items-start">
+        <div class="col-md-4 pl-4 pt-4">
+            <img src="static/images/featured_courses/blue_elephant.png" alt="Databases" class="img-fluid">
+        </div>
         <div class="col-md-8" style="text-align: justify">
             <p>
                 In this course, you learn to work with the most popular SQL and NoSQL databases. You will create instances of each database in Docker, fill them with
@@ -196,31 +243,29 @@
                 <li>Docker deployment</li>
                 <li>Sharding and Replication</li>
             </ul>
-            <button type="submit" class="btn btn-primary">Request Details</button>
 
-        </div>
-        <div class="col-md-4 pl-4 pt-4">
-            <img src="static/images/featured_courses/blue_elephant.png" alt="Databases" class="img-fluid">
         </div>
     </div>
 </section>
     
-<section class="course-primary p-5">
-    <h2>Data Analysis with polars</h2>
+<section class="course-secondary p-5" id="machine_learning">
+    <h2>Machine Learning Fundamentals</h2>
     <div class="row align-items-start">
-        <div class="col-md-4 pr-4 pt-4">
-            <img src="static/images/featured_courses/boxplot.png" alt="Databases" class="img-fluid">
-        </div>
         <div class="col-md-8" style="text-align: justify">
             <p>
-                In this course, you will guide a crew of polar bears on a research expedition through arctic underwater worlds. Keep their vessel on course, solve icy data problems and you may eventually find traces of the fabled penguins.
+                This course covers the academic foundations of Machine Learning. It starts with the basics of Linear Regression – a method that often turns out to be not so basic already – and ends with Artificial Neural Networks up to LLMs.
             </p>
             <p>
-                The course introduces you to polars, a modern component of the Python data science stack. Use it to wrangle challenging data sets, create enticing plots and combine your results into a live dashboard. The course discusses typical data biases and statistical tools that everybody working with data should have in their toolbelt.
+                The course places an emphasis on tools to train models consistently and their critical evaluation. It covers more evaluation metrics than actual models and goes through a variety of regularization techniques.
             </p>
             <p>
-                No previous programming knowledge is required.
+                The entire course is powered by the standard Python stack including <strong>scikit-learn, statsmodels, TensorFlow</strong> and <strong>PyTorch</strong>.
+                Basic knowledge of Python is highly recommended.
             </p>
+
+        </div>
+        <div class="col-md-4 pl-4 pt-4">
+            <img src="static/images/featured_courses/linreg.png" alt="" class="img-fluid">
         </div>
     </div>
 </section>
