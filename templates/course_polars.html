@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Data Analysis with polars – Dr. Kristian Rother{% endblock %}
+
+{% block content %}
+
+<section>
+    <h1>Data Analysis with polars</h1>
+
+    <img src="static/images/featured_courses/polar_submarine_sm.png" alt="" class="img-fluid">
+
+    <p>
+        In this course, you will guide a crew of polar bears on a research expedition through arctic underwater worlds. Keep their vessel on course, solve icy data problems and you may eventually find traces of the fabled penguins.
+    </p>
+    <p>
+        The course introduces you to <strong>polars</strong>, a modern component of the <strong>Python data science stack</strong>. Use it to wrangle challenging data sets, create enticing plots and combine your results into a live dashboard. The course discusses typical data biases and statistical tools that everybody working with data should have in their toolbelt.
+    </p>
+    <p>
+        No previous programming knowledge is required.               
+    </p>
+
+
+<h2>Topics</h2>
+<table class="table table-striped">
+    <tbody>
+        <tr><td>Read and Write Data</td></tr>
+        <tr><td>Select Rows and Columns</td></tr>
+        <tr><td>High-Quality Plots</td></tr>
+        <tr><td>Descriptive Statistics</td></tr>
+        <tr><td>Pivot Tables</td></tr>
+        <tr><td>Time Series Data</td></tr>
+        <tr><td>Dashboards</td></tr>
+    </tbody>
+</table>
+
+</section>
+    
+{% include('registration_form.html') %}
+
+{% endblock %}

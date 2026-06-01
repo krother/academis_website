@@ -16,6 +16,8 @@ PAGES = [
     ('Impressum', 'impressum.html'),
     ('Datenschutzerklärung', 'datenschutz.html'),
 
+    ('Data Analysis with polars', 'course_polars.html'),
+
     ('Countdown', 'countdown.html'),
     ('Check &amp; Cross', 'check_cross.html'),
     ('Guess the Word', 'word_guess.html'),
