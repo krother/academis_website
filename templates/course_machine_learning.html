@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}Machine Learning Fundamentals – Dr. Kristian Rother{% endblock %}
+
+{% block content %}
+
+<section>
+    <h1>Machine Learning Fundamentals</h1>
+
+    <img src="static/images/featured_courses/svm.png" alt="" class="img-fluid">
+   <p>
+        This course covers the academic foundations of Machine Learning. It starts with the basics of Linear Regression – a method that often turns out to be not so basic already – and ends with Artificial Neural Networks up to LLMs.
+        The course places an emphasis on tools to train models consistently and their critical evaluation. It covers more evaluation metrics than actual models and goes through a variety of regularization techniques.
+    </p>
+ 
+    <h2 class="py-3">Goals</h2>
+    <p>
+        During the course, you will become familiar with the standard Python Machine Learning stack including the libraries <strong>scikit-learn, statsmodels, TensorFlow</strong> and <strong>PyTorch</strong>.
+        You will also use <strong>NumPy, polars</strong> and <strong>seaborn</strong> to visualize data.
+        Basic knowledge of Python is highly recommended.
+    </p>
+    <p>
+        You will spend quite some time training and fine-tuning models and – what is more important – critically evaluating them. In the end, you should have a solid technical and mathematical foundation of the most common modeling tools and challenges that you can apply on your own data.
+    </p>
+
+    <h2 class="pt-5 pb-0">Topics</h2>
+
+    <h3>Part 1: What is Machine Learning?</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Supervised versus Unsupervised Learning</td></tr>
+            <tr><td>Classification and Regression</td></tr>
+            <tr><td>Practical Use Cases</td></tr>
+            <tr><td>Why Machine Learning is difficult</td></tr>
+        </tbody>
+    </table>
+    
+    <h3>Part 2: Supervised Learning</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Decision Trees</td></tr>
+            <tr><td>Linear Models</td></tr>
+            <tr><td>Model Evaluation</td></tr>
+            <tr><td>Feature Engineering</td></tr>
+            <tr><td>Regularization</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Part 3: Unsupervised Learning</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Principal Component Analysis</td></tr>
+            <tr><td>Clustering</td></tr>
+            <tr><td>Recommender Systems</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Part 4: Artificial Neural Networks</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Feed-Forward Networks</td></tr>
+            <tr><td>Image recognition</td></tr>
+            <tr><td>Training strategies</td></tr>
+            <tr><td>Natural Language Processing</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Part 5: Large Language Models</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Transformer architecture</td></tr>
+            <tr><td>RAGs, MCPs and agents</td></tr>
+            <tr><td>Practical and regulatory considerations</td></tr>
+            <tr><td>Current limitations of LLMs</td></tr>
+        </tbody>
+    </table>
+
+    <img src="static/images/featured_courses/backprop.png" alt="" class="img-fluid">
+
+    <h2 class="py-3">How the course works</h2>
+
+    <p>
+        The course consists of a smaller theoretical part and plenty of exerrcises. During the exercises, you will implement a Python application step by step, incorporating key concepts from the theoretical parts. There will be some extra problems that come your way that you need to solve as a team.
+    </p>
+    <p>
+        The course material contains background reading and code examples that you can use to deepen your knowledge after the course. During classes, you get support with technical questions. We will also go through sample solutions together.
+        The course materials are permanently available on under a Creative Commons 4.0 License.
+    </p>
+    <a href="https://www.academis.eu/machine_learning"><button class="btn px-5">View course material</button></a>
+
+    <h2 class="py-3">Prerequisites</h2>
+
+    <p>
+        To participate in the course, fluency in Python is useful but not strictly required. You should be able to write simple instructions and debug smaller pieces of Python code. To work on the exercises and try out the examples, you need to be able to execute code in a Jupyter Notebook. Writing clean code and keeping Jupyter Notebooks tidy matters and is more important than knowing lots of Python.
+    </p>
+
+</section>
+    
+{% include('registration_form.html') %}
+
+{% endblock %}

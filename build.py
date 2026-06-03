@@ -18,6 +18,7 @@ PAGES = [
 
     ('Data Analysis with polars', 'course_polars.html'),
     ('Advanced Python', 'course_advanced_python.html'),
+    ('Machine Learning', 'course_machine_learning.html'),
 
     ('Countdown', 'countdown.html'),
     ('Check &amp; Cross', 'check_cross.html'),
