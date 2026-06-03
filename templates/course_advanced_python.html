@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}Data Analysis with polars – Dr. Kristian Rother{% endblock %}
+
+{% block content %}
+
+<section>
+    <h1>Advanced Python</h1>
+
+    <img src="static/images/featured_courses/pac.png" alt="" class="img-fluid">
+
+    <p>
+        <strong>How do I develop a large program?</strong> This course takes you past the language syntax towards the deeper questions in programming. While writing an object-oriented software in Python, you will make many decisions regarding the project setup, structure and composition of classes. I would like to show you time-tested patterns to make these decisions in a robust way.
+    </p>
+ 
+    <h2 class="py-3">Goals</h2>
+    <p>
+        During the course, you will develop a Python program from scratch. You start by setting up a clean project structure. When the code becomes larger, you will decompose it into functions and modules. When it becomes even larger, you will also need classes. To neep the code working as you are making changes, you will also need an automated test suite and a few static code checkers.
+        The course discusses typical challenges in a software project and strategies to overcome them.
+    </p>
+    <p>
+        The main goal of the course is to enable you to write well-structured Python software.
+    </p>
+
+
+    <h2 class="pt-5 pb-0">Topics</h2>
+
+    <h3>Part 1: Setting up a Python project</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Create a virtual environment</td></tr>
+            <tr><td>What is a Python package?</td></tr>
+            <tr><td>Managing dependencies with uv</td></tr>
+            <tr><td>How to write a pyproject.toml file?</td></tr>
+        </tbody>
+    </table>
+    
+    <h3>Part 2: Functional patterns in Python</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Mechanics of Python functions</td></tr>
+            <tr><td>Metafunctions in Python</td></tr>
+            <tr><td>Type annotated functions</td></tr>
+            <tr><td>Generators</td></tr>
+            <tr><td>Decorators</td></tr>
+            <tr><td>Refactoring into functions</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Part 3: Automated tests</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Writing tests with pytest</td></tr>
+            <tr><td>Fixtures and test configuration</td></tr>
+            <tr><td>Test parametrization</td></tr>
+            <tr><td>Static code checkers</td></tr>
+            <tr><td>Checking type hints</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Part 4: Object-Oriented Programming</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Structuring data with classes</td></tr>
+            <tr><td>How to design classes?</td></tr>
+            <tr><td>Writing methods</td></tr>
+            <tr><td>Magic methods</td></tr>
+            <tr><td>Refactoring into classes</td></tr>
+        </tbody>
+    </table>
+
+    <h2 class="py-3">How the course works</h2>
+
+    <p>
+        The course consists of a smaller theoretical part and plenty of exerrcises. During the exercises, you will implement a Python application step by step, incorporating key concepts from the theoretical parts. There will be some extra problems that come your way that you need to solve as a team.
+    </p>
+    <p>
+        The course material contains background reading and code examples that you can use to deepen your knowledge after the course. During classes, you get support with technical questions. We will also conduct some code reviews together.
+        The course materials are permanently available on under a Creative Commons 4.0 License.
+    </p>
+    <a href="https://www.academis.eu/polars_go_undersea"><button class="btn px-5">View course material</button></a>
+
+    <h2 class="py-3">Prerequisites</h2>
+
+    <p>
+        To participate in the course, you should be be familiar with basic Python data structures and commands. You should be able to execute standalone Python programs and communicate with a git repository. This course is also suited for people who have mostly worked in Jupyter notebooks.
+    </p>
+
+</section>
+    
+{% include('registration_form.html') %}
+
+{% endblock %}
