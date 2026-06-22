@@ -24,6 +24,7 @@ PAGES = [
     ('Check &amp; Cross', 'check_cross.html'),
     ('Guess the Word', 'word_guess.html'),
     ('Flipping Letters', 'char_grid.html'),
+    ('Card Generator', 'card_generator.html'),
     ('Mood Cards', 'mood_cards.html'),
 ]
 

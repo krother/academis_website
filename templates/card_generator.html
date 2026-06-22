@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% block title %}Card Generator{% endblock %}
+
+{% block css %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+{% endblock %}
+
+{% block content %}  
+  <style>
+    #content {
+      font-family: monospace;
+    }
+    .separator-hint code {
+      background: #f0f0f0;
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+  </style>
+
+<section class="d-flex flex-column align-items-center text-center">
+
+    <h1 class="mb-4">Card Generator</h1>
+
+    <div class="card mb-3 shadow-sm">
+      <div class="card-body">
+        <div class="row g-3 align-items-end">
+
+          <div class="col-auto">
+            <label for="cols" class="form-label">Columns (X)</label>
+            <input type="number" class="form-control" id="cols" value="2" min="1" max="20" style="width:75px">
+          </div>
+
+          <div class="col-auto">
+            <label for="rows" class="form-label">Rows (Y)</label>
+            <input type="number" class="form-control" id="rows" value="6" min="1" max="20" style="width:75px">
+          </div>
+
+          <div class="col-auto">
+            <label class="form-label">Orientation</label>
+            <div class="btn-group d-block" role="group">
+              <input type="radio" class="btn-check" name="orientation" id="orientLandscape" value="landscape" checked>
+              <label class="btn btn-outline-secondary" for="orientLandscape">A4 Landscape</label>
+              <input type="radio" class="btn-check" name="orientation" id="orientPortrait" value="portrait">
+              <label class="btn btn-outline-secondary" for="orientPortrait">A4 Portrait</label>
+            </div>
+          </div>
+
+          <div class="col-auto">
+            <label for="fontSize" class="form-label">Font size (pt)</label>
+            <input type="number" class="form-control" id="fontSize" value="24" min="4" max="200" style="width:80px">
+          </div>
+
+        </div>
+      </div>
+      </div>
+
+    <div class="mb-2 separator-hint text-muted small">
+      Separate cards with a line containing only <code>----</code> (four or more dashes).
+      Each card may contain multiple lines.
+    </div>
+
+    <textarea class="form-control mb-3" id="content" rows="22"
+      placeholder="print()&#10;----&#10;for i in range(10):&#10;    print(i)&#10;----&#10;dict(zip("abc", range(3)))"></textarea>
+
+    <div class="d-flex align-items-center gap-3">
+      <button class="btn btn-primary btn-lg" onclick="generatePDF()">Generate PDF</button>
+      <span id="summary" class="text-muted"></span>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const { jsPDF } = window.jspdf;
+
+    function parseCards(text) {
+      return text
+        .split(/^-{4,}$/m)
+        .map(s => s.trim())
+        .filter(s => s.length > 0);
+    }
+
+    function updateSummary() {
+      const cards = parseCards(document.getElementById('content').value);
+      const cols = Math.max(1, parseInt(document.getElementById('cols').value) || 2);
+      const rows = Math.max(1, parseInt(document.getElementById('rows').value) || 6);
+      const perPage = cols * rows;
+      const pages = Math.ceil(cards.length / perPage);
+      const el = document.getElementById('summary');
+      if (cards.length === 0) {
+        el.textContent = '';
+      } else {
+        el.textContent = `${cards.length} card${cards.length !== 1 ? 's' : ''} · ${pages} page${pages !== 1 ? 's' : ''}`;
+      }
+    }
+
+    ['content', 'cols', 'rows'].forEach(id => {
+      document.getElementById(id).addEventListener('input', updateSummary);
+    });
+
+    function generatePDF() {
+      const cols = Math.max(1, parseInt(document.getElementById('cols').value) || 2);
+      const rows = Math.max(1, parseInt(document.getElementById('rows').value) || 6);
+      const orientation = document.querySelector('input[name="orientation"]:checked').value;
+      const baseFontSize = Math.max(4, parseInt(document.getElementById('fontSize').value) || 24);
+      const cards = parseCards(document.getElementById('content').value);
+
+      if (cards.length === 0) {
+        alert('No card content found. Add some text and separate cards with ----');
+        return;
+      }
+
+      const doc = new jsPDF({ orientation, unit: 'mm', format: 'a4' });
+      const pageW = doc.internal.pageSize.getWidth();
+      const pageH = doc.internal.pageSize.getHeight();
+      const cardW = pageW / cols;
+      const cardH = pageH / rows;
+      const padding = 4; // mm inside each card
+      const cardsPerPage = cols * rows;
+
+      doc.setFont('helvetica');
+
+      for (let i = 0; i < cards.length; i++) {
+        if (i > 0 && i % cardsPerPage === 0) doc.addPage();
+
+        const pos = i % cardsPerPage;
+        const col = pos % cols;
+        const row = Math.floor(pos / cols);
+        const x = col * cardW;
+        const y = row * cardH;
+
+        // Dashed cut border
+        doc.setDrawColor(160, 160, 160);
+        doc.setLineDashPattern([1.5, 1.5], 0);
+        doc.rect(x, y, cardW, cardH);
+        doc.setLineDashPattern([], 0);
+
+        // Fit text: reduce font size until it fits vertically
+        const maxW = cardW - 2 * padding;
+        const maxH = cardH - 2 * padding;
+        let fontSize = baseFontSize;
+
+        let lines, lineH, totalH;
+        while (fontSize >= 4) {
+          doc.setFontSize(fontSize);
+          lines = doc.splitTextToSize(cards[i], maxW);
+          lineH = doc.getLineHeight();
+          totalH = lines.length * lineH;
+          if (totalH <= maxH) break;
+          fontSize -= 0.5;
+        }
+
+        // Vertically center the text block
+        // getLineHeight() returns in mm; first baseline is ~0.8 * lineH from top of text block
+        const blockTop = y + (cardH - totalH) / 2;
+        const firstBaselineY = blockTop + lineH * 0.8;
+
+        doc.setTextColor(0, 0, 0);
+        doc.text(lines, x + cardW / 2, firstBaselineY, { align: 'center' });
+      }
+
+      doc.save('cards.pdf');
+    }
+  </script>
+
+{% endblock content %}
