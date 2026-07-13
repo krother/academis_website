@@ -463,8 +463,11 @@ ul.list-spectre li {
 .genart {
 	background-image: url("../images/numpy.png");
 }
-.data_analysis {
+.data_analysis_pandas {
 	background-image: url("../images/bar.png");
+}
+.data_analysis_polars {
+	background-image: url("../images/polars.png");
 }
 .statistics {
 	background-image: url("../images/normaldist.png");

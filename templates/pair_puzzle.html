@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<script>
+var correct = 0;
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ele = document.getElementById(data);
+  if (ev.target.id.substr(3, 1) == ele.id.substr(3,1)) {
+      ev.target.appendChild(ele);
+      ev.target.innerHTML = ele.innerHTML;
+      ev.target.style.color = "green";
+      correct += 1;
+      if (correct == 5) {
+        document.getElementById("solved").innerHTML = "You did it!";
+      }
+  }
+  else {
+      ev.target.appendChild(document.getElementById(data));
+      ev.target.style.color = "red";
+  }
+
+}
+</script>
+
+<h1>Körperteile von Tieren</h1>
+<p>Ordne die Begriffe zu</p>
+
+<table border="1" class="quiz_matching">
+   <tr><th>Tier</th><th>Körperteil</th></tr>
+   <tr><td>Elefant</td><td id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></td></tr>
+   <tr><td>Hund</td><td id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></td></tr>
+   <tr><td>Maus</td><td id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></td></tr>
+   <tr><td>Bär</td><td id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></td></tr>
+   <tr><td>Delfin</td><td id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></td></tr>
+</table>
+
+&nbsp;
+
+<table border="1" class="quiz_matching">
+<tr>
+<td><div id="drg3" draggable="true" ondragstart="drag(event)"><div>Schnurrhaare</div></div></td>
+<td><div id="drg5" draggable="true" ondragstart="drag(event)"><div>Flosse</div></div></td>
+<td><div id="drg2" draggable="true" ondragstart="drag(event)"><div>Pfote</div></div></td>
+<td><div id="drg1" draggable="true" ondragstart="drag(event)"><div>Rüssel</div></div></td>
+<td><div id="drg4" draggable="true" ondragstart="drag(event)"><div>Tatze</div></div></td>
+</tr>
+</table>
+
+<h1 id="solved"></h1>
+
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
