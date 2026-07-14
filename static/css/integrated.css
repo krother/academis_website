@@ -60,6 +60,10 @@ body {
 	color: var(--link-color);
 }
 
+.lang-switcher a {
+	font-size: 1.5em;
+}
+
 .course-primary {
 	background-color: var(--icon-body-color);
 }

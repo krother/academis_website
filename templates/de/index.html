@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}Dr. Kristian Rother{% endblock %}
+
+{% block content %}
+
+<section class="mt-5 pr-3">
+  <div id="intro-wrapper" class="d-flex flex-column flex-sm-row px-0">
+    <div>
+      <h1>Willkommen bei Academis</h1>
+      <p style="text-align: justify;">Ich bin professioneller Python-Trainer, Entwickler und Autor mit Sitz in Berlin.
+      Ich helfe Programmierer:innen dabei, sich zu erfahrenen Profis zu entwickeln.
+      Sie können mich für Firmenschulungen, Universitätskurse und
+      Softwareprojekte auf <strong>Deutsch</strong> und <strong>Englisch</strong> buchen.
+      Ich bin überzeugt, dass jeder Programmieren lernen kann.</p>
+      <ul id="intro-icons" class="d-flex list-unstyled p-0">
+        <li class="ps-0 pe-1 pt-1 fs-2"><a href="http://github.com/krother"><i class="fa fa-fw fa-github"></i></a></li>
+        <li class="ps-0 pe-1 pt-1 fs-2"><a href="mailto:kristian.rother@posteo.de"><i class="fa fa-fw fa-envelope"></i></a></li>
+        <li class="ps-0 pe-1 pt-1 fs-2"><a href="https://www.linkedin.com/in/kristian-rother/"><i class="fa fa-fw fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="d-flex flex-row flex-sm-column justify-content-start">
+      <img src="../static/images/kristian.gif" class="media-head d-none d-sm-block pt-5 ps-3" alt="Portrait Picture of Dr. Kristian Rother">
+    </div>
+  </div>
+</section>
+
+
+<section id="materials">
+
+  <h1>Kursmaterialien</h1>
+
+  <ul class="list-spectre">
+    <li class="teaching">
+      <h3><a href="/teaching">Programmieren unterrichten</a></h3>
+      <p>Bringen Sie Schwung in Ihre Vorlesungen und bereiten Sie interaktive Workshops vor.</p>
+    </li>
+    <li class="python_basics">
+      <h3><a href="/python_basics_de">Python-Übungen für Anfänger</a></h3>
+      <p>Einführende Lektionen und anfängerfreundliches Nachschlagewerk</p>
+      <p><a href="/python_basics">Python Exercises for beginners 🇬🇧</a></p>
+    </li>
+    <li class="data_analysis_polars">
+      <h3><a href="/polars_go_undersea/">Datenanalyse mit polars</a></h3>
+      <p>Begleiten Sie die Eisbären auf ihrem U-Boot-Abenteuer</p>
+    </li>
+    <li class="data_analysis_pandas">
+      <h3><a href="/pandas_go_to_space/">Datenanalyse mit pandas</a></h3>
+      <p>Analysieren Sie Daten mit weltraumreisenden Pandas</p>
+    </li>
+    <li class="dungeon">
+      <h3><a href="/dungeon_explorer">Dungeon Explorer</a></h3>
+      <p>Ein Schritt-für-Schritt-Tutorial zum Schreiben eines 2D-Spiels in Python.</p>
+    </li>
+    <li class="genart">
+      <h3><a href="/numpy_graphics">Grafik mit Numpy</a></h3>
+      <p>Nutzen Sie Arrays und Matrizen, um Kunst zu erzeugen</p>
+    </li>
+    <li class="machine_learning">
+      <h3><a href="/machine_learning">Machine Learning</a></h3>
+      <p>Grundlagen des Trainierens von Modellen mit Daten</p>
+    </li>
+    <li class="python_best_practices">
+      <h3><a href="/python_libs">Python-Bibliotheken</a></h3>
+      <p>Meine liebsten Python-Bibliotheken mit Codebeispielen.</p>
+    </li>
+    <li class="python_advanced">
+      <h3><a href="/advanced_python">Fortgeschrittene Python-Beispiele</a></h3>
+      <p>Codebeispiele zur Strukturierung von Programmen und nützliche Abkürzungen.</p>
+    </li>
+    <li class="softdev">
+      <h3><a href="/software_engineering">Python-Softwareentwicklung</a></h3>
+      <p>Werkzeuge und Techniken für bessere Python-Software.</p>
+    </li>
+    <li class="statistics">
+      <h3><a href="/statistics">Statistik</a></h3>
+      <p>Deskriptive Statistik, Wahrscheinlichkeit und Verteilungen</p>
+    </li>
+    <li class="probably_fun">
+      <h3><a href="/probably_fun">Wahrscheinlich lustig</a></h3>
+      <p>Spiele, um Statistik zu vermitteln.</p>
+    </li>
+    <li class="project_management">
+      <h3><a href="/python_testing">Python-Testing-Tutorial</a></h3>
+      <p>Einführung in automatisiertes Testen mit pytest.</p>
+    </li>
+    <li class="presenting">
+      <h3><a href="/public_speaking">Präsentieren</a></h3>
+      <p>Redeprojekte, um Ihr Selbstvertrauen auf der Bühne zu entwickeln.</p>
+    </li>
+    <li class="time_management">
+      <h3><a href="/time_management">Zeitmanagement</a></h3>
+      <p>Übernehmen Sie die Kontrolle über Ihre eigene Zeit.</p>
+    </li>
+  </ul>
+</section>
+
+{% include('de/contact_form.html') %}
+
+{% endblock %}

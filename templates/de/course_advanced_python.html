@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}Python für Fortgeschrittene – Dr. Kristian Rother{% endblock %}
+
+{% block content %}
+
+<section>
+    <h1>Python für Fortgeschrittene</h1>
+
+    <img src="../static/images/featured_courses/pac_large.png" alt="" class="img-fluid">
+    <p>
+        <strong>Wie entwickle ich ein großes Programm?</strong> Dieser Kurs führt Sie über die reine Sprachsyntax hinaus zu den tieferen Fragen der Programmierung. Beim Schreiben objektorientierter Software in Python werden Sie viele Entscheidungen zu Projektaufbau, Struktur und Zusammensetzung von Klassen treffen müssen. Ich zeige Ihnen bewährte Muster, um diese Entscheidungen robust zu treffen.
+    </p>
+
+    <h2 class="py-3">Ziele</h2>
+    <p>
+        Im Laufe des Kurses entwickeln Sie ein Python-Programm von Grund auf. Sie beginnen mit dem Aufbau einer sauberen Projektstruktur. Wenn der Code größer wird, zerlegen Sie ihn in Funktionen und Module. Wird er noch größer, benötigen Sie auch Klassen. Damit der Code auch bei Änderungen funktionsfähig bleibt, brauchen Sie außerdem eine automatisierte Testsuite und einige statische Codeprüfungen.
+        Der Kurs behandelt typische Herausforderungen in einem Softwareprojekt und Strategien, um sie zu bewältigen.
+    </p>
+    <p>
+        Das Hauptziel des Kurses ist es, Sie in die Lage zu versetzen, gut strukturierte Python-Software zu schreiben.
+    </p>
+
+
+    <h2 class="pt-5 pb-0">Themen</h2>
+
+    <h3>Teil 1: Ein Python-Projekt aufsetzen</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Eine virtuelle Umgebung erstellen</td></tr>
+            <tr><td>Was ist ein Python-Paket?</td></tr>
+            <tr><td>Abhängigkeiten mit uv verwalten</td></tr>
+            <tr><td>Wie schreibt man eine pyproject.toml-Datei?</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Teil 2: Funktionale Muster in Python</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Funktionsweise von Python-Funktionen</td></tr>
+            <tr><td>Metafunktionen in Python</td></tr>
+            <tr><td>Typannotierte Funktionen</td></tr>
+            <tr><td>Generatoren</td></tr>
+            <tr><td>Decorators</td></tr>
+            <tr><td>Refactoring in Funktionen</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Teil 3: Automatisierte Tests</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Tests mit pytest schreiben</td></tr>
+            <tr><td>Fixtures und Testkonfiguration</td></tr>
+            <tr><td>Test-Parametrisierung</td></tr>
+            <tr><td>Statische Codeprüfungen</td></tr>
+            <tr><td>Type Hints prüfen</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Teil 4: Objektorientierte Programmierung</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Daten mit Klassen strukturieren</td></tr>
+            <tr><td>Wie entwirft man Klassen?</td></tr>
+            <tr><td>Methoden schreiben</td></tr>
+            <tr><td>Magische Methoden</td></tr>
+            <tr><td>Refactoring in Klassen</td></tr>
+        </tbody>
+    </table>
+
+    <img src="../static/images/featured_courses/flowchart.png" alt="" class="img-fluid">
+
+    <h2 class="py-3">Wie der Kurs abläuft</h2>
+
+    <p>
+        Der Kurs besteht aus einem kleineren theoretischen Teil und zahlreichen Übungen. Während der Übungen implementieren Sie Schritt für Schritt eine Python-Anwendung und integrieren dabei zentrale Konzepte aus den theoretischen Teilen. Es gibt einige Zusatzaufgaben, die Sie gemeinsam als Team lösen müssen.
+    </p>
+    <p>
+        Das Kursmaterial enthält Hintergrundlektüre und Codebeispiele, mit denen Sie Ihr Wissen nach dem Kurs vertiefen können. Während der Kurstermine erhalten Sie Unterstützung bei technischen Fragen. Wir führen außerdem gemeinsam einige Code-Reviews durch.
+        Die Kursmaterialien sind dauerhaft unter einer Creative-Commons-4.0-Lizenz verfügbar.
+    </p>
+    <a href="https://www.academis.eu/advanced_python"><button class="btn px-5">Kursmaterial ansehen</button></a>
+
+    <h2 class="py-3">Voraussetzungen</h2>
+
+    <p>
+        Um am Kurs teilzunehmen, sollten Sie mit grundlegenden Python-Datenstrukturen und -Befehlen vertraut sein. Sie sollten in der Lage sein, eigenständige Python-Programme auszuführen und mit einem Git-Repository zu arbeiten. Dieser Kurs eignet sich auch für Personen, die bisher überwiegend in Jupyter Notebooks gearbeitet haben.
+    </p>
+
+</section>
+
+{% include('de/registration_form.html') %}
+
+{% endblock %}

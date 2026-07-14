@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}Datenanalyse mit polars – Dr. Kristian Rother{% endblock %}
+
+{% block content %}
+
+<section>
+    <h1>Datenanalyse mit polars</h1>
+
+    <img src="../static/images/featured_courses/polar_submarine_sm.png" alt="" class="img-fluid">
+
+    <p>
+        In diesem Kurs führen Sie eine Crew von Eisbären auf einer Forschungsexpedition durch arktische Unterwasserwelten. Halten Sie ihr Schiff auf Kurs, lösen Sie eisige Datenprobleme, und vielleicht finden Sie am Ende Spuren der sagenumwobenen Pinguine.
+    </p>
+
+    <h2 class="py-3">Ziele</h2>
+    <p>
+        Sie lernen, einen tabellarischen Datensatz mit der Programmiersprache Python zu analysieren.
+        Der Kurs führt Sie in <strong>polars</strong> ein, eine moderne Komponente des <strong>Python-Data-Science-Stacks</strong>. Sie bearbeiten anspruchsvolle Datensätze, berechnen statistische Kennzahlen, erstellen ansprechende Plots und führen Ihre Ergebnisse in einem Live-Dashboard zusammen. Der Kurs behandelt typische Datenverzerrungen und statistische Werkzeuge, die jeder, der mit Daten arbeitet, kennen sollte.
+    </p>
+    <p>
+        Das Hauptziel des Kurses ist es, Sie in die Lage zu versetzen, einen Datensatz schnell zusammenzufassen und Ihre Erkenntnisse klar zu kommunizieren.
+    </p>
+
+
+    <h2 class="pt-5 pb-0">Themen</h2>
+
+    <h3>Teil 1: Arbeiten mit tabellarischen Daten</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Das Python-Data-Science-Ökosystem</td><td>Richten Sie den Python-Stack ein und untersuchen Sie Ihre ersten Datendateien</td></tr>
+            <tr><td>Daten lesen und schreiben</td><td>Daten in CSV-, Excel- und JSON-Format importieren und exportieren</td></tr>
+            <tr><td>Zeilen und Spalten auswählen</td><td>einfache Filter und komplexe Auswahllogik anwenden</td></tr>
+            <tr><td>Datenbereinigung</td><td>Tabellen zusammenführen, Inkonsistenzen beheben und mit fehlenden Daten in Tabellen umgehen</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Teil 2: Datenvisualisierung</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Hochwertige Plots</td><td>gängige Datenvisualisierungen erstellen</td></tr>
+            <tr><td>Pivot-Tabellen</td><td>eigene Aggregationen erstellen und visualisieren</td></tr>
+            <tr><td>Zeitreihen</td><td>ein Standardverfahren zur Zerlegung von Zeitreihen anwenden</td></tr>
+            <tr><td>Dashboards</td><td>einen optisch ansprechenden Report mit streamlit erstellen</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Teil 3: Statistische Werkzeuge</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Deskriptive Statistik</td><td>numerische Daten mit univariaten Kennzahlen wie Mittelwert, Median und Standardabweichung zusammenfassen</td></tr>
+            <tr><td>Korrelation</td><td>bivariate Statistiken berechnen und ihre Bedeutung einschätzen</td></tr>
+            <tr><td>Verteilungen</td><td>gängige Verteilungsfunktionen mittels Histogrammen und Tests identifizieren</td></tr>
+            <tr><td>Datenethik</td><td>häufige Fallstricke, die zu verzerrten oder irreführenden Ergebnissen führen</td></tr>
+        </tbody>
+    </table>
+
+    <figure class="figure">
+        <img src="../static/images/featured_courses/stats_memory.png" alt="data analysis tools" class="figure-img img-fluid rounded">
+        <figcaption class="figure-caption">einige statistische und Datenvisualisierungswerkzeuge</figcaption>
+    </figure>
+
+    <h2 class="py-3">Wie der Kurs abläuft</h2>
+
+    <p>
+        Der Kurs besteht aus interaktiven Vorträgen. Während der Vorträge besprechen wir zentrale Konzepte aus dem Bereich Data Science und führen Beispielcode mit <strong>Python, polars</strong> und <strong>seaborn</strong> aus. Es gibt gute und schwache Beispiele für Datenanalysen, damit Sie lernen, die Ihnen präsentierten Daten kritisch zu betrachten.
+    </p>
+    <p>
+        Das Kursmaterial enthält zahlreiche Übungen, die Sie selbstständig bearbeiten sollen, um praktische Fähigkeiten in der Datenverarbeitung mit Python/polars aufzubauen. Während der Kurstermine erhalten Sie Unterstützung bei technischen Fragen. Sie sind eingeladen, eigene Fragen und Fehler aus den praktischen Übungen mitzubringen.
+        Die Kursmaterialien sind dauerhaft unter einer Creative-Commons-4.0-Lizenz verfügbar.
+    </p>
+    <a href="https://www.academis.eu/polars_go_undersea"><button class="btn px-5">Kursmaterial ansehen</button></a>
+
+    <h2 class="py-3">Voraussetzungen</h2>
+
+    <p>
+        Um am Kurs teilzunehmen, sind Python-Kenntnisse von Vorteil, aber nicht zwingend erforderlich. Sie sollten in der Lage sein, einfache Anweisungen zu schreiben und kleinere Python-Codestücke zu debuggen. Um die Übungen zu bearbeiten und die Beispiele auszuprobieren, müssen Sie Code in einem Jupyter Notebook ausführen können. Sauberer Code und aufgeräumte Jupyter Notebooks sind wichtiger als umfangreiche Python-Kenntnisse.
+    </p>
+    <p>
+        Für die Erkundung von Daten braucht es kaum strukturierte Programmierung, Schleifen, Funktionen oder Klassen. Für dieses Modul ist keine Programmierung außerhalb von Jupyter erforderlich. Kenntnisse in fortgeschrittener Statistik, Datenbanken oder Machine Learning sind für diesen Kurs nicht erforderlich.
+    </p>
+
+
+</section>
+
+{% include('de/registration_form.html') %}
+
+{% endblock %}

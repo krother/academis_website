@@ -19,6 +19,10 @@
     </ul>
   </div>
   <a class="list-group-item main-menu" href="index.html#contact">Contact</a>
+  <span class="list-group-item main-menu lang-switcher">
+    <a href="{{ de_href|default('de/index.html') }}" title="Deutsch">🇩🇪</a>
+    <a href="{{ en_href|default('index.html') }}" title="English">🇬🇧</a>
+  </span>
 </header>
 
 {% include('burger_menu.html') %}

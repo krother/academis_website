@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+{% set asset_prefix = '../' if lang == 'de' else '' %}
+<html lang="{{ lang|default('en') }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset_prefix }}static/favicon.ico" type="image/x-icon">
 
   <meta name="Description" content="Professional Python courses for corporations, universities and private persons">
   <meta name="Robots" content="index,follow">
   <meta name="author" content="Dr. Kristian Rother">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="static/css/module_normalize.css" type="text/css">
+  <link rel="stylesheet" href="{{ asset_prefix }}static/css/module_normalize.css" type="text/css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,300,700,300italic,400italic,700italic" type="text/css">
-  <link rel="stylesheet" href="static/css/integrated.css">
-  <link rel="stylesheet" href="static/css/pygments_default.css">
+  <link rel="stylesheet" href="{{ asset_prefix }}static/css/integrated.css">
+  <link rel="stylesheet" href="{{ asset_prefix }}static/css/pygments_default.css">
   {% block css %}
   {% endblock %}
   <script src="https://kit.fontawesome.com/1665566a99.js" crossorigin="anonymous"></script>
@@ -23,17 +24,17 @@
 <body>
   <main>
 
-  {% include('header.html') %}
+  {% include('de/header.html' if lang == 'de' else 'header.html') %}
 
   {% block content %}
   {% endblock %}
-  
+
   <!-- {% include('testimonial.html') %} -->
   </main>
-  
-  {% include('footer.html') %}
-  
-  <script src="static/js/app.js"></script>
+
+  {% include('de/footer.html' if lang == 'de' else 'footer.html') %}
+
+  <script src="{{ asset_prefix }}static/js/app.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 </body>

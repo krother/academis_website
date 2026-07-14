@@ -1,0 +1,48 @@
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header text-white" style="background-color: var(--secondary-color);">
+        <h5 class="modal-title" id="successModalLabel">Nachricht erhalten</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center py-4" style="background-color: #dddddd;">
+        <p class="fs-5">Ihre Nachricht ist bei mir angekommen.</p>
+        <p style="color: var(--secondary-color);">Vielen Dank!</p>
+      </div>
+      <div class="modal-footer" style="background-color: #dddddd;">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Schließen</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  if (new URLSearchParams(window.location.search).get('submitted') === '1') {
+    document.addEventListener('DOMContentLoaded', function () {
+      new bootstrap.Modal(document.getElementById('successModal')).show();
+      history.replaceState(null, '', window.location.pathname);
+    });
+  }
+</script>
+
+<!-- Privacy Statement Modal -->
+<div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="privacyModalLabel">Datenschutzerklärung</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Die von Ihnen in diesem Formular angegebenen Informationen (Name, E-Mail-Adresse und Nachricht) werden ausschließlich zur Beantwortung Ihrer Anfrage verwendet.</p>
+        <p>Ihre Daten werden nicht an Dritte weitergegeben und gelöscht, sobald Ihre Anfrage bearbeitet wurde.</p>
+        <p>Bei Fragen zu Ihren Daten wenden Sie sich bitte an <a href="mailto:kristian.rother@posteo.de">kristian.rother@posteo.de</a>.</p>
+      </div>
+      <hr>
+      {% include('datenschutz_text.html') %}
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Verstanden</button>
+      </div>
+    </div>
+  </div>
+</div>

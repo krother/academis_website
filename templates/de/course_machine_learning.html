@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}Machine Learning Grundlagen – Dr. Kristian Rother{% endblock %}
+
+{% block content %}
+
+<section>
+    <h1>Machine Learning Grundlagen</h1>
+
+    <img src="../static/images/featured_courses/svm.png" alt="" class="img-fluid">
+   <p>
+        Dieser Kurs behandelt die akademischen Grundlagen des Machine Learning. Er beginnt mit den Grundlagen der linearen Regression – einer Methode, die sich oft als gar nicht so grundlegend herausstellt – und endet bei künstlichen neuronalen Netzen bis hin zu LLMs.
+        Der Kurs legt besonderen Wert auf Werkzeuge zum konsistenten Trainieren von Modellen und deren kritische Bewertung. Er behandelt mehr Bewertungsmetriken als tatsächliche Modelle und geht durch eine Vielzahl von Regularisierungstechniken.
+    </p>
+
+    <h2 class="py-3">Ziele</h2>
+    <p>
+        Im Laufe des Kurses machen Sie sich mit dem gängigen Python-Machine-Learning-Stack vertraut, einschließlich der Bibliotheken <strong>scikit-learn, statsmodels, TensorFlow</strong> und <strong>PyTorch</strong>.
+        Außerdem nutzen Sie <strong>NumPy, polars</strong> und <strong>seaborn</strong>, um Daten zu visualisieren.
+        Grundkenntnisse in Python sind sehr empfehlenswert.
+    </p>
+    <p>
+        Sie verbringen einige Zeit damit, Modelle zu trainieren und feinabzustimmen und – was noch wichtiger ist – sie kritisch zu bewerten. Am Ende sollten Sie über ein solides technisches und mathematisches Fundament der gängigsten Modellierungswerkzeuge und Herausforderungen verfügen, das Sie auf Ihre eigenen Daten anwenden können.
+    </p>
+
+    <h2 class="pt-5 pb-0">Themen</h2>
+
+    <h3>Teil 1: Was ist Machine Learning?</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Überwachtes versus unüberwachtes Lernen</td></tr>
+            <tr><td>Klassifikation und Regression</td></tr>
+            <tr><td>Praktische Anwendungsfälle</td></tr>
+            <tr><td>Warum Machine Learning schwierig ist</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Teil 2: Überwachtes Lernen</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Entscheidungsbäume</td></tr>
+            <tr><td>Lineare Modelle</td></tr>
+            <tr><td>Modellbewertung</td></tr>
+            <tr><td>Feature Engineering</td></tr>
+            <tr><td>Regularisierung</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Teil 3: Unüberwachtes Lernen</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Hauptkomponentenanalyse</td></tr>
+            <tr><td>Clustering</td></tr>
+            <tr><td>Empfehlungssysteme</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Teil 4: Künstliche Neuronale Netze</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Feed-Forward-Netze</td></tr>
+            <tr><td>Bilderkennung</td></tr>
+            <tr><td>Trainingsstrategien</td></tr>
+            <tr><td>Natural Language Processing</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Teil 5: Large Language Models</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Transformer-Architektur</td></tr>
+            <tr><td>RAGs, MCPs und Agenten</td></tr>
+            <tr><td>Praktische und regulatorische Aspekte</td></tr>
+            <tr><td>Aktuelle Grenzen von LLMs</td></tr>
+        </tbody>
+    </table>
+
+    <img src="../static/images/featured_courses/backprop.png" alt="" class="img-fluid">
+
+    <h2 class="py-3">Wie der Kurs abläuft</h2>
+
+    <p>
+        Der Kurs besteht aus einem kleineren theoretischen Teil und zahlreichen Übungen. Während der Übungen implementieren Sie Schritt für Schritt eine Python-Anwendung und integrieren dabei zentrale Konzepte aus den theoretischen Teilen. Es gibt einige Zusatzaufgaben, die Sie gemeinsam als Team lösen müssen.
+    </p>
+    <p>
+        Das Kursmaterial enthält Hintergrundlektüre und Codebeispiele, mit denen Sie Ihr Wissen nach dem Kurs vertiefen können. Während der Kurstermine erhalten Sie Unterstützung bei technischen Fragen. Wir gehen außerdem gemeinsam Musterlösungen durch.
+        Die Kursmaterialien sind dauerhaft unter einer Creative-Commons-4.0-Lizenz verfügbar.
+    </p>
+    <a href="https://www.academis.eu/machine_learning"><button class="btn px-5">Kursmaterial ansehen</button></a>
+
+    <h2 class="py-3">Voraussetzungen</h2>
+
+    <p>
+        Um am Kurs teilzunehmen, sind Python-Kenntnisse von Vorteil, aber nicht zwingend erforderlich. Sie sollten in der Lage sein, einfache Anweisungen zu schreiben und kleinere Python-Codestücke zu debuggen. Um die Übungen zu bearbeiten und die Beispiele auszuprobieren, müssen Sie Code in einem Jupyter Notebook ausführen können. Sauberer Code und aufgeräumte Jupyter Notebooks sind wichtiger als umfangreiche Python-Kenntnisse.
+    </p>
+
+</section>
+
+{% include('de/registration_form.html') %}
+
+{% endblock %}
