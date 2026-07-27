@@ -92,51 +92,21 @@
                 <th>Date</th>
                 <th>Time</th>
                 <th>Details</th>
+                <th>Language</th>
+                <th>Price</th>
             </tr>
         </thead>
         <tbody>
+            {% for course in course_dates %}
             <tr>
-                <td>Introduction to FastAPI</td>
-                <td>17.08. - 19.08.2026</td>
-                <td>all-day</td>
-                <td>closed corporate</td>
+                <td>{% if course.link %}<a href="{{ course.link }}">{{ course.course }}</a>{% else %}{{ course.course }}{% endif %}</td>
+                <td>{{ course.date }}</td>
+                <td>{{ course.time }}</td>
+                <td>{{ course.details }}</td>
+                <td>{% if course.language == 'German' %}🇩🇪{% else %}🇬🇧{% endif %} {{ course.language }}</td>
+                <td>{{ course.price }}</td>
             </tr>
-            <tr>
-                <td><a href="course_docker.html">Docker Fundamentals</a></td>
-                <td>28.08. + 04.09.2026</td>
-                <td>15:00 - 19:00</td>
-                <td>6 seats available</td>
-            </tr>
-            <tr>
-                <td><a href="course_polars.html">polars for Data Anaylsis</a></td>
-                <td>31.08. - 2.09.2026</td>
-                <td>all-day</td>
-                <td>6 seats available</td>
-            </tr>
-            <tr>
-                <td><a href="course_advanced_python.html">Advanced Python</a></td>
-                <td>21.08. - 9.10.2026</td>
-                <td>Fridays 8-10</td>
-                <td>8 seats available</td>
-            </tr>
-            <tr>
-                <td>2D Game Programming with Python</td>
-                <td>20.08. - 08.10.2026</td>
-                <td>Thursdays 15-18</td>
-                <td>6 seats available</td>
-            </tr>
-            <tr>
-                <td>Art with NumPy</td>
-                <td>11.09. - 23.10.2026</td>
-                <td>Fridays 15-18</td>
-                <td>6 seats available</td>
-            </tr>
-            <tr>
-                <td>Data Analysics with Polars</td>
-                <td>Sep - Nov 2026</td>
-                <td>2h per week</td>
-                <td>closed university</td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
 </section>
@@ -249,33 +219,6 @@
     </div>
 </section>
 
-<section class="course-primary p-5" id="db_infrastructure">
-    <h2>Database Infrastructure</h2>
-    <div class="row align-items-start">
-        <div class="col-md-4 pl-4 pt-4">
-            <img src="static/images/featured_courses/blue_elephant.png" alt="Databases" class="img-fluid">
-        </div>
-        <div class="col-md-8" style="text-align: justify">
-            <p>
-                In this course, you learn to work with the most popular SQL and NoSQL databases. You will create instances of each database in Docker, fill them with
-                data and write Python clients for each of them. You learn to know the strengths and weaknesses of each architecture in order to build reliable data 
-                infrastructure.
-            </p>
-            <ul>
-                <li>schemas in MongoDB</li>
-                <li>Postgres</li>
-                <li>analyzing performance</li>
-                <li>data ingestion</li>
-                <li>indexing text and geo data</li>
-                <li>DB authentication mechanisms</li>
-                <li>Docker deployment</li>
-                <li>Sharding and Replication</li>
-            </ul>
-
-        </div>
-    </div>
-</section>
-    
 <section class="course-secondary p-5" id="machine_learning">
     <h2>Machine Learning Fundamentals</h2>
     <div class="row align-items-start">

@@ -1,9 +1,13 @@
+import json
 import os
 
 from jinja2 import Environment, FileSystemLoader
 
 
 env = Environment(loader=FileSystemLoader('templates'))
+
+with open('data/course_dates.json') as f:
+    course_dates = json.load(f)
 
 # (English title, filename, German title, German filename)
 # German filename is None for pages with no dedicated German version
@@ -42,7 +46,8 @@ for title_en, file_en, title_de, file_de in PAGES:
     template = env.get_template(file_en)
     output = template.render(title=title_en, testimonial=['hello world'], lang='en',
                               en_href=file_en,
-                              de_href=(f'de/{file_de}' if file_de else 'de/index.html'))
+                              de_href=(f'de/{file_de}' if file_de else 'de/index.html'),
+                              course_dates=course_dates)
     with open(os.path.join('build', file_en), 'w') as f:
         f.write(output)
 
@@ -51,6 +56,7 @@ for title_en, file_en, title_de, file_de in PAGES:
         template = env.get_template(f'de/{file_de}')
         output = template.render(title=title_de, testimonial=['hello world'], lang='de',
                                   en_href=f'../{file_en}',
-                                  de_href=file_de)
+                                  de_href=file_de,
+                                  course_dates=course_dates)
         with open(os.path.join('build', 'de', file_de), 'w') as f:
             f.write(output)

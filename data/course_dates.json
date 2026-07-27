@@ -1,0 +1,72 @@
+[
+    {
+        "id": "fastapi-2026-08",
+        "course": "Introduction to FastAPI",
+        "link": null,
+        "date": "17.08. - 19.08.2026",
+        "time": "all-day",
+        "details": "closed corporate",
+        "language": "English",
+        "price": "TBA"
+    },
+    {
+        "id": "docker-2026-08",
+        "course": "Docker Fundamentals",
+        "link": "course_docker.html",
+        "date": "28.08. + 04.09.2026",
+        "time": "15:00 - 19:00",
+        "details": "6 seats available",
+        "language": "English",
+        "price": "TBA"
+    },
+    {
+        "id": "polars-2026-08",
+        "course": "polars for Data Analysis",
+        "link": "course_polars.html",
+        "date": "31.08. - 2.09.2026",
+        "time": "all-day",
+        "details": "6 seats available",
+        "language": "English",
+        "price": "TBA"
+    },
+    {
+        "id": "advanced-python-2026-08",
+        "course": "Advanced Python",
+        "link": "course_advanced_python.html",
+        "date": "21.08. - 9.10.2026",
+        "time": "Fridays 8-10",
+        "details": "8 seats available",
+        "language": "English",
+        "price": "TBA"
+    },
+    {
+        "id": "2d-game-programming-2026-08",
+        "course": "2D Game Programming with Python",
+        "link": null,
+        "date": "20.08. - 08.10.2026",
+        "time": "Thursdays 15-18",
+        "details": "6 seats available",
+        "language": "English",
+        "price": "TBA"
+    },
+    {
+        "id": "art-numpy-2026-09",
+        "course": "Art with NumPy",
+        "link": null,
+        "date": "11.09. - 23.10.2026",
+        "time": "Fridays 15-18",
+        "details": "6 seats available",
+        "language": "English",
+        "price": "TBA"
+    },
+    {
+        "id": "polars-2026-09-university",
+        "course": "Data Analysis with Polars",
+        "link": null,
+        "date": "Sep - Nov 2026",
+        "time": "2h per week",
+        "details": "closed university",
+        "language": "English",
+        "price": "TBA"
+    }
+]

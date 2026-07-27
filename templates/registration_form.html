@@ -23,10 +23,9 @@
           <div class="col-sm-9">
             <select class="form-select" id="course" name="course" required>
               <option value="" disabled selected>Select a course date</option>
-              <option value="2d-game-programming-2026-06">2D Game Programming with Python – 03.06. - 24.06.2026</option>
-              <option value="polars-2026-08">polars for Data Analysis – 31.08. - 2.09.2026</option>
-              <option value="advanced-python-2026-08">Advanced Python – 21.08. - 9.10.2026 (Fridays 8-10)</option>
-              <option value="art-numpy-2026-08">Art with NumPy – 21.08. - 9.10.2026 (Fridays 15-18)</option>
+              {% for course in course_dates if 'closed' not in course.details %}
+              <option value="{{ course.id }}">{{ course.course }} – {{ course.date }}{% if course.time != 'all-day' %} ({{ course.time }}){% endif %}</option>
+              {% endfor %}
             </select>
           </div>
         </div>
