@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Docker Fundamentals – Dr. Kristian Rother{% endblock %}
+
+{% block content %}
+
+<section>
+    <h1>Docker Fundamentals</h1>
+
+    <img src="static/images/featured_courses/docker.png" alt="" class="img-fluid" style="width: 30%;">
+
+    <p>
+        The course gives you a solid understanding of core concepts on Docker containers. You will containerize a Python application consisting of a backend API, a database and a proxy server. By building Docker containers from scratch you learn to tap into the full potential of containerization in your development workflow. After the course you will have a much easier time setting up dev containers, AI sandboxes or Kubernetes.
+    </p>
+
+    <h2 class="py-3">Goals</h2>
+    <p>
+        You will learn to write <strong>Dockerfiles</strong> from scratch and run them as containers. The course introduces you to the core building blocks of containerization: images, networking, volumes and environment configuration. You will use <strong>docker-compose</strong> to orchestrate a multi-container application and pick up habits for logging, debugging and cleaning up along the way.
+    </p>
+    <p>
+        The main goal of the course is to give you the confidence to containerize your own applications.
+    </p>
+
+    <h2 class="pt-5 pb-0">Topics</h2>
+
+    <h3>Part 1: Container Fundamentals</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Writing Dockerfiles</td></tr>
+            <tr><td>Executing commands in containers</td></tr>
+            <tr><td>Ports and networking</td></tr>
+            <tr><td>Volumes</td></tr>
+            <tr><td>Environment configuration</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Part 2: Docker in Practice</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Building and shipping images</td></tr>
+            <tr><td>Orchestration with docker-compose</td></tr>
+            <tr><td>Logging and debugging</td></tr>
+            <tr><td>Cleaning up</td></tr>
+        </tbody>
+    </table>
+
+    <h2 class="py-3">Course Details</h2>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Date &amp; Time</td><td>Session 1: Friday August 28th, 15:00-19:00<br>Session 2: September 4th, 15:00-19:00</td></tr>
+            <tr><td>Location</td><td>Academis office in Berlin-Schöneberg (S1 &amp; U7 nearby)</td></tr>
+            <tr><td>Price</td><td>250,- € per person for a 2 x 4h course<br>375,- € when registering two participants together</td></tr>
+            <tr><td>Number of participants</td><td>2-8</td></tr>
+        </tbody>
+    </table>
+
+    <h2 class="py-3">Prerequisites</h2>
+
+    <p>
+        This course is for developers with some programming experience but little or no previous experience with Docker. You will work on the terminal. Previous experience with bash is useful but not a must.
+    </p>
+
+</section>
+
+{% include('registration_form.html') %}
+
+{% endblock %}

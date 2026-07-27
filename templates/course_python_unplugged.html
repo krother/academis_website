@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Python Unplugged: Collaborative Coding – Dr. Kristian Rother{% endblock %}
+
+{% block content %}
+
+<section>
+    <h1>Python Unplugged: Collaborative Coding</h1>
+
+    <img src="static/images/featured_courses/python.png" alt="" class="img-fluid" style="width: 30%;">
+
+    <p>
+        We practice programming by writing a Python game together. We have: one computer, one keyboard, one clearly defined task. The person typing switches every five minutes. No skipping.
+    </p>
+
+    <h2 class="py-3">Goals</h2>
+    <p>
+        This collaborative workshop is for people with basic Python knowledge and for experienced programmers alike. By handing the keyboard around, everybody gets to think, explain and write code together, without hiding behind a screen.
+    </p>
+    <p>
+        We do not have internet and we do not have AI. It's just Python code and us.
+    </p>
+
+    <h2 class="py-3">How the event works</h2>
+    <p>
+        Participation is free. If you want to attend these events regularly you will be expected to register for a course with <a href="https://www.academis.eu/">Academis</a>.
+    </p>
+    <p>
+        The event location is barrier-free. We believe that providing a harassment-free environment matters: the <a href="https://berlincodeofconduct.org/">Berlin Code of Conduct</a> is mandatory.
+    </p>
+
+    <h2 class="py-3">Course Details</h2>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Price</td><td>-</td></tr>
+            <tr><td>Number of participants</td><td>max. 8</td></tr>
+        </tbody>
+    </table>
+
+    <h2 class="py-3">Prerequisites</h2>
+
+    <p>
+        This event is for people with basic Python knowledge and for experienced programmers. You do not need to bring anything.
+    </p>
+
+</section>
+
+{% include('registration_form.html') %}
+
+{% endblock %}

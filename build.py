@@ -21,6 +21,9 @@ PAGES = [
     ('Data Analysis with polars', 'course_polars.html', 'Datenanalyse mit polars', 'course_polars.html'),
     ('Advanced Python', 'course_advanced_python.html', 'Advanced Python', 'course_advanced_python.html'),
     ('Machine Learning', 'course_machine_learning.html', 'Machine Learning', 'course_machine_learning.html'),
+    ('Docker Fundamentals', 'course_docker.html', None, None),
+    ('Database Infrastructure', 'course_db_infrastructure.html', None, None),
+    ('Python Unplugged', 'course_python_unplugged.html', None, None),
 
     ('Countdown', 'countdown.html', 'Countdown', 'countdown.html'),
     ('Check &amp; Cross', 'check_cross.html', 'Check &amp; Cross', 'check_cross.html'),

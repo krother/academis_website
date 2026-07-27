@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Database Infrastructure – Dr. Kristian Rother{% endblock %}
+
+{% block content %}
+
+<section>
+    <h1>Database Infrastructure</h1>
+
+    <img src="static/images/featured_courses/blue_elephant.png" alt="" class="img-fluid" style="width: 30%;">
+
+    <p>
+        In this course, you learn to work with the most popular SQL and NoSQL databases. You will create instances of each database in Docker, fill them with data and write Python clients for each of them. You learn to know the strengths and weaknesses of each architecture in order to build reliable data infrastructure.
+    </p>
+
+    <h2 class="py-3">Goals</h2>
+    <p>
+        You will get hands-on experience running <strong>Postgres</strong> and <strong>MongoDB</strong> as Docker containers and connecting to them from Python. The course covers schema design, authentication and performance considerations for both relational and document-oriented databases.
+    </p>
+    <p>
+        The main goal of the course is to enable you to choose and operate the right database technology for your own data infrastructure.
+    </p>
+
+    <h2 class="pt-5 pb-0">Topics</h2>
+
+    <h3>Part 1: SQL and NoSQL Databases</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Postgres</td></tr>
+            <tr><td>Schemas in MongoDB</td></tr>
+            <tr><td>Docker deployment</td></tr>
+            <tr><td>DB authentication mechanisms</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Part 2: Working with Data at Scale</h3>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Data ingestion</td></tr>
+            <tr><td>Indexing text and geo data</td></tr>
+            <tr><td>Analyzing performance</td></tr>
+            <tr><td>Sharding and replication</td></tr>
+        </tbody>
+    </table>
+
+    <h2 class="py-3">Course Details</h2>
+    <table class="table table-striped">
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tbody>
+            <tr><td>Location</td><td>Academis office in Berlin-Schöneberg (S1 &amp; U7 nearby)</td></tr>
+            <tr><td>Price</td><td>250,- € per person for a 2 x 4h course<br>375,- € when registering two participants together</td></tr>
+            <tr><td>Number of participants</td><td>2-8</td></tr>
+        </tbody>
+    </table>
+
+    <h2 class="py-3">Prerequisites</h2>
+
+    <p>
+        This course is for developers with some programming experience but little or no previous experience with databases. You will work on the terminal and with Python. Previous experience with Docker is useful but not a must.
+    </p>
+
+</section>
+
+{% include('registration_form.html') %}
+
+{% endblock %}
