@@ -1,0 +1,75 @@
+<style>
+    .schedule-wrapper {
+        overflow-x: auto;
+    }
+    .schedule-grid {
+        display: grid;
+        grid-template-columns: 70px repeat(5, minmax(120px, 1fr));
+        grid-template-rows: auto repeat(11, 40px);
+        min-width: 700px;
+        border-top: 1px solid #dee2e6;
+        border-left: 1px solid #dee2e6;
+    }
+    .schedule-header {
+        font-weight: 600;
+        text-align: center;
+        padding: 0.5rem 0 0.6rem;
+        background-color: #f8f9fa;
+        border-right: 1px solid #dee2e6;
+        border-bottom: 1px solid #dee2e6;
+    }
+    .schedule-time {
+        font-size: 0.8rem;
+        color: #6c757d;
+        text-align: right;
+        padding-right: 0.5rem;
+        border-right: 1px solid #dee2e6;
+        border-bottom: 1px solid #eee;
+    }
+    .schedule-cell {
+        border-right: 1px solid #dee2e6;
+        border-bottom: 1px solid #eee;
+    }
+    .schedule-course {
+        position: relative;
+        z-index: 1;
+        margin: 2px;
+        padding: 0.35rem 0.5rem;
+        border-radius: 0.25rem;
+        font-size: 1.4rem;
+        line-height: 1.25;
+        overflow: hidden;
+    }
+</style>
+
+<section id="schedule">
+
+    <h2>Schedule</h2>
+    <p>My recurring weekly classes take place in the training room in Berlin-Schöneberg:</p>
+
+    <div class="schedule-wrapper">
+        <div class="schedule-grid">
+            <div class="schedule-header" style="grid-column: 1; grid-row: 1;"></div>
+            {% for day in ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'] %}
+            <div class="schedule-header" style="grid-column: {{ loop.index + 1 }}; grid-row: 1;">{{ day }}</div>
+            {% endfor %}
+
+            {% for hour in range(8, 19) %}
+            <div class="schedule-time" style="grid-column: 1; grid-row: {{ hour - 6 }};">{{ hour }}:00</div>
+            {% for day in range(5) %}
+            <div class="schedule-cell" style="grid-column: {{ day + 2 }}; grid-row: {{ hour - 6 }};"></div>
+            {% endfor %}
+            {% endfor %}
+
+            <a href="course_advanced_python.html" class="schedule-course bg-primary-subtle border-start border-4 border-primary text-decoration-none text-body" style="grid-column: 4; grid-row: 2 / span 2;">
+                <strong>Advanced Python</strong><br>8:00&ndash;10:00
+            </a>
+            <a href="course_db_infrastructure.html" class="schedule-course bg-success-subtle border-start border-4 border-success text-decoration-none text-body" style="grid-column: 2; grid-row: 10 / span 2;">
+                <strong>Database Infrastructure</strong><br>16:00&ndash;18:00
+            </a>
+            <a href="course_python_unplugged.html" class="schedule-course bg-warning-subtle border-start border-4 border-warning text-decoration-none text-body" style="grid-column: 6; grid-row: 10 / span 2;">
+                <strong>Python Unplugged</strong><br>16:00&ndash;18:00
+            </a>
+        </div>
+    </div>
+</section>
