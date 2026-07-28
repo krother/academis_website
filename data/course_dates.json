@@ -7,7 +7,7 @@
         "time": "all-day",
         "details": "closed corporate",
         "language": "English",
-        "price": "TBA"
+        "price": null
     },
     {
         "id": "docker-2026-08",
@@ -17,7 +17,7 @@
         "time": "15:00 - 19:00",
         "details": "6 seats available",
         "language": "English",
-        "price": "TBA"
+        "price": "250,- €"
     },
     {
         "id": "polars-2026-08",
@@ -27,46 +27,46 @@
         "time": "all-day",
         "details": "6 seats available",
         "language": "English",
-        "price": "TBA"
+        "price": "750,- € (3 days)"
     },
     {
         "id": "advanced-python-2026-08",
         "course": "Advanced Python",
         "link": "course_advanced_python.html",
         "date": "21.08. - 9.10.2026",
-        "time": "Fridays 8-10",
+        "time": "Wednesdays 8:00-10:00",
         "details": "8 seats available",
         "language": "English",
-        "price": "TBA"
+        "price": "360,- € (8 sessions)"
     },
     {
-        "id": "2d-game-programming-2026-08",
-        "course": "2D Game Programming with Python",
-        "link": null,
-        "date": "20.08. - 08.10.2026",
-        "time": "Thursdays 15-18",
+        "id": "database_infrastructure-2026-09",
+        "course": "Database Infrastructure",
+        "link": "course_database_infrstructure.html",
+        "date": "14.09. - 02.11.2026",
+        "time": "Mondays 16:00-18:00",
         "details": "6 seats available",
         "language": "English",
-        "price": "TBA"
+        "price": "360,- € (8 sessions)"
     },
     {
-        "id": "art-numpy-2026-09",
-        "course": "Art with NumPy",
-        "link": null,
-        "date": "11.09. - 23.10.2026",
-        "time": "Fridays 15-18",
+        "id": "python-unplugged-2026-09",
+        "course": "Python Unplugged",
+        "link": "course_python_unplugged.html",
+        "date": "11.09.+",
+        "time": "Fridays 16:00-18:00",
         "details": "6 seats available",
         "language": "English",
-        "price": "TBA"
+        "price": "120,- € per month"
     },
     {
         "id": "polars-2026-09-university",
-        "course": "Data Analysis with Polars",
+        "course": "polars for Data Analysis",
         "link": null,
         "date": "Sep - Nov 2026",
         "time": "2h per week",
         "details": "closed university",
         "language": "English",
-        "price": "TBA"
+        "price": null
     }
 ]

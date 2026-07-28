@@ -104,7 +104,7 @@
                 <td>{{ course.time }}</td>
                 <td>{{ course.details }}</td>
                 <td>{% if course.language == 'German' %}🇩🇪{% else %}🇬🇧{% endif %} {{ course.language }}</td>
-                <td>{{ course.price }}</td>
+                <td>{% if course.price %}<button type="button" class="btn btn-primary" disabled>{{ course.price }}</button>{% endif %}</td>
             </tr>
             {% endfor %}
         </tbody>
