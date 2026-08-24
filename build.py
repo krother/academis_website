@@ -30,6 +30,7 @@ PAGES = [
     ('Python Unplugged', 'course_python_unplugged.html', None, None),
 
     ('Countdown', 'countdown.html', 'Countdown', 'countdown.html'),
+    ('MC-Quiz', 'mc_quiz.html', None, None),
     ('Check &amp; Cross', 'check_cross.html', 'Check &amp; Cross', 'check_cross.html'),
     ('Guess the Word', 'word_guess.html', 'Wort erraten', 'word_guess.html'),
     ('Flipping Letters', 'char_grid.html', 'Buchstaben-Flip', 'char_grid.html'),
