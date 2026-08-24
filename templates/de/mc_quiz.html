@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+
+{% block title %}MC-Quiz{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+  #setup, #quiz, #result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #quiz, #result {
+    display: none;
+  }
+
+  #question_json {
+    width: 40rem;
+    max-width: 90vw;
+    resize: vertical;
+  }
+
+  #quiz_box {
+    width: 40rem;
+    max-width: 90vw;
+  }
+
+  #progress {
+    color: #888;
+  }
+
+  #alternatives {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 100%;
+  }
+
+  .alternative {
+    text-align: left;
+    padding: 0.7rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 1.05rem;
+  }
+
+  .alternative:hover:not(:disabled) {
+    background-color: #f0f0f0;
+  }
+
+  .alternative:disabled {
+    cursor: default;
+  }
+
+  .alternative.correct {
+    background-color: #c8e6c9;
+    border-color: #4caf50;
+  }
+
+  .alternative.wrong {
+    background-color: #ffcdd2;
+    border-color: #e53935;
+  }
+
+  #next_btn {
+    visibility: hidden;
+  }
+</style>
+
+<section class="d-flex flex-column align-items-center text-center">
+
+  <h1>MC-Quiz</h1>
+
+  <div id="setup">
+    <p>Frage die Teilnehmenden in folgendem JSON-Format ab:</p>
+    <textarea id="question_json" rows="16" class="form-control fs-6 p-3 shadow-sm">[
+  {
+    "id": "q01",
+    "topic": "grundlagen",
+    "question": "Welche Dateiendung sollte ein Python-Programm haben?",
+    "alternatives": [
+      ".py",
+      ".pyt",
+      ".python",
+      ".exe"
+    ],
+    "correct": [0]
+  }
+]</textarea>
+    <button class="btn btn-success px-5" id="start_btn">Start</button>
+    <p id="setup_error" class="text-danger"></p>
+  </div>
+
+  <div id="quiz">
+    <div id="quiz_box">
+      <p id="progress"></p>
+      <h3 id="question"></h3>
+      <div id="alternatives"></div>
+    </div>
+    <button class="btn btn-primary px-5" id="next_btn">Nächste Frage</button>
+  </div>
+
+  <div id="result">
+    <h3 id="result_text"></h3>
+    <button class="btn btn-success px-5" id="restart_btn">Neu starten</button>
+  </div>
+
+  <script>
+    let questions = [];
+    let currentIndex = 0;
+    let score = 0;
+
+    const setupDiv = document.getElementById("setup");
+    const quizDiv = document.getElementById("quiz");
+    const resultDiv = document.getElementById("result");
+    const progressEl = document.getElementById("progress");
+    const questionEl = document.getElementById("question");
+    const alternativesEl = document.getElementById("alternatives");
+    const nextBtn = document.getElementById("next_btn");
+    const setupError = document.getElementById("setup_error");
+
+    function shuffle(array) {
+      const copy = array.slice();
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function startQuiz() {
+      setupError.textContent = "";
+      let parsed;
+      try {
+        parsed = JSON.parse(document.getElementById("question_json").value);
+      } catch (e) {
+        setupError.textContent = "Ungültiges JSON: " + e.message;
+        return;
+      }
+      if (!Array.isArray(parsed) || parsed.length === 0) {
+        setupError.textContent = "Bitte ein Array mit mindestens einer Frage angeben.";
+        return;
+      }
+
+      questions = shuffle(parsed);
+      currentIndex = 0;
+      score = 0;
+
+      setupDiv.style.display = "none";
+      resultDiv.style.display = "none";
+      quizDiv.style.display = "flex";
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      nextBtn.style.visibility = "hidden";
+      const q = questions[currentIndex];
+      progressEl.textContent = "Frage " + (currentIndex + 1) + " von " + questions.length;
+      questionEl.textContent = q.question;
+      alternativesEl.innerHTML = "";
+
+      const order = shuffle(q.alternatives.map((text, index) => ({ text, index })));
+
+      order.forEach(item => {
+        const btn = document.createElement("button");
+        btn.className = "alternative";
+        btn.textContent = item.text;
+        btn.dataset.index = item.index;
+        btn.addEventListener("click", () => selectAnswer(item.index));
+        alternativesEl.appendChild(btn);
+      });
+    }
+
+    function selectAnswer(chosenIndex) {
+      const q = questions[currentIndex];
+      const isCorrect = q.correct.includes(chosenIndex);
+      if (isCorrect) {
+        score += 1;
+      }
+
+      const buttons = alternativesEl.querySelectorAll(".alternative");
+      buttons.forEach(btn => {
+        const index = Number(btn.dataset.index);
+        btn.disabled = true;
+        if (q.correct.includes(index)) {
+          btn.classList.add("correct");
+        } else if (index === chosenIndex) {
+          btn.classList.add("wrong");
+        }
+      });
+
+      nextBtn.style.visibility = "visible";
+    }
+
+    function nextQuestion() {
+      currentIndex += 1;
+      if (currentIndex >= questions.length) {
+        showResult();
+      } else {
+        renderQuestion();
+      }
+    }
+
+    function showResult() {
+      quizDiv.style.display = "none";
+      resultDiv.style.display = "flex";
+      document.getElementById("result_text").textContent =
+        "Du hast " + score + " von " + questions.length + " Fragen richtig beantwortet.";
+    }
+
+    function restartQuiz() {
+      resultDiv.style.display = "none";
+      setupDiv.style.display = "flex";
+    }
+
+    document.getElementById("start_btn").addEventListener("click", startQuiz);
+    nextBtn.addEventListener("click", nextQuestion);
+    document.getElementById("restart_btn").addEventListener("click", restartQuiz);
+  </script>
+
+</section>
+
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
