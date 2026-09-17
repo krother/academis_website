@@ -36,6 +36,7 @@ PAGES = [
     ('Flipping Letters', 'char_grid.html', 'Buchstaben-Flip', 'char_grid.html'),
     ('Card Generator', 'card_generator.html', 'Kartengenerator', 'card_generator.html'),
     ('Mood Cards', 'mood_cards.html', 'Stimmungskarten', 'mood_cards.html'),
+    ('Random Words', 'random_words.html', 'Zufällige Wörter', 'random_words.html'),
 ]
 
 os.makedirs('build/de', exist_ok=True)

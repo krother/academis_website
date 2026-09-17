@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %}Zufällige Wörter{% endblock %}
+
+{% block content %}
+
+<style>
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  padding-top: 60px;
+}
+
+.container {
+  text-align: center;
+}
+
+.container p {
+  text-align: center;
+}
+
+#word-display {
+  font-size: 48px;
+  font-weight: bold;
+  min-height: 70px;
+  margin: 30px 0;
+  color: #3C6F1F;
+}
+
+</style>
+
+<section class="d-flex flex-column align-items-center text-center">
+
+  <div class="container">
+    <h1>Zufällige Wörter</h1>
+    <p>Drücke den Knopf, um ein Wort zum Zeichnen zu erhalten.</p>
+
+    <div id="word-display">&nbsp;</div>
+
+    <button id="new-word-btn" class="btn btn-primary px-5 my-3" onclick="showRandomWord()">Neues Wort</button>
+  </div>
+
+<script>
+const words = [
+  "panda", "cheese", "python", "revolution", "IKEA", "piano",
+  "elephant", "giraffe", "kangaroo", "penguin", "octopus", "dolphin",
+  "crocodile", "flamingo", "hedgehog", "squirrel", "butterfly", "spider",
+  "snail", "owl", "koala", "lion", "tiger", "zebra", "camel", "walrus",
+  "jellyfish", "chameleon", "platypus", "peacock", "pizza", "sushi",
+  "pancake", "watermelon", "popcorn", "spaghetti", "sandwich", "chocolate",
+  "avocado", "pineapple", "hamburger", "croissant", "taco", "doughnut",
+  "honey", "pretzel", "lemonade", "waffle", "ice cream", "umbrella",
+  "telescope", "lighthouse", "backpack", "sunglasses", "toothbrush",
+  "candle", "mirror", "ladder", "vacuum cleaner", "blender", "hammer",
+  "scissors", "wheelchair", "skateboard", "trampoline", "hourglass",
+  "compass", "anchor", "magnet", "kite", "lantern", "mailbox", "wallet",
+  "robot", "computer", "satellite", "rocket", "spaceship", "drone",
+  "laptop", "smartphone", "headphones", "printer", "freedom", "gravity",
+  "silence", "friendship", "jealousy", "chaos", "harmony", "democracy",
+  "infinity", "nostalgia", "curiosity", "pyramid", "volcano", "glacier",
+  "desert", "waterfall", "rainbow", "tornado", "avalanche", "jungle",
+  "castle", "windmill", "igloo", "tent", "bridge", "skyscraper", "stadium",
+  "museum", "library", "airport", "submarine", "canoe", "sailboat",
+  "wheelbarrow", "tractor", "bulldozer", "ambulance", "helicopter",
+  "motorcycle", "bicycle", "unicycle", "roller coaster", "ferris wheel",
+  "carousel", "firefighter", "astronaut", "surgeon", "detective",
+  "magician", "pirate", "ninja", "wizard", "mermaid", "vampire", "zombie",
+  "ghost", "dinosaur", "dragon", "unicorn", "superhero", "knight",
+  "gladiator", "cowboy", "clown", "juggler", "acrobat", "referee",
+  "basketball", "volleyball", "badminton", "bowling", "skiing", "surfing",
+  "snowboarding", "wrestling", "archery", "fencing", "gymnastics",
+  "marathon", "karate", "yoga", "dancing", "singing", "painting",
+  "sculpture", "origami", "knitting", "thunderstorm", "snowflake",
+  "earthquake", "eclipse", "meteor", "constellation", "coral reef",
+  "cactus", "bamboo", "mushroom", "spiderweb", "beehive", "anthill",
+  "cocoon", "seashell", "pearl", "iceberg", "canyon", "oasis",
+  "alarm clock", "calendar", "thermometer", "stethoscope", "microscope",
+  "binoculars", "flashlight", "paperclip", "stapler", "envelope",
+  "treasure chest"
+];
+
+let lastWord = null;
+
+function showRandomWord() {
+  const display = document.getElementById("word-display");
+  const button = document.getElementById("new-word-btn");
+
+  let finalWord;
+  do {
+    finalWord = words[Math.floor(Math.random() * words.length)];
+  } while (finalWord === lastWord && words.length > 1);
+
+  button.disabled = true;
+  const spinDuration = 2000;
+  const spinInterval = 80;
+  const startTime = Date.now();
+
+  const spin = setInterval(() => {
+    display.textContent = words[Math.floor(Math.random() * words.length)];
+
+    if (Date.now() - startTime >= spinDuration) {
+      clearInterval(spin);
+      display.textContent = finalWord;
+      lastWord = finalWord;
+      button.disabled = false;
+    }
+  }, spinInterval);
+}
+</script>
+
+</section>
+
+{% endblock %}
