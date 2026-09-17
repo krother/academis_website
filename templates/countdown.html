@@ -19,6 +19,7 @@
   svg {
     transform: rotate(-90deg);
     margin-top: 30px;
+    max-width: 300px;
   }
 
   .circle-bg {
@@ -36,7 +37,7 @@
   }
 </style>
 
-<section class="d-flex flex-column align-items-center text-center">
+<section class="container d-flex flex-column align-items-center text-center">
 
   <h1>Countdown</h1>
 
@@ -47,13 +48,13 @@
     <button class="btn btn-success px-5 my-3" type="submit">Start</button>
     <button class="btn btn-danger px-5 my-3" type="button" id="stop-btn">Stop</button>
   </form>
-  
+
   <div id="time">00:00</div>
-  <svg width="300" height="300">
+  <svg viewBox="0 0 300 300" class="w-100">
     <circle class="circle-bg" cx="150" cy="150" r="130" />
     <circle class="circle-progress" cx="150" cy="150" r="130" />
   </svg>
-  
+
 </section>
 
   <script>
