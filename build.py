@@ -37,6 +37,7 @@ PAGES = [
     ('Card Generator', 'card_generator.html', 'Kartengenerator', 'card_generator.html'),
     ('Mood Cards', 'mood_cards.html', 'Stimmungskarten', 'mood_cards.html'),
     ('Random Words', 'random_words.html', 'Zufällige Wörter', 'random_words.html'),
+    ('Favorites', 'favorites.html', 'Lieblingsdinge', 'favorites.html'),
 ]
 
 os.makedirs('build/de', exist_ok=True)

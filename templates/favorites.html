@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}Favorites{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 30px auto;
+}
+
+.favorite-btn {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border: 4px solid var(--icon-frame-color);
+  border-radius: 16px;
+  background-color: var(--secondary-color);
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: bold;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.favorite-btn i {
+  font-size: 72px;
+  color: var(--icon-body-color);
+}
+
+.favorite-btn:hover {
+  background-color: var(--hover-color);
+}
+
+.favorite-btn:active {
+  transform: scale(0.97);
+}
+
+.favorite-btn.selected {
+  background-color: var(--icon-frame-color);
+  border-color: var(--hover-color);
+}
+
+.favorite-btn.selected i {
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .favorites-grid { gap: 10px; }
+  .favorite-btn { font-size: 16px; border-width: 2px; }
+  .favorite-btn i { font-size: 36px; }
+}
+
+</style>
+
+<section class="d-flex flex-column align-items-center text-center">
+
+  <h1>What is your favorite?</h1>
+
+  <div class="favorites-grid">
+    <button class="favorite-btn"><i class="bi bi-music-note-beamed"></i>song</button>
+    <button class="favorite-btn"><i class="bi bi-geo-alt-fill"></i>place</button>
+    <button class="favorite-btn"><i class="bi bi-box-seam"></i>Python library</button>
+    <button class="favorite-btn"><i class="bi bi-film"></i>movie</button>
+    <button class="favorite-btn"><i class="bi bi-book"></i>book</button>
+    <button class="favorite-btn"><i class="bi bi-bicycle"></i>hobby</button>
+    <button class="favorite-btn"><i class="bi bi-tools"></i>tool</button>
+    <button class="favorite-btn"><i class="bi bi-egg-fried"></i>food</button>
+    <button class="favorite-btn"><i class="bi bi-palette"></i>artist</button>
+  </div>
+
+<script>
+document.querySelectorAll(".favorite-btn").forEach(btn => {
+  btn.addEventListener("click", () => btn.classList.toggle("selected"));
+});
+</script>
+
+</section>
+
+{% endblock %}
