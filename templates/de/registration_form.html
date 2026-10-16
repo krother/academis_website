@@ -22,9 +22,9 @@
           <label for="course" class="col-sm-3 col-form-label">Kurs</label>
           <div class="col-sm-9">
             <select class="form-select" id="course" name="course" required>
-              <option value="" disabled selected>Kurstermin auswählen</option>
+              <option value="" disabled selected>Kurst auswählen</option>
               {% for course in course_dates if 'closed' not in course.details %}
-              <option value="{{ course.id }}">{{ course.course }} – {{ course.date }}{% if course.time != 'all-day' %} ({{ course.time }}){% endif %}</option>
+              <option value="{{ course.id }}">{{ course.course }}</option>
               {% endfor %}
             </select>
           </div>
