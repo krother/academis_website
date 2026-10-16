@@ -81,39 +81,39 @@
     </div>
 </section>
 
-<section id="course_dates">
-
-    <h2>Anstehende Kurse</h2>
-    <p><strong>Alle Kurse finden vor Ort in Berlin statt.</strong></p>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Kurs</th>
-                <th>Datum</th>
-                <th>Uhrzeit</th>
-                <th>Details</th>
-                <th>Sprache</th>
-                <th>Preis</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for course in course_dates %}
-            <tr>
-                <td>{% if course.link %}<a href="{{ course.link }}">{{ course.course }}</a>{% else %}{{ course.course }}{% endif %}</td>
-                <td>{{ course.date }}</td>
-                <td>{{ course.time }}</td>
-                <td>{{ course.details }}</td>
-                <td>{% if course.language == 'German' %}🇩🇪{% else %}🇬🇧{% endif %} {{ course.language }}</td>
-                <td>{% if course.price %}<button type="button" class="btn btn-primary" disabled>{{ course.price }}</button>{% endif %}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</section>
-
-{% include('de/registration_form.html') %}
-
-<section>
+<!--
+    <section id="course_dates">
+        
+        <h2>Anstehende Kurse</h2>
+        <p><strong>Alle Kurse finden vor Ort in Berlin statt.</strong></p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Kurs</th>
+                    <th>Datum</th>
+                    <th>Uhrzeit</th>
+                    <th>Details</th>
+                    <th>Sprache</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in course_dates %}
+                <tr>
+                    <td>{% if course.link %}<a href="{{ course.link }}">{{ course.course }}</a>{% else %}{{ course.course }}{% endif %}</td>
+                    <td>{{ course.date }}</td>
+                    <td>{{ course.time }}</td>
+                    <td>{{ course.details }}</td>
+                    <td>{% if course.language == 'German' %}🇩🇪{% else %}🇬🇧{% endif %} {{ course.language }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+    
+    {% include('de/registration_form.html') %}
+-->
+    
+    <section>
     <h2>Trainingsmethodik</h2>
     <div class="d-flex">
         <div style="text-align: justify">
@@ -136,135 +136,46 @@
 
 </section>
 
-<section>
-    <h2>Kursthemen</h2>
-    <p>Hier sind einige meiner gefragtesten Themen:</p>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Thema</th>
-                <th>Beispielinhalte</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="width: 35%"><a href="/advanced_python">Advanced Python</a></td>
-                <td style="width: 65%">funktionale Muster, objektorientierte Programmierung, Decorators, gängige Abkürzungen</td>
-            </tr>
-            <tr>
-                <td style="width: 35%"><a href="/software_engineering">Software Engineering</a></td>
-                <td style="width: 65%">Design Patterns, Paketstrukturen, Refactoring, Continuous Integration</td>
-            </tr>
-            <tr>
-                <td style="width: 35%"><a href="/course_polars/">Datenanalyse mit polars</a></td>
-                <td style="width: 65%">Dateneingabe/-ausgabe, Datenbereinigung, Aggregation, Plotten</td>
-            </tr>
-            <tr>
-                <td style="width: 35%"><a href="/software_engineering">Automatisiertes Testen</a></td>
-                <td style="width: 65%">Arbeiten mit pytest, Unit- vs. Integrationstests, Entscheidung was getestet wird</td>
-            </tr>
-            <tr>
-                <td style="width: 35%"><a href="/machine_learning">Machine Learning Grundlagen</a></td>
-                <td style="width: 65%">überwachtes und unüberwachtes Lernen, Modellbewertung, Feature Engineering, neuronale Netze</td>
-            </tr>
-            <tr>
-                <td style="width: 35%"><a href="/numpy_graphics">Kunst mit Numpy erschaffen</a></td>
-                <td style="width: 65%">Arrays und Matrizen, lineare Transformationen, performante Funktionen, Bildverarbeitungsalgorithmen</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-
 <!--
-<section class="course-primary p-5" id="advanced_python">
-    <h2>Advanced Python</h2>
-    <div class="row align-items-start">
-        <div class="col-md-4 pr-4 pt-4">
-            <img src="../static/images/featured_courses/software_engineering.png" alt="Software Engineering" class="img-fluid">
-        </div>
-        <div class="col-md-8" style="text-align: justify">
-            <p>
-                <strong>Wie entwickle ich ein großes Programm?</strong> Dieser Kurs führt Sie über die reine Sprachsyntax hinaus zu den tieferen Fragen der Programmierung. Beim Schreiben objektorientierter Software in Python werden Sie viele Entscheidungen zu Projektaufbau, Struktur und Zusammensetzung von Klassen treffen müssen. Ich zeige Ihnen bewährte Muster, um diese Entscheidungen robust zu treffen.
-            </p>
-            <p>
-                Ein großer Teil des Kurses widmet sich der Qualitätssicherung. Sie fügen schrittweise automatisierte Tests hinzu und setzen statische Codeprüfungen ein, um eine messbare Codequalität zu erhalten. Besonderer Wert wird auf das Hinzufügen und Prüfen von Type Hints gelegt. Am Ende lassen Sie all dies automatisch über einen Continuous-Integration-Workflow laufen.
-            </p>
-            <p>
-                Um am Kurs teilzunehmen, sollten Sie mit grundlegenden Python-Datenstrukturen und -Befehlen vertraut sein. Sie sollten in der Lage sein, eigenständige Python-Programme auszuführen und mit einem Git-Repository zu arbeiten. Dieser Kurs eignet sich auch für Personen, die bisher überwiegend in Jupyter Notebooks gearbeitet haben.
-            </p>
-            <a href="course_advanced_python.html"><button class="btn btn-secondary">Kursbeschreibung lesen</button></a>
-        </div>
-    </div>
-</section>
-
-<section class="course-secondary p-5">
-    <h2>Datenanalyse mit polars</h2>
-    <div class="row align-items-start">
-        <div class="col-md-8" style="text-align: justify">
-            <p>
-                In diesem Kurs führen Sie eine Crew von Eisbären auf einer Forschungsexpedition durch arktische Unterwasserwelten. Halten Sie ihr Schiff auf Kurs, lösen Sie eisige Datenprobleme, und vielleicht finden Sie am Ende Spuren der sagenumwobenen Pinguine.
-            </p>
-            <p>
-                Der Kurs führt Sie in polars ein, eine moderne Komponente des Python-Data-Science-Stacks. Nutzen Sie es, um anspruchsvolle Datensätze zu bearbeiten, ansprechende Plots zu erstellen und Ihre Ergebnisse in einem Live-Dashboard zusammenzuführen. Der Kurs behandelt typische Datenverzerrungen und statistische Werkzeuge, die jeder, der mit Daten arbeitet, kennen sollte.
-            </p>
-            <p>
-                Es sind keine Programmierkenntnisse erforderlich.
-            </p>
-            <a href="course_polars.html"><button class="btn btn-primary">Kursbeschreibung lesen</button></a>
-        </div>
-        <div class="col-md-4 pr-4 pt-4">
-            <img src="../static/images/featured_courses/heatmap.png" alt="Databases" class="img-fluid">
-        </div>
-    </div>
-</section>
-
-<section class="course-primary p-5" id="db_infrastructure">
-    <h2>Datenbank-Infrastruktur</h2>
-    <div class="row align-items-start">
-        <div class="col-md-4 pl-4 pt-4">
-            <img src="../static/images/featured_courses/blue_elephant.png" alt="Databases" class="img-fluid">
-        </div>
-        <div class="col-md-8" style="text-align: justify">
-            <p>
-                In diesem Kurs lernen Sie, mit den beliebtesten SQL- und NoSQL-Datenbanken zu arbeiten. Sie erstellen Instanzen jeder Datenbank in Docker, füllen sie mit
-                Daten und schreiben Python-Clients für jede von ihnen. Sie lernen die Stärken und Schwächen jeder Architektur kennen, um zuverlässige Daten-
-                infrastruktur aufzubauen.
-            </p>
-            <ul>
-                <li>Schemas in MongoDB</li>
-                <li>Postgres</li>
-                <li>Performance-Analyse</li>
-                <li>Dateneingabe</li>
-                <li>Indexierung von Text- und Geodaten</li>
-                <li>DB-Authentifizierungsmechanismen</li>
-                <li>Docker-Deployment</li>
-                <li>Sharding und Replikation</li>
-            </ul>
-
-        </div>
-    </div>
-</section>
-
-<section class="course-secondary p-5" id="machine_learning">
-    <h2>Machine Learning Grundlagen</h2>
-    <div class="row align-items-start">
-        <div class="col-md-8" style="text-align: justify">
-            <p>
-                Der Kurs besteht aus interaktiven Vorträgen und Übungen. Während der Vorträge besprechen wir zentrale Konzepte aus dem Bereich Data Science und führen Beispielcode in <strong>Jupyter Notebooks</strong> aus.
-            </p>
-            <p>
-                Das Kursmaterial enthält zahlreiche Übungen zum Trainieren, Feintuning und zur kritischen Bewertung von Modellen. Während der Kurstermine erhalten Sie Unterstützung bei technischen Fragen. Sie sind eingeladen, eigene Fragen und Fehler aus den praktischen Übungen mitzubringen.
-                Die Kursmaterialien sind dauerhaft unter einer Creative-Commons-4.0-Lizenz verfügbar.
-            </p>
-
-        </div>
-        <div class="col-md-4 pl-4 pt-4">
-            <img src="../static/images/featured_courses/linreg.png" alt="" class="img-fluid">
-        </div>
-        <a href="course_machine_learning.html"><button class="btn btn-secondary">Kursbeschreibung lesen</button></a>
-    </div>
-</section>
+    <section>
+        <h2>Kursthemen</h2>
+        <p>Hier sind einige meiner gefragtesten Themen:</p>
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Thema</th>
+                    <th>Beispielinhalte</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 35%"><a href="/advanced_python">Advanced Python</a></td>
+                    <td style="width: 65%">funktionale Muster, objektorientierte Programmierung, Decorators, gängige Abkürzungen</td>
+                </tr>
+                <tr>
+                    <td style="width: 35%"><a href="/software_engineering">Software Engineering</a></td>
+                    <td style="width: 65%">Design Patterns, Paketstrukturen, Refactoring, Continuous Integration</td>
+                </tr>
+                <tr>
+                    <td style="width: 35%"><a href="/course_polars/">Datenanalyse mit polars</a></td>
+                    <td style="width: 65%">Dateneingabe/-ausgabe, Datenbereinigung, Aggregation, Plotten</td>
+                </tr>
+                <tr>
+                    <td style="width: 35%"><a href="/software_engineering">Automatisiertes Testen</a></td>
+                    <td style="width: 65%">Arbeiten mit pytest, Unit- vs. Integrationstests, Entscheidung was getestet wird</td>
+                </tr>
+                <tr>
+                    <td style="width: 35%"><a href="/machine_learning">Machine Learning Grundlagen</a></td>
+                    <td style="width: 65%">überwachtes und unüberwachtes Lernen, Modellbewertung, Feature Engineering, neuronale Netze</td>
+                </tr>
+                <tr>
+                    <td style="width: 35%"><a href="/numpy_graphics">Kunst mit Numpy erschaffen</a></td>
+                    <td style="width: 65%">Arrays und Matrizen, lineare Transformationen, performante Funktionen, Bildverarbeitungsalgorithmen</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 -->
 
 {% endblock %}

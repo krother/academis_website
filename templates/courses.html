@@ -81,39 +81,36 @@
     </div>
 </section>
 
-<section id="course_dates">
-
-    <h2>Upcoming Courses</h2>
-    <p><strong>All courses are on-site in Berlin.</strong></p>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Course</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Details</th>
-                <th>Language</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for course in course_dates %}
-            <tr>
-                <td>{% if course.link %}<a href="{{ course.link }}">{{ course.course }}</a>{% else %}{{ course.course }}{% endif %}</td>
-                <td>{{ course.date }}</td>
-                <td>{{ course.time }}</td>
-                <td>{{ course.details }}</td>
-                <td>{% if course.language == 'German' %}🇩🇪{% else %}🇬🇧{% endif %} {{ course.language }}</td>
-                <td>{% if course.price %}<button type="button" class="btn btn-success">{{ course.price }}</button>{% endif %}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</section>
-
-{% include('schedule.html') %}
-
-{% include('registration_form.html') %}
+<!--
+    <section id="course_dates">
+        
+        <h2>Upcoming Courses</h2>
+        <p><strong>All courses are on-site in Berlin.</strong></p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Course</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Details</th>
+                    <th>Language</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in course_dates %}
+                <tr>
+                    <td>{% if course.link %}<a href="{{ course.link }}">{{ course.course }}</a>{% else %}{{ course.course }}{% endif %}</td>
+                    <td>{{ course.date }}</td>
+                    <td>{{ course.time }}</td>
+                    <td>{{ course.details }}</td>
+                    <td>{% if course.language == 'German' %}🇩🇪{% else %}🇬🇧{% endif %} {{ course.language }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+    
+-->
 
 <section>
     <h2>Training Methodology</h2>
@@ -138,17 +135,18 @@
 
 </section>
 
-<section>
-    <h2>Course Topics</h2>
-    <p>Here are some of my most wanted topics:</p>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Topic</th>
-                <th>Example content</th>
-            </tr>
-        </thead>
+<!--
+    <section>
+        <h2>Course Topics</h2>
+        <p>Here are some of my most wanted topics:</p>
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Topic</th>
+                    <th>Example content</th>
+                </tr>
+            </thead>
         <tbody>
             <tr>
                 <td style="width: 35%"><a href="/advanced_python">Advanced Python</a></td>
@@ -177,69 +175,7 @@
         </tbody>
     </table>
 </section>
-
-<!--
-<section class="course-primary p-5" id="advanced_python">
-    <h2>Advanced Python</h2>
-    <div class="row align-items-start">
-        <div class="col-md-4 pr-4 pt-4">
-            <img src="static/images/featured_courses/software_engineering.png" alt="Software Engineering" class="img-fluid">
-        </div>
-        <div class="col-md-8" style="text-align: justify">
-            <p>
-                <strong>How do I develop a large program?</strong> This course takes you past the language syntax towards the deeper questions in programming. While writing an object-oriented software in Python, you will make many decisions regarding the project setup, structure and composition of classes. I would like to show you time-tested patterns to make these decisions in a robust way.
-            </p>
-            <p>
-                A major part of the course is dedicated to quality control. You will gradually add automated tests and run static code checkers to maintain a measurable quality of your code. Special emphasis is given to adding and checking type hints. In the end, you will run these automatically through a Continuous Integration workflow.                
-            </p>
-            <p>
-                To participate in the course, you should be be familiar with basic Python data structures and commands. You should be able to execute standalone Python programs and communicate with a git repository. This course is also suited for people who have mostly worked in Jupyter notebooks.
-            </p>
-            <a href="course_advanced_python.html"><button class="btn btn-secondary">Read course outline</button></a>
-        </div>
-    </div>
-</section>
-
-<section class="course-secondary p-5">
-    <h2>Data Analysis with polars</h2>
-    <div class="row align-items-start">
-        <div class="col-md-8" style="text-align: justify">
-            <p>
-                In this course, you will guide a crew of polar bears on a research expedition through arctic underwater worlds. Keep their vessel on course, solve icy data problems and you may eventually find traces of the fabled penguins.
-            </p>
-            <p>
-                The course introduces you to polars, a modern component of the Python data science stack. Use it to wrangle challenging data sets, create enticing plots and combine your results into a live dashboard. The course discusses typical data biases and statistical tools that everybody working with data should have in their toolbelt.
-            </p>
-            <p>
-                No previous programming knowledge is required.
-            </p>
-            <a href="course_polars.html"><button class="btn btn-primary">Read course outline</button></a>
-        </div>
-        <div class="col-md-4 pr-4 pt-4">
-            <img src="static/images/featured_courses/heatmap.png" alt="Databases" class="img-fluid">
-        </div>
-    </div>
-</section>
-
-<section class="course-secondary p-5" id="machine_learning">
-    <h2>Machine Learning Fundamentals</h2>
-    <div class="row align-items-start">
-        <div class="col-md-8" style="text-align: justify">
-            <p>
-                The course consists of interactive lectures and exercises. During the lectures, we will discuss key concepts from the field of data science and run example code in <strong>jupyter notebooks</strong>.
-            </p>
-            <p>
-                The course material contains plenty of exercises consisting of model training, fine-tuning and critical evaluation of the results. During classes, you get support with technical questions. You are encouraged to bring your own questions and bugs found during the practical exercises.
-                The course materials are permanently available on under a Creative Commons 4.0 License.
-            </p>
-
-        </div>
-        <div class="col-md-4 pl-4 pt-4">
-            <img src="static/images/featured_courses/linreg.png" alt="" class="img-fluid">
-        </div>
-        <a href="course_machine_learning.html"><button class="btn btn-secondary">Read course outline</button></a>
-    </div>
-</section>
 -->
+
 
 {% endblock %}
