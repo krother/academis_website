@@ -7,8 +7,10 @@ from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 
 from send_email import send_email
+from word_pie import router as word_pie_router
 
 app = FastAPI()
+app.include_router(word_pie_router)
 
 
 class ContactForm(BaseModel):

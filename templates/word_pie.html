@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}Word Pizza{% endblock %}
+
+{% block content %}
+
+<style>
+  #pizza {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    user-select: none;
+  }
+  #pizza .gap-marker { cursor: default; }
+  #pizza.guessing .gap-marker { cursor: pointer; }
+  #pizza.guessing .gap-marker:hover polygon { fill: #dc3545; }
+  #lobby, #game { width: 100%; max-width: 640px; }
+  #game { display: none; }
+</style>
+
+<section class="d-flex flex-column align-items-center text-center my-4">
+
+  <h1>Word Pizza</h1>
+
+  <div id="error" class="alert alert-danger d-none" role="alert"></div>
+
+  <!-- start or join a game -->
+  <div id="lobby" class="row g-4 text-start">
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h4 class="card-title">New Game</h4>
+          <form id="new_game_form">
+            <label class="form-label" for="game_name">Name of the game</label>
+            <input class="form-control mb-3" id="game_name" required maxlength="40" placeholder="e.g. Python Course">
+            <label class="form-label">Three words to start with</label>
+            <input class="form-control mb-2 start-word" required maxlength="20" value="data">
+            <input class="form-control mb-2 start-word" required maxlength="20" value="programming">
+            <input class="form-control mb-3 start-word" required maxlength="20" value="statistics">
+            <button class="btn btn-success px-5" type="submit">START</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h4 class="card-title">Join a Game</h4>
+          <div id="game_list" class="list-group mb-3"></div>
+          <button class="btn btn-outline-secondary btn-sm" id="refresh_btn">Refresh</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- in-game screen -->
+  <div id="game">
+    <h4 id="game_title" class="text-muted"></h4>
+    <p id="status" class="fs-5 my-2"></p>
+    <div id="message" class="alert alert-info d-none my-2"></div>
+
+    <svg id="pizza" viewBox="-320 -320 640 640" xmlns="http://www.w3.org/2000/svg"></svg>
+
+    <div id="wait_controls" class="my-3 d-none">
+      <button class="btn btn-primary btn-lg px-5" id="draw_btn">Draw</button>
+    </div>
+    <form id="word_form" class="my-3 d-none mx-auto" style="max-width: 24rem;">
+      <p>Think of a word that belongs between the two slices the arrow points at.</p>
+      <div class="input-group">
+        <input class="form-control" id="secret_word" required maxlength="20" autocomplete="off" placeholder="your word">
+        <button class="btn btn-success" type="submit">Send</button>
+      </div>
+    </form>
+    <div id="end_controls" class="my-3 d-none">
+      <a class="btn btn-primary px-5" href="word_pie.html">New Game</a>
+    </div>
+  </div>
+
+  <script src="{{ asset_prefix }}static/js/word_pie.js"></script>
+
+</section>
+
+{% endblock %}
