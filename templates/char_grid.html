@@ -15,9 +15,23 @@
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(6, 180px);
-    grid-template-rows: repeat(4, 180px);
+    --card: 180px;
+    --gap: 15px;
+    grid-template-columns: repeat(var(--cols, 6), var(--card));
+    grid-template-rows: repeat(var(--rows, 4), var(--card));
+    gap: var(--gap);
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     gap: 15px;
+    margin-top: 20px;
+  }
+
+  .controls input[type="number"] {
+    width: 70px;
   }
 
   .card {
@@ -44,7 +58,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 90px;
+    font-size: calc(var(--card) / 2);
     border-radius: 10px;
     backface-visibility: hidden;
   }
@@ -66,9 +80,33 @@
 
   <div class="grid" id="grid"></div>
 
+  <div class="controls">
+    <label>Columns
+      <input type="number" id="cols" class="form-control d-inline-block" min="3" max="8" value="6">
+    </label>
+    <label>Rows
+      <input type="number" id="rows" class="form-control d-inline-block" min="3" max="6" value="4">
+    </label>
+    <label>Difficulty
+      <select id="difficulty" class="form-select d-inline-block w-auto">
+        <option value="easy">easy</option>
+        <option value="medium">medium</option>
+        <option value="hard">hard</option>
+      </select>
+    </label>
+    <button type="button" id="restart" class="btn btn-success">Restart</button>
+  </div>
+
 <script>
   const letters = "INEPBSOSCHAFARWTDEYDNAOTM";
   const grid = document.getElementById("grid");
+
+  const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const POOLS = {
+    easy: "ETAOINSHRDLU",
+    medium: ALPHABET.replace(/[JVUQZXY]/g, ""),
+    hard: ALPHABET,
+  };
 
   function createCard(letter) {
     const card = document.createElement("div");
@@ -95,11 +133,55 @@
     return card;
   }
 
-  // Create 24 cards (6x4)
-  for (let i = 0; i < 24; i++) {
-    const letter = letters[i % letters.length];
-    grid.appendChild(createCard(letter));
+  function clamp(value, min, max, fallback) {
+    const n = parseInt(value, 10);
+    return Number.isNaN(n) ? fallback : Math.min(max, Math.max(min, n));
   }
+
+  let gridCols = 6;
+  let gridRows = 4;
+
+  // Largest card size (max 180px) that fits the grid into the viewport
+  function fitCards() {
+    const gap = 15;
+    const sideMargin = 40;
+    const reservedHeight = 260; // heading, controls and page chrome
+    const byWidth = (window.innerWidth - sideMargin - gap * (gridCols - 1)) / gridCols;
+    const byHeight = (window.innerHeight - reservedHeight - gap * (gridRows - 1)) / gridRows;
+    const size = Math.max(40, Math.min(180, Math.floor(Math.min(byWidth, byHeight))));
+    grid.style.setProperty("--card", size + "px");
+  }
+
+  window.addEventListener("resize", fitCards);
+
+  function buildGrid(cols, rows, letterAt) {
+    gridCols = cols;
+    gridRows = rows;
+    grid.style.setProperty("--cols", cols);
+    grid.style.setProperty("--rows", rows);
+    fitCards();
+    grid.replaceChildren();
+    for (let i = 0; i < cols * rows; i++) {
+      grid.appendChild(createCard(letterAt(i)));
+    }
+  }
+
+  function restart() {
+    const colsInput = document.getElementById("cols");
+    const rowsInput = document.getElementById("rows");
+    const cols = clamp(colsInput.value, 3, 8, 6);
+    const rows = clamp(rowsInput.value, 3, 6, 4);
+    colsInput.value = cols;
+    rowsInput.value = rows;
+
+    const pool = POOLS[document.getElementById("difficulty").value];
+    buildGrid(cols, rows, () => pool[Math.floor(Math.random() * pool.length)]);
+  }
+
+  document.getElementById("restart").addEventListener("click", restart);
+
+  // Initial game: 6x4 with the fixed letters
+  buildGrid(6, 4, i => letters[i % letters.length]);
 </script>
 
 {% endblock %}
