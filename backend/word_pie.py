@@ -15,7 +15,8 @@ from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
 
 MIN_WORDS = 3
-MAX_WORDS = 24
+LIMIT_WORDS = 24  # upper bound for max_words
+DEFAULT_MAX_WORDS = 16
 START_LIVES = 3
 MAX_WORD_LENGTH = 20
 MAX_AGE = timedelta(hours=24)
@@ -36,6 +37,7 @@ class Game(BaseModel):
     state: GameState = Field(default_factory=GameState)
     lives: int = START_LIVES
     words: dict[int, str]
+    max_words: int = DEFAULT_MAX_WORDS
     message: str = ""
 
 
@@ -75,12 +77,15 @@ def clean_word(word: str) -> str:
 def new_game(
     name: str,
     words: Annotated[list[str], Query()] = DEFAULT_WORDS,
+    max_words: int = DEFAULT_MAX_WORDS,
 ) -> Game:
     name = " ".join(name.split())[:40]
     if not name:
         raise HTTPException(status_code=400, detail="name must not be empty")
     if len(words) != MIN_WORDS:
         raise HTTPException(status_code=400, detail=f"exactly {MIN_WORDS} words are needed")
+    if not MIN_WORDS < max_words <= LIMIT_WORDS:
+        raise HTTPException(status_code=400, detail=f"max_words must be between {MIN_WORDS + 1} and {LIMIT_WORDS}")
     words = [clean_word(w) for w in words]
     with LOCK:
         remove_old_games()
@@ -88,7 +93,7 @@ def new_game(
         while game_id in GAMES:
             game_id = f"{name} ({i})"
             i += 1
-        game = Game(id=game_id, words=dict(enumerate(words)))
+        game = Game(id=game_id, words=dict(enumerate(words)), max_words=max_words)
         GAMES[game_id] = game
         return public_view(game)
 
@@ -157,7 +162,7 @@ def guess(game_id: str, position: int) -> Game:
 
         if game.lives <= 0:
             state.name = "game_over"
-        elif len(game.words) >= MAX_WORDS:
+        elif len(game.words) >= game.max_words:
             state.name = "won"
         else:
             state.name = "wait"

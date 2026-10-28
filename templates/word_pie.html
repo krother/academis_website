@@ -14,7 +14,8 @@
   #pizza .gap-marker { cursor: default; }
   #pizza.guessing .gap-marker { cursor: pointer; }
   #pizza.guessing .gap-marker:hover polygon { fill: #dc3545; }
-  #lobby, #game { width: 100%; max-width: 640px; }
+  #lobby { width: 100%; max-width: 640px; }
+  #game { width: 100%; max-width: 1100px; }
   #game { display: none; }
 </style>
 
@@ -37,6 +38,8 @@
             <input class="form-control mb-2 start-word" required maxlength="20" value="data">
             <input class="form-control mb-2 start-word" required maxlength="20" value="programming">
             <input class="form-control mb-3 start-word" required maxlength="20" value="statistics">
+            <label class="form-label" for="max_words">Maximum number of slices (4&ndash;24)</label>
+            <input class="form-control mb-3" id="max_words" type="number" min="4" max="24" value="16" required>
             <button class="btn btn-success px-5" type="submit">START</button>
           </form>
         </div>
@@ -55,24 +58,29 @@
 
   <!-- in-game screen -->
   <div id="game">
-    <h4 id="game_title" class="text-muted"></h4>
-    <p id="status" class="fs-5 my-2"></p>
-    <div id="message" class="alert alert-info d-none my-2"></div>
-
-    <svg id="pizza" viewBox="-320 -320 640 640" xmlns="http://www.w3.org/2000/svg"></svg>
-
-    <div id="wait_controls" class="my-3 d-none">
-      <button class="btn btn-primary btn-lg px-5" id="draw_btn">Draw</button>
-    </div>
-    <form id="word_form" class="my-3 d-none mx-auto" style="max-width: 24rem;">
-      <p>Think of a word that belongs between the two slices the arrow points at.</p>
-      <div class="input-group">
-        <input class="form-control" id="secret_word" required maxlength="20" autocomplete="off" placeholder="your word">
-        <button class="btn btn-success" type="submit">Send</button>
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-7">
+        <svg id="pizza" viewBox="-320 -320 640 640" xmlns="http://www.w3.org/2000/svg"></svg>
       </div>
-    </form>
-    <div id="end_controls" class="my-3 d-none">
-      <a class="btn btn-primary px-5" href="word_pie.html">New Game</a>
+      <div class="col-lg-5">
+        <h4 id="game_title" class="text-muted"></h4>
+        <p id="status" class="fs-5 my-2"></p>
+        <div id="message" class="alert alert-info d-none my-2"></div>
+
+        <div id="wait_controls" class="my-3 d-none">
+          <button class="btn btn-primary btn-lg px-5" id="draw_btn">Draw</button>
+        </div>
+        <form id="word_form" class="my-3 d-none mx-auto" style="max-width: 24rem;">
+          <p>Think of a word that belongs between the two slices the arrow points at.</p>
+          <div class="input-group">
+            <input class="form-control" id="secret_word" required maxlength="20" autocomplete="off" placeholder="your word">
+            <button class="btn btn-success" type="submit">Send</button>
+          </div>
+        </form>
+        <div id="end_controls" class="my-3 d-none">
+          <a class="btn btn-primary px-5" href="word_pie.html">New Game</a>
+        </div>
+      </div>
     </div>
   </div>
 

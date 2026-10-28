@@ -74,8 +74,9 @@ async function startGame(event) {
   event.preventDefault();
   const name = document.getElementById('game_name').value.trim();
   const words = [...document.querySelectorAll('.start-word')].map(i => i.value.trim());
+  const max_words = document.getElementById('max_words').value;
   try {
-    const created = await api('new_game', { name, words });
+    const created = await api('new_game', { name, words, max_words });
     window.location.href = `word_pie.html?game=${enc(created.id)}`;
   } catch (err) {
     showError(err);
@@ -271,17 +272,18 @@ function render() {
   const isDrawer = myPosition !== null;
   const count = Object.keys(game.words).length;
 
+  const bigWord = `<span class="d-block display-3 fw-bold text-danger my-3">${escapeHtml(game.state.secret_word)}</span>`;
   let status = '';
   if (state === 'wait') {
-    status = `${count} of 24 slices. Who comes up with the next word? Click <b>Draw</b>.`;
+    status = `${count} of ${game.max_words} slices. Who comes up with the next word? Click <b>Draw</b>.`;
   } else if (state === 'draw') {
     status = isDrawer
       ? 'Find a word that fits into the gap marked by the arrow.'
       : 'Someone is thinking of a word… <button class="btn btn-link btn-sm p-0 align-baseline" id="redraw_btn">draw instead</button>';
   } else if (state === 'guess') {
     status = isDrawer
-      ? `The others are guessing where <b>${escapeHtml(game.state.secret_word)}</b> belongs…`
-      : `Where does <b>${escapeHtml(game.state.secret_word)}</b> belong? Click a triangle between two slices.`;
+      ? `The others are guessing where this word belongs…${bigWord}`
+      : `Where does this word belong? Click a triangle between two slices.${bigWord}`;
   } else if (state === 'won') {
     status = '🍕 You completed the pizza! You WON! 🍕';
   } else if (state === 'game_over') {
