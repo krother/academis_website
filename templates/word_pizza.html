@@ -65,13 +65,14 @@
       <div class="col-lg-5">
         <h4 id="game_title" class="text-muted"></h4>
         <p id="status" class="fs-5 my-2"></p>
+        <div id="timer" class="display-6 fw-bold text-danger d-none my-2"></div>
         <div id="message" class="alert alert-info d-none my-2"></div>
 
         <div id="wait_controls" class="my-3 d-none">
           <button class="btn btn-primary btn-lg px-5" id="draw_btn">Draw</button>
         </div>
         <form id="word_form" class="my-3 d-none mx-auto" style="max-width: 24rem;">
-          <p>Think of a word that belongs between the two slices the arrow points at.</p>
+          <p>Click a triangle to place the arrow, then enter a word that belongs between the two slices it points at.</p>
           <div class="input-group">
             <input class="form-control" id="secret_word" required maxlength="20" autocomplete="off" placeholder="your word">
             <button class="btn btn-success" type="submit">Send</button>

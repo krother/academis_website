@@ -14,7 +14,12 @@ const params = new URLSearchParams(window.location.search);
 const gameId = params.get('game');
 
 let game = null;
-let myPosition = null;  // gap this client has drawn, known only to the drawer
+let isDrawer = false;   // this client is the drawing player
+let myPosition = null;  // gap picked by the drawer
+let myVote = null;      // gap this client voted for in the current round
+let deadline = null;    // end of the GUESS phase (ms timestamp)
+const player = sessionStorage.getItem('wp_player') ||
+  (() => { const id = Math.random().toString(36).slice(2); sessionStorage.setItem('wp_player', id); return id; })();
 let lastRenderKey = '';
 
 
@@ -94,16 +99,27 @@ async function refresh() {
     showError(err);
     return;
   }
-  if (game.state.name !== 'draw' && game.state.name !== 'guess') {
-    myPosition = null;
-  }
+  afterUpdate();
   render();
+}
+
+function afterUpdate() {
+  const state = game.state.name;
+  if (state !== 'draw' && state !== 'guess') {
+    isDrawer = false;
+    myPosition = null;
+    myVote = null;
+  }
+  if (state === 'draw' && !isDrawer) myPosition = null;
+  deadline = (state === 'guess' || state === 'draw') && game.seconds_left !== null ? Date.now() + game.seconds_left * 1000 : null;
 }
 
 async function draw() {
   try {
     game = await api(`draw/${enc(gameId)}`);
-    myPosition = game.state.secret_position;
+    isDrawer = true;
+    myPosition = null;
+    afterUpdate();
     render();
     document.getElementById('secret_word').focus();
   } catch (err) {
@@ -115,18 +131,30 @@ async function setWord(event) {
   event.preventDefault();
   const input = document.getElementById('secret_word');
   try {
-    game = await api(`set_word/${enc(gameId)}`, { word: input.value });
+    game = await api(`set_word/${enc(gameId)}`, { position: myPosition, word: input.value });
     input.value = '';
+    afterUpdate();
     render();
   } catch (err) {
     showError(err);
   }
 }
 
+function pickGap(index) {
+  if (!game) return;
+  if (game.state.name === 'draw' && isDrawer) {
+    myPosition = index;
+    render();
+  } else if (game.state.name === 'guess' && !isDrawer) {
+    guess(index);
+  }
+}
+
 async function guess(position) {
-  if (!game || game.state.name !== 'guess' || myPosition !== null) return;
   try {
-    game = await api(`guess/${enc(gameId)}`, { position });
+    game = await api(`guess/${enc(gameId)}`, { position, player });
+    myVote = position;
+    afterUpdate();
     render();
   } catch (err) {
     showError(err);
@@ -215,7 +243,7 @@ function drawSlice(svg, word, a1, a2) {
   text.textContent = word;
 }
 
-function drawGapMarker(svg, index, angle, highlight) {
+function drawGapMarker(svg, index, angle, highlight, votes) {
   const g = el('g', { class: 'gap-marker', 'data-gap': index }, svg);
   const [hx, hy] = polar(R_OUTER + 18, angle);
   el('circle', { cx: hx, cy: hy, r: 24, fill: 'transparent' }, g);  // larger click target
@@ -226,7 +254,15 @@ function drawGapMarker(svg, index, angle, highlight) {
     points: [tip, left, right].map(p => p.join(',')).join(' '),
     fill: highlight ? '#dc3545' : '#6c757d',
   }, g);
-  g.addEventListener('click', () => guess(index));
+  g.addEventListener('click', () => pickGap(index));
+  if (votes !== undefined) {
+    const [vx, vy] = polar(R_OUTER + 48, angle);
+    const badge = el('text', {
+      x: vx, y: vy, 'text-anchor': 'middle', 'dominant-baseline': 'central',
+      'font-size': 22, 'font-weight': 'bold', fill: '#0d6efd',
+    }, g);
+    badge.textContent = votes;
+  }
 }
 
 function drawArrow(svg, angle) {
@@ -242,17 +278,22 @@ function drawArrow(svg, angle) {
 function drawPizza() {
   const svg = document.getElementById('pizza');
   const words = sortedWords();
-  const showArrow = myPosition !== null && ['draw', 'guess'].includes(game.state.name);
-  const key = JSON.stringify([words, game.lives, game.state.name, showArrow && myPosition]);
+  const state = game.state.name;
+  const showArrow = isDrawer && myPosition !== null && ['draw', 'guess'].includes(state);
+  const showVotes = !['draw', 'guess'].includes(state) && game.last_position !== null;
+  const key = JSON.stringify([words, game.lives, state, showArrow && myPosition, game.votes, game.last_position, myVote]);
   if (key === lastRenderKey) return;  // avoid flicker while polling
   lastRenderKey = key;
 
   svg.innerHTML = '';
-  svg.classList.toggle('guessing', game.state.name === 'guess' && myPosition === null);
+  svg.classList.toggle('guessing', (state === 'draw' && isDrawer) || (state === 'guess' && !isDrawer));
   const step = 360 / words.length;
 
   words.forEach((word, i) => drawSlice(svg, word, i * step + PAD_DEG, (i + 1) * step - PAD_DEG));
-  words.forEach((_, i) => drawGapMarker(svg, i, i * step, showArrow && i === myPosition));
+  words.forEach((_, i) => {
+    const mine = (state === 'guess' && !isDrawer && i === myVote) || (showVotes && i === game.last_position);
+    drawGapMarker(svg, i, i * step, showArrow ? i === myPosition : mine, showVotes ? (game.votes[i] || 0) : undefined);
+  });
   if (showArrow) drawArrow(svg, myPosition * step);
 
   // lives in the middle
@@ -269,7 +310,6 @@ function drawPizza() {
 function render() {
   if (!game) return;
   const state = game.state.name;
-  const isDrawer = myPosition !== null;
   const count = Object.keys(game.words).length;
 
   const bigWord = `<span class="d-block display-3 fw-bold text-danger my-3">${escapeHtml(game.state.secret_word)}</span>`;
@@ -278,11 +318,11 @@ function render() {
     status = `${count} of ${game.max_words} slices. Who comes up with the next word? Click <b>Draw</b>.`;
   } else if (state === 'draw') {
     status = isDrawer
-      ? 'Find a word that fits into the gap marked by the arrow.'
-      : 'Someone is thinking of a word… <button class="btn btn-link btn-sm p-0 align-baseline" id="redraw_btn">draw instead</button>';
+      ? 'Click a triangle to point the arrow at a gap, then enter a word that fits there.'
+      : 'Another player is thinking of a word…';
   } else if (state === 'guess') {
     status = isDrawer
-      ? `The others are guessing where this word belongs…${bigWord}`
+      ? `The others are guessing where your word belongs…${bigWord}`
       : `Where does this word belong? Click a triangle between two slices.${bigWord}`;
   } else if (state === 'won') {
     status = '🍕 You completed the pizza! You WON! 🍕';
@@ -290,8 +330,6 @@ function render() {
     status = 'GAME OVER – no lives left.';
   }
   document.getElementById('status').innerHTML = status;
-  const redraw = document.getElementById('redraw_btn');
-  if (redraw) redraw.addEventListener('click', draw);
 
   const message = document.getElementById('message');
   message.textContent = game.message;
@@ -299,11 +337,21 @@ function render() {
   message.classList.toggle('alert-success', game.message.startsWith('Correct'));
   message.classList.toggle('alert-warning', game.message.startsWith('Wrong'));
 
+  updateTimer();
   document.getElementById('wait_controls').classList.toggle('d-none', state !== 'wait');
-  document.getElementById('word_form').classList.toggle('d-none', !(state === 'draw' && isDrawer));
+  const form = document.getElementById('word_form');
+  form.classList.toggle('d-none', !(state === 'draw' && isDrawer));
+  form.querySelector('button').disabled = myPosition === null;
   document.getElementById('end_controls').classList.toggle('d-none', !['won', 'game_over'].includes(state));
 
   drawPizza();
+}
+
+function updateTimer() {
+  const box = document.getElementById('timer');
+  const active = game && ['draw', 'guess'].includes(game.state.name) && deadline !== null;
+  box.classList.toggle('d-none', !active);
+  if (active) box.textContent = `${Math.max(0, Math.ceil((deadline - Date.now()) / 1000))} s`;
 }
 
 function escapeHtml(text) {
@@ -323,6 +371,7 @@ if (gameId) {
   document.getElementById('word_form').addEventListener('submit', setWord);
   refresh();
   setInterval(refresh, POLL_MS);
+  setInterval(updateTimer, 250);
 } else {
   document.getElementById('new_game_form').addEventListener('submit', startGame);
   document.getElementById('refresh_btn').addEventListener('click', loadGameList);
